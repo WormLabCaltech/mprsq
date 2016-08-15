@@ -1,2 +1,10 @@
 # mprsq
-Massively Parallel RNA-seq Project
+## Massively Parallel RNA-seq Project
+### authors: [David Angeles](<dangeles@caltech.edu>), [Carmie Robinson](<cpr@caltech.edu>), [Paul W. Sternberg](<pws@caltech.edu>)
+
+This project attempts to perform high-throughput genetic analysis using RNA-seq.
+
+Goals:
+* Given a set of mutants, figure out plausible pathway topologies and identify coregulated genes.  
+* Identify main affected tissues and identify what the likeliest tissues affected in each part of the pathway might be.  
+* Develop suitable metrics to use global gene expression as a phenotypic metric that is both quantifiable and reliably measured.
