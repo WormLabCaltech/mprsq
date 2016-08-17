@@ -87,3 +87,15 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+
+# fastq files
+*.fastq.gz
+*.fastq
+
+
+# h5 files
+*.h5
+
+# transcript file:
+*.idx

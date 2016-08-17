@@ -1,0 +1,3 @@
+FCID,Lane,SampleID,SampleRef,Index,Description,Control,Recipe,Operator,SampleProject
+HVGMLBCXX,1,17440,Caenorhabditis_elegans,TCCTGAGC-AAGGAGTA,CPR_N704_N507_June_2016_CB6116_1,N,SR_dual_indexing,Igor,17440_indexN704-N507
+HVGMLBCXX,2,17440,Caenorhabditis_elegans,TCCTGAGC-AAGGAGTA,CPR_N704_N507_June_2016_CB6116_1,N,SR_dual_indexing,Igor,17440_indexN704-N507
