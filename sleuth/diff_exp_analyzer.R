@@ -9,7 +9,9 @@ option_list <- list(
   make_option(c("-d", "--directory"), type='character', default=character(0),
               help="Please specify the directory"),
   make_option(c("-ge", "--genovar"), type='character', default=character(0),
-              help="Please specify the genotype variable name")
+              help="Please specify the genotype variable name"),
+  make_option(c("-s", "--shiny"), action='store_true', default=FALSE,
+              help="Command to open shiny console")
 )
 
 opt = parse_args(OptionParser(option_list=option_list))
@@ -38,7 +40,6 @@ base_dir <- opt$d
 
 #get ids
 sample_id <- dir(file.path(base_dir, "results"))
-
 print(sample_id)
 kal_dirs <- sapply(sample_id, function(id) file.path(base_dir, "results", id, "kallisto"))
 print(kal_dirs)
@@ -47,6 +48,7 @@ print(s2c)
 s2c <- dplyr::select(s2c, sample = experiment, genotype)
 s2c <- dplyr::mutate(s2c, path = kal_dirs)
 print(s2c)
+
 #prepend and make object, state maximum model here
 so <- sleuth_prep(s2c, ~ genotype, target_mapping= t2g)
 
@@ -58,7 +60,9 @@ so <- sleuth_fit(so,~ genotype, fit_name = 'full')
 so <- sleuth_wt(so, which_beta = genovar, which_model = 'full')
 
 #if you want to look at shiny
-#sleuth_live(so)
+if (opt$shiny){
+  sleuth_live(so)
+}
 
 #write results to tables
 results_table <- sleuth_results(so, genovar,'full', test_type= 'wt')

@@ -99,3 +99,6 @@ ENV/
 
 # transcript file:
 *.idx
+sleuth/.Rhistory
+
+sleuth/.Rapp.history
