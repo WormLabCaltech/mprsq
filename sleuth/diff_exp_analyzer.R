@@ -28,9 +28,11 @@ if(length(opt$g) == 0){
 }
 
 #gene info for sleuth
+print("Fetching bioMart info:")
 mart <- biomaRt::useMart(biomart = "ensembl", dataset = "celegans_gene_ensembl")
 t2g <- biomaRt::getBM(attributes = c("ensembl_transcript_id", "ensembl_gene_id",
                                      "external_gene_name"), mart = mart)
+print('#renaming genes:')
 t2g <- dplyr::rename(t2g, target_id = ensembl_transcript_id,
                      ens_gene = ensembl_gene_id, ext_gene = external_gene_name)
 
