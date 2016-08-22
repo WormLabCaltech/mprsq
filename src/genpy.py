@@ -1,12 +1,13 @@
-# -*- coding: utf-8 -*-
 """
+A collection of useful functions for genetic analysis of transcriptomic data.
+
 Author: David Angeles-Albores
 contact: dangeles@caltech.edu
 
 Citation: Forthcoming
-
-A collection of useful functions for genetic analysis of transcriptomic data.
 """
+# -*- coding: utf-8 -*-
+
 import pandas as pd
 import numpy as np
 import sklearn.decomposition
@@ -190,7 +191,7 @@ def overlap_prob(ref_df, test_df, sign, q=0.1, qval='qval', genes='target_id',
     Output:
     prob_overlap - probability of overlap as measured by hypergeometric fnctn
     overlap_fraction - fraction of overlap genes between dfs (A and B)/(A U B)
-    expected - expected number of genes for these gene sets
+    expected_frac - expected fraction of overlap for these gene sets
     polarized_ids - gene ids of the overlapping set
     """
     # find overlap:
@@ -245,8 +246,9 @@ def overlap_prob(ref_df, test_df, sign, q=0.1, qval='qval', genes='target_id',
     # expected:
     expected = stats.hypergeom.mean(total_genes_measured,
                                     n_sig_ref, n_sig_test)
+    expected_frac = expected/total_genes_changed
 
-    return prob_overlap, overlap_fraction, expected, polarized_ids
+    return prob_overlap, overlap_fraction, expected_frac, polarized_ids
 
 
 def a_interacts_b(a_df, b_df, q=0.1, sign='+', qval='qval', genes='target_id',
@@ -281,5 +283,131 @@ def a_interacts_b(a_df, b_df, q=0.1, sign='+', qval='qval', genes='target_id',
     else:
         results = overlap_prob(b_df, a_df, sign, q=q, qval=qval, genes=genes,
                                change=change)
-    overlap_p, overlap_f, expected, ids_overlap = results
-    return overlap_p, overlap_f, expected, ids_overlap
+    overlap_p, overlap_f, expected_frac, ids_overlap = results
+    return overlap_p, overlap_f, expected_frac, ids_overlap
+
+
+def single_mutant_analysis(single_mutants, df_hash, genes='target_id',
+                           analysis='spearmanr', qval='qval', q=0.1,
+                           change='b', alpha=10**-4):
+    """
+    A function to perform single mutant analyses on a dataset of mutants.
+
+    TODOs...
+    """
+    def lind(x, col=qval):
+        return (x[col] < 0.1)
+
+    acceptable = ['spearmanr', 'interaction']
+    if analysis not in acceptable:
+        raise ValueError('analysis must be one of spearmanr or interaction')
+    s = len(single_mutants)
+
+    if analysis == 'spearmanr':
+
+        rho_matrix = np.empty(shape=(s, s))
+        res_dict = {'rho': rho_matrix}
+    else:
+        prob_plus_matrix = np.zeros(shape=(s, s))
+        overlap_plus_matrix = np.zeros(shape=(s, s))
+        expected_plus_matrix = np.zeros(shape=(s, s))
+
+        prob_minus_matrix = np.zeros(shape=(s, s))
+        overlap_minus_matrix = np.zeros(shape=(s, s))
+        expected_minus_matrix = np.zeros(shape=(s, s))
+
+        res_dict = {
+            'prob_pos': prob_plus_matrix,
+            'prob_minus': prob_minus_matrix,
+            'overlap_pos': overlap_plus_matrix,
+            'overlap_minus': overlap_minus_matrix,
+            'expected_pos': expected_plus_matrix,
+            'expected_minus': expected_minus_matrix,
+            'ids': {},
+        }
+    l = 0
+    ids = {}
+    for i in single_mutants:
+        m = 0
+        for j in single_mutants:
+            x = df_hash[i]
+            y = df_hash[j]
+
+            if analysis == 'spearmanr':
+                # find overlap in stat.sig.genes between both lists:
+                ovx = x[lind(x)]
+                ovy = y[lind(y) & y[genes].isin(ovx[genes])]
+                ovx = x[lind(x) & x[genes].isin(ovy[genes])]
+
+                # spearman analysis
+                rho = stats.spearmanr(ovx[change], ovy.b)
+
+                # spearman analysis
+                rho = stats.spearmanr(ovx[change], ovy.b)
+                if rho[1] < alpha:
+                    res_dict['rho'][l, m] = rho[0]
+                else:
+                    res_dict['rho'][l, m] = 0
+            elif analysis == 'interaction':
+                # store the results from genpy.a_interacts_b in an array
+                # called results, but remember it has 4 elements:
+                # overlap prob, overlap frac, expected frac, ids overlapped
+                results = a_interacts_b(x, y, sign='+', q=q,
+                                        qval=qval, genes=genes, change=change)
+                results2 = a_interacts_b(x, y, sign='-', q=q, qval=qval,
+                                         genes=genes, change=change)
+
+                # artificially set i,i entries for overlap fraction to zero,
+                # this allows better discrimination of interactions for
+                # heatmaps
+                if i == j:
+                    res_dict['overlap_pos'][l, m] = 0
+                    res_dict['overlap_minus'][l, m] = 0
+                else:
+                    res_dict['overlap_pos'][l, m] = results[1]
+                    res_dict['overlap_minus'][l, m] = results2[1]
+
+                res_dict['prob_pos'][l, m] = results[0]
+                res_dict['prob_minus'][l, m] = results2[0]
+                res_dict['expected_pos'][l, m] = results[2]
+                res_dict['expected_minus'][l, m] = results2[2]
+
+                ids[('plus', i, j)] = results[3]
+                ids[('minus', i, j)] = results2[3]
+
+            m += 1
+        l += 1
+
+    if analysis == 'interaction':
+        res_dict['ids'] = ids
+
+    return res_dict
+
+
+def double_mutant_corr_analysis(double_muts, df_hash, genes='target_id',
+                                change='b', q=0.1, qval='qval'):
+    """
+    """
+    def lind(x, col=qval):
+        return (x[col] < 0.1)
+
+    rho_matrix_doubles = np.zeros(shape=(2, 4))
+
+    l = 0
+    for key in double_muts:
+        m = l*2
+        for j in double_muts[key]:
+            x = df_hash[key]
+            y = df_hash[j]
+
+            ovx = x[lind(x)]
+            ovy = y[lind(y) & y[genes].isin(ovx[genes])]
+            ovx = x[lind(x) & x[genes].isin(ovy[genes])]
+
+            rho = stats.spearmanr(ovx[change], ovy[change])
+            rho_matrix_doubles[l, m] = rho[0]
+            print(key, j, '{0:.2g}'.format(rho[0]))
+            m += 1
+        l += 1
+
+    return rho_matrix_doubles
