@@ -227,15 +227,6 @@ def overlap_prob(ref_df, test_df, sign, q=0.1, qval='qval', genes='target_id',
     genes_test = pd.Series.tolist(test_df[genes].values)
     total_genes_measured = len(list(set(genes_ref + genes_test)))
 
-#     print("""
-# polar overlap:                   {0}
-# g changed in test:               {1}
-# g changed in ref:                {2}
-# genes in overlap (not polar):    {3}
-# total genes:                     {4}
-#     """.format(n_polar, n_sig_test, n_sig_ref,
-#                total_genes_changed, total_genes_measured))
-
     # calculate prob of overlap:
     prob_overlap = stats.hypergeom.cdf(n_polar, total_genes_measured,
                                        n_sig_ref, n_sig_test)
@@ -338,9 +329,6 @@ def single_mutant_analysis(single_mutants, df_hash, genes='target_id',
                 ovx = x[lind(x)]
                 ovy = y[lind(y) & y[genes].isin(ovx[genes])]
                 ovx = x[lind(x) & x[genes].isin(ovy[genes])]
-
-                # spearman analysis
-                rho = stats.spearmanr(ovx[change], ovy.b)
 
                 # spearman analysis
                 rho = stats.spearmanr(ovx[change], ovy.b)

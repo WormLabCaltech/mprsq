@@ -102,3 +102,7 @@ ENV/
 sleuth/.Rhistory
 
 sleuth/.Rapp.history
+
+
+# ipython files:
+.ipynb_checkpoints
