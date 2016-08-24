@@ -158,12 +158,17 @@ def polarize(test_df, ref_df, ids, sign, col='target_id', change='b'):
     """
     test = test_df[find(test_df, ids, col=col)].copy()
     ref = ref_df[find(ref_df, ids, col=col)]
+
+    if ~(test[col].values == ref[col].values).all():
+        test.sort_values(col, inplace=True)
+        ref.sort_values(col, inplace=True)
+
     test['polarity'] = test[change]*ref[change]
 
     if sign == '+':
-        g_overlap = test[test.polarity > 0].target_id.values
+        g_overlap = test[test.polarity > 0][col].values
     elif sign == '-':
-        g_overlap = test[test.polarity < 0].target_id.values
+        g_overlap = test[test.polarity < 0][col].values
     elif sign == 'p':
         g_overlap = 0
         print('Unfinished business!')
@@ -204,7 +209,7 @@ def overlap_prob(ref_df, test_df, sign, q=0.1, qval='qval', genes='target_id',
     # for overlapping ids, check what number of them satisfy the condition
     # specified by 'sign'
     # call them polarized bc they have a sign
-    polarized_ids = polarize(test_sig_df, ref_sig_df, ovrlp_ids, sign,
+    polarized_ids = polarize(test_df, ref_df, ovrlp_ids, sign,
                              col=genes, change=change)
 
     # turn this into a scalar:
@@ -284,7 +289,20 @@ def single_mutant_analysis(single_mutants, df_hash, genes='target_id',
     """
     A function to perform single mutant analyses on a dataset of mutants.
 
-    TODOs...
+    Params:
+    single_mutants - list-like iterable containing the mutants to be correlated
+    df_hash - hash with keys 'single_mutants'. contains the data to be used
+    genes - name of the column that contains the genes ids
+    analysis - one of spearmanr or interaction, defines the kind of analysis
+               to be implemented
+    qval - name of the column that contains the qvalues for each gene
+    q - q value threshold for significance
+    change - name of the column that contains the fold-changes or regression
+            values for each gene
+    alpha - significance value for spearmanr correlation
+
+    Outputs:
+    res_dict - a hash containing the results of the analysis.
     """
     def lind(x, col=qval):
         return (x[col] < 0.1)
@@ -399,3 +417,52 @@ def double_mutant_corr_analysis(double_muts, df_hash, genes='target_id',
         l += 1
 
     return rho_matrix_doubles
+
+
+def double_mutant_analysis(double_mutants, df_hash, genes='target_id',
+                           qval='qval', q=0.1, change='b'):
+    """
+    """
+    def lind(x, col=qval):
+        return (x[col] < 0.1)
+
+    res_dict = {}
+
+    for number, i in enumerate(double_mutants):
+        j, k = double_mutants[i]
+
+        x = df_hash[i]
+        y = df_hash[j]
+        z = df_hash[k]
+
+        # store the results from genpy.a_interacts_b in an array
+        # called results, but remember it has 4 elements:
+        # overlap prob, overlap frac, expected frac, ids overlapped
+        results_xy = a_interacts_b(x, y, sign='+', q=q, qval=qval,
+                                   genes=genes, change=change)
+        results_xz = a_interacts_b(x, z, sign='+', q=q, qval=qval,
+                                   genes=genes, change=change)
+
+        # results_xy2 = a_interacts_b(x, y, sign='-', q=q, qval=qval,
+        #                             genes=genes, change=change)
+        # results_xz2 = a_interacts_b(x, z, sign='-', q=q, qval=qval,
+        #                             genes=genes, change=change)
+
+        # artificially set the i,i entries for overlap fraction to zero,
+        # this allows better discrimination of interactions for
+        # heatmaps
+        # print(i, results_xy[0])
+        # print(i, results_xz[0])
+        # print(i, results_xy2[0])
+        # print(i, results_xz2[0])
+        # res_dict[(i, 'prob_pos')] = results_xy[0]*results_xz[0]
+        # res_dict[(i, 'prob_minus')] = results_xy2[0]*results_xz2[0]
+
+        # test epistasis:
+        # log (OR) of probabilities...
+        pxy = results_xy[0]
+        pxz = results_xz[0]
+        res_dict[(i, 'epistasis_odds')] = np.log(pxy) - np.log(pxz)
+        res_dict[(i, 'epistasis_magnitude')] = np.maximum(pxy, pxz)
+
+    return res_dict
