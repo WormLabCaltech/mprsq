@@ -106,3 +106,6 @@ sleuth/.Rapp.history
 
 # ipython files:
 .ipynb_checkpoints
+input/dictionaries/phenotype_dictionary.csv
+
+input/dictionaries/go_dictionary.csv
