@@ -20,7 +20,7 @@ from scipy import stats
 
 def make_matrix(hash_of_df, map_df, map_col, sel_col):
     """
-    A function to concatenate a set of columns into a matrix.
+    A function to concatenate columns from different dataframes into a matrix.
 
     hash_of_df - a hash of dfs each containing a col. 'sel column'.
     map_df - the df that contains the keys for each df in hash_of_df
