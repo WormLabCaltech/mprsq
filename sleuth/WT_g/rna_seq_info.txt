@@ -1,0 +1,8 @@
+# Sleuth design matrix for N2-JK
+experiment genotype
+JKY1 zg
+JKY2 zg
+JKY3 zg
+N2Y1 awt
+N2Y2 awt
+N2Y3 awt

@@ -1,0 +1,935 @@
+target_id,ens_gene,binding_domain
+C34E10.7,cnd-1,bHLH
+F52B5.5,cep-1,p53
+K11G9.4,egl-46,ZF - C2H2 - 1 finger
+C07A12.1,ham-2,ZF - C2H2 - 2 fingers
+R11E3.6,eor-1,ZF - C2H2 - 9 fingers
+C17E4.6,,YL1 TF
+F28C6.1,,AP-2
+F28C6.2,,AP-2
+K06A1.1,,AP-2
+Y62E10A.17,,AP-2
+F38A6.3,hif-1,bHLH
+T19B10.11,mxl-1,bHLH
+T08D10.1,tag-295,CBF
+Y53H1A.5,,CBF
+D1081.2,unc-120,MADS box
+W10D5.1,mef-2,MADS box
+C09G9.7,,Paired Domain - NPAX
+Y51H4A.17,,STAT
+C24H11.3,tbx-38,T-box
+C36C9.2,tbx-31,T-box
+F19B10.9,tbx-18,T-box
+F21H11.3,tbx-2,T-box
+F40H6.4,tbx-11,T-box
+H14A12.4,mls-1,T-box
+T07C4.2,tbx-8,T-box
+T07C4.6,tbx-9,T-box
+T26C11.1,tbx-41,T-box
+T27A1.6,mab-9,T-box
+Y47D3A.10,tbx-34,T-box
+Y47D3A.12,tbx-37,T-box
+Y59E9AR.3,tbx-30,T-box
+Y59E9AR.5,,T-box
+Y66A7A.8,tbx-33,T-box
+Y73F8A.16,tbx-39,T-box
+Y73F8A.17,tbx-40,T-box
+ZK177.10,tbx-35,T-box
+ZK328.8,tbx-7,T-box
+ZK380.1,tbx-32,T-box
+ZK829.5,tbx-36,T-box
+C30G4.7,,TSC-22/dip/bun
+T18D3.7,,TSC-22/dip/bun
+Y48C3A.12,,TSC-22/dip/bun
+B0286.5,fkh-6,WH - Fork Head
+C25A1.2,fkh-10,WH - Fork Head
+C29F7.4,fkh-3,WH - Fork Head
+C29F7.5,fkh-4,WH - Fork Head
+C34B4.2,,WH - Fork Head
+C47G2.2,unc-130,WH - Fork Head
+F26A1.2,fkh-5,WH - Fork Head
+F26B1.7,let-381,WH - Fork Head
+F38A6.1,pha-4,WH - Fork Head
+F40H3.4,fkh-8,WH - Fork Head
+K03C7.2,fkh-9,WH - Fork Head
+K10G6.1,lin-31,WH - Fork Head
+T14G12.4,fkh-2,WH - Fork Head
+T27A8.2,,WH - Fork Head
+T28H11.4,pes-1,WH - Fork Head
+R13H8.1,daf-16,"WH - Fork Head, AT Hook"
+Y53C10A.3,,WH - HSF - 2 domains
+T23G7.1,dpl-1,WH - TDP
+Y102A5C.18,efl-1,WH - TDP
+Y48C3A.17,efl-2,WH - TDP
+F49E12.6,,WH - TDP - 2 domains
+ZK643.8,grl-25,WT1 - 2 domains
+F26D12.1,fkh-7,"ZF - C2H2 - 1 finger,          WH - Fork Head"
+K04C1.3,,"ZF - C2H2 - 1 finger,          WH - Fork Head"
+F52F12.6,ekl-2,ZF - C2HC 2 fingers 
+C18G1.2,,ZF - GATA
+C33D3.1,elt-2,ZF - GATA
+C39B10.6,elt-4,ZF - GATA
+F52C12.5,elt-6,ZF - GATA
+F55A8.1,egl-18,ZF - GATA
+F58E10.5,end-3,ZF - GATA
+K02B9.4,elt-3,ZF - GATA
+K04C2.6,med-2,ZF - GATA
+T24D3.1,med-1,ZF - GATA
+C16A3.7,,ZF - NF-X1 - 10 domains
+ZK1067.2,,ZF - NF-X1 - 2 domains
+C06B8.1,nhr-150,ZF - NHR
+C06C6.4,nhr-63,ZF - NHR
+C06C6.5,nhr-50,ZF - NHR
+C12D5.2,nhr-152,ZF - NHR
+C12D5.8,nhr-94,ZF - NHR
+C14C6.4,nhr-155,ZF - NHR
+C17A2.1,nhr-257,ZF - NHR
+C17A2.8,nhr-72,ZF - NHR
+C25E10.1,nhr-30,ZF - NHR
+C26B2.4,nhr-258,ZF - NHR
+C27C7.3,nhr-74,ZF - NHR
+C27C7.4,nhr-73,ZF - NHR
+C29E6.5,nhr-43,ZF - NHR
+C33G8.10,nhr-162,ZF - NHR
+C33G8.11,nhr-107,ZF - NHR
+C33G8.12,nhr-163,ZF - NHR
+C33G8.6,nhr-42,ZF - NHR
+C33G8.7,nhr-161,ZF - NHR
+C33G8.8,nhr-139,ZF - NHR
+C33G8.9,nhr-140,ZF - NHR
+C41G6.5,nhr-164,ZF - NHR
+C47F8.2,nhr-165,ZF - NHR
+C47F8.8,nhr-81,ZF - NHR
+C49D10.6,nhr-75,ZF - NHR
+C49D10.9,nhr-261,ZF - NHR
+C49F5.4,nhr-167,ZF - NHR
+C54C8.1,nhr-169,ZF - NHR
+C54E10.5,nhr-170,ZF - NHR
+C54F6.8,nhr-171,ZF - NHR
+C54F6.9,nhr-172,ZF - NHR
+C56E10.4,nhr-137,ZF - NHR
+E03H4.13,nhr-89,ZF - NHR
+E03H4.6,nhr-174,ZF - NHR
+F14A5.1,nhr-264,ZF - NHR
+F14H3.11,nhr-176,ZF - NHR
+F16B12.8,,ZF - NHR
+F16B4.1,nhr-177,ZF - NHR
+F16B4.11,nhr-179,ZF - NHR
+F16B4.12,nhr-117,ZF - NHR
+F16B4.9,nhr-178,ZF - NHR
+F16H11.5,nhr-45,ZF - NHR
+F16H9.2,nhr-27,ZF - NHR
+F31F4.12,nhr-180,ZF - NHR
+F33E11.1,nhr-15,ZF - NHR
+F35E8.12,nhr-108,ZF - NHR
+F36A4.14,nhr-78,ZF - NHR
+F36D3.2,nhr-54,ZF - NHR
+F41B5.10,nhr-183,ZF - NHR
+F41B5.9,nhr-182,ZF - NHR
+F41D3.1,nhr-82,ZF - NHR
+F41D3.3,nhr-265,ZF - NHR
+F43C1.4,nhr-20,ZF - NHR
+F44A2.4,nhr-39,ZF - NHR
+F44C8.10,nhr-126,ZF - NHR
+F44C8.11,nhr-96,ZF - NHR
+F44C8.2,nhr-134,ZF - NHR
+F44C8.3,nhr-18,ZF - NHR
+F44C8.4,nhr-103,ZF - NHR
+F44C8.5,nhr-128,ZF - NHR
+F44C8.6,nhr-56,ZF - NHR
+F44C8.8,nhr-133,ZF - NHR
+F44C8.9,nhr-184,ZF - NHR
+F47C10.1,nhr-185,ZF - NHR
+F47C10.3,nhr-186,ZF - NHR
+F47C10.4,nhr-187,ZF - NHR
+F47C10.7,nhr-188,ZF - NHR
+F47C10.8,nhr-189,ZF - NHR
+F48G7.3,nhr-83,ZF - NHR
+F54D1.4,nhr-7,ZF - NHR
+F56H1.2,nhr-266,ZF - NHR
+F57A10.6,,ZF - NHR
+F57G8.6,nhr-193,ZF - NHR
+F59E11.10,nhr-195,ZF - NHR
+F59E11.11,nhr-143,ZF - NHR
+H22D14.1,nhr-267,ZF - NHR
+K06B4.1,nhr-51,ZF - NHR
+K06B4.10,nhr-199,ZF - NHR
+K06B4.11,nhr-53,ZF - NHR
+K06B4.5,nhr-196,ZF - NHR
+K06B4.6,nhr-268,ZF - NHR
+K11E4.5,nhr-71,ZF - NHR
+M02H5.1,nhr-99,ZF - NHR
+M02H5.6,nhr-98,ZF - NHR
+M02H5.7,nhr-123,ZF - NHR
+R02D1.1,nhr-125,ZF - NHR
+R04B5.4,nhr-12,ZF - NHR
+R08H2.9,nhr-269,ZF - NHR
+R10D12.2,dpr-1,ZF - NHR
+R11G11.1,nhr-132,ZF - NHR
+R11G11.12,nhr-210,ZF - NHR
+R11G11.2,nhr-58,ZF - NHR
+T01G6.2,nhr-131,ZF - NHR
+T01G6.4,nhr-106,ZF - NHR
+T01G6.5,nhr-211,ZF - NHR
+T01G6.6,nhr-212,ZF - NHR
+T01G6.7,nhr-55,ZF - NHR
+T01G6.8,nhr-130,ZF - NHR
+T03E6.3,nhr-271,ZF - NHR
+T05B4.2,nhr-57,ZF - NHR
+T06C12.13,nhr-213,ZF - NHR
+T06C12.6,nhr-102,ZF - NHR
+T06C12.7,nhr-84,ZF - NHR
+T07C5.2,nhr-272,ZF - NHR
+T07C5.3,nhr-214,ZF - NHR
+T07C5.4,nhr-215,ZF - NHR
+T09D3.4,nhr-216,ZF - NHR
+T09E11.2,nhr-217,ZF - NHR
+T12C9.5,nhr-109,ZF - NHR
+T13F3.2,nhr-218,ZF - NHR
+T15D6.6,nhr-77,ZF - NHR
+T18D3.2,odr-7,ZF - NHR
+T19A5.4,nhr-44,ZF - NHR
+T19H12.8,nhr-220,ZF - NHR
+T26E4.11,srw-49,ZF - NHR
+T26E4.16,,ZF - NHR
+T26E4.8,nhr-223,ZF - NHR
+T26H2.9,nhr-79,ZF - NHR
+T27B7.1,nhr-59,ZF - NHR
+T27B7.4,nhr-115,ZF - NHR
+T27B7.5,nhr-227,ZF - NHR
+T27B7.6,nhr-228,ZF - NHR
+Y116A8C.18,nhr-229,ZF - NHR
+Y17D7A.1,nhr-230,ZF - NHR
+Y17D7B.1,nhr-231,ZF - NHR
+Y22F5A.1,nhr-232,ZF - NHR
+Y32B12B.6,tag-122,ZF - NHR
+Y38E10A.18,nhr-234,ZF - NHR
+Y39B6A.17,nhr-95,ZF - NHR
+Y41D4B.8,nhr-92,ZF - NHR
+Y41D4B.9,nhr-122,ZF - NHR
+Y46H3D.5,nhr-110,ZF - NHR
+Y5H2A.2,nhr-275,ZF - NHR
+Y5H2B.2,nhr-13,ZF - NHR
+Y69H2.8,nhr-241,ZF - NHR
+Y70C5C.6,nhr-112,ZF - NHR
+Y71A12C.1,nhr-276,ZF - NHR
+Y80D3A.4,nhr-243,ZF - NHR
+Y94H6A.1,nhr-277,ZF - NHR
+ZK1025.10,nhr-245,ZF - NHR
+ZK1025.9,nhr-113,ZF - NHR
+ZK1037.4,nhr-246,ZF - NHR
+ZK218.6,nhr-248,ZF - NHR
+ZK418.1,nhr-9,ZF - NHR
+ZK488.1,nhr-250,ZF - NHR
+ZK488.2,nhr-90,ZF - NHR
+ZK488.4,nhr-251,ZF - NHR
+ZK6.1,nhr-278,ZF - NHR
+ZK6.2,nhr-252,ZF - NHR
+ZK6.4,nhr-253,ZF - NHR
+ZK6.5,nhr-254,ZF - NHR
+ZK678.2,nhr-255,ZF - NHR
+ZK697.2,nhr-256,ZF - NHR
+T19A5.5,nhr-219,ZF - NHR - 2 domains
+VC5.5,nhr-135,ZF - NHR - 2 domains
+C01G8.9,,ARID/BRIGHT
+T23D8.8,cfi-1,ARID/BRIGHT
+ZK593.4,rbr-2,ARID/BRIGHT
+C27B7.4,,AT Hook
+F37A4.8,isw-1,"AT Hook, MYB x2"
+C25G4.4,tag-347,"AT Hook, SAND"
+C44F1.2,,"AT Hook, SAND"
+C41G7.5,ahr-1,bHLH
+F23F1.1,,CBF
+F40F9.7,,CBF
+F53A2.5,dro-1,CBF
+T26A5.8,,CBF
+W10D9.4,,CBF
+Y53F4B.3,,CBF
+K12H4.1,ceh-26,HD - PROX
+H21P03.1,mbf-1,HTH
+T01C1.3,,HTH
+B0261.1,,MYB
+F10E7.11,,MYB
+R151.8,,MYB
+T04D1.4,,MYB
+T07F8.4,,MYB
+Y105E8A.17,ekl-4,MYB
+Y113G7B.23,psa-1,MYB
+C14B9.6,gei-8,MYB - 2 domains
+D1081.8,,MYB - 2 domains
+F38A5.13,dnj-11,MYB - 2 domains
+F54F2.9,,MYB - 2 domains
+F32H2.1,gei-11,MYB - 5 domains
+C01B12.2,,SAND
+F53H4.5,,SAND
+F22D6.2,,ZF - A20
+Y39A1A.5,rabx-5,ZF - A20
+F25H8.6,,ZF - BED
+K09A11.1,,ZF - BED
+Y105C5A.15,,ZF - BED
+Y39B6A.12,,ZF - BED
+Y47D3B.9,,ZF - BED
+ZK673.4,,ZF - BED
+C04F5.5,srab-2,ZF - C2H2 - 1 finger
+F32A5.1,ada-2,"ZF - C2H2 - 1 finger, MYB"
+F53H10.2,,"ZF - C2H2 - 1 finger, MYB "
+B0035.1,,ZF - C2H2 - 2 fingers
+C08B11.3,,"ZF - C2H2 - 2 fingers, ARID/BRIGHT"
+C18D1.1,die-1,ZF - C2H2 - 3 fingers
+F55H12.6,,ZF - C2H2 - 3 fingers
+F26H11.2,,AT Hook
+H20J04.2,,AT Hook
+T12D8.1,tag-350,AT Hook
+F15E6.1,,AT Hook x1
+C44B9.4,athp-1,AT Hook x2
+Y116A8C.22,,AT Hook x5
+Y17G7A.1,hmg-12,AT Hook x7
+C07G2.2,atf-7,bZIP
+C27D6.4,,bZIP
+C34D1.5,,bZIP
+C48E7.11,,bZIP
+F17A9.3,,bZIP
+F23F12.9,,bZIP
+F29G9.4,,bZIP
+F45E6.2,atf-6,bZIP
+F45H11.4,mgl-2,bZIP
+F57B10.1,,bZIP
+R07H5.10,,bZIP
+R74.3,xbp-1,bZIP
+T04C10.4,atf-5,bZIP
+T19E7.2,skn-1,bZIP
+T27F2.4,,bZIP
+W02H5.7,sknr-1,bZIP
+W07G1.3,zip-3,bZIP
+W08E12.1,,bZIP
+Y51H4A.4,,bZIP
+Y75B8A.29,,bZIP
+ZC376.7,,bZIP
+ZK909.4,ces-2,bZIP
+K08F8.2,atf-2,bZIP - 2 domains
+F02E9.2,lin-28,COLD BOX
+F33A8.3,cey-1,COLD BOX
+F46F11.2,cey-2,COLD BOX
+M01E11.5,cey-3,COLD BOX
+Y39A1C.3,cey-4,COLD BOX
+C32E12.5,sox-1,HMG box
+C32F10.5,hmg-3,HMG box
+F40E10.2,sox-3,HMG box
+F47G4.6,,HMG box
+K08A8.2,sox-2,HMG box
+T20B12.8,hmg-4,HMG box
+T22B7.1,egl-13 ,HMG box
+T22H6.6,gei-3,HMG box
+W02D9.3,,HMG box
+Y48B6A.14,hmg-1.1,HMG box
+Y71H2AM.17,,HMG box
+F45E4.9,hmg-5,HMG box - 2 domains
+F47D12.4,hmg-1.2,HMG box - 2 domains
+Y16B4A.1,unc-3,IPT/TIG
+B0414.2,rnt-1,RNT
+F33H1.1,daf-19,WH - RFX 
+C28H8.9,,ZF - C2H2 - 1 finger
+C26C6.1,,"ZF - C2H2 - 1 finger,        HMG box "
+C25A1.11,aha-1,bHLH
+T24H10.7,,bZIP
+C02F12.5,,HD
+C07E3.5,,HD
+C26E1.3,,HD
+C34C6.8,ceh-7,HD
+F34D6.2,,HD
+F42G2.6,,HD
+F45C12.2,,HD
+F45C12.3,,HD
+R03E1.4,,HD
+T13C5.4,,HD
+ZC376.4,,HD
+R04A9.5,,HD - 2 domains
+Y66A7A.5,,HD - 2 domains
+ZK1193.5,,HD - 2 domains
+C17H12.9,ceh-48,HD - CUT
+F17A9.6,ceh-49,HD - CUT
+F22D3.1,ceh-38,HD - CUT
+T26C11.5,ceh-41,HD - CUT
+T26C11.6,ceh-21,HD - CUT
+T26C11.7,ceh-39,HD - CUT
+Y54F10AM.4,ceh-44,HD - CUT
+F54A5.1,,HD - HNF
+C07E3.6,,HD - HOX
+C07H6.7,lin-39,HD - HOX
+C08C3.1,egl-5,HD - HOX
+C08C3.3,mab-5,HD - HOX
+C13G5.1,ceh-16,HD - HOX
+C38D4.6,pal-1,HD - HOX
+F20D12.6,ceh-19,HD - HOX
+F33D11.4,ceh-12,HD - HOX
+M142.4,vab-7,HD - HOX
+R06F6.6,,HD - HOX
+R13A5.5,ceh-13,HD - HOX
+Y75B8A.1,php-3,HD - HOX
+Y75B8A.2,nob-1,HD - HOX
+Y80D3A.3,,HD - HOX
+C04F1.3,lim-7,HD - LIM
+C40H5.5,ttx-3,HD - LIM
+F01D4.6,mec-3,HD - LIM
+K03E6.1,lim-6,HD - LIM
+ZC247.3,lin-11,HD - LIM
+ZC64.4,lim-4,HD - LIM
+C16C2.1,ceh-5,HD - NK
+C27A12.5,ceh-2,HD - NK
+C28A5.4,ceh-43,HD - NK
+C33D12.1,ceh-31,HD - NK
+C33D12.7,ceh-30,HD - NK
+C39E6.4,mls-2,HD - NK
+C50H2.6,,HD - NK
+F16H11.4,ceh-1,HD - NK
+F29F11.5,ceh-22,HD - NK
+F31E8.3,tab-1,HD - NK
+F46F3.1,ceh-27,HD - NK
+F55B12.1,ceh-24,HD - NK
+K03A11.3,ceh-28,HD - NK
+M6.3,pha-2,HD - NK
+R03C1.3,cog-1,HD - NK
+R07B1.1,vab-15,HD - NK
+Y65B4BR.9,ceh-9,HD - NK
+ZK652.5,ceh-23,HD - NK
+C30A5.7,unc-86,HD - POU
+F28H6.2,,HD - POU
+K02B12.1,ceh-6,HD - POU
+ZC64.3,ceh-18,HD - POU
+Y38E10A.6,,HD - POU - 10 domains
+F45C12.15,,HD - POU - 2 domains
+C18B12.3,,HD - PRD
+C37E2.5,ceh-37,HD - PRD
+C40D2.4,,HD - PRD
+D1007.1,ceh-17,HD - PRD
+F26C11.2,unc-4,HD - PRD
+F58E6.10,unc-42,HD - PRD
+R08B4.2,,HD - PRD
+W03A3.1,ceh-10,HD - PRD
+Y113G7A.6,ttx-1,HD - PRD
+ZK993.1,ceh-45,HD - PRD
+ZK265.4,ceh-8,HD - PRD - 2 domains
+F14F3.1,vab-3,"HD - PRD,                     Paired Domian - FULL"
+F27E5.2,pax-3,"HD - PRD,                     Paired Domian - FULL"
+Y53C12C.1,,"HD - PRD,                     Paired Domian - CPAX"
+B0564.10,unc-30,"HD - PRD, bHLH"
+C10G8.6,ceh-34,HD - SIX
+C10G8.7,ceh-33,HD - SIX
+F56A12.1,ceh-35,HD - SIX
+W05E10.3,ceh-32,HD - SIX
+C36F7.1,irx-1,HD - TALE
+C49C3.5,,HD - TALE
+F17A2.5,ceh-40,HD - TALE
+F31E3.1,ceh-20,HD - TALE
+T28F12.2,unc-62,HD - TALE
+F22A3.5,ceh-60,HD -TALE
+C12D12.5,,HMG box
+D1014.8,spr-1,MYB - 2 domains 
+C24A1.2,,WH - ETS
+C33A11.4,,WH - ETS
+C37F5.1,lin-1,WH - ETS
+C42D8.4,ets-5,WH - ETS
+C50A2.4,,WH - ETS
+C52B9.2,,WH - ETS
+F19F10.1,,WH - ETS
+F19F10.5,,WH - ETS
+F22A3.1,ets-4,WH - ETS
+T08H4.3,ast-1,WH - ETS
+Y53C10A.12,hsf-1,WH - HSF
+F28F9.1,zag-1,"ZF - C2H2 - 4 fingers,         HD - ZFHD"
+ZC123.3,,"ZF - C2H2 - 9 fingers,         HD - 3 domains"
+C27C12.6,dmd-4,ZF - DM
+C32C4.5,mab-23,ZF - DM
+C34D1.1,,ZF - DM
+C34D1.2,,ZF - DM
+F10C1.5,dmd-5,ZF - DM
+F13G11.1,,ZF - DM
+K08B12.2,,ZF - DM
+Y43F8C.10,dmd-3,ZF - DM
+Y67D8A.3,,ZF - DM
+T22H9.4,,ZF - DM - 2 domains
+Y53C12B.5,mab-3,ZF - DM - 2 domains
+F58E10.2,end-1,ZF - GATA
+T27C4.4,egr-1,"ZF - GATA, MYB"
+Y74C9A.4,,"ZF - GATA, MYB (2x)"
+B0280.8,nhr-10,ZF - NHR
+C01H6.5,nhr-23,ZF - NHR
+C02B4.2,nhr-17,ZF - NHR
+C05G6.1,nhr-76,ZF - NHR
+C07A12.3,nhr-35,ZF - NHR
+C08F8.8,nhr-67,ZF - NHR
+C11G6.4,nhr-28,ZF - NHR
+C13C4.1,nhr-153,ZF - NHR
+C13C4.2,nhr-154,ZF - NHR
+C13C4.3,nhr-136,ZF - NHR
+C17E7.8,nhr-124,ZF - NHR
+C24G6.4,nhr-47,ZF - NHR
+C25B8.6,nhr-120,ZF - NHR
+C26B2.3,nhr-31,ZF - NHR
+C28D4.1,nhr-100,ZF - NHR
+C28D4.9,nhr-138,ZF - NHR
+C32F10.6,nhr-2,ZF - NHR
+C38C3.9,nhr-260,ZF - NHR
+C45E1.1,nhr-64,ZF - NHR
+C45E5.6,nhr-46,ZF - NHR
+C48D5.1,nhr-6,ZF - NHR
+C49D10.2,nhr-166,ZF - NHR
+C50B6.14,nhr-129,ZF - NHR
+C50B6.8,nhr-168,ZF - NHR
+C56E10.1,nhr-173,ZF - NHR
+E02H1.7,nhr-19,ZF - NHR
+E02H9.8,nhr-121,ZF - NHR
+F09C6.8,nhr-262,ZF - NHR
+F09C6.9,nhr-116,ZF - NHR
+F09F3.10,nhr-175,ZF - NHR
+F11A1.3,daf-12,ZF - NHR
+F11C1.6,nhr-25,ZF - NHR
+F13A2.8,nhr-118,ZF - NHR
+F21D12.1,nhr-21,ZF - NHR
+F25E5.6,nhr-141,ZF - NHR
+F32B6.1,nhr-4,ZF - NHR
+F33D4.1,nhr-8,ZF - NHR
+F38H12.3,nhr-181,ZF - NHR
+F44A6.2,sex-1,ZF - NHR
+F44C4.2,nhr-37,ZF - NHR
+F44E7.8,nhr-142,ZF - NHR
+F44G3.9,nhr-111,ZF - NHR
+F55D12.3,nhr-191,ZF - NHR
+F55D12.4,unc-55,ZF - NHR
+F56E3.4,fax-1,ZF - NHR
+F57A10.5,nhr-60,ZF - NHR
+F57A8.5,nhr-192,ZF - NHR
+F58G6.5,nhr-34,ZF - NHR
+H01A20.1,nhr-3,ZF - NHR
+H10E21.3,nhr-80,ZF - NHR
+H12C20.3,nhr-68,ZF - NHR
+H12C20.6,nhr-101,ZF - NHR
+H27C11.1,nhr-97,ZF - NHR
+K01H12.3,nhr-38,ZF - NHR
+K06A1.4,nhr-22,ZF - NHR
+K06B4.2,nhr-52,ZF - NHR
+K06B4.7,nhr-197,ZF - NHR
+K06B4.8,nhr-198,ZF - NHR
+K08A2.5,nhr-88,ZF - NHR
+K08H2.8,nhr-32,ZF - NHR
+K10C3.6,nhr-49,ZF - NHR
+K12H6.1,nhr-119,ZF - NHR
+R02C2.4,nhr-204,ZF - NHR
+R04B5.3,nhr-205,ZF - NHR
+R07B7.13,nhr-206,ZF - NHR
+R07B7.14,nhr-207,ZF - NHR
+R07B7.15,nhr-208,ZF - NHR
+R07B7.16,nhr-209,ZF - NHR
+R09G11.2,nhr-1,ZF - NHR
+R11E3.5,nhr-104,ZF - NHR
+R13D11.8,nhr-270,ZF - NHR
+T01B10.4,nhr-14,ZF - NHR
+T03G6.2,nhr-40,ZF - NHR
+T05C3.1,nhr-279,ZF - NHR
+T07C5.5,nhr-26,ZF - NHR
+T09A12.4,nhr-66,ZF - NHR
+T12C9.1,nhr-273,ZF - NHR
+T12C9.6,nhr-16,ZF - NHR
+T13F3.3,nhr-127,ZF - NHR
+T23H4.2,nhr-69,ZF - NHR
+T27B7.2,nhr-225,ZF - NHR
+T27B7.3,nhr-226,ZF - NHR
+W01D2.2,nhr-61,ZF - NHR
+W05B5.3,nhr-85,ZF - NHR
+Y15E3A.1,nhr-91,ZF - NHR
+Y17D7A.3,nhr-65,ZF - NHR
+Y39B6A.47,nhr-145,ZF - NHR
+Y40B10A.8,nhr-86,ZF - NHR
+Y41D4B.21,nhr-274,ZF - NHR
+Y41D4B.26,nhr-146,ZF - NHR
+Y41D4B.7,nhr-87,ZF - NHR
+Y45G5AM.1,nhr-114,ZF - NHR
+Y51A2D.17,nhr-70,ZF - NHR
+Y54F10AM.1,nhr-239,ZF - NHR
+Y67A6A.2,nhr-62,ZF - NHR
+Y69A2AR.26,nhr-242,ZF - NHR
+Y73F8A.21,nhr-5,ZF - NHR
+ZC410.1,nhr-11,ZF - NHR
+ZK1037.5,nhr-247,ZF - NHR
+ZK455.6,nhr-33,ZF - NHR
+ZK662.3,nhr-48,ZF - NHR
+B0019.2,,AT Hook
+C05D10.1,,AT Hook
+C34F6.9,,AT Hook
+F16B12.6,,AT Hook
+T04G9.1,,AT Hook
+T10D4.6,,AT Hook
+T11A5.1,,AT Hook
+T23G5.6,,AT Hook
+Y39E4B.2,,AT Hook
+C05D2.5,gak-1,AT Hook x2
+C38D4.3,,AT Hook x2
+Y18D10A.1,,AT Hook x2
+ZK662.4,lin-15b,"AT Hook x2, ZF - THAP"
+F09G2.9,,AT Hook x3
+F13C5.2,,AT Hook x3
+T05A7.4,hmg-11,AT Hook x3
+W03D2.1,pqn-75,AT Hook x3
+B0304.1,hlh-1,bHLH
+C02B8.4,hlh-8,bHLH
+C15C8.2,cky-1,bHLH
+C17C3.10,hlh-27,bHLH
+C17C3.7,hlh-25,bHLH
+C18A3.8,hlh-14,bHLH
+C28C12.8,hlh-12,bHLH
+C43H6.8,hlh-15,bHLH
+C44C10.8,hnd-1,bHLH
+DY3.3,hlh-16,bHLH
+F38C2.2,hlh-17,bHLH
+F38C2.8,,bHLH
+F40G9.11,mxl-2,bHLH
+F46G10.6,mxl-3,bHLH
+F48D6.3,hlh-13,bHLH
+F57C12.3,hlh-19,bHLH
+F58A4.7,hlh-11,bHLH
+M05B5.5,hlh-2,bHLH
+R03E9.1,mdl-1,bHLH
+T01D3.2,,bHLH
+T05G5.2,hlh-4,bHLH
+T14F9.5,lin-32,bHLH
+T15H9.3,hlh-6,bHLH
+T20B12.6,mml-1,bHLH
+T24B8.6,hlh-3,bHLH
+W02C12.3,,bHLH
+Y105C5B.29,,bHLH
+Y39A3CR.6,,bHLH
+Y47D3B.7,sbp-1,bHLH
+Y54G2A.1,lin-22,bHLH
+Y69A2AR.29,ngn-1,bHLH
+ZK682.4,hlh-10,bHLH
+C17C3.8,hlh-26,bHLH - 2 domains
+F31A3.2,hlh-28,bHLH - 2 domains
+F31A3.4,hlh-29,bHLH - 2 domains
+T01E8.2,ref-1,bHLH - 2 domains
+C48E7.3,lpd-2,bZIP
+D1005.3,,bZIP
+F17C11.1,,bZIP
+K02F3.4,zip-2,bZIP
+Y44E3B.1,zip-4,bZIP
+Y75B8A.35,zip-1,bZIP
+ZC8.4,lfi-1,bZIP
+F23B12.7,,CBF
+Y48G8AR.1,grh-1,CP2 
+F59H6.6,,HD
+ZC204.2,,HD - HOX - 2 domains
+F46C8.5,ceh-14,HD - LIM
+C09G12.1,,HD - PRD
+C37E2.4,ceh-36,HD - PRD
+W10C8.2,pop-1,HMG box
+K08B4.1,lag-1,IPT/TIG
+T05C1.4,,IPT/TIG
+C01G12.1,,MADF
+C06A5.4,,MADF
+C46F11.3,,MADF
+F36D1.1,,MADF
+F57G4.6,,MADF
+T07C12.11,,MADF
+Y106G6H.4,,MADF
+ZC416.1,,MADF
+H20J04.3,,MADF - 2 domains
+R12B2.1,sma-4 ,MH1
+ZK370.2,sma-2,MH1
+F21A10.2,,p53
+F59B10.1,pqn-47,p53
+C04G2.7,egl-38,Paired Domain - FULL
+F21D12.5,,Paired Domain - NPAX
+F48B9.5,,Paired Domain - NPAX
+K06B9.5,pax-2,Paired Domain - FULL
+K07C11.1,pax-1,Paired Domain - FULL
+R13.2,,Paired Domain - NPAX
+F26H9.2,,RPEL - 2 domains
+Y51H4A.19,,STAT
+F28B12.2,egl-44,TEA/ATTS
+B0336.1,wrm-1,UNKNOWN
+C35C5.1,sdc-2,UNKNOWN
+C54D1.6,bar-1,UNKNOWN
+K05C4.6,hmp-2,UNKNOWN
+Y65B4BR.5,,UNKNOWN
+F53B2.6,ham-1,WH
+F57A8.1,,WH
+T28D9.9,,WH
+Y73B3A.5,,WH
+B0412.1,dac-1,WH - DAC
+2L52.1,,ZF - C2H2 - 1 finger
+C01F6.9,,ZF - C2H2 - 1 finger
+C02F5.12,,ZF - C2H2 - 1 finger
+C06E2.1,,ZF - C2H2 - 1 finger
+C37A2.5,pqn-21,ZF - C2H2 - 1 finger
+C38D4.7,,ZF - C2H2 - 1 finger
+C46E10.8,,ZF - C2H2 - 1 finger
+C52E12.1,,ZF - C2H2 - 1 finger
+C53D5.4,ztf-3,ZF - C2H2 - 1 finger
+D1046.2,,ZF - C2H2 - 1 finger
+D2030.7,,ZF - C2H2 - 1 finger
+F11A10.2,,ZF - C2H2 - 1 finger
+F18A1.2,lin-26,ZF - C2H2 - 1 finger
+F18A1.3,lir-1,ZF - C2H2 - 1 finger
+F18A1.4,lir-2,ZF - C2H2 - 1 finger
+F21D5.9,,ZF - C2H2 - 1 finger
+F21G4.5,,ZF - C2H2 - 1 finger
+F23A7.6,,ZF - C2H2 - 1 finger
+F23C8.4,,ZF - C2H2 - 1 finger
+F27D4.6,,ZF - C2H2 - 1 finger
+F37B4.10,,ZF - C2H2 - 1 finger
+F37H8.1,lir-3,ZF - C2H2 - 1 finger
+F40G9.14,,ZF - C2H2 - 1 finger
+F44D12.10,,ZF - C2H2 - 1 finger
+F45C12.1,,ZF - C2H2 - 1 finger
+F45H11.1,,ZF - C2H2 - 1 finger
+F49E8.2,,ZF - C2H2 - 1 finger
+F52B5.7,,ZF - C2H2 - 1 finger
+F53B7.2,,ZF - C2H2 - 1 finger
+F55B11.4,,ZF - C2H2 - 1 finger
+K05F1.5,,ZF - C2H2 - 1 finger
+K10D2.3,,ZF - C2H2 - 1 finger
+K10G6.3,sea-2,ZF - C2H2 - 1 finger
+K11D12.12,,ZF - C2H2 - 1 finger
+K11H3.4,,ZF - C2H2 - 1 finger
+K12H6.12,,ZF - C2H2 - 1 finger
+M04G12.4,,ZF - C2H2 - 1 finger
+M163.2,,ZF - C2H2 - 1 finger
+R02D3.7,,ZF - C2H2 - 1 finger
+R05D3.3,,ZF - C2H2 - 1 finger
+R07E5.5,,ZF - C2H2 - 1 finger
+T06G6.5,,ZF - C2H2 - 1 finger
+T07G12.10,zim-2,ZF - C2H2 - 1 finger
+T07G12.11,zim-3,ZF - C2H2 - 1 finger
+T07G12.12,him-8,ZF - C2H2 - 1 finger
+T07G12.13,,ZF - C2H2 - 1 finger
+T08G5.7,,ZF - C2H2 - 1 finger
+T09F3.1,,ZF - C2H2 - 1 finger
+T10B11.3,ztf-4,ZF - C2H2 - 1 finger
+T10G3.5,eea-1,ZF - C2H2 - 1 finger
+T22C8.3,,ZF - C2H2 - 1 finger
+T22C8.4,,ZF - C2H2 - 1 finger
+T23F11.4,,ZF - C2H2 - 1 finger
+T23G4.1,tlp-1,ZF - C2H2 - 1 finger
+T24C4.7,,ZF - C2H2 - 1 finger
+W04B5.2,,ZF - C2H2 - 1 finger
+W04D2.4,,ZF - C2H2 - 1 finger
+Y37F4.6,,ZF - C2H2 - 1 finger
+Y42H9AR.3,ztf-5,ZF - C2H2 - 1 finger
+Y47G6A.7,,ZF - C2H2 - 1 finger
+Y48A6C.1,,ZF - C2H2 - 1 finger
+Y48A6C.3,,ZF - C2H2 - 1 finger
+Y48C3A.4,,ZF - C2H2 - 1 finger
+Y48E1B.7,,ZF - C2H2 - 1 finger
+Y51H1A.6,,ZF - C2H2 - 1 finger
+Y52B11A.9,,ZF - C2H2 - 1 finger
+Y53F4B.5,,ZF - C2H2 - 1 finger
+Y53H1A.2,,ZF - C2H2 - 1 finger
+Y54G2A.20,,ZF - C2H2 - 1 finger
+Y56A3A.18,,ZF - C2H2 - 1 finger
+Y57A10A.31,,ZF - C2H2 - 1 finger
+Y82E9BR.17,,ZF - C2H2 - 1 finger
+Y87G2A.3,,ZF - C2H2 - 1 finger
+ZK177.3,,ZF - C2H2 - 1 finger
+ZK185.1,,ZF - C2H2 - 1 finger
+ZK652.6,,ZF - C2H2 - 1 finger
+ZK686.4,,ZF - C2H2 - 1 finger
+F33H1.4,,"ZF - C2H2 - 1 finger,           AT Hook x3"
+F44B9.6,lin-36,"ZF - C2H2 - 1 finger,           ZF - THAP"
+Y48G8AL.10,,ZF - C2H2 - 12 fingers
+C09H6.1,spr-4,ZF - C2H2 - 14 fingers
+C03B8.4,lin-13,ZF - C2H2 - 15 fingers
+B0310.2,,ZF - C2H2 - 2 fingers
+C06E1.8,,ZF - C2H2 - 2 fingers
+C08G9.2,,ZF - C2H2 - 2 fingers
+C55C2.1,,ZF - C2H2 - 2 fingers
+F21A9.2,,ZF - C2H2 - 2 fingers
+F36F12.8,,ZF - C2H2 - 2 fingers
+F44E2.7,,ZF - C2H2 - 2 fingers
+F47H4.1,,ZF - C2H2 - 2 fingers
+F52E10.1,sdc-1,ZF - C2H2 - 2 fingers
+F52E4.8,,ZF - C2H2 - 2 fingers
+K09H9.7,,ZF - C2H2 - 2 fingers
+K10B3.5,,ZF - C2H2 - 2 fingers
+R10E4.11,,ZF - C2H2 - 2 fingers
+R144.3,,ZF - C2H2 - 2 fingers
+T03F6.2,dnj-17,ZF - C2H2 - 2 fingers
+T09A5.12,,ZF - C2H2 - 2 fingers
+T20F7.1,,ZF - C2H2 - 2 fingers
+T20H4.2,,ZF - C2H2 - 2 fingers
+W03F9.2,,ZF - C2H2 - 2 fingers
+W06H12.1,ztf-6,ZF - C2H2 - 2 fingers
+Y17G7B.22,,ZF - C2H2 - 2 fingers
+Y22D7AL.16,,ZF - C2H2 - 2 fingers
+Y48G8AL.9,,ZF - C2H2 - 2 fingers
+Y48G9A.11,,ZF - C2H2 - 2 fingers
+Y56A3A.28,,ZF - C2H2 - 2 fingers
+Y66D12A.12,,ZF - C2H2 - 2 fingers
+Y6G8.3,,ZF - C2H2 - 2 fingers
+Y71A12B.8,,ZF - C2H2 - 2 fingers
+Y82E9BR.1,,ZF - C2H2 - 2 fingers
+Y95B8A.7,,ZF - C2H2 - 2 fingers
+ZK892.7,,ZF - C2H2 - 2 fingers
+B0280.4,odd-1,ZF - C2H2 - 3 fingers
+C04F5.9,,ZF - C2H2 - 3 fingers
+C10A4.8,,ZF - C2H2 - 3 fingers
+C16A3.4,,ZF - C2H2 - 3 fingers
+C27C12.2,,ZF - C2H2 - 3 fingers
+C34H3.2,odd-2,ZF - C2H2 - 3 fingers
+C47C12.3,ref-2,ZF - C2H2 - 3 fingers
+F08C6.7,unc-98,ZF - C2H2 - 3 fingers
+F13G3.1,ztf-2,ZF - C2H2 - 3 fingers
+F13H6.1,,ZF - C2H2 - 3 fingers
+F26A10.2,,ZF - C2H2 - 3 fingers
+F40F8.7,pqm-1,ZF - C2H2 - 3 fingers
+F47E1.3,,ZF - C2H2 - 3 fingers
+F53F8.1,,ZF - C2H2 - 3 fingers
+F54H5.4,mua-1,ZF - C2H2 - 3 fingers
+F56F11.3,,ZF - C2H2 - 3 fingers
+F57C9.4,,ZF - C2H2 - 3 fingers
+K11D2.4,,ZF - C2H2 - 3 fingers
+T22C8.5,,ZF - C2H2 - 3 fingers
+T27B1.2,,ZF - C2H2 - 3 fingers
+W02D7.6,,ZF - C2H2 - 3 fingers
+Y37E11B.1,,ZF - C2H2 - 3 fingers
+Y39B6A.46,,ZF - C2H2 - 3 fingers
+Y40B1A.4,,ZF - C2H2 - 3 fingers
+Y59A8B.13,,ZF - C2H2 - 3 fingers
+Y67H2A.10,,ZF - C2H2 - 3 fingers
+Y73F8A.33,,ZF - C2H2 - 3 fingers
+Y79H2A.3,,ZF - C2H2 - 3 fingers
+ZC328.2,,ZF - C2H2 - 3 fingers
+ZC395.8,,ZF - C2H2 - 3 fingers
+ZK546.5,,ZF - C2H2 - 3 fingers
+ZK686.5,,ZF - C2H2 - 3 fingers
+F54C4.3,,"ZF - C2H2 - 3 fingers,         AT Hook"
+C46E10.9,,ZF - C2H2 - 4 fingers
+C52E12.6,,ZF - C2H2 - 4 fingers
+C55B7.12,che-1,ZF - C2H2 - 4 fingers
+F10B5.3,,ZF - C2H2 - 4 fingers
+F25D7.3,odd-3,ZF - C2H2 - 4 fingers
+F43G9.11,ces-1,ZF - C2H2 - 4 fingers
+F46B6.7,ztf-7,ZF - C2H2 - 4 fingers
+F54F2.5,ztf-1,ZF - C2H2 - 4 fingers
+F56D1.1,,ZF - C2H2 - 4 fingers
+H16D19.3,,ZF - C2H2 - 4 fingers
+K02D7.2,,ZF - C2H2 - 4 fingers
+R53.3,egl-43,ZF - C2H2 - 4 fingers
+T07D10.3,,ZF - C2H2 - 4 fingers
+ZK337.2,,ZF - C2H2 - 4 fingers
+ZK867.1,,ZF - C2H2 - 4 fingers
+C28G1.4,,ZF - C2H2 - 5 fingers
+F37D6.2,,ZF - C2H2 - 5 fingers
+F45B8.4,pag-3,ZF - C2H2 - 5 fingers
+F49H12.1,lsy-2,ZF - C2H2 - 5 fingers
+F52F12.4,lsl-1,ZF - C2H2 - 5 fingers
+M04B2.1,mep-1,ZF - C2H2 - 5 fingers
+R06C7.9,,ZF - C2H2 - 5 fingers
+W03C9.4,lin-29,ZF - C2H2 - 5 fingers
+Y38H8A.5,,ZF - C2H2 - 5 fingers
+Y47D3A.6,tra-1,ZF - C2H2 - 5 fingers
+Y5F2A.4,,ZF - C2H2 - 5 fingers
+B0250.4,,ZF - C2H2 - 6 fingers
+C01B7.1,,ZF - C2H2 - 6 fingers
+C09F5.3,,ZF - C2H2 - 6 fingers
+C27A12.2,,ZF - C2H2 - 6 fingers
+C27A12.3,tag-146,ZF - C2H2 - 6 fingers
+F26F4.8,,ZF - C2H2 - 6 fingers
+F53B3.1,,ZF - C2H2 - 6 fingers
+F58G1.2,,ZF - C2H2 - 6 fingers
+M03D4.4,,ZF - C2H2 - 6 fingers
+T05G11.1,,ZF - C2H2 - 6 fingers
+Y111B2A.10,,ZF - C2H2 - 6 fingers
+Y54E10BR.8,,ZF - C2H2 - 6 fingers
+ZK616.10,ehn-3,ZF - C2H2 - 6 fingers
+C07A12.5,spr-3,ZF - C2H2 - 7 fingers
+F12E12.5,,ZF - C2H2 - 7 fingers
+F15C11.1,sem-4,ZF - C2H2 - 7 fingers
+F35H8.3,,ZF - C2H2 - 7 fingers
+T05A10.1,sma-9,ZF - C2H2 - 7 fingers
+R08E3.4,,ZF - C2H2 - 8 fingers
+F13D11.2,hbl-1,ZF - C2H2 - 9 fingers
+F39B2.1,,ZF - C2H2 - 9 fingers
+Y55F3AM.14,,ZF - C2H2 - 9 fingers
+B0336.3,,ZF - CCCH
+C33H5.17,,ZF - CCCH
+K01G5.1,tag-331,ZF - CCCH
+T11G6.8,,ZF - CCCH
+W05B10.2,,ZF - CCCH
+W05H7.4,,ZF - CCCH
+Y60A9.2,,ZF - CCCH
+Y116A8C.35,uaf-2,ZF - CCCH 
+AH6.5,mex-6,ZF - CCCH - 2 domains
+C09G9.6,oma-1,ZF - CCCH - 2 domains
+C34D10.2,,ZF - CCCH - 2 domains
+C35D6.4,,ZF - CCCH - 2 domains
+F27D4.4,,ZF - CCCH - 2 domains
+F32A11.6,moe-3,ZF - CCCH - 2 domains
+F38B7.1,,ZF - CCCH - 2 domains
+F38C2.5,,ZF - CCCH - 2 domains
+F38C2.7,,ZF - CCCH - 2 domains
+F52E1.1,pos-1,ZF - CCCH - 2 domains
+K02H8.1,,ZF - CCCH - 2 domains
+T02E1.3,,ZF - CCCH - 2 domains
+T26A8.4,,ZF - CCCH - 2 domains
+W02A2.7,mex-5,ZF - CCCH - 2 domains
+W03C9.7,mex-1,ZF - CCCH - 2 domains
+Y116A8C.17,,ZF - CCCH - 2 domains
+Y116A8C.19,,ZF - CCCH - 2 domains
+Y116A8C.20,,ZF - CCCH - 2 domains
+Y49E10.14,pie-1,ZF - CCCH - 2 domains
+Y53G8AR.9,,ZF - CCCH - 2 domains
+Y57G11C.25,,ZF - CCCH - 2 domains
+Y60A9.3,,ZF - CCCH - 2 domains
+ZC513.6,oma-2,ZF - CCCH - 2 domains
+Y55F3AM.6,,ZF - CCCH - 3 domains
+AC3.10,,ZF - DHHC 
+C17D12.1,,ZF - DHHC 
+C43H6.7,,ZF - DHHC 
+D2021.2,,ZF - DHHC 
+F09B12.2,,ZF - DHHC 
+F33D11.12,,ZF - DHHC 
+F59C6.2,,ZF - DHHC 
+H32C10.3,,ZF - DHHC 
+K02G10.1,,ZF - DHHC 
+M18.8,,ZF - DHHC 
+R13F6.5,,ZF - DHHC 
+T22E7.2,,ZF - DHHC 
+Y39E4B.7,,ZF - DHHC 
+Y47H9C.2,,ZF - DHHC 
+ZK757.4,,ZF - DHHC 
+C26E6.2,,ZF - FLYWCH
+T14F9.4,peb-1,ZF - FLYWCH
+Y11D7A.12,,ZF - FLYWCH
+Y11D7A.13,,ZF - FLYWCH
+W09C2.1,elt-1,ZF - GATA - 2 domains
+C04A2.3,egl-27,"ZF - GATA, MYB"
+R13.1,,ZF - MIZ
+W10D5.3,gei-17,ZF - MIZ
+C03G6.10,nhr-148,ZF - NHR
+C03G6.12,nhr-149,ZF - NHR
+C03G6.8,nhr-147,ZF - NHR
+C06G3.1,nhr-105,ZF - NHR
+C17E7.1,nhr-156,ZF - NHR
+C17E7.5,nhr-157,ZF - NHR
+C17E7.6,nhr-158,ZF - NHR
+C17E7.7,nhr-159,ZF - NHR
+C29G2.5,srt-58,ZF - NHR
+F07C3.10,nhr-36,ZF - NHR
+F48G7.11,nhr-190,ZF - NHR
+M02H5.3,nhr-201,ZF - NHR
+M02H5.4,nhr-202,ZF - NHR
+M02H5.5,nhr-203,ZF - NHR
+T24A6.11,nhr-222,ZF - NHR
+T24A6.8,nhr-221,ZF - NHR
+Y104H12A.1,nhr-41,ZF - NHR
+Y46H3D.6,nhr-237,ZF - NHR
+Y46H3D.7,nhr-238,ZF - NHR
+B0336.7,,ZF - THAP
+C17G10.4,cdc-14,ZF - THAP
+F49E10.5,,ZF - THAP
+Y41C4A.4,crh-1,bZIP
+F25E2.5,daf-3,MH1
+F37D6.6,tag-68,MH1
+R05D11.1,smad-1,MH1
+R13F6.9,sma-3,MH1
+ZK1290.4,nfi-1,MH1
+F34D10.5,lin-48,ZF - C2H2 - 4 fingers
