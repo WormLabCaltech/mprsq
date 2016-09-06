@@ -109,3 +109,5 @@ sleuth/.Rapp.history
 input/dictionaries/phenotype_dictionary.csv
 
 input/dictionaries/go_dictionary.csv
+
+.DS_Store
