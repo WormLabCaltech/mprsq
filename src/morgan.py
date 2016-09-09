@@ -677,6 +677,48 @@ class brenner(object):
 # --------------------------------------------------------------------------- #
 # --------------------------------------------------------------------------- #
 ###############################################################################
+# some common functions
+def find_rank(morgan, df):
+    """A function to find the rank values of a variable."""
+    d = df.copy()
+    d.sort_values('b', inplace=True)
+    rank = np.linspace(0, len(d)-1, len(d))
+    d['r'] = rank
+    d.sort_values(morgan.gene, inplace=True)
+    return d
+
+
+def find_inliers(morgan, ovx, ovy, trace):
+    """A function to find inliers from the Bayesian regression."""
+    # find the mean and std of the distribution along the line
+    mean = np.mean(ovy.r - trace.Intercept.mean() -
+                   ovx.r*trace.x.mean())
+    std = np.std(ovy.r - trace.Intercept.mean() -
+                 ovx.r*trace.x.mean())
+    # find the total distribution:
+    intercept = trace.Intercept.mean()
+    slope = trace.x.mean()
+    distribution = ovy.r - intercept - ovx.r*slope
+
+    # call the inliers and outliers.
+    # fairly aggressive -- < 1std is inlier, > is outlier
+    inliers = (np.abs(distribution - mean)/std < 1)
+
+    # get a list of the gene candidates (genes close to line)
+    candidates = ovy[ovy.r.isin(ovy.r[inliers])][morgan.gene]
+    return candidates
+
+
+def robust_regress(data, progress=True):
+    """A robust regression using a StudentT instead of a Gaussian model."""
+    with pm.Model():
+        family = pm.glm.families.StudentT()
+        pm.glm.glm('y ~ x', data, family=family)
+        start = pm.find_MAP()
+        step = pm.NUTS(scaling=start)
+        trace_robust = pm.sample(2000, step, progressbar=progress)
+    return trace_robust
+
 
 class mcclintock(object):
     """
@@ -693,17 +735,18 @@ class mcclintock(object):
     secondary weights
     """
 
-    def __init__(self, name, morgan):
+    def __init__(self, name, morgan, progress):
         """
         Initialize function.
 
         Performs bayesian primary and secondary regression.
         """
         self.name = name
-        self.robust_regression_primary(morgan)
-        self.robust_regression_secondary(morgan)
+        self.progress = progress
+        self.robust_regression_primary(morgan, progress)
+        self.robust_regression_secondary(morgan, progress)
 
-    def mcmc_robust(self, data):
+    def mcmc_robust(self, data, progress=True):
         """Bayesian Regression Using PyMC3."""
         # with pm.Model() as model_robust:
         with pm.Model():
@@ -711,50 +754,22 @@ class mcclintock(object):
             pm.glm.glm('y ~ x', data, family=family)
             start = pm.find_MAP()
             step = pm.NUTS(scaling=start)
-            trace_robust = pm.sample(2000, step, progressbar=True)
+            trace_robust = pm.sample(2000, step, progressbar=progress)
 
         return trace_robust
 
-    def robust_regression_primary(self, morgan, alpha=10**-4):
+    def robust_regression_primary(self, morgan, alpha=10**-4, progress=True):
         """
         A function to perform robust spearmanr analyses on all single mutants.
 
         Params:
-        alpha - significance value for spearmanr correlation
+        alpha - float, significance value for spearmanr correlation
+        progress - Boolean, show progressbar for mcmc
 
         Outputs:
         res_dict - a hash containing the results of the analysis.
         """
-        def find_rank(morgan, df):
-            """A function to find the rank values of a variable."""
-            d = df.copy()
-            d.sort_values(morgan.change, inplace=True)
-            rank = np.linspace(0, len(d)-1, len(d))
-            d['r'] = rank
-            d.sort_values(morgan.gene, inplace=True)
-            return d
-
-        def find_inliers(morgan, ovx, ovy, trace):
-            """A function to find inliers from the Bayesian regression."""
-            # find the mean and std of the distribution along the line
-            mean = np.mean(ovy.r - trace.Intercept.mean() -
-                           ovx.r*trace.x.mean())
-            std = np.std(ovy.r - trace.Intercept.mean() -
-                         ovx.r*trace.x.mean())
-            # find the total distribution:
-            intercept = trace.Intercept.mean()
-            slope = trace.x.mean()
-            distribution = ovy.r - intercept - ovx.r*slope
-
-            # call the inliers and outliers.
-            # fairly aggressive -- < 1std is inlier, > is outlier
-            inliers = (np.abs(distribution - mean)/std < 1)
-
-            # get a list of the gene candidates (genes close to line)
-            candidates = ovy[ovy.r.isin(ovy.r[inliers])][morgan.gene]
-            return candidates
-
-        def perform_mcmc(morgan, ovx, ovy, mut_a, mut_b):
+        def perform_mcmc(morgan, ovx, ovy, mut_a, mut_b, progress=True):
             """
             A function to perform the robust spearmanr regress.
 
@@ -772,7 +787,7 @@ class mcclintock(object):
             # run PyMC3 with student T distribution
             # to minimize impact of outliers
             print('\nstarting comparison of {0}, {1}'.format(i, j))
-            trace_robust = self.mcmc_robust(data)
+            trace_robust = robust_regress(data, progress)
 
             # find the mean and std of the distribution along the line
             candidates = find_inliers(morgan, ovx, ovy, trace_robust)
@@ -793,8 +808,11 @@ class mcclintock(object):
             t = trace_robust.x.mean()/np.abs(trace_robust.x.mean())
 
             return tmean, tstd, outliers, t
-
-        # begin the main function
+        #####################################################################
+        #####################################################################
+        # begin robust regression ###########################################
+        #####################################################################
+        #####################################################################
         self.correlated_genes = {}
         s = len(morgan.single_mutants)
 
@@ -822,7 +840,7 @@ class mcclintock(object):
                 if len(ovx) < 20:
                     continue
 
-                results = perform_mcmc(morgan, ovx, ovy, i, j)
+                results = perform_mcmc(morgan, ovx, ovy, i, j, progress)
                 tmean, tstd, outliers, t = results
 
                 # calculate overlap
@@ -844,15 +862,6 @@ class mcclintock(object):
 
         Only use if you have first called robust_regression_primary.
         """
-        def find_rank(morgan, df):
-            """A function to find the rank values of a variable."""
-            d = df.copy()
-            d.sort_values(morgan.change, inplace=True)
-            rank = np.linspace(0, len(d)-1, len(d))
-            d['r'] = rank
-            d.sort_values(morgan.gene, inplace=True)
-            return d
-
         s = len(morgan.single_mutants)
         matrix = np.zeros(shape=(s, s))
         for l in range(0, s):
@@ -896,7 +905,7 @@ class mcclintock(object):
                 if len(X) > 20:
                     # do the mcmc
                     data = dict(x=X.r, y=Y.r)
-                    trace = self.mcmc_robust(data)
+                    trace = robust_regress(data)
                     a_and_b = len(genes)
                     a_or_b = sizex + sizey - a_and_b
                     matrix[l, m] = trace.x.mean()*a_and_b/a_or_b
@@ -924,57 +933,21 @@ class sturtevant(object):
         """Initialize function."""
         self.name = name
 
-    def robust_regress(self, data):
-        """A robust regression using a StudentT instead of a Gaussian model."""
-        with pm.Model():
-            family = pm.glm.families.StudentT()
-            pm.glm.glm('y ~ x', data, family=family)
-            start = pm.find_MAP()
-            step = pm.NUTS(scaling=start)
-            trace_robust = pm.sample(2000, step, progressbar=True)
-            return trace_robust
-
-    def epistasis_analysis(self, morgan):
+    def epistasis_analysis(self, morgan, progress=True):
         """
         A function to perform correlational epistatic analysis of mutants.
 
         Parameters:
         -----------
         morgan
+        progress - Boolean, show progressbar for MCMC
         """
-        def find_rank(morgan, df):
-            """A function to find the rank values of a variable."""
-            d = df.copy()
-            d.sort_values('b', inplace=True)
-            rank = np.linspace(0, len(d)-1, len(d))
-            d['r'] = rank
-            d.sort_values(morgan.gene, inplace=True)
-            return d
-
-        def find_inliers(morgan, ovx, ovy, trace):
-            """A function to find inliers from the Bayesian regression."""
-            # find the mean and std of the distribution along the line
-            mean = np.mean(ovy.r - trace.Intercept.mean() -
-                           ovx.r*trace.x.mean())
-            std = np.std(ovy.r - trace.Intercept.mean() -
-                         ovx.r*trace.x.mean())
-            # find the total distribution:
-            intercept = trace.Intercept.mean()
-            slope = trace.x.mean()
-            distribution = ovy.r - intercept - ovx.r*slope
-
-            # call the inliers and outliers.
-            # fairly aggressive -- < 1std is inlier, > is outlier
-            inliers = (np.abs(distribution - mean)/std < 1)
-
-            # get a list of the gene candidates (genes close to line)
-            candidates = ovy[ovy.r.isin(ovy.r[inliers])][morgan.gene]
-            return candidates
-
+        self.candidates = {}
         # lambda index function:
+
         def lind(x):
             """To avoid writing ind = blah < q all the time."""
-            return (x.qval < 0.1)
+            return (x[morgan.qval] < 0.1)
 
         double_mat = np.zeros(shape=(2, 5))  # TODO Fix this!
         weights = np.zeros(shape=(2, 5))
@@ -1005,13 +978,18 @@ class sturtevant(object):
                 # mean_slope = stats.spearmanr(ovx.b, ovy.b)[0]
                 # Set up MCMC parameters
                 data = dict(x=ovx.r, y=ovy.r)
-                trace = self.robust_regress(data)
+                trace = robust_regress(data, progress)
                 candidates = find_inliers(morgan, ovx, ovy, trace)
+
+                self.candidates[(key, j)] = candidates.target_id
+
+                # find the weight
                 a_or_b = len(candidates)
                 a_and_b = len(x[lind(x)]) + len(y[lind(y)]) - a_or_b
                 weight = a_or_b/a_and_b
+
+                # weight the regression by the fractional overlap
                 mean_slope = trace.x.mean()*weight
-                print('\n{0:.2g}'.format(mean_slope))
                 double_mat[l, m] = mean_slope
                 weights[l, m] = weight
                 m += 1
@@ -1026,22 +1004,203 @@ class sturtevant(object):
         w = pd.DataFrame(weights.transpose(), columns=cols)
         w = pd.melt(w, var_name='double_mutant',
                     value_name='weights')
-        # # correct the correlations by the size of the overlap
-        # double_corr['s'] = size
-        #
-        # def weighted_corr(x):
-        #     m = len(morgan.beta_filtered[x.double_mutant])
-        #     return x.correlation*x.s/m
-        #
-        # # weight the correlation by the size of the group that was compared,
-        # # then normalize to one by dividing by the max
-        # double_corr['weighted_corr'] = double_corr.apply(weighted_corr,
-        #                                                  axis=1)
 
         self.epistasis = double_corr
         self.epistasis['weights'] = w['weights']
 
+    def epistasis_secondary(self, morgan, progress):
+        """
+        A function to perform a secondary epistatic analysis of mutants.
+
+        Parameters:
+        -----------
+        morgan
+        progress - Boolean, show progressbar for MCMC
+        """
+        # lambda index function:
+        def lind(x):
+            """To avoid writing ind = blah < q all the time."""
+            return (x[morgan.qval] < 0.1)
+
+        double_mat = np.zeros(shape=(2, 5))  # TODO Fix this!
+        weights = np.zeros(shape=(2, 5))
+        l = 0
+        cols = []
+        size = []
+        for key in morgan.double_muts:
+            m = 0
+            cols += [key]
+            for j in morgan.single_mutants:
+
+                candidates = self.candidates[(key, j)]
+
+                x = morgan.beta_filtered[key]
+                y = morgan.beta_filtered[j]
+
+                ovx = x[lind(x)]
+                ovy = y[lind(y) & y[morgan.gene].isin(ovx[morgan.gene])].copy()
+                ovx = x[lind(x) & x[morgan.gene].isin(ovy[morgan.gene])].copy()
+
+                ovx = find_rank(morgan, ovx)
+                ovy = find_rank(morgan, ovy)
+
+                # perform this regression on outliers only:
+                ovx = ovx[~ovx[morgan.gene].isin(candidates)]
+                ovy = ovy[~ovy[morgan.gene].isin(candidates)]
+
+                # size of the overlap between double and single
+                size += [len(ovx)]
+
+                # go to next comparison if size is less than 20
+                if len(ovx) < 20:
+                    continue
+
+                # mean_slope = stats.spearmanr(ovx.b, ovy.b)[0]
+                # Set up MCMC parameters
+                data = dict(x=ovx.r, y=ovy.r)
+                trace = robust_regress(data, progress)
+                inliers = find_inliers(morgan, ovx, ovy, trace)
+
+                a_or_b = len(inliers)
+                a_and_b = len(x[lind(x)]) + len(y[lind(y)]) - a_or_b
+                weight = a_or_b/a_and_b
+
+                mean_slope = trace.x.mean()*weight
+                double_mat[l, m] = mean_slope
+                weights[l, m] = weight
+                m += 1
+            l += 1
+
+        # place results in dataframe:
+        double_corr = pd.DataFrame(double_mat.transpose(), columns=cols)
+        double_corr = pd.melt(double_corr, var_name='double_mutant',
+                              value_name='correlation')
+        double_corr['corr_with'] = morgan.single_mutants*2
+
+        w = pd.DataFrame(weights.transpose(), columns=cols)
+        w = pd.melt(w, var_name='double_mutant',
+                    value_name='weights')
+
+        self.epistasis_secondary = double_corr
+        self.epistasis_secondary['weights'] = w['weights']
+
+
 ###############################################################################
 # --------------------------------------------------------------------------- #
 # --------------------------------------------------------------------------- #
 ###############################################################################
+# some common functions
+
+
+def entropy(p):
+    """Return the information entropy of a binary probability."""
+    return -p*np.log2(p) - (1-p)*np.log2(1-p)
+
+
+def mutual_info(overlap, X=10**3, Y=10**3, N=2*10**4):
+    """A function to calculate information of two datasets on each other."""
+    px = X/N
+    entx = entropy(px)
+    # py = Y/N
+    # enty = entropy(py)
+
+    # conditional entropy:
+    p_ygivenx = overlap/X
+    p_ygivennotx = (Y-overlap)/(N-X)
+
+    p_notygivenx = (X-overlap)/X
+    p_notygiven_notx = (N - X - Y + overlap)/(N-X)
+
+    p = {
+        'y|x': p_ygivenx,
+        'y|-x': p_ygivennotx,
+        '-y|x': p_notygivenx,
+        '-y|-x': p_notygiven_notx,
+        }
+
+    ent_ = px*(p['y|x']*np.log2(p['y|x']) + p['-y|x']*np.log2(p['-y|x']))
+    ent_ += (1-px)*(p['-y|-x']*np.log2(p['-y|-x']) +
+                    p['y|-x']*np.log2(p['y|-x']))
+
+    return (entx - ent_)
+
+
+class haldane(object):
+    """
+    An object to perform information theoretic queries on morgan classes.
+
+    Attributes:
+    -----------
+    """
+
+    def __init__(self, name):
+        """Initialize function."""
+        self.name = name
+
+    def single_mut_info(self, morgan):
+        """
+        A function to calculate the information between all relevant genotypes.
+
+        Params:
+        -------
+        """
+        # lambda index function:
+        def lind(x):
+            """To avoid writing ind = blah < q all the time."""
+            return (x[morgan.qval] < morgan.q)
+
+        s = len(morgan.single_mutants)
+        info = np.zeros(shape=(s, s))
+        for i, mutant1 in enumerate(morgan.single_mutants):
+            for j, mutant2 in enumerate(morgan.single_mutants):
+                if i == j:
+                    continue
+
+                # find overlap:
+                x = morgan.beta_filtered[mutant1]
+                y = morgan.beta_filtered[mutant2]
+
+                xsig = len(x[x[morgan.qval] < morgan.q])
+                ysig = len(y[y[morgan.qval] < morgan.q])
+
+                ovx = x[lind(x)]
+                ovy = y[lind(y) & y[morgan.gene].isin(ovx[morgan.gene])]
+                ovx = ovx[(lind(ovx)) &
+                          ovx[morgan.gene].isin(ovy[morgan.gene])]
+
+                mi = mutual_info(len(ovy), xsig, ysig, len(x))
+                info[i, j] = mi
+
+        # place results in dataframe:
+        df = pd.DataFrame(data=info, columns=morgan.single_mutants)
+        df['corr_with'] = morgan.single_mutants
+
+        self.single_information = df
+
+    # def double_info(self, morgan):
+    #     """
+    #     A function to calculate the information contents of double mutants.
+    #
+    #     Params:
+    #     -------
+    #     """
+    #     s = len(morgan.single_mutants)
+    #     info = np.zeros(shape=(s, s))
+    #     i = 0
+    #     for name, genotype in morgan.double_muts.items():
+    #         lg = list(genotype)
+    #         for j, mutant in enumerate(lg):
+    #             entropy1 = find_entropy(morgan, name)
+    #             entropy2 = find_entropy(morgan, mutant)
+    #             entropy1and2 = find_entropy_x_and_y(morgan, name, mutant)
+    #             mut_info = entropy1 + entropy2 - entropy1and2
+    #             info[i, j] = mut_info
+    #         i += 1
+    #
+    #     # place results in dataframe:
+    #     df = pd.DataFrame(data=info.tranpose(),
+    #                       columns=morgan.double_muts.keys())
+    #     df['corr_with'] = morgan.single_mutants*len(morgan.double_muts.keys())
+    #
+    #     self.double_information = pd.melt(df, var_name='genotype',
+    #                                       value_name='information')

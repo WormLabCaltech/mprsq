@@ -89,7 +89,10 @@ so <- sleuth_wt(so, which_beta = genovar, which_model = 'full')
 
 
 #write results to tables
-results_table <- sleuth_results(so, genovar,'full', test_type= 'wt')
+results_table <- sleuth_results(so, genovar, 'full', test_type= 'wt')
+write.csv(results_table, paste(base_dir, 'betas.csv', sep='/'))
+
+results_table <- sleuth_results(so, genovar, 'full', test_type= 'wt')
 write.csv(results_table, paste(base_dir, 'betas.csv', sep='/'))
 
 if (opt$batch == TRUE) {
