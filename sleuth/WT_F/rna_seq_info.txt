@@ -1,4 +1,4 @@
-# Sleuth design matrix for ('../sleuth/WT_A/results/Project_17442_indexN705-N517/kallisto', [], ['abundance.h5', 'abundance.tsv', 'run_info.json'])-2
+# Sleuth design matrix for WT-f
 experiment genotype
 Project_17434_indexN704-N517 awt
 Project_17435_indexN704-N502 awt

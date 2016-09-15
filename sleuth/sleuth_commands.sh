@@ -12,3 +12,5 @@ Rscript diff_exp_analyzer.R -d WT_d --genovar zd
 Rscript diff_exp_analyzer.R -d WT_e --genovar ze
 # Sleuth analysis command for WT_f
 Rscript diff_exp_analyzer.R -d WT_f --genovar zf
+# Sleuth analysis command for WT_g
+Rscript diff_exp_analyzer.R -d WT_g --genovar zg

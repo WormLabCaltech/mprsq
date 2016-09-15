@@ -1,0 +1,3 @@
+FCID,Lane,SampleID,SampleRef,Index,Description,Control,Recipe,Operator,SampleProject
+HAK8UADXX,1,14945,Caenorhabditis_elegans,CAGATC,Index #7 RNA 1 (N2 young),N,SR_indexing,Igor,14945_index7
+HAK8UADXX,2,14945,Caenorhabditis_elegans,CAGATC,Index #7 RNA 1 (N2 young),N,SR_indexing,Igor,14945_index7

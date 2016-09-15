@@ -4,285 +4,133 @@ A script to process RNA-seq fastas into pseudoaligned reads using Kallisto.
 authors: David Angeles-Albores and Paul W. Sternberg
 contact: dangeles at caltech edu
 """
-import os
-import numpy as np
+# import os
+# import numpy as np
 import argparse
-import pandas as pd
-import shutil
+# import pandas as pd
+# import shutil
 
-# get the read number from terminal
+# argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("-d", "--directory", type=str,
                     help="Directory where fasta reads are kept.")
-parser.add_argument("-l", "--length", nargs='?', type=int,
-                    help="Fragment length.")
-parser.add_argument("-s", "--sigma", nargs='?', type=int,
-                    help="Standard deviation of fragment.")
-parser.add_argument("-btstrp", "--bootstrap", nargs='?', type=int,
-                    help="Number of bootstraps to perform.")
-parser.add_argument("-t", "--threads", nargs='?', type=int,
-                    help="Number of threads to use.")
-parser.add_argument("-o", "--output_dir", nargs='?', type=str,
-                    help="Directory to place output in.")
+parser.add_argument("-nmin", "--number_min", nargs='?', type=int,
+                    help="Minimum number of fasta files to use.")
+parser.add_argument("-nmax", "--number_max", nargs='?', type=int,
+                    help="Maximum number of fasta files to use.")
+parser.add_argument("-b", "--by", nargs='?', type=int,
+                    help="n_min to n_max by n.")
+parser.add_argument("-i", "--iterations", nargs='?', type=int,
+                    help="Iterations per downsampling number.")
+parser.add_argument('-ok', '--output_kallisto', type=str,
+                    help='kallisto output directory')
+parser.add_argument('-sd', '--sleuth_dir', type=str,
+                    help='kallisto output directory')
 args = parser.parse_args()
 
-directory = args.directory
-
 # params
-directory = args.directory
-
-if args.length:
-    length = args.length
+if args.directory:
+    directory = args.directory
 else:
-    length = 180
+    directory = 'input/rawseq/'
 
-if args.sigma:
-    sigma = args.sigma
+kallisto_dir = args.output_kallisto
+sleuth_dir = args.sleuth_dir
+
+if args.number_min:
+    nmin = args.number_min
 else:
-    sigma = 60
+    nmin = -1
 
-if args.bootstrap:
-    btstrp = args.bootstrap
+if args.number_max:
+    nmax = args.number_max
 else:
-    btstrp = 200
+    nmax = -1
 
-if args.threads:
-    thrds = args.threads
+if args.by:
+    b = args.by
 else:
-    thrds = 4
+    b = 2
 
-if args.output_dir:
-    output_dir = args.output_dir
+if args.iterations:
+    iterations = args.iterations
 else:
-    output_dir = '../input/kallisto_all/'
+    iterations = 1
 
-# sequences:
-seqs = next(os.walk(directory))[1]
+#  python downsampler.py -d input/rawseq/ -nmin 1
+# -nmax 6 -b 2 -ok input/kallisto_sampler/ -sd sleuth_sampler/
+# --iterations 10
 
+# python src/kallisto_script_generator.py -f kallisto_downsampler_-1.sh
+# -d input/kallisto_downsampler/
+# -n -1 -o kallisto_sampler/
 
-def explicit_kallisto(directory, files, res_dir):
-    """TODO: Make a function systematically set up parameters for all runs."""
-    if type(directory) is not str:
-        raise ValueError('directory must be a str')
-    if type(files) is not list:
-        raise ValueError('files must be a list')
+# python src/r_script_downsampler.py -k input/kallisto_sampler
+# -s sleuth_sampler -f sleuth_downsampler.sh
+# -g input/library_genotype_mapping.txt
 
-    print('This sequence file contains a Kallisto_Info file\
-            and cannot be processed at the moment.')
-    return '# {0} could not be processed'.format(res_dir), ''
+# echo "backend: TkAgg" >> ~/.matplotlib/matplotlibrc
 
+def make_command(n):
+    """Write a string with all the correct commands."""
+    # run kallisto downsampler.py
+    comment = '# kallisto commands\n'
+    s1 = 'python src/kallisto_script_generator.py '
+    # kallisto fname in __main__
+    fname = '-f kallisto_downsampler_{0}.sh '.format(n)
+    # directory where fasta reads are
+    d = '-d {0} '.format(directory)
+    n_ = '-n {0} '.format(n)
+    o = '-o {0}\n'.format(kallisto_dir)
+    kallisto_py = comment + s1 + fname + d + n_ + o
+    # chmod +x kallisto.sh
+    kallisto_chmod = 'chmod +x {0}\n'.format(fname[3:])
+    # run the kallisto command
+    kallisto_sh = 'sh {0}\n'.format(fname[3:])
+    kallisto = kallisto_py + kallisto_chmod + kallisto_sh
 
-def implicit_kallisto(directory, files, res_dir):
-    """A function to write a Kallisto command with standard parameter setup."""
-    if type(directory) is not str:
-        raise ValueError('directory must be a str')
-    if type(files) is not list:
-        raise ValueError('files must be a list')
+    # TODO: Sleuth scripts are not in the right directories
+    # run the r_script downsampler.py
+    comment = '# sleuth prep and analysis\n'
+    s1 = 'python src/r_script_downsampler.py '
+    k = '-k {0} '.format(kallisto_dir)
+    s_dir = '-s {0} '.format(sleuth_dir)
+    g = '-g input/library_genotype_mapping.txt '
+    fname = '-f sleuth_downsampler.sh\n'
+    sleuth_py = comment + s1 + k + s_dir + g + fname
+    # chmod +x sleuth.sh
+    sleuth_chmod = 'chmod +x {0}\n'.format(sleuth_dir + fname[3:])
+    # run the sleuth command
+    if sleuth_dir[-1:] == '/':
+        f = sleuth_dir + fname[3:]
+    else:
+        f = sleuth_dir + '/' + fname[3:]
+    sleuth_sh = 'sh {0}\n'.format(f)
+    sleuth = sleuth_py + sleuth_chmod + sleuth_sh
 
-    # parts of each kallisto statement
+    # run the python analysis
+    analysis_py = 'python src/DownSamplingScript.py '
+    n_ = '-n {0} '.format(n)
+    k = '-k {0} '.format(kallisto_dir)
+    s_dir = '-s {0} '.format(sleuth_dir)
+    analysis_py += n_ + k + s_dir + '\n'
+    # rm -rf everything
+    rmrf = 'rm -rf {0} {1} {2}\n'.format(kallisto_dir, sleuth_dir,
+                                         sleuth_dir+fname[3:])
 
-    # information
-    info = '# kallisto command for {0}'.format(directory)
-    # transcript file location:
-    k_head = 'kallisto quant -i input/transcripts.idx -o '
-
-    # output file location
-    k_output = 'input/kallisto_all/' + res_dir + '/kallisto '
-    # parameter info:
-    k_params = '--single -s {0} -l {1} -b {2} -t {3}'.format(sigma, length,
-                                                             btstrp, thrds)
-
-    # what files to use:
-    k_files = ''
-    # go through each file and add it to the command
-    # unless it's a SampleSheet.csv file, in which
-    # case you should ignore it.
-    for y in files:
-        if y != 'SampleSheet.csv':
-            if directory[:3] == '../':
-                d = directory[3:]
-            else:
-                d = directory[:]
-            k_files += ' ' + d + '/' + y
-    # all together now:
-    kallisto = k_head + k_output + k_params + k_files + ';'
-    return info, kallisto
-
-
-def random_kallisto(directory, files, res_dir, n=1):
-    """A function to write a Kallisto command with standard parameter setup."""
-    if type(directory) is not str:
-        raise ValueError('directory must be a str')
-    if type(files) is not list:
-        raise ValueError('files must be a list')
-
-    # parts of each kallisto statement
-
-    # information
-    info = '# kallisto command for {0}'.format(directory)
-    # transcript file location:
-    k_head = 'kallisto quant -i input/transcripts.idx -o '
-
-    # output file location
-    k_output = 'input/kallisto_all/' + res_dir + '/kallisto '
-    # parameter info:
-    k_params = '--single -s {0} -l {1} -b {2} -t {3}'.format(sigma, length,
-                                                             btstrp, thrds)
-
-    # what files to use:
-    k_files = ''
-
-    # remove the 'SampleSheet.csv' entry from files:
-    if 'SampleSheet.csv' in files:
-        files.remove('SampleSheet.csv')
-
-    # randomly select n files:
-    selected = np.random.choice(files, n)
-    for i, y in enumerate(selected):
-        if y != 'SampleSheet.csv':
-            if directory[:3] == '../':
-                d = directory[3:]
-            else:
-                d = directory[:]
-            k_files += ' ' + d + '/' + y
-    # all together now:
-    kallisto = k_head + k_output + k_params + k_files + ';'
-    return info, kallisto
+    return kallisto + sleuth + analysis_py + rmrf
 
 
-def walk_seq_directories(directory, output_dir='../input/kallisto_all/'):
-    """
-    Given a directory, find all the rna-seq folders and make kallisto commands.
+def make_commands():
+    """Write a bash script with all the right commands."""
+    with open('../downsampler.sh', 'w') as f:
+        if nmin < 0:
+            s = make_command(-1, 0)
+            f.write(s)
+        else:
+            for n in range(nmin, nmax, b):
+                for i in range(0, iterations):
+                    s = make_command(n)
+                    f.write(s)
 
-    Directory format is predefined and must follow my rules.
-    """
-    kallisto = ''
-    # directory contains all the projects, walk through it:
-    for x in os.walk(directory):
-        # first directory is always parent
-        # if it's not the parent, move forward:
-        if x[0] != directory:
-            # cut the head off and get the project name:
-            res_dir = x[0][len(directory)+1:]
-
-            # if this project has attributes explicitly written in
-            # use those parameter specs:
-            if 'Kallisto_Info.csv' in x[2]:
-                info, command = explicit_kallisto(x[0], x[2], res_dir)
-                continue
-
-            # otherwise, best guesses:
-            info, command = implicit_kallisto(x[0], x[2], res_dir)
-            kallisto += info + '\n' + command + '\n'
-
-            if not os.path.exists(output_dir + res_dir):
-                os.makedirs(output_dir + res_dir)
-    return kallisto
-
-with open('../kallisto_commands.sh', 'w') as f:
-    f.write('#!/bin/bash\n')
-    f.write('# make transcript index\n')
-    s1 = 'kallisto index -i '
-    s2 = 'input/transcripts.idx input/c_elegans_WBcel235.rel79.cdna.all.fa;\n'
-    f.write(s1+s2)
-    kallisto = walk_seq_directories(directory, output_dir)
-    f.write(kallisto)
-
-kallisto_loc = '../input/kallisto_all/'
-genmap = pd.read_csv('../input/library_genotype_mapping.txt', comment='#')
-genmap.genotype = genmap.genotype.apply(str)
-# make sure everything is always in lowercase
-genmap.genotype = genmap.genotype.apply(str.lower)
-
-
-# Make all possible combinations of WT, X
-combs = []
-for gene in genmap.genotype.unique():
-    if gene != 'wt':
-        combs += [['WT', gene]]
-
-# Make all the folders required for sleuth processing
-sleuth_loc = '../sleuth/'
-
-if not os.path.exists(sleuth_loc):
-    os.makedirs(sleuth_loc)
-
-WTnames = genmap[genmap.genotype=='wt'].project_name.values
-
-# For each combination, make a folder
-for comb in combs:
-    current = sleuth_loc + comb[0]+'_'+comb[1]
-
-    if not os.path.exists(current):
-        os.makedirs(current)
-
-
-    # copy the right files into the new directory
-    # inside a folder called results
-    def copy_cat(src_folder, dst_folder, names):
-        """
-        A function that copies a set of directories from one place to another.
-        """
-        for name in names:
-            print('The following file was created:', dst_folder+name)
-            shutil.copytree(src_folder + name, dst_folder + name)
-
-    # copy WT files into the new directory
-    copy_cat(kallisto_loc, current+'/results/', WTnames)
-
-    # copy the MT files into the new directory
-    MTnames = genmap[genmap.genotype == comb[1]].project_name.values
-    copy_cat(kallisto_loc, current+'/results/', MTnames)
-
-
-def matrix_design(name, factor, df, a, b, directory):
-    """
-    A function that makes the matrix design file for sleuth.
-
-    This function can only make single factor design matrices.
-
-    This function requires a folder 'results' to exist within
-    'directory', and the 'results' folder in turn must contain
-    files that are named exactly the same as in the dataframe.
-
-    name - a string
-    factor - list of factors to list in columns
-    df - a dataframe containing the list of project names and the value for each factor
-    i.e. sample1, wt, pathogen_exposed.
-    a, b - conditions to slice the df with, i.e: a=WT, b=MT1
-    directory - the directory address to place file in folder is in.
-    """
-    with open(directory + name, 'w') as f:
-        f.write('# Sleuth design matrix for {0}-{1}\n'.format(a, b))
-        f.write('experiment {0}\n'.format(factor))
-
-        # walk through the results directory and get each folder name
-        # write in the factor value by looking in the dataframe
-        names = next(os.walk(directory+'/results/'))[1]
-        for name in names:
-            fval = df[df.project_name == name][factor].values[0]
-
-            # add a if fval is WT or z otherwise
-            # this is to ensure sleuth does
-            # the regression as WT --> MT
-            # but since sleuth only works alphabetically
-            # simply stating WT --> MT doesn't work
-            if fval == 'wt':
-                fval = 'a' + fval
-            else:
-                fval = 'z' + fval
-            line = name + ' ' + fval + '\n'
-            f.write(line)
-
-
-# Now make the matrix for each combination
-# I made this separately from the above if loop
-# because R is stupid and wants the files in this
-# folder to be in the same order as they are
-# listed in the matrix design file....
-for comb in combs:
-    current = sleuth_loc + comb[0]+'_'+comb[1] + '/'
-
-    # write a file called rna_seq_info for each combination
-    matrix_design('rna_seq_info.txt', 'genotype', genmap,
-                  comb[0], comb[1], current)
+make_commands()

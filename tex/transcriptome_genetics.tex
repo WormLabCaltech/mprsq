@@ -1,0 +1,170 @@
+\documentclass[9pt,twocolumn,twoside]{pnas-new}
+% Use the lineno option to display guide line numbers if required.
+% Note that the use of elements such as single-column equations
+% may affect the guide line number alignment.
+
+% new commands:
+\newcommand{\cel}{\emph{C.~elegans}}
+\newcommand{\egl}{\emph{egl-9}}
+\newcommand{\rhy}{\emph{rhy-1}}
+\newcommand{\vhl}{\emph{vhl-1}}
+\newcommand{\eglvhl}{\emph{egl-9;vhl-1}}
+\newcommand{\eglhif}{\emph{egl-9;hif-1}}
+\newcommand{\hif}{\emph{hif-1}}
+\newcommand{\fog}{\emph{fog-2}}
+\newcommand{\nhr}{\emph{nhr-57}}
+\newcommand{\ecol}{\emph{E.~coli}}
+
+
+\templatetype{pnasresearcharticle}[9pt,twocolumn,twoside,lineno] % Choose template
+% {pnasresearcharticle} = Template for a two-column research article
+% {pnasmathematics} = Template for a one-column mathematics article
+% {pnasinvited} = Template for a PNAS invited submission
+
+\title{Genetic Analysis of a Metazoan Pathway using Transcriptomic Phenotypes}
+
+% Use letters for affiliations, numbers to show equal authorship (if applicable) and to indicate the corresponding author
+\author[a,b]{David Angeles-Albores}
+\author[a,b]{Carmie Puckett Robinson}
+\author[a]{Brian Williams}
+\author[a]{Igor Antoshechkin}
+\author[a,b]{Paul W Sternberg}
+
+\affil[a]{Department of Biology and Biological Engineering, Caltech, Pasadena, USA, 91125}
+\affil[b]{Howard Hughes Medical Institute}
+
+% Please give the surname of the lead author for the running footer
+\leadauthor{Angeles-Albores}
+
+% Please add here a significance statement to explain the relevance of your work
+\significancestatement{Measurements of global gene expression are often used as descriptive tools that identify genes that are downstream a perturbation. In theory, there is no reason why measurements of global transcriptomes could not be used as a quantitative phenotype for genetic analysis. Here, we show that transcriptomes can be used for epistasis analysis in a metazoan, and that transcriptomes afford far more information per experiment than classic genetic analysis. By using transcriptomes as quantitative phenotypes, we can accurately predict interactions between genes, while at the same time identifying genes common to a pathway.
+When pathways branch, it is also possible to identify gene batteries that are associated with each end of the branch point. Finally, genes that would result in invisible visible phenotypes in an animal are not likely to be invisible at the transcriptome phenotype due to the exquisite granularity present in these structures, which represents an important advance towards studying small effect genes that make up the majority of animals' genetic repertoire.}
+
+% Please include corresponding author, author contribution and author declaration information
+\authorcontributions{DA and PWS wrote the manuscript. CPR performed all experiments. BW performed library preparation. IA performed sequencing. DA performed all analysis and blinded genetic reconstruction.}
+\authordeclaration{The authors declare no conflict of interest.}
+% \equalauthors{\textsuperscript{1}A.O.(Author One) and A.T. (Author Two) contributed equally to this work (remove if not applicable).}
+\correspondingauthor{\textsuperscript{2}To whom correspondence should be addressed. E-mail: pws@caltech.edu}
+
+% Keywords are not mandatory, but authors are strongly encouraged to provide them. If provided, please include two to five keywords, separated by the pipe symbol, e.g:
+\keywords{Genetic Analysis $|$ RNA-seq $|$ \cel{} $|$ hypoxia $|$ transcriptomics}
+
+\begin{abstract}
+RNA-seq is a technology that is commonly used to identify genetic modules that are responsive to a perturbation. In theory, global gene expression could also be used as a phenotype, with all the implications that has for genetic analysis. To that end, we sequenced four single mutants and two double mutants of the hypoxia pathway in \cel{}. We successfully analyzed the single mutants in a blinded fashion to predict the genetic relationships between the genes, and used the double mutants as a test of our predictions and to infer the directionality of the relationship. As a result of our analysis, we identified a core set of 400 genes that are involved in the \hif{}-dependent hypoxia response in the worm.\end{abstract}
+
+\dates{This manuscript was compiled on \today}
+\doi{\url{www.pnas.org/cgi/doi/10.1073/pnas.XXXXXXXXXX}}
+
+\begin{document}
+
+% Optional adjustment to line up main text (after abstract) of first page with line numbers, when using both lineno and twocolumn options.
+% You should only change this length when you've finalised the article contents.
+\verticaladjustment{-2pt}
+
+\maketitle
+\thispagestyle{firststyle}
+\ifthenelse{\boolean{shortarticle}}{\ifthenelse{\boolean{singlecolumn}}{\abscontentformatted}{\abscontent}}{}
+
+% If your first paragraph (i.e. with the \dropcap) contains a list environment (quote, quotation, theorem, definition, enumerate, itemize...), the line after the list may have some extra indentation. If this is the case, add \parshape=0 to the end of the list environment.
+\dropcap{T}
+
+\section*{Results}
+Clustering is a well-known technique in bioinformatics to identify relationships between data. As a first step in our analysis, we wanted to make sure that clustering by Transcripts Per Million (TPM) yielded genetically relevant information. Indeed, when blind, unsupervised clustering was performed on the data, three clusters emerged naturally (see Fig.~). \hif{} and \egl{};\hif{} clustered along with the wild-type; whereas \egl{}, \egl{};\vhl{}, \vhl{} and \rhy{} all clustered away from the wild-type. Finally, our negative control \fog{} was in its own cluster (see Fig.~\ref{fig:dendrogram}). These clusters make intuitive biological sense:
+\hif{} does not have a large role in normoxic circumstances, and is continuously degraded in a normal environment~\cite{}. As a result, \hif{} exists only at low levels in a normoxic worm. This strong control on the protein levels of \hif{} is known to be mediated by a pathway involving \egl{}, \vhl{} and \rhy{}. Whereas the \hif{} is largely wildtype in normoxic environments, genes that control \hif{} expression have visible phenotypes. The expectation that \hif{} should therefore cluster near the wild-type and the control genes should cluster away from the wild-type are therefore realized. Moreover, unsupervised clustering correctly identified epistatic relationships in double mutants: the \hif{};\egl{} double mutant clustered with the wild-type (this double mutant no longer has an \emph{egl} phenotype), and the \egl{};\vhl{} mutant clusters with the \egl{} and \vhl{} single mutants.
+Thus, we conclude that expression data contains enough signal to cluster genes in a meaningful manner.
+
+% dendrogram
+\begin{figure}%[tbhp]
+\centering
+\includegraphics[width=.8\linewidth]{figs/dendrogram.pdf}
+\caption{Blind unsupervised clustering of various \cel{} mutants. Genes cluster in a manner that is biologically intuitive. Genes that have visible phenotypes under normoxia cluster away from the wild-type, and when these genes act in the same pathway, they cluster together (i.e, \egl{}, \vhl{}, and \rhy{}). Genes that look wild-type under normoxia cluster near the wild-type..}
+\label{fig:dendrogram}
+\end{figure}
+
+Theoretically, two genes that have a linear positive interaction should be positively correlated in their overlapping transcriptomes, whereas two genes that have a linear negative interaction should be negatively correlated in their transcriptomes. Formally, if we consider that a gene \emph{A} has a transcriptome \emph{\{A\}} associated with it, and if we consider a second gene \emph{B} with an associated transcriptome \emph{\{B\}} that is activated by \emph{A} (that is, $B \in \{A\}$, such that $\{B\} \subset \{A\}$), then it follows that genetic knockout of \emph{A} or \emph{B} should both lead to the same perturbation of the transcriptome \emph{\{B\}}.
+Therefore, it follows that two genes should be strongly positively correlated in the overlap between their transcriptomes if they have positive regulatory associations. Conversely, it follows that if two mutants have overlapping transcriptomes, and if these transcriptomes have a strong positive association, it is likely that these two genes share a positive regulatory association. In other words, transcriptomic correlation is a good predictor of genetic regulation.
+
+Although transcriptomic correlations could theoretically be used for the purposes of identifying genetic regulation, noise from measuring 20,000 genes in multiple different genotypes could cause serious interference with any inferences. Additionally, genes sometimes experience multiple modes of regulation, including positive and negative regulation, from the same gene or pathway. If a positive and a negative signal are both present in a transcriptome, running a naive regression will result in a value close to zero.
+Therefore, we took steps to mitigate noise in the form of outliers. As a first mitigation attempt, we rank-tranformed the regression coefficients output by Kallisto. This has the effect of mitigating outliers by resetting the difference between adjacent coefficients to unity. Secondly, we performed robust Bayesian regressions using a Student T distribution as a prior. A Student T distribution decays less quickly than a normal distribution, which causes the model to consider outliers to be less informative than traditional frequentist regressions which effectively use a normal prior.
+
+% genetic correlations
+\begin{figure}%[tbhp]
+\centering
+\includegraphics[width=.8\linewidth]{figs/correlative_genetics.pdf}
+\caption{a. Schematic Diagram showing that genes that interact positively should have a positive transcriptomic correlation, whereas genes that interact negatively should have a negative correlation. Single genes are referred to by their names (A, B), and the transcriptome associated only with gene X is referred to as \{X\}. We use superscripts to denote expression level. In this case, 0 = no expression (knockout); 1 = WT level; 2 = Greater than WT level.\ b. Empirical demonstration that transcriptomes between two interacting genes can be extremely well correlated when genes are ranked by expression changes relative to a wild-type.}
+\label{fig:genetic_interactions}
+\end{figure}
+
+Having mitigated the effect of outliers, we saw that for certain gene pairs, their transcriptomes correlated very well when genes were ranked by their expression changes (see Fig.~\ref{fig:genetic_interactions}). Having confirmed that we could extract strong signals from these transcriptomes, we proceeded to generate all pairwise correlations between interactomes and we weighted the correlations by the number of genes that participated in the correlation (that were not outliers) divided by the total number of genes detected in all samples.
+The regression slopes recapitulated a network with three `modules': A control module, a responder module and an uncorrelated module (see Fig.~\ref{fig:heatmap}). We were able to identify a strong positive interaction between \egl{} and \rhy{}. Part of the reason for this lies in the fact that the transcriptomes for these genes consisted of 1,813 and 2,457 significantly altered genes respectively and the overlap between both genes was quite extensive.
+On the other hand, none of the correlations between \hif{} and its controlling genes are negative. On the one hand, we expect that the \hif{} transcriptome is most susceptible to noise because the protein is expressed at low levels in normoxic environments. However, the \hif{} transcriptome consists of 937 differentially expressed genes, and the overlap between \hif{} and all its controlling genes was always greater than 200 genes. Moreover, the unweighted correlation between all the pairwise genes was >0.7 for all comparisons. This means it is unlikely that the positive correlations are purely a result of noise.
+
+In order to rule out noise, we calculated the probability that \hif{} and its regulatory genes are drawing their transcriptomes from a common pool; in other words, the probability that \hif{} and the regulatory genes share an isotranscriptome (we use the word isotranscriptomes to refer to two transcriptomes that have the same set of genes, and where these genes change in the same way relative to a control).
+One way to do this is to take, for example, \egl{} or \hif{}, and select whichever transcriptome has a greater number of differentially expressed genes and paint these genes as red balls in an urn, whereas any genes that are not differentially expressed are painted as white balls. Then, we can ask what the probability of selecting $N$ balls in total of which $K$ are red balls is using a hypergeometric function, taking into account that a gene will be red only if it changes in the same way in both transcriptomes. We find that the probability that \hif{} is interacting positively with \egl{}, \rhy{} and \vhl{} is essentially unity. We conclude that under a normoxic environment, \hif{} has a positive genetic association with \egl{}, \rhy{} and \vhl{}.
+% heatmap
+\begin{figure}[tbhp]
+\centering
+\includegraphics[width=.8\linewidth]{figs/bayesian_heat_map.pdf}
+\caption{Top: Heatmap showing pairwise regression values between all single mutants. Bottom: Correlation network drawn from the diagram. Edge width is directly proportional to the regression value.}
+\label{fig:heatmap}
+\end{figure}
+
+Previous work in the hypoxia pathway suggests that this pathway may have feedback loops. Using the same genetic formalism as above, we realized that interactomes due to the fine-grained nature of the data can identify two regulatory interactions if they are of opposite sign. Consider a system in which an arbitrary gene A activates a gene B, which in turn blocks a gene C. Each gene X has a specific transcriptome \emph{\{X\}}.Under this system, B and C should have transcriptomes that are negatively correlated. If C activates A, however, then knocking out B should augment expression of C, which should in turn increase expression of A.
+However, knocking out C should lead to less A, which in turn will lead to less B. Under this thought experiment, suppose that we know the specific transcriptomes associated with A, B and C:\@\emph{\{A\}}, \emph{\{B\}}, \emph{\{C\}}. Then it must be the case that the genetic knockout of B must have a perturbed transcriptomes $\{A^2\}, \{B^0\}, \{C^2\}$-in other words, knocking out B increases the levels of A, which leads to an overexpression perturbation of the specific transcriptome associated with A, and so forth. On the other hand, knocking out C must lead to the perturbed transcriptomes $\{A^0\}, \{B^0\}, \{C^0\}$.
+Now, if we were able to correlate each specific transcriptome between correlations, we would find that the specific transcriptomes associated with A and C are anti-correlated; whereas the specific transcriptome associated with B is correlated between both genotypes. This should lead to a characteristic \emph{X} pattern in the ranked data. Although in this particular example the cross is due to feedback loops, it is important to point out that there are other patterns that could generate these patterns.
+%correlative genetics again
+\begin{figure}[tbhp]
+\centering
+\includegraphics[width=.8\linewidth]{figs/correlative_genetics2.pdf}
+\caption{Top: A feedback loop can generate transcriptomes that are both correlated and anti-correlated. Bottom: \hif{} transcriptome correlated to the \rhy{} transcriptome. Green large points are inliers to the first regression. Red small points are outliers to the first regression. Only the red small points were used for the secondary regression. Blue lines are representative samples of the primary bootstrapped regression lines. Orange lines are representative samples of the secondary bootstrapped regression lines.}
+\label{fig:xpattern}
+\end{figure}
+% TODO check these numbers!
+We investigated whether any pairwise comparisons between our single mutants generated this cross pattern. Indeed, we found that comparing \hif{} with \rhy{}, and \hif{} with \egl{} yielded negative correlations. In fact, 8/12 possible comparisons showed a cross pattern with correlation values close to 0. However, using a hypergeometric test to examine the probability that these pairs have negative regulatory patterns, we find that the probability of negative regulation for any pair is between 4\% and 20\%. At this moment, it is unclear whether there are complex regulatory interactions in this set. Strictly speaking, we can only say that the data does not reject the possibility of feedback, or other complex regulatory interactions.
+
+
+\subsection{\emph{in silico} qPCR}
+\label{sub:qPCR}
+Given the uncertain results from our transcriptome-wide analysis of secondary interactions, we wanted additional evidence for feedback loops in hypoxia pathway. We realized that our dataset enabled us to perform a sort of \emph{in silico} qPCR. In order to verify the quality of our data and the veracity of \emph{in silico} qPCR, we first queried the changes in expression of \nhr{}. This particular reporter has been shown to be under direct control of \hif{}. Thus, we expected that this gene should go up in \egl{}, \rhy{} and \vhl{}, and it should go down in \hif{}. Moreover, the behaviour in the double mutants should be interpreted as an epistasis test.
+
+
+
+\subsection*{Supporting Information (SI)}
+Because PNAS edits SI and composes it into a single PDF, authors must provide the following file formats only.
+
+\subsubsection*{SI Text}
+
+Supply Word, RTF, or LaTeX files (LaTeX files must be accompanied by a PDF with the same file name for visual reference).
+
+\subsubsection*{SI Figures}
+
+Provide a brief legend for each supporting figure after the supporting text. Provide figure images in TIFF, EPS, high-resolution PDF, JPEG, or GIF format; figures may not be embedded in manuscript text. When saving TIFF files, use only LZW compression; do not use JPEG compression. Do not save figure numbers, legends, or author names as part of the image. Composite figures must be pre-assembled.
+
+\subsubsection*{SI Tables}
+
+Supply Word, RTF, or LaTeX files (LaTeX files must be accompanied by a PDF with the same file name for visual reference); include only one table per file. Do not use tabs or spaces to separate columns in Word tables.
+
+\subsubsection*{SI Datasets}
+
+Supply Excel (.xls), RTF, or PDF files. This file type will be published in raw format and will not be edited or composed.
+
+
+\matmethods{
+
+}
+
+\showmatmethods{}% Display the Materials and Methods section
+
+\acknow{The authors would like to acknowledge the rest of the Sternberg lab for their comments and support.}
+
+\showacknow{} % Display the acknowledgments section
+
+% \pnasbreak splits and balances the columns before the references.
+% If you see unexpected formatting errors, try commenting out this line
+% as it can run into problems with floats and footnotes on the final page.
+% \pnasbreak{}
+
+% Bibliography
+\bibliography{pnas-sample}
+
+\end{document}

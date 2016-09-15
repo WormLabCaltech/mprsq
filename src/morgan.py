@@ -159,8 +159,8 @@ class hunt(object):
         comment - if there are comments, marker used to define comments
         """
         self.genmap = pd.read_csv(genmap_path, sep=sep, comment=comment)
-
-        if (self.genmap.columns != ['project_name', 'genotype']).all():
+        columns = ['project_name', 'genotype', 'batch']
+        if (self.genmap.columns != columns).all():
             raise ValueError('genmap is not in the right format!')
 
         self.genmap.genotype = self.genmap.genotype.apply(str)
@@ -981,7 +981,7 @@ class sturtevant(object):
                 trace = robust_regress(data, progress)
                 candidates = find_inliers(morgan, ovx, ovy, trace)
 
-                self.candidates[(key, j)] = candidates.target_id
+                self.candidates[(key, j)] = candidates
 
                 # find the weight
                 a_or_b = len(candidates)
@@ -1008,7 +1008,7 @@ class sturtevant(object):
         self.epistasis = double_corr
         self.epistasis['weights'] = w['weights']
 
-    def epistasis_secondary(self, morgan, progress):
+    def epistasis_secondary(self, morgan, progress=True):
         """
         A function to perform a secondary epistatic analysis of mutants.
 
@@ -1176,31 +1176,3 @@ class haldane(object):
         df['corr_with'] = morgan.single_mutants
 
         self.single_information = df
-
-    # def double_info(self, morgan):
-    #     """
-    #     A function to calculate the information contents of double mutants.
-    #
-    #     Params:
-    #     -------
-    #     """
-    #     s = len(morgan.single_mutants)
-    #     info = np.zeros(shape=(s, s))
-    #     i = 0
-    #     for name, genotype in morgan.double_muts.items():
-    #         lg = list(genotype)
-    #         for j, mutant in enumerate(lg):
-    #             entropy1 = find_entropy(morgan, name)
-    #             entropy2 = find_entropy(morgan, mutant)
-    #             entropy1and2 = find_entropy_x_and_y(morgan, name, mutant)
-    #             mut_info = entropy1 + entropy2 - entropy1and2
-    #             info[i, j] = mut_info
-    #         i += 1
-    #
-    #     # place results in dataframe:
-    #     df = pd.DataFrame(data=info.tranpose(),
-    #                       columns=morgan.double_muts.keys())
-    #     df['corr_with'] = morgan.single_mutants*len(morgan.double_muts.keys())
-    #
-    #     self.double_information = pd.melt(df, var_name='genotype',
-    #                                       value_name='information')

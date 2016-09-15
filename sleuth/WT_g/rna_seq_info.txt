@@ -1,4 +1,4 @@
-# Sleuth design matrix for N2-JK
+# Sleuth design matrix for WT-g
 experiment genotype
 JKY1 zg
 JKY2 zg
