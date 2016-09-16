@@ -47,10 +47,10 @@ When pathways branch, it is also possible to identify gene batteries that are as
 \correspondingauthor{\textsuperscript{2}To whom correspondence should be addressed. E-mail: pws@caltech.edu}
 
 % Keywords are not mandatory, but authors are strongly encouraged to provide them. If provided, please include two to five keywords, separated by the pipe symbol, e.g:
-\keywords{Genetic Analysis $|$ RNA-seq $|$ \cel{} $|$ hypoxia $|$ transcriptomics}
+\keywords{genetics $|$ RNA-seq $|$ \cel{} $|$ hypoxia $|$ transcriptomics}
 
 \begin{abstract}
-RNA-seq is a technology that is commonly used to identify genetic modules that are responsive to a perturbation. In theory, global gene expression could also be used as a phenotype, with all the implications that has for genetic analysis. To that end, we sequenced four single mutants and two double mutants of the hypoxia pathway in \cel{}. We successfully analyzed the single mutants in a blinded fashion to predict the genetic relationships between the genes, and used the double mutants as a test of our predictions and to infer the directionality of the relationship. As a result of our analysis, we identified a core set of 400 genes that are involved in the \hif{}-dependent hypoxia response in the worm.\end{abstract}
+RNA-seq is a technology that is commonly used to identify genetic modules that are responsive to a perturbation. In theory, global gene expression could also be used as a phenotype, with all the implications that has for genetic analysis. To that end, we sequenced four single mutants and two double mutants of the hypoxia pathway in \cel{}. We successfully analyzed the single mutants in a blinded fashion to predict the genetic relationships between the genes, and used the double mutants as a test of our predictions and to infer the directionality of the relationship. We show that genes along a pathway tend to decorrelate as a result of alternative regulatory modes and crosstalk with other pathways; and that this decorrelation accurately reflects functional distance between genes. As a by-product of our analysis, we identified a core set of 400 genes that are involved in the \hif{}-dependent hypoxia response in the worm.\end{abstract}
 
 \dates{This manuscript was compiled on \today}
 \doi{\url{www.pnas.org/cgi/doi/10.1073/pnas.XXXXXXXXXX}}
@@ -69,8 +69,11 @@ RNA-seq is a technology that is commonly used to identify genetic modules that a
 \dropcap{T}
 
 \section*{Results}
-Clustering is a well-known technique in bioinformatics to identify relationships between data. As a first step in our analysis, we wanted to make sure that clustering by Transcripts Per Million (TPM) yielded genetically relevant information. Indeed, when blind, unsupervised clustering was performed on the data, three clusters emerged naturally (see Fig.~). \hif{} and \egl{};\hif{} clustered along with the wild-type; whereas \egl{}, \egl{};\vhl{}, \vhl{} and \rhy{} all clustered away from the wild-type. Finally, our negative control \fog{} was in its own cluster (see Fig.~\ref{fig:dendrogram}). These clusters make intuitive biological sense:
-\hif{} does not have a large role in normoxic circumstances, and is continuously degraded in a normal environment~\cite{}. As a result, \hif{} exists only at low levels in a normoxic worm. This strong control on the protein levels of \hif{} is known to be mediated by a pathway involving \egl{}, \vhl{} and \rhy{}. Whereas the \hif{} is largely wildtype in normoxic environments, genes that control \hif{} expression have visible phenotypes. The expectation that \hif{} should therefore cluster near the wild-type and the control genes should cluster away from the wild-type are therefore realized. Moreover, unsupervised clustering correctly identified epistatic relationships in double mutants: the \hif{};\egl{} double mutant clustered with the wild-type (this double mutant no longer has an \emph{egl} phenotype), and the \egl{};\vhl{} mutant clusters with the \egl{} and \vhl{} single mutants.
+\subsection{Clustering visualizes epistatic relationships between genes}
+\label{sub:Clustering}
+
+Clustering is a well-known technique in bioinformatics to identify relationships between data~\cite{}. As a first step in our analysis, we wanted to make sure that clustering by Transcripts Per Million (TPM) yielded genetically relevant information. Indeed, when blind, unsupervised clustering was performed on the data, three clusters emerged naturally. \hif{} and \egl{};\hif{} clustered along with the wild-type; whereas \egl{}, \egl{};\vhl{}, \vhl{} and \rhy{} all clustered away from the wild-type. Finally, our negative control \fog{} was in its own cluster (see Fig.~\ref{fig:dendrogram}). These clusters make intuitive biological sense:
+\hif{} does not have a large role in normoxic circumstances, and is continuously degraded in a normal environment~\cite{}. As a result, \hif{} exists only at low levels in a normoxic worm. This strong control on the protein levels of \hif{} is known to be mediated by a pathway involving \egl{}, \vhl{} and \rhy{}\cite{}. Whereas the \hif{} is largely wildtype in normoxic environments, genes that control \hif{} expression have visible phenotypes. The expectation that \hif{} should therefore cluster near the wild-type and the control genes should cluster away from the wild-type are therefore realized. Moreover, unsupervised clustering correctly identified epistatic relationships in double mutants: the \hif{};\egl{} double mutant clustered with the wild-type (this double mutant no longer has an \emph{egl} phenotype), and the \egl{};\vhl{} mutant clusters with the \egl{} and \vhl{} single mutants.
 Thus, we conclude that expression data contains enough signal to cluster genes in a meaningful manner.
 
 % dendrogram
@@ -80,6 +83,9 @@ Thus, we conclude that expression data contains enough signal to cluster genes i
 \caption{Blind unsupervised clustering of various \cel{} mutants. Genes cluster in a manner that is biologically intuitive. Genes that have visible phenotypes under normoxia cluster away from the wild-type, and when these genes act in the same pathway, they cluster together (i.e, \egl{}, \vhl{}, and \rhy{}). Genes that look wild-type under normoxia cluster near the wild-type..}
 \label{fig:dendrogram}
 \end{figure}
+
+\subsection{Transcriptomic correlations can predict genetic regulation}
+\label{sub:Transcriptomic genetic analyses}
 
 Theoretically, two genes that have a linear positive interaction should be positively correlated in their overlapping transcriptomes, whereas two genes that have a linear negative interaction should be negatively correlated in their transcriptomes. Formally, if we consider that a gene \emph{A} has a transcriptome \emph{\{A\}} associated with it, and if we consider a second gene \emph{B} with an associated transcriptome \emph{\{B\}} that is activated by \emph{A} (that is, $B \in \{A\}$, such that $\{B\} \subset \{A\}$), then it follows that genetic knockout of \emph{A} or \emph{B} should both lead to the same perturbation of the transcriptome \emph{\{B\}}.
 Therefore, it follows that two genes should be strongly positively correlated in the overlap between their transcriptomes if they have positive regulatory associations. Conversely, it follows that if two mutants have overlapping transcriptomes, and if these transcriptomes have a strong positive association, it is likely that these two genes share a positive regulatory association. In other words, transcriptomic correlation is a good predictor of genetic regulation.
@@ -112,21 +118,52 @@ One way to do this is to take, for example, \egl{} or \hif{}, and select whichev
 Previous work in the hypoxia pathway suggests that this pathway may have feedback loops. Using the same genetic formalism as above, we realized that interactomes due to the fine-grained nature of the data can identify two regulatory interactions if they are of opposite sign. Consider a system in which an arbitrary gene A activates a gene B, which in turn blocks a gene C. Each gene X has a specific transcriptome \emph{\{X\}}.Under this system, B and C should have transcriptomes that are negatively correlated. If C activates A, however, then knocking out B should augment expression of C, which should in turn increase expression of A.
 However, knocking out C should lead to less A, which in turn will lead to less B. Under this thought experiment, suppose that we know the specific transcriptomes associated with A, B and C:\@\emph{\{A\}}, \emph{\{B\}}, \emph{\{C\}}. Then it must be the case that the genetic knockout of B must have a perturbed transcriptomes $\{A^2\}, \{B^0\}, \{C^2\}$-in other words, knocking out B increases the levels of A, which leads to an overexpression perturbation of the specific transcriptome associated with A, and so forth. On the other hand, knocking out C must lead to the perturbed transcriptomes $\{A^0\}, \{B^0\}, \{C^0\}$.
 Now, if we were able to correlate each specific transcriptome between correlations, we would find that the specific transcriptomes associated with A and C are anti-correlated; whereas the specific transcriptome associated with B is correlated between both genotypes. This should lead to a characteristic \emph{X} pattern in the ranked data. Although in this particular example the cross is due to feedback loops, it is important to point out that there are other patterns that could generate these patterns.
-%correlative genetics again
+% correlative genetics again
 \begin{figure}[tbhp]
 \centering
-\includegraphics[width=.8\linewidth]{figs/correlative_genetics2.pdf}
+\includegraphics[width=.74\linewidth]{figs/correlative_genetics2.pdf}
 \caption{Top: A feedback loop can generate transcriptomes that are both correlated and anti-correlated. Bottom: \hif{} transcriptome correlated to the \rhy{} transcriptome. Green large points are inliers to the first regression. Red small points are outliers to the first regression. Only the red small points were used for the secondary regression. Blue lines are representative samples of the primary bootstrapped regression lines. Orange lines are representative samples of the secondary bootstrapped regression lines.}
 \label{fig:xpattern}
 \end{figure}
-% TODO check these numbers!
-We investigated whether any pairwise comparisons between our single mutants generated this cross pattern. Indeed, we found that comparing \hif{} with \rhy{}, and \hif{} with \egl{} yielded negative correlations. In fact, 8/12 possible comparisons showed a cross pattern with correlation values close to 0. However, using a hypergeometric test to examine the probability that these pairs have negative regulatory patterns, we find that the probability of negative regulation for any pair is between 4\% and 20\%. At this moment, it is unclear whether there are complex regulatory interactions in this set. Strictly speaking, we can only say that the data does not reject the possibility of feedback, or other complex regulatory interactions.
+ % TODO check these numbers!
+We investigated whether any pairwise comparisons between our single mutants generated this cross pattern. Indeed, we found that comparing \hif{} with \rhy{}, and \hif{} with \egl{} yielded negative correlations. In fact, 8/12 possible comparisons showed a cross pattern with unweighted correlation values close to 1. However, using a hypergeometric test to examine the probability that these pairs have negative regulatory patterns, we find that the probability of negative regulation for any pair is between 4\% and 20\%.
 
 
-\subsection{\emph{in silico} qPCR}
+\subsection{\emph{in silico} qPCR reveals extensive feedback in the hypoxia pathway}
 \label{sub:qPCR}
-Given the uncertain results from our transcriptome-wide analysis of secondary interactions, we wanted additional evidence for feedback loops in hypoxia pathway. We realized that our dataset enabled us to perform a sort of \emph{in silico} qPCR. In order to verify the quality of our data and the veracity of \emph{in silico} qPCR, we first queried the changes in expression of \nhr{}. This particular reporter has been shown to be under direct control of \hif{}. Thus, we expected that this gene should go up in \egl{}, \rhy{} and \vhl{}, and it should go down in \hif{}. Moreover, the behaviour in the double mutants should be interpreted as an epistasis test.
+We realized that our dataset enabled us to perform a sort of \emph{in silico} qPCR.\@ In order to verify the quality of our data and the veracity of \emph{in silico} qPCR, we first queried the changes in expression of \nhr{}. This particular reporter has been shown to be under direct control of \hif{}. Thus, we expected that this gene should go up in \egl{}, \rhy{} and \vhl{}, and it should be unchanged in \hif{}. The epistasis test, using the double \egl{};\hif{} double mutant should result in no change; whereas the \egl{};\vhl{} double mutant should have a similar change to the \vhl{} and the \egl{} mutants. In fact, our datasets reflected these known interactions, showing that the RNA-seq measurements can be used in a semi-quantitative fashion to perform inferences on genetic regulation.
+%TODO: Verify the next paragraph is true.
+Next, we decided to perform \emph{in silico} qPCR of every gene under scrutiny in order to get a clearer idea of the relationships between them (see Fig.~\ref{fig:qPCR}). We found that \rhy{}, and to a lesser extent \egl{} were activated by mutations in \egl{}, \rhy{} and \vhl{}. This suggests that \hif{} is a positive regulator of \rhy{}.
+Given that \rhy{} post-translationally controls \egl{}~\cite{}, it is unlikely that the increase in \egl{} is driven by the increase in \rhy{} levels. Therefore, our experiment also suggests that \hif{} is a positive regulator of \egl{}. On the other hand, we also discovered that mutation of \hif{} increased levels of \rhy{}. This suggests that \hif{} is also a negative regulator of \rhy{}. One potential mechanism through which \hif{} could be both a positive and a negative regulator would be for hydroxylation of \hif{} to change its activity. Under this mechanism, loss of \hif{} hydroxylation leads to activation of \rhy{} and \egl{} as a homeostatic mechanism; whereas excessive hydroxylation causes inhibition of these genes.
 
+Whereas loss of hydroxylation seems to lead to overexpression of \rhy{} and \egl{}, there is no change in \hif{} levels. The only change in expression level of this gene occurs in the \hif{} mutant. Therefore, we postulate that \hif{} positively autoregulates itself only in the hydroxylated state.
+
+Performing the \emph{in silico} experiment with the \egl{};\vhl{} double mutant shows a similar increase in activity of the two genes in question.
+This provides confirmatory evidence that \hif{} up-regulates \egl{}, but also suggests that \egl{} and \vhl{} are epistatic to one another. Such epistasis can only occur in one of two ways: Either the genes are acting linearly, or they are acting in AND gated fashion, with both genes required to mediate an effect. Similarly, the \egl{};\hif{} double mutant exhibits the same expression profile as \hif{}, which means \egl{} is an inhibitor of \hif{}.
+% in silico qPCR
+\begin{figure}[tbhp]
+\centering
+\includegraphics[width=.72\linewidth]{figs/insilico_qpcr.pdf}
+\caption{Top: \emph{In silico} qPCR results using \nhr{} as an expression reporter. The results from the single mutants suggest that loss of \egl{} activates \nhr{} transcription, and the double mutant results show that \egl{} inhibits \hif{}; and that \egl{} and \vhl{} act in concert to inhibit \hif{}. Green bars show statistically significant increases in expression relative to wild-type. Bottom: \emph{In silico} qPCR of genes in the hypoxia pathway and a \fog{} control. These results suggest that \hif{} activates \rhy{}, and possibly \egl{}, when it is not hydroxylated. \hif{} also appears to autoactivate in a hydroxylation-dependent manner. Like with \nhr{}, these results support the hypothesis that \egl{} and \vhl{} together inhibit the \hif{} response.}
+\label{fig:qpcr}
+\end{figure}
+% decorrelation
+\begin{figure}[tbhp]
+\centering
+\includegraphics[width=.72\linewidth]{figs/functional_distance.pdf}
+\caption{Top: Pairwise weighted correlations between transcriptomes can be used to infer functional distance between interacting genetic partners. Pairwise correlations are ordered by increasing network distance between genes. Notice that correlations involving the \fog{} negative control are very near zero. Bottom: Simplified schematic of the hypoxia pathway shown to illustrate functional distance between genes in the pathway.}
+\label{fig:decorrelation}
+\end{figure}
+In summary, the \emph{in silico} qPCR results suggest that \egl{} and \vhl{} act in concert to inhibit \hif{}. Likewise, these results taken together with the transcriptome-wide cross-patterns that emerge from pairwise comparisons between genes in the hypoxia pathway suggest that there are positive and negative feedback loops feeding into \rhy{} and possibly \egl{}. These feedack loops explain why \hif{} is positively transcriptomically correlated with \egl{}--since we are observing
+
+\subsection{Transcriptomic decorrelation can be used to infer functional distance}
+\label{sub:decorrelation}
+We were interested in figuring out whether RNA-seq could be used to identify functional interactions within a genetic pathway. Although there is no \emph{a priori} reason why global gene expression should reflect functional interactions, we were encouraged by the strength of the unweighted correlations between genes in the hypoxia pathway, and conversely by the weak correlation of these genes with the \fog{} mutant.
+
+We investigated the possibility that transcriptomic signals might contain relevant information about the degrees of separation by weighting the robust bayesian regression of each pairwise analysis by $N_\mathrm{Overlap}/N_{\mathrm{detected}}$. We then plotted the weighted correlation of each gene pair, ordered by increasing functional distance (see Fig.~\ref{fig:decorrelation}). In every case, we see that the weighted correlation decreases monotonically due mainly, but not exclusively, to decreasing $N_\mathrm{Overlap}$.
+We believe that this result is not due to random noise or insufficiently deep sequencing. Instead, we propose a framework in which every gene is regulated by multiple different molecular species. Even in unbranched pathways, this would induce progressive decorrelation between genes proportionally to the distance between them.
+
+\section*{Discussion}
 
 
 \subsection*{Supporting Information (SI)}
@@ -150,7 +187,6 @@ Supply Excel (.xls), RTF, or PDF files. This file type will be published in raw 
 
 
 \matmethods{
-
 }
 
 \showmatmethods{}% Display the Materials and Methods section
