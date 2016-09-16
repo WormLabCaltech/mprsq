@@ -111,3 +111,11 @@ input/dictionaries/phenotype_dictionary.csv
 input/dictionaries/go_dictionary.csv
 
 .DS_Store
+
+tex/transcriptome_genetics.fls
+
+tex/transcriptome_genetics.fdb_latexmk
+
+tex/transcriptome_genetics.aux
+
+tex/transcriptome_genetics.synctex.gz

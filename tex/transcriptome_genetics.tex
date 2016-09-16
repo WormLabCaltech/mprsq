@@ -15,7 +15,6 @@
 \newcommand{\nhr}{\emph{nhr-57}}
 \newcommand{\ecol}{\emph{E.~coli}}
 
-
 \templatetype{pnasresearcharticle}[9pt,twocolumn,twoside,lineno] % Choose template
 % {pnasresearcharticle} = Template for a two-column research article
 % {pnasmathematics} = Template for a one-column mathematics article
@@ -154,6 +153,7 @@ This provides confirmatory evidence that \hif{} up-regulates \egl{}, but also su
 \caption{Top: Pairwise weighted correlations between transcriptomes can be used to infer functional distance between interacting genetic partners. Pairwise correlations are ordered by increasing network distance between genes. Notice that correlations involving the \fog{} negative control are very near zero. Bottom: Simplified schematic of the hypoxia pathway shown to illustrate functional distance between genes in the pathway.}
 \label{fig:decorrelation}
 \end{figure}
+
 In summary, the \emph{in silico} qPCR results suggest that \egl{} and \vhl{} act in concert to inhibit \hif{}. Likewise, these results taken together with the transcriptome-wide cross-patterns that emerge from pairwise comparisons between genes in the hypoxia pathway suggest that there are positive and negative feedback loops feeding into \rhy{} and possibly \egl{}. These feedack loops explain why \hif{} is positively transcriptomically correlated with \egl{}--since we are observing
 
 \subsection{Transcriptomic decorrelation can be used to infer functional distance}
@@ -161,32 +161,23 @@ In summary, the \emph{in silico} qPCR results suggest that \egl{} and \vhl{} act
 We were interested in figuring out whether RNA-seq could be used to identify functional interactions within a genetic pathway. Although there is no \emph{a priori} reason why global gene expression should reflect functional interactions, we were encouraged by the strength of the unweighted correlations between genes in the hypoxia pathway, and conversely by the weak correlation of these genes with the \fog{} mutant.
 
 We investigated the possibility that transcriptomic signals might contain relevant information about the degrees of separation by weighting the robust bayesian regression of each pairwise analysis by $N_\mathrm{Overlap}/N_{\mathrm{detected}}$. We then plotted the weighted correlation of each gene pair, ordered by increasing functional distance (see Fig.~\ref{fig:decorrelation}). In every case, we see that the weighted correlation decreases monotonically due mainly, but not exclusively, to decreasing $N_\mathrm{Overlap}$.
-We believe that this result is not due to random noise or insufficiently deep sequencing. Instead, we propose a framework in which every gene is regulated by multiple different molecular species. Even in unbranched pathways, this would induce progressive decorrelation between genes proportionally to the distance between them.
+We believe that this result is not due to random noise or insufficiently deep sequencing. Instead, we propose a framework in which every gene is regulated by multiple different molecular species. Even in unbranched pathways, this would induce progressive decorrelation between genes.
 
 \section*{Discussion}
 
+% new model:
+\begin{figure}[tbhp]
+\centering
+\includegraphics[width=.72\linewidth]{figs/new_model.pdf}
+\caption{Top:  Bottom: }
+\label{fig:newmodel}
+\end{figure}
 
-\subsection*{Supporting Information (SI)}
-Because PNAS edits SI and composes it into a single PDF, authors must provide the following file formats only.
-
-\subsubsection*{SI Text}
-
-Supply Word, RTF, or LaTeX files (LaTeX files must be accompanied by a PDF with the same file name for visual reference).
-
-\subsubsection*{SI Figures}
-
-Provide a brief legend for each supporting figure after the supporting text. Provide figure images in TIFF, EPS, high-resolution PDF, JPEG, or GIF format; figures may not be embedded in manuscript text. When saving TIFF files, use only LZW compression; do not use JPEG compression. Do not save figure numbers, legends, or author names as part of the image. Composite figures must be pre-assembled.
-
-\subsubsection*{SI Tables}
-
-Supply Word, RTF, or LaTeX files (LaTeX files must be accompanied by a PDF with the same file name for visual reference); include only one table per file. Do not use tabs or spaces to separate columns in Word tables.
-
-\subsubsection*{SI Datasets}
-
-Supply Excel (.xls), RTF, or PDF files. This file type will be published in raw format and will not be edited or composed.
 
 
 \matmethods{
+\subsection*{hi}
+Hello
 }
 
 \showmatmethods{}% Display the Materials and Methods section
