@@ -1,0 +1,11 @@
+# Sleuth design matrix for WT-a
+experiment genotype batch
+N2Y1 awt b
+N2Y2 awt b
+N2Y3 awt b
+Project_17434_indexN704-N517 awt a
+Project_17435_indexN704-N502 awt a
+Project_17436_indexN704-N503 awt a
+Project_17440_indexN704-N507 za a
+Project_17441_indexN704-N508 za a
+Project_17442_indexN705-N517 za a

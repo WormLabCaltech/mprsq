@@ -1,0 +1,11 @@
+# Sleuth design matrix for WT-g
+experiment genotype batch
+JKY1 zg b
+JKY2 zg b
+JKY3 zg b
+N2Y1 awt b
+N2Y2 awt b
+N2Y3 awt b
+Project_17434_indexN704-N517 awt a
+Project_17435_indexN704-N502 awt a
+Project_17436_indexN704-N503 awt a
