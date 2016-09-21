@@ -12,7 +12,6 @@ from scipy import stats
 import tissue_enrichment_analysis as tea
 import pymc3 as pm
 # import theano
-
 ###############################################################################
 # --------------------------------------------------------------------------- #
 # --------------------------------------------------------------------------- #
@@ -848,8 +847,10 @@ class mcclintock(object):
                 # regression
                 a_and_b = len(ovx) - len(outliers)
                 a_or_b = len(x[indx]) + len(y[indy]) - a_and_b
-                slope_matrix[l, m] = tmean*a_and_b/a_or_b
-                error_matrix[l, m] = tstd*a_and_b/a_or_b
+                # slope_matrix[l, m] = tmean*a_and_b/a_or_b
+                # error_matrix[l, m] = tstd*a_and_b/a_or_b
+                slope_matrix[l, m] = tmean*a_and_b/len(x)
+                error_matrix[l, m] = tstd*a_and_b/len(x)
 
         # place in a neat dataframe so the user can see this.
         self.robust_slope = pd.DataFrame(data=slope_matrix,
@@ -908,7 +909,8 @@ class mcclintock(object):
                     trace = robust_regress(data)
                     a_and_b = len(genes)
                     a_or_b = sizex + sizey - a_and_b
-                    matrix[l, m] = trace.x.mean()*a_and_b/a_or_b
+                    total = len(morgan.beta_filtered[letter1][significance1])
+                    matrix[l, m] = trace.x.mean()*a_and_b/total
                     del(trace)
         # return a non-tidy dataframe
         self.secondary_slope = pd.DataFrame(data=matrix,
@@ -948,9 +950,10 @@ class sturtevant(object):
         def lind(x):
             """To avoid writing ind = blah < q all the time."""
             return (x[morgan.qval] < 0.1)
-
-        double_mat = np.zeros(shape=(2, 5))  # TODO Fix this!
-        weights = np.zeros(shape=(2, 5))
+        temp1 = len(morgan.double_muts)
+        temp2 = len(morgan.single_mutants)
+        double_mat = np.zeros(shape=(temp1, temp2))  # TODO Fix this!
+        weights = np.zeros(shape=(temp1, temp2))
         l = 0
         cols = []
         size = []
@@ -999,13 +1002,14 @@ class sturtevant(object):
         double_corr = pd.DataFrame(double_mat.transpose(), columns=cols)
         double_corr = pd.melt(double_corr, var_name='double_mutant',
                               value_name='correlation')
-        double_corr['corr_with'] = morgan.single_mutants*2
+        double_corr['corr_with'] = morgan.single_mutants*temp1
 
         w = pd.DataFrame(weights.transpose(), columns=cols)
         w = pd.melt(w, var_name='double_mutant',
                     value_name='weights')
-
-        self.epistasis = double_corr
+        w['corr_with'] = morgan.single_mutants*temp1
+        self.epistasis = {}
+        self.epistasis['corr'] = double_corr
         self.epistasis['weights'] = w['weights']
 
     def epistasis_secondary(self, morgan, progress=True):
@@ -1022,8 +1026,10 @@ class sturtevant(object):
             """To avoid writing ind = blah < q all the time."""
             return (x[morgan.qval] < 0.1)
 
-        double_mat = np.zeros(shape=(2, 5))  # TODO Fix this!
-        weights = np.zeros(shape=(2, 5))
+        temp1 = len(morgan.double_muts)
+        temp2 = len(morgan.single_mutants)
+        double_mat = np.zeros(shape=(temp1, temp2))  # TODO Fix this!
+        weights = np.zeros(shape=(temp1, temp2))
         l = 0
         cols = []
         size = []
@@ -1075,15 +1081,16 @@ class sturtevant(object):
         double_corr = pd.DataFrame(double_mat.transpose(), columns=cols)
         double_corr = pd.melt(double_corr, var_name='double_mutant',
                               value_name='correlation')
-        double_corr['corr_with'] = morgan.single_mutants*2
+        double_corr['corr_with'] = morgan.single_mutants*temp1
 
         w = pd.DataFrame(weights.transpose(), columns=cols)
         w = pd.melt(w, var_name='double_mutant',
                     value_name='weights')
+        w['corr_with'] = morgan.single_mutants*temp1
 
-        self.epistasis_secondary = double_corr
+        self.epistasis_secondary = {}
+        self.epistasis_secondary['corr'] = double_corr
         self.epistasis_secondary['weights'] = w['weights']
-
 
 ###############################################################################
 # --------------------------------------------------------------------------- #
