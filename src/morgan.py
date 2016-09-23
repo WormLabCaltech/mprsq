@@ -76,6 +76,7 @@ class hunt(object):
         self.q = q
         self.single_mutants = []
         self.double_muts = {}
+        self.beta = None
 
     def add_single_mutant(self, single):
         """
@@ -220,6 +221,12 @@ class hunt(object):
             # if you don't do this, nothing works!
             self.beta[genotype].sort_values(self.gene, inplace=True)
             self.beta[genotype].reset_index(drop=True, inplace=True)
+
+    def add_beta(self, fname, key, **kwargs):
+        """A function to add a file to the beta dictionary."""
+        if self.beta is None:
+            self.beta = {}
+        self.beta[key] = pd.read_csv(fname, **kwargs)
 
     def set_qval(self, q=0.1):
         """A function to set the qvalue parameter."""
@@ -816,6 +823,7 @@ class mcclintock(object):
         s = len(morgan.single_mutants)
 
         slope_matrix = np.zeros(shape=(s, s))
+        weights = np.zeros(shape=(s, s))
         error_matrix = np.zeros(shape=(s, s))
 
         for l in range(len(morgan.single_mutants)):
@@ -849,13 +857,23 @@ class mcclintock(object):
                 a_or_b = len(x[indx]) + len(y[indy]) - a_and_b
                 # slope_matrix[l, m] = tmean*a_and_b/a_or_b
                 # error_matrix[l, m] = tstd*a_and_b/a_or_b
-                slope_matrix[l, m] = tmean*a_and_b/len(x)
-                error_matrix[l, m] = tstd*a_and_b/len(x)
+                weight = a_and_b/a_or_b
+                slope_matrix[l, m] = tmean*weight
+                error_matrix[l, m] = tstd*weight
+                weights[l, m] = weight
 
         # place in a neat dataframe so the user can see this.
         self.robust_slope = pd.DataFrame(data=slope_matrix,
                                          columns=morgan.single_mutants)
         self.robust_slope['corr_with'] = morgan.single_mutants
+
+        self.errors_primary = pd.DataFrame(data=error_matrix,
+                                           columns=morgan.single_mutants)
+        self.errors_primary['corr_with'] = morgan.single_mutants
+
+        w = pd.DataFrame(weights, columns=morgan.single_mutants)
+        self.weights_primary = w
+        self.weights_primary['corr_with'] = morgan.single_mutants
 
     def robust_regression_secondary(self, morgan, frac=0.1):
         """
@@ -865,6 +883,8 @@ class mcclintock(object):
         """
         s = len(morgan.single_mutants)
         matrix = np.zeros(shape=(s, s))
+        error_matrix = np.zeros(shape=(s, s))
+        weights = np.zeros(shape=(s, s))
         for l in range(0, s):
             for m in range(l, s):
                 print(morgan.single_mutants[l], morgan.single_mutants[m])
@@ -909,12 +929,24 @@ class mcclintock(object):
                     trace = robust_regress(data)
                     a_and_b = len(genes)
                     a_or_b = sizex + sizey - a_and_b
-                    total = len(morgan.beta_filtered[letter1][significance1])
-                    matrix[l, m] = trace.x.mean()*a_and_b/total
+                    # total = len(morgan.beta_filtered[letter1][significance1])
+                    weight = a_and_b/a_or_b
+                    matrix[l, m] = trace.x.mean()*weight
+                    tstd = trace.x.std()
+                    error_matrix[l, m] = tstd*weight
+                    weights[l, m] = weight
                     del(trace)
         # return a non-tidy dataframe
         self.secondary_slope = pd.DataFrame(data=matrix,
                                             columns=morgan.single_mutants)
+
+        self.errors_secondary = pd.DataFrame(data=error_matrix,
+                                             columns=morgan.single_mutants)
+        self.errors_secondary['corr_with'] = morgan.single_mutants
+
+        w = pd.DataFrame(weights, columns=morgan.single_mutants)
+        self.weights_secondary = w
+        self.weights_secondary['corr_with'] = morgan.single_mutants
 
 
 ###############################################################################
@@ -1008,8 +1040,7 @@ class sturtevant(object):
         w = pd.melt(w, var_name='double_mutant',
                     value_name='weights')
         w['corr_with'] = morgan.single_mutants*temp1
-        self.epistasis = {}
-        self.epistasis['corr'] = double_corr
+        self.epistasis = double_corr
         self.epistasis['weights'] = w['weights']
 
     def epistasis_secondary(self, morgan, progress=True):
@@ -1088,8 +1119,7 @@ class sturtevant(object):
                     value_name='weights')
         w['corr_with'] = morgan.single_mutants*temp1
 
-        self.epistasis_secondary = {}
-        self.epistasis_secondary['corr'] = double_corr
+        self.epistasis_secondary = double_corr
         self.epistasis_secondary['weights'] = w['weights']
 
 ###############################################################################

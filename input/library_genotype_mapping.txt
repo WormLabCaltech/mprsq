@@ -26,3 +26,9 @@ Project_17453_indexN706-N504,F,a
 Project_17440_indexN704-N507,A,a
 Project_17447_indexN705-N506,D,a
 Project_17454_indexN706-N505,F,a
+JKY1,G,b
+JKY2,G,b
+JKY3,G,b
+N2Y1,WT,b
+N2Y2,WT,b
+N2Y3,WT,b

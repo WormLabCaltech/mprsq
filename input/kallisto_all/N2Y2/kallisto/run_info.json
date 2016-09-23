@@ -1,0 +1,9 @@
+{
+	"n_targets": 32905,
+	"n_bootstraps": 200,
+	"n_processed": 36857309,
+	"kallisto_version": "0.42.5",
+	"index_version": 10,
+	"start_time": "Tue Sep 13 11:56:51 2016",
+	"call": "kallisto quant -i input/transcripts.idx -o input/kallisto_all/N2Y2/kallisto --single -s 60 -l 180 -b 200 -t 4 input/rawseq/N2Y2/14946_ACTTGA_L001_R1_001.fastq.gz input/rawseq/N2Y2/14946_ACTTGA_L001_R1_002.fastq.gz input/rawseq/N2Y2/14946_ACTTGA_L001_R1_003.fastq.gz input/rawseq/N2Y2/14946_ACTTGA_L001_R1_004.fastq.gz input/rawseq/N2Y2/14946_ACTTGA_L001_R1_005.fastq.gz input/rawseq/N2Y2/14946_ACTTGA_L002_R1_001.fastq.gz input/rawseq/N2Y2/14946_ACTTGA_L002_R1_002.fastq.gz input/rawseq/N2Y2/14946_ACTTGA_L002_R1_003.fastq.gz input/rawseq/N2Y2/14946_ACTTGA_L002_R1_004.fastq.gz input/rawseq/N2Y2/14946_ACTTGA_L002_R1_005.fastq.gz"
+}
