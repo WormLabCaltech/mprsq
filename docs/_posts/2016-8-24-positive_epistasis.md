@@ -70,7 +70,7 @@ double mutant in question. The red line is a line of best fit (see methods) that
 is statistically different from 0 ($p < 10**-6$). Taken together, the data indicates
 that *vhl-1* acts together with *egl-9*. However, the worsening phenotype of the double
 mutant with respect to *vhl-1* but not *egl-9* suggests that *egl-9* is acting in *vhl-1*
- independent ways. 
+ independent ways.
 
 <!-- vhl-1 -->
 <html lang="en">
@@ -114,3 +114,11 @@ mutant with respect to *vhl-1* but not *egl-9* suggests that *egl-9* is acting i
         </script>
     </body>
 </html>
+
+It is particularly interesting that *nog-1* is appears to be regulated by both
+ *egl-9* and *vhl-1*. Analysis of this particular gene between *egl-9*, *hif-1*
+ and *egl-9; hif-1* suggests that *egl-9* controls *nog-1* expression, and
+ *hif-1* partially but incompletely controls *egl-9*. On the other hand, this
+ double mutant suggests that *egl-9* and *vhl-1*  act to regulate *nog-1* in
+ either a linear pathway or an AND-gate. This raises the possibility that *nog-1*
+ is hydroxylated by *egl-9* and degraded by *vhl-1*.
