@@ -15,6 +15,7 @@ import json
 import numpy as np
 import pandas as pd
 import contextlib
+import sys
 
 
 class solr_query(object):
@@ -279,11 +280,15 @@ if __name__ == '__main__':
 
     path = '../input/dictionaries/'
     # main solr url
-    solr_url = 'http://wobr.caltech.edu:8082/solr/{0}/'.format(selected)
-
     # queries must be lambda functions
-    # query for terms. Finds terms that have x or more annotating genes
-    query_terms = lambda x: 'select?qt=standard&indent=on&wt=json&version=2.2&fl=id&start=0&rows=0&q=document_category:bioentity&facet=true&facet.field=regulates_closure&facet.limit=-1&facet.mincount={0}&facet.sort=count&fq=source:%22WB%22&fq=-qualifier:%22not%22'.format(x)
+
+    if selected == 'go':
+        solr_url = 'http://wobr.caltech.edu:8082/solr/go/'
+        # query for terms. Finds terms that have x or more annotating genes
+        query_terms = lambda x: 'select?qt=standard&indent=on&wt=json&version=2.2&fl=id&start=0&rows=1&q=document_category:bioentity&facet=true&facet.field=regulates_closure&facet.limit=-1&facet.mincount={0}&facet.sort=count&fq=source:%22WB%22&fq=taxon:%22NCBITaxon:6239%22&fq=-qualifier:%22not%22'.format(x)
+    else:
+        solr_url = 'http://wobr.caltech.edu:8082/solr/{0}/'.format(selected)
+        query_terms = lambda x: 'select?qt=standard&indent=on&wt=json&version=2.2&fl=id&start=0&rows=0&q=document_category:bioentity&facet=true&facet.field=regulates_closure&facet.limit=-1&facet.mincount={0}&facet.sort=count&fq=source:%22WB%22&fq=-qualifier:%22not%22'.format(x)
 
     # query for relationships. given a wbbt ID, find the nodes connected to it.
     query_relation = lambda x: "select?qt=standard&fl=topology_graph_json&version=2.2&wt=json&indent=on&rows=1&q=id:%22{0}%22&fq=document_category:%22ontology_class%22".format(x)
@@ -295,7 +300,7 @@ if __name__ == '__main__':
     query_readable = "select?qt=standard&fl=id,annotation_class_label&version=2.2&wt=json&indent=on&rows=100000&q=id:*&fq=document_category:ontology_class&fq=-is_obsolete:true"
 
     threshold = .9
-    cutoff = 33
+    cutoff = 100
     rd = solr_query(solr_url, query_readable)
     readable = rd.open_query()
     method = 'any'
@@ -317,7 +322,10 @@ if __name__ == '__main__':
     wbbts = {}
     sister_dict = {}
     i = 0
+    print('starting compilation for {0} dictionary...'.format(selected))
     for k in enumerate(rsp_terms['facet_counts']['facet_fields']['regulates_closure']):
+        if k[0]%20 == 0:
+            print(k[0])
         if i % 2 == 0:
             n = node(k[1])
             n.find_family(solr_url, query_relation)
@@ -329,6 +337,7 @@ if __name__ == '__main__':
     print('No. of tissues in wbbts {0}'.format(len(wbbts)))
 
     k = 0
+    print('beginning similarity thresholding...')
     for parent in sister_dict:
         # count the sisters, find their similarity and kill them if they don't pass
         if parent in wbbts:
@@ -354,6 +363,7 @@ if __name__ == '__main__':
     ref = {}
     ref_sisters = {}
     i = 0
+    print('beginning floor thresholding')
     for k in enumerate(rsp_terms['facet_counts']['facet_fields']['regulates_closure']):
         if i % 2 == 0:
             n = node(k[1])
@@ -365,6 +375,7 @@ if __name__ == '__main__':
 
     # find sisters in ref
     k = 0
+    print('initiating similarity filtering...')
     for s in ref_sisters:
         # count the sisters,
         # find their similarity, kill them if they don't pass
@@ -377,6 +388,7 @@ if __name__ == '__main__':
 #   check completeness of sisters and pop parents (ceiling)
 # ==============================================================================
     to_pop = []
+    print('beginning ceiling filtering...')
     for parent in wbbts:
         if len(sister_dict[parent].sisters) == len(ref_sisters[parent].sisters):
             to_pop.append(parent)
@@ -390,6 +402,7 @@ if __name__ == '__main__':
 # ==============================================================================
     wbbts_listform = []
     genes = []
+    print('appending human readable names...')
     for thingy in readable['response']['docs']:
         # annotate human readable
         if thingy['id'] in wbbts.keys():
@@ -436,5 +449,6 @@ if __name__ == '__main__':
         return df
 
     # tocsv
+    print('building dictionary...')
     df = build_dictionary(wbbts, wbbts_listform, genes)
     df.to_csv(fname, index=False)
