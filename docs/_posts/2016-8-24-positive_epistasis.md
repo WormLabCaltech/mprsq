@@ -3,6 +3,21 @@ layout: post
 title: vhl-1 is epistatic to egl-9
 ---
 
+There is evidence that *vhl-1* and *egl-9* share a regulatory relationship
+--------------------------------------------------------------------------
+
+Below, I show the results of comparing an *egl-9* single mutant with a
+*vhl-1; egl-9* double mutant. The results are quite interesting. For the most
+part, the points seem to fall randomly along the black line. Fitting a line
+through these points does not yield a line with a slope statistically different
+ from zero. We therefore conclude that *vhl-1* and *egl-9* share a regulatory
+ relationship. Two relationships that would satisfy this profile are a activating
+ relationships (*vhl-1* activates *egl-9* or viceversa) or AND-gated relationships
+ (*vhl-1* AND *egl-9* act together on a gene).
+
+ Interestingly, four genes exhibit signs of genetic suppression. These genes show
+ a change less than 0 even though knocking out either gene increases transcription of
+  these genes.
 
 <!-- egl-9 -->
 <html lang="en">
@@ -47,7 +62,15 @@ title: vhl-1 is epistatic to egl-9
     </body>
 </html>
 
+The *vhl-1* phenotype is worsened by linkage with an *egl-9* mutation
+---------------------------------------------------------------------
 
+In the graph below, it is clear that *vhl-1* has a positive correlation with the
+double mutant in question. The red line is a line of best fit (see methods) that
+is statistically different from 0 ($p < 10**-6$). Taken together, the data indicates
+that *vhl-1* acts together with *egl-9*. However, the worsening phenotype of the double
+mutant with respect to *vhl-1* but not *egl-9* suggests that *egl-9* is acting in *vhl-1*
+ independent ways. 
 
 <!-- vhl-1 -->
 <html lang="en">

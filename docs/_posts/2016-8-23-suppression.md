@@ -28,26 +28,6 @@ Taken together, it would seem that *egl-9* is in fact inhibiting *hif-1*.
 The graph is interactive.
 Hover your mouse over the points to see more information about them!
 
-In the second graph, I plotted the *hif-1* phenotype versus the double mutant.
-In this graph, the line of best fit (see methods) is not statistically significantly
-different from 0, suggesting that *hif-1* mutant is statistically identical to
-to the double mutant. Therefore, we expect to see no change in the transcriptomic
-phenotype in this comparison (black line). Indeed, for most genes,
- there is no discernible trend! Once more, red points here indicate points
- that violate the epistasis model. Even these genes have no strong trend however.
- Therefore, we conclude that the *hif-1* mutant phenotype is not significantly
- aggravated by a second mutation at the *egl-9* locus, meaning these two loci are
- epistatic to each other. They evidence suggests they are interacting in a
- negative regulatory interaction.
-
-Notably, in both graphs there is a particular point (find it!) that seems to violate
-the genetic model in question! This transcription factor has the same phenotype
-in thet *egl-9* mutant as in the *egl-9; hif-1* mutant, whereas the *hif-1* phenotype
-is less perturbed (smaller fold change than in the double). In this case, a
-model in which *egl-9* inhibits *hif-1* is not supported. A more reasonable
-hypothesis for this particular case would be that this node is under (negative) control of
-*egl-9* and that *egl-9* is partially activated by *hif-1* and other players.
-
 <!-- Insert bokeh plot here -->
 <!-- Egl-9 is suppressed by Egl-9;Hif-1 DM -->
 <html lang="en">
@@ -93,6 +73,25 @@ hypothesis for this particular case would be that this node is under (negative) 
 </html>
 
 
+In the second graph, I plotted the *hif-1* phenotype versus the double mutant.
+In this graph, the line of best fit (see methods) is not statistically significantly
+different from 0, suggesting that *hif-1* mutant is statistically identical to
+to the double mutant. Therefore, we expect to see no change in the transcriptomic
+phenotype in this comparison (black line). Indeed, for most genes,
+ there is no discernible trend! Once more, red points here indicate points
+ that violate the epistasis model. Even these genes have no strong trend however.
+ Therefore, we conclude that the *hif-1* mutant phenotype is not significantly
+ aggravated by a second mutation at the *egl-9* locus, meaning these two loci are
+ epistatic to each other. They evidence suggests they are interacting in a
+ negative regulatory interaction.
+
+Notably, in both graphs there is a particular point (find it!) that seems to violate
+the genetic model in question! This transcription factor has the same phenotype
+in thet *egl-9* mutant as in the *egl-9; hif-1* mutant, whereas the *hif-1* phenotype
+is less perturbed (smaller fold change than in the double). In this case, a
+model in which *egl-9* inhibits *hif-1* is not supported. A more reasonable
+hypothesis for this particular case would be that this node is under (negative) control of
+*egl-9* and that *egl-9* is partially activated by *hif-1* and other players.
 
 
 
