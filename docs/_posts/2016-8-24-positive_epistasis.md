@@ -67,7 +67,7 @@ The *vhl-1* phenotype is worsened by linkage with an *egl-9* mutation
 
 In the graph below, it is clear that *vhl-1* has a positive correlation with the
 double mutant in question. The red line is a line of best fit (see methods) that
-is statistically different from 0 ($p < 10**-6$). Taken together, the data indicates
+is statistically different from 0 ($p < 10^-6$). Taken together, the data indicates
 that *vhl-1* acts together with *egl-9*. However, the worsening phenotype of the double
 mutant with respect to *vhl-1* but not *egl-9* suggests that *egl-9* is acting in *vhl-1*
  independent ways.
