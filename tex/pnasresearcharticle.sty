@@ -4,7 +4,7 @@
 \ProvidesPackage{pnasresearcharticle}[2016/02/28 v1.2 PNAS two column research article style]
 
 %% Set whether the abstract is set into the first column
-\setboolean{shortarticle}{true} 
+\setboolean{shortarticle}{true}
 % true = set into first column
 % false = spans page width
 
@@ -20,7 +20,7 @@
 \afterpage{\begin{sigstatement}
 \sffamily
 \mdfdefinestyle{pnassigstyle}{linewidth=0.7pt,backgroundcolor=pnasblueback,linecolor=pnasbluetext,fontcolor=pnasbluetext,innertopmargin=6pt,innerrightmargin=6pt,innerbottommargin=6pt,innerleftmargin=6pt}
-\@ifundefined{@significancestatement}{}{%	
+\@ifundefined{@significancestatement}{}{%
 	\begin{mdframed}[style=pnassigstyle]%
 	\section*{Significance Statement}%
 	\@significancestatement

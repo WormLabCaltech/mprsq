@@ -1,0 +1,219 @@
+\begin{thebibliography}{10}
+
+\bibitem{Phillips2008}
+Phillips PC (2008) {Epistasis --- the essential role of gene interactions in
+  the structure and evolution of genetic systems}.
+\newblock {\em Nat Rev Genet} 9(11):855--867.
+
+\bibitem{Hughes2000}
+Hughes TR et~al. (2000) {Functional Discovery via a Compendium of Expression
+  Profiles}.
+\newblock {\em Cell} 102(1):109--126.
+
+\bibitem{VanDriessche2005}
+{Van Driessche} N et~al. (2005) {Epistasis analysis with global transcriptional
+  phenotypes. TL - 37}.
+\newblock {\em Nature genetics} 37 VN - r(5):471--477.
+
+\bibitem{Mortazavi2008}
+Mortazavi A, Williams BA, McCue K, Schaeffer L, Wold B (2008) {Mapping and
+  quantifying mammalian transcriptomes by RNA-Seq}.
+\newblock {\em Nature Methods} 5(7):621--628.
+
+\bibitem{Metzker2010}
+Metzker ML (2010) {Sequencing technologies - the next generation.}
+\newblock {\em Nature reviews. Genetics} 11(1):31--46.
+
+\bibitem{Patro2014}
+Patro R, Mount SM, Kingsford C (2014) {Sailfish enables alignment-free isoform
+  quantification from RNA-seq reads using lightweight algorithms}.
+\newblock {\em Nature biotechnology} 32(5):462--464.
+
+\bibitem{Bray2015}
+Bray NL, Pimentel H, Melsted P, Pachter L (2015) {Near-optimal RNA-Seq
+  quantification}.
+\newblock {\em aRxiv}.
+
+\bibitem{Patro2015}
+Patro R, Duggal G, Kingsford C (2015) {Salmon: Accurate, Versatile and
+  Ultrafast Quantification from RNA-seq Data using Lightweight-Alignment}.
+\newblock {\em bioRxiv} p. 021592.
+
+\bibitem{Pimentel2016}
+Pimentel HJ, Bray N, Puente S, Melsted P, Pachter L (2016) {Differential
+  analysis of RNA-Seq incorporating quantification uncertainty}.
+\newblock {\em bioRxiv} p. 058164.
+
+\bibitem{Trapnell2013}
+Trapnell C et~al. (2013) {Differential analysis of gene regulation at
+  transcript resolution with RNA-seq.}
+\newblock {\em Nature biotechnology} 31(1):46--53.
+
+\bibitem{Singer2016}
+Singer M et~al. (2016) {A Distinct Gene Module for Dysfunction Uncoupled from
+  Activation in Tumor-Infiltrating T Cells}.
+\newblock {\em Cell} 166(6):1500--1511.e9.
+
+\bibitem{Shalek2013}
+Shalek AK et~al. (2013) {Single-cell transcriptomics reveals bimodality in
+  expression and splicing in immune cells.}
+\newblock {\em Nature} 498(7453):236--40.
+
+\bibitem{Schwarz2012}
+Schwarz EM, Kato M, Sternberg PW (2012) {Functional transcriptomics of a
+  migrating cell in Caenorhabditis elegans.}
+\newblock {\em Proceedings of the National Academy of Sciences of the United
+  States of America} 109(40):16246--51.
+
+\bibitem{VanWolfswinkel2014}
+{Van Wolfswinkel} JC, Wagner DE, Reddien PW (2014) {Single-cell analysis
+  reveals functionally distinct classes within the planarian stem cell
+  compartment}.
+\newblock {\em Cell Stem Cell} 15(3):326--339.
+
+\bibitem{Scimone2014}
+Scimone ML, Kravarik KM, Lapan SW, Reddien PW (2014) {Neoblast specialization
+  in regeneration of the planarian schmidtea mediterranea}.
+\newblock {\em Stem Cell Reports} 3(2):339--352.
+
+\bibitem{Semenza2012}
+Semenza GL (2012) {Hypoxia-inducible factors in physiology and medicine}.
+\newblock {\em Cell} 148(3):399--408.
+
+\bibitem{Nizet2009}
+Nizet V, Johnson RS (2009) {Interdependence of hypoxic and innate immune
+  responses.}
+\newblock {\em Nature reviews. Immunology} 9(9):609--17.
+
+\bibitem{Ackerman2012}
+Ackerman D, Gems D (2012) {Insulin/IGF-1 and hypoxia signaling act in concert
+  to regulate iron homeostasis in Caenorhabditis elegans}.
+\newblock {\em PLoS Genetics} 8(3).
+
+\bibitem{Semenza2003}
+Semenza GL (2003) {Targeting HIF-1 for cancer therapy.}
+\newblock {\em Nature reviews. Cancer} 3(10):721--32.
+
+\bibitem{Bishop2004}
+Bishop T et~al. (2004) {Genetic analysis of pathways regulated by the von
+  Hippel-Lindau tumor suppressor in Caenorhabditis elegans}.
+\newblock {\em PLoS Biology} 2(10).
+
+\bibitem{Shao2009}
+Shao Z, Zhang Y, Powell-Coffman JA (2009) {Two distinct roles for EGL-9 in the
+  regulation of HIF-1-mediated gene expression in Caenorhabditis elegans}.
+\newblock {\em Genetics} 183(3):821--829.
+
+\bibitem{Tanimoto2000}
+Tanimoto K, Makino Y, Pereira T, Poellinger L (2000) {Mechanism of regulation
+  of the hypoxia-inducible factor-1 alpha by the von Hippel-Lindau tumor
+  suppressor protein}.
+\newblock {\em Embo J} 19(16):4298--309.
+
+\bibitem{Jaakkola2001}
+Jaakkola P et~al. (2001) {Targeting of HIF-alpha to the von Hippel-Lindau
+  ubiquitylation complex by O2-regulated prolyl hydroxylation.}
+\newblock {\em Science} 292(5516):468--472.
+
+\bibitem{Shen2006}
+Shen C, Shao Z, Powell-Coffman JA (2006) {The Caenorhabditis elegans rhy-1 gene
+  inhibits HIF-1 hypoxia-inducible factor activity in a negative feedback loop
+  that does not include vhl-1}.
+\newblock {\em Genetics} 174(3):1205--1214.
+
+\bibitem{Ma2012}
+Ma DK, Vozdek R, Bhatla N, Horvitz HR (2012) {CYSL-1 Interacts with the O
+  2-Sensing Hydroxylase EGL-9 to Promote H 2S-Modulated Hypoxia-Induced
+  Behavioral Plasticity in C. elegans}.
+\newblock {\em Neuron} 73(5):925--940.
+
+\bibitem{Yeung2003}
+Yeung KY, Medvedovic M, Bumgarner RE (2003) {Clustering gene-expression data
+  with repeated measurements}.
+\newblock {\em Genome biology} 4(5):R34.
+
+\bibitem{Angeles-Albores2016}
+Angeles-Albores D, {N. Lee} RY, Chan J, Sternberg PW (2016) {Tissue enrichment
+  analysis for C. elegans genomics}.
+\newblock {\em BMC Bioinformatics} 17(1):366.
+
+\bibitem{Zhou2007}
+Zhou B et~al. (2007) {Hypertonic induction of aquaporin-5: novel role of
+  hypoxia-inducible factor-1alpha}.
+\newblock {\em Am J Physiol Cell Physiol} 292(4):C1280--90.
+
+\bibitem{Hell2014}
+Hell MP, Duda M, Weber TC, Moch H, Krek W (2014) {Tumor suppressor vhl
+  functions in the control of mitotic fidelity}.
+\newblock {\em Cancer Research} 74(9):2422--2431.
+
+\bibitem{Liu2015}
+Liu Y et~al. (2015) {High expression of Solute Carrier Family 1, member 5
+  (SLC1A5) is associated with poor prognosis in clear-cell renal cell
+  carcinoma.}
+\newblock {\em Scientific reports} 5(October):16954.
+
+\bibitem{Powell-Coffman2010}
+Powell-Coffman JA (2010) {Hypoxia signaling and resistance in C. elegans}.
+\newblock {\em Trends in Endocrinology and Metabolism} 21(7):435--440.
+
+\bibitem{Gray2004}
+Gray JM et~al. (2004) {Oxygen sensation and social feeding mediated by a C.
+  elegans guanylate cyclase homologue.}
+\newblock {\em Nature} 430(6997):317--322.
+
+\bibitem{Cheung2005}
+Cheung BHH, Cohen M, Rogers C, Albayram O, {De Bono} M (2005)
+  {Experience-dependent modulation of C. elegans behavior by ambient oxygen}.
+\newblock {\em Current Biology} 15(10):905--917.
+
+\bibitem{Chang2008}
+Chang AJ, Bargmann CI (2008) {Hypoxia and the HIF-1 transcriptional pathway
+  reorganize a neuronal circuit for oxygen-dependent behavior in Caenorhabditis
+  elegans.}
+\newblock {\em Proceedings of the National Academy of Sciences of the United
+  States of America} 105(20):7321--7326.
+
+\bibitem{Ma2013}
+Ma DK et~al. (2013) {Cytochrome P450 drives a HIF-regulated behavioral response
+  to reoxygenation by C. elegans.}
+\newblock {\em Science (New York, N.Y.)} 341(6145):554--8.
+
+\bibitem{Team2014}
+Team BD (2014) {Bokeh: Python library for interactive visualization}.
+
+\bibitem{McKinney2011}
+McKinney W (2011) {pandas: a Foundational Python Library for Data Analysis and
+  Statistics}.
+\newblock {\em Python for High Performance and Scientific Computing} pp. 1--9.
+
+\bibitem{Oliphant2007}
+Oliphant TE (2007) {SciPy: Open source scientific tools for Python}.
+\newblock {\em Computing in Science and Engineering} 9:10--20.
+
+\bibitem{Pedregosa2012}
+Pedregosa F et~al. (2012) {Scikit-learn: Machine Learning in Python}.
+\newblock {\em Journal of Machine Learning Research} 12:2825--2830.
+
+\bibitem{Salvatier2015}
+Salvatier J, Wiecki T, Fonnesbeck C (2015) {Probabilistic Programming in Python
+  using PyMC}.
+\newblock {\em Arxiv} pp. 1--24.
+
+\bibitem{VanDerWalt2011}
+{Van Der Walt} S, Colbert SC, Varoquaux G (2011) {The NumPy array: A structure
+  for efficient numerical computation}.
+\newblock {\em Computing in Science and Engineering} 13(2):22--30.
+
+\bibitem{Developers}
+Developers M (year?) matplotlib: v1.5.3.
+
+\bibitem{Waskom}
+Waskom M et~al. (year?) {seaborn: v0.7.0 (January 2016)}.
+
+\bibitem{Perez2007}
+P{\'{e}}rez F, Granger B (2007) {IPython: A System for Interactive Scientific
+  Computing Python: An Open and General- Purpose Environment}.
+\newblock {\em Computing in Science and Engineering} 9(3):21--29.
+
+\end{thebibliography}
