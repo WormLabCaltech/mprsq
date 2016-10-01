@@ -90,9 +90,24 @@ Ackerman D, Gems D (2012) {Insulin/IGF-1 and hypoxia signaling act in concert
   to regulate iron homeostasis in Caenorhabditis elegans}.
 \newblock {\em PLoS Genetics} 8(3).
 
+\bibitem{Kirienko2013}
+Kirienko NV et~al. (2013) {Pseudomonas aeruginosa disrupts Caenorhabditis
+  elegans iron homeostasis, causing a hypoxic response and death}.
+\newblock {\em Cell Host and Microbe} 13(4):406--416.
+
 \bibitem{Semenza2003}
 Semenza GL (2003) {Targeting HIF-1 for cancer therapy.}
 \newblock {\em Nature reviews. Cancer} 3(10):721--32.
+
+\bibitem{Epstein2001}
+Epstein ACR et~al. (2001) {C. elegans EGL-9 and mammalian homologs define a
+  family of dioxygenases that regulate HIF by prolyl hydroxylation}.
+\newblock {\em Cell} 107(1):43--54.
+
+\bibitem{To2005}
+To KKW, Huang LE (2005) {Suppression of hypoxia-inducible factor 1alpha
+  (HIF-1alpha) transcriptional activity by the HIF prolyl hydroxylase EGLN1}.
+\newblock {\em Journal of Biological Chemistry} 280(45):38102--38107.
 
 \bibitem{Bishop2004}
 Bishop T et~al. (2004) {Genetic analysis of pathways regulated by the von
@@ -131,6 +146,17 @@ Ma DK, Vozdek R, Bhatla N, Horvitz HR (2012) {CYSL-1 Interacts with the O
 Yeung KY, Medvedovic M, Bumgarner RE (2003) {Clustering gene-expression data
   with repeated measurements}.
 \newblock {\em Genome biology} 4(5):R34.
+
+\bibitem{Shen2005}
+Shen C, Nettleton D, Jiang M, Kim SK, Powell-Coffman JA (2005) {Roles of the
+  HIF-1 hypoxia-inducible factor during hypoxia response in Caenorhabditis
+  elegans}.
+\newblock {\em Journal of Biological Chemistry} 280(21):20580--20588.
+
+\bibitem{Park2012}
+Park EC et~al. (2012) {Hypoxia regulates glutamate receptor trafficking through
+  an HIF-independent mechanism}.
+\newblock {\em The EMBO Journal} 31(6):1618--1619.
 
 \bibitem{Angeles-Albores2016}
 Angeles-Albores D, {N. Lee} RY, Chan J, Sternberg PW (2016) {Tissue enrichment
