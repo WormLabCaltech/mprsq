@@ -55,7 +55,7 @@ baseurl: ""
 #
 
 permalink: /:title/
-permalink: /404.md
+# permalink: /404.md
 
 # The release of Jekyll Now that you're using
 version: v1.2.0
