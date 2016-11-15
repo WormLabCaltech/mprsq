@@ -259,7 +259,7 @@ class hunt(object):
             zero = (df.tpm <= count_min)
             # find those ids:
             series = df[min_tpm | zero][self.gene]
-            names = names + pd.Series.tolist(series)
+            names = names + series.values.tolist()
         # find the set of names (no repetitions) that don't pass the filter
         names = list(set(names))
         names = names[1:]
@@ -279,7 +279,7 @@ class hunt(object):
             ind = ~self.beta[genotype][self.gene].isin(not_dropped)
             na_here = self.beta[genotype][ind][self.gene].values
 
-            na = na + pd.Series.tolist(na_here)
+            na = na + na_here.tolist()
 
         na = list(set(na))
         print('Number of na genes: {0}'.format(len(na)))

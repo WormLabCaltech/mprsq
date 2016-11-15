@@ -7,45 +7,45 @@ Warning--I didn't find a database entry for ""
 Warning--empty journal in Team2014
 Warning--empty journal in Developers
 Warning--empty journal in Waskom
-You've used 49 entries,
+You've used 42 entries,
             1797 wiz_defined-function locations,
-            798 strings with 19771 characters,
-and the built_in function-call counts, 11329 in all, are:
-= -- 984
-> -- 501
+            752 strings with 17876 characters,
+and the built_in function-call counts, 9683 in all, are:
+= -- 832
+> -- 443
 < -- 4
-+ -- 156
-- -- 107
-* -- 997
-:= -- 1701
-add.period$ -- 95
-call.type$ -- 49
-change.case$ -- 49
++ -- 137
+- -- 95
+* -- 842
+:= -- 1457
+add.period$ -- 81
+call.type$ -- 42
+change.case$ -- 42
 chr.to.int$ -- 0
-cite$ -- 52
-duplicate$ -- 520
-empty$ -- 1065
-format.name$ -- 107
-if$ -- 2415
+cite$ -- 45
+duplicate$ -- 450
+empty$ -- 902
+format.name$ -- 95
+if$ -- 2068
 int.to.chr$ -- 0
-int.to.str$ -- 49
-missing$ -- 49
-newline$ -- 196
-num.names$ -- 49
-pop$ -- 73
+int.to.str$ -- 42
+missing$ -- 42
+newline$ -- 168
+num.names$ -- 42
+pop$ -- 66
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 285
+skip$ -- 255
 stack$ -- 0
-substring$ -- 1022
-swap$ -- 131
+substring$ -- 841
+swap$ -- 117
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 3
-while$ -- 132
-width$ -- 51
-write$ -- 482
+while$ -- 111
+width$ -- 44
+write$ -- 412
 (There were 4 warnings)

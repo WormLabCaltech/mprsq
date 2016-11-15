@@ -80,62 +80,6 @@ Scimone ML, Kravarik KM, Lapan SW, Reddien PW (2014) {Neoblast specialization
 Semenza GL (2012) {Hypoxia-inducible factors in physiology and medicine}.
 \newblock {\em Cell} 148(3):399--408.
 
-\bibitem{Nizet2009}
-Nizet V, Johnson RS (2009) {Interdependence of hypoxic and innate immune
-  responses.}
-\newblock {\em Nature reviews. Immunology} 9(9):609--17.
-
-\bibitem{Ackerman2012}
-Ackerman D, Gems D (2012) {Insulin/IGF-1 and hypoxia signaling act in concert
-  to regulate iron homeostasis in Caenorhabditis elegans}.
-\newblock {\em PLoS Genetics} 8(3).
-
-\bibitem{Kirienko2013}
-Kirienko NV et~al. (2013) {Pseudomonas aeruginosa disrupts Caenorhabditis
-  elegans iron homeostasis, causing a hypoxic response and death}.
-\newblock {\em Cell Host and Microbe} 13(4):406--416.
-
-\bibitem{Semenza2003}
-Semenza GL (2003) {Targeting HIF-1 for cancer therapy.}
-\newblock {\em Nature reviews. Cancer} 3(10):721--32.
-
-\bibitem{Epstein2001}
-Epstein ACR et~al. (2001) {C. elegans EGL-9 and mammalian homologs define a
-  family of dioxygenases that regulate HIF by prolyl hydroxylation}.
-\newblock {\em Cell} 107(1):43--54.
-
-\bibitem{To2005}
-To KKW, Huang LE (2005) {Suppression of hypoxia-inducible factor 1alpha
-  (HIF-1alpha) transcriptional activity by the HIF prolyl hydroxylase EGLN1}.
-\newblock {\em Journal of Biological Chemistry} 280(45):38102--38107.
-
-\bibitem{Bishop2004}
-Bishop T et~al. (2004) {Genetic analysis of pathways regulated by the von
-  Hippel-Lindau tumor suppressor in Caenorhabditis elegans}.
-\newblock {\em PLoS Biology} 2(10).
-
-\bibitem{Shao2009}
-Shao Z, Zhang Y, Powell-Coffman JA (2009) {Two distinct roles for EGL-9 in the
-  regulation of HIF-1-mediated gene expression in Caenorhabditis elegans}.
-\newblock {\em Genetics} 183(3):821--829.
-
-\bibitem{Tanimoto2000}
-Tanimoto K, Makino Y, Pereira T, Poellinger L (2000) {Mechanism of regulation
-  of the hypoxia-inducible factor-1 alpha by the von Hippel-Lindau tumor
-  suppressor protein}.
-\newblock {\em Embo J} 19(16):4298--309.
-
-\bibitem{Jaakkola2001}
-Jaakkola P et~al. (2001) {Targeting of HIF-alpha to the von Hippel-Lindau
-  ubiquitylation complex by O2-regulated prolyl hydroxylation.}
-\newblock {\em Science} 292(5516):468--472.
-
-\bibitem{Shen2006}
-Shen C, Shao Z, Powell-Coffman JA (2006) {The Caenorhabditis elegans rhy-1 gene
-  inhibits HIF-1 hypoxia-inducible factor activity in a negative feedback loop
-  that does not include vhl-1}.
-\newblock {\em Genetics} 174(3):1205--1214.
-
 \bibitem{Ma2012}
 Ma DK, Vozdek R, Bhatla N, Horvitz HR (2012) {CYSL-1 Interacts with the O
   2-Sensing Hydroxylase EGL-9 to Promote H 2S-Modulated Hypoxia-Induced
@@ -147,16 +91,36 @@ Yeung KY, Medvedovic M, Bumgarner RE (2003) {Clustering gene-expression data
   with repeated measurements}.
 \newblock {\em Genome biology} 4(5):R34.
 
+\bibitem{Shen2006}
+Shen C, Shao Z, Powell-Coffman JA (2006) {The Caenorhabditis elegans rhy-1 gene
+  inhibits HIF-1 hypoxia-inducible factor activity in a negative feedback loop
+  that does not include vhl-1}.
+\newblock {\em Genetics} 174(3):1205--1214.
+
 \bibitem{Shen2005}
 Shen C, Nettleton D, Jiang M, Kim SK, Powell-Coffman JA (2005) {Roles of the
   HIF-1 hypoxia-inducible factor during hypoxia response in Caenorhabditis
   elegans}.
 \newblock {\em Journal of Biological Chemistry} 280(21):20580--20588.
 
+\bibitem{Ackerman2012}
+Ackerman D, Gems D (2012) {Insulin/IGF-1 and hypoxia signaling act in concert
+  to regulate iron homeostasis in Caenorhabditis elegans}.
+\newblock {\em PLoS Genetics} 8(3).
+
 \bibitem{Park2012}
 Park EC et~al. (2012) {Hypoxia regulates glutamate receptor trafficking through
   an HIF-independent mechanism}.
 \newblock {\em The EMBO Journal} 31(6):1618--1619.
+
+\bibitem{Shao2009}
+Shao Z, Zhang Y, Powell-Coffman JA (2009) {Two distinct roles for EGL-9 in the
+  regulation of HIF-1-mediated gene expression in Caenorhabditis elegans}.
+\newblock {\em Genetics} 183(3):821--829.
+
+\bibitem{Powell-Coffman2010}
+Powell-Coffman JA (2010) {Hypoxia signaling and resistance in C. elegans}.
+\newblock {\em Trends in Endocrinology and Metabolism} 21(7):435--440.
 
 \bibitem{Angeles-Albores2016}
 Angeles-Albores D, {N. Lee} RY, Chan J, Sternberg PW (2016) {Tissue enrichment
@@ -179,9 +143,10 @@ Liu Y et~al. (2015) {High expression of Solute Carrier Family 1, member 5
   carcinoma.}
 \newblock {\em Scientific reports} 5(October):16954.
 
-\bibitem{Powell-Coffman2010}
-Powell-Coffman JA (2010) {Hypoxia signaling and resistance in C. elegans}.
-\newblock {\em Trends in Endocrinology and Metabolism} 21(7):435--440.
+\bibitem{Bishop2004}
+Bishop T et~al. (2004) {Genetic analysis of pathways regulated by the von
+  Hippel-Lindau tumor suppressor in Caenorhabditis elegans}.
+\newblock {\em PLoS Biology} 2(10).
 
 \bibitem{Gray2004}
 Gray JM et~al. (2004) {Oxygen sensation and social feeding mediated by a C.
