@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1477555311 "genetic_logic.tex" "genetic_logic.pdf" "genetic_logic" 1477555311
+["pdflatex"] 1479284776 "genetic_logic.tex" "genetic_logic.pdf" "genetic_logic" 1479324891
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -62,14 +62,14 @@
   "/usr/local/texlive/2016/texmf-dist/tex/latex/base/utf8.def" 1459635588 7784 02e454c0f50491e8730511d8fcc96a47 ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/booktabs/booktabs.sty" 1462233275 5869 94335281ffcab47f341cf07ea8220e30 ""
   "/usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf" 1470266149 31958 926ad82bc47ee89401cf24be7d2cbf7d ""
-  "/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1475105269 1950515 49a2f0de8467d02420dc742360dc4a75 ""
-  "/usr/local/texlive/2016/texmf-var/web2c/pdftex/pdflatex.fmt" 1475105304 3873677 ad4c9aeedd9986136e23da5206655c67 ""
+  "/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1478992299 1981090 cab932857292480b8f44c2afa8ade91e ""
+  "/usr/local/texlive/2016/texmf-var/web2c/pdftex/pdflatex.fmt" 1478992319 3873678 3d367451025078447112e297225d3284 ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "genetic_logic.aux" 1477555311 1052 5f94ef35a9cc5554b3683efeb3512b5a ""
-  "genetic_logic.tex" 1477555309 21037 cd65f5699dac475c7d0bc41801abee0b ""
-  "genetic_logic.toc" 1477555311 511 d179c822d330fba11412f8933d196055 ""
+  "genetic_logic.aux" 1479284777 1052 5f94ef35a9cc5554b3683efeb3512b5a ""
+  "genetic_logic.tex" 1479324890 21035 5000195707a296d27f66c742f2a095d4 ""
+  "genetic_logic.toc" 1479284777 511 d179c822d330fba11412f8933d196055 ""
   (generated)
   "genetic_logic.log"
+  "genetic_logic.aux"
   "genetic_logic.toc"
   "genetic_logic.pdf"
-  "genetic_logic.aux"

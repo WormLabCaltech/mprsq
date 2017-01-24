@@ -1,0 +1,15 @@
+\BOOKMARK [1][-]{section*.1}{Introduction \(Level 1 heading\)}{}% 1
+\BOOKMARK [1][-]{section*.2}{Results \(Level 1 heading\)}{}% 2
+\BOOKMARK [2][-]{subsection*.4}{Level 2 Heading}{section*.2}% 3
+\BOOKMARK [3][-]{subsubsection*.5}{Level 3 Heading}{subsection*.4}% 4
+\BOOKMARK [1][-]{section*.7}{Discussion}{}% 5
+\BOOKMARK [1][-]{section*.8}{Methods and Materials}{}% 6
+\BOOKMARK [1][-]{section*.9}{Some LaTeX Examples}{}% 7
+\BOOKMARK [2][-]{subsection*.10}{Figures and Tables}{section*.9}% 8
+\BOOKMARK [2][-]{subsection*.13}{Citations}{section*.9}% 9
+\BOOKMARK [2][-]{subsection*.15}{Mathematics}{section*.9}% 10
+\BOOKMARK [2][-]{subsection*.17}{Other Chemistry Niceties}{section*.9}% 11
+\BOOKMARK [2][-]{subsection*.18}{Lists}{section*.9}% 12
+\BOOKMARK [1][-]{section*.19}{Acknowledgments}{}% 13
+\BOOKMARK [1][-]{section*.20}{Firstly}{}% 14
+\BOOKMARK [1][-]{section*.21}{Secondly}{}% 15

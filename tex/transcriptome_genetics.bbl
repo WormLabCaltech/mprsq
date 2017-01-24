@@ -1,8 +1,8 @@
 \begin{thebibliography}{10}
 
 \bibitem{Phillips2008}
-Phillips PC (2008) {Epistasis --- the essential role of gene interactions in
-  the structure and evolution of genetic systems}.
+Phillips PC (2008) {Epistasis---the essential role of gene interactions in the
+  structure and evolution of genetic systems}.
 \newblock {\em Nat Rev Genet} 9(11):855--867.
 
 \bibitem{Hughes2000}
@@ -12,7 +12,7 @@ Hughes TR et~al. (2000) {Functional Discovery via a Compendium of Expression
 
 \bibitem{VanDriessche2005}
 {Van Driessche} N et~al. (2005) {Epistasis analysis with global transcriptional
-  phenotypes. TL - 37}.
+  phenotypes}.
 \newblock {\em Nature genetics} 37 VN - r(5):471--477.
 
 \bibitem{Mortazavi2008}
@@ -29,18 +29,14 @@ Patro R, Mount SM, Kingsford C (2014) {Sailfish enables alignment-free isoform
   quantification from RNA-seq reads using lightweight algorithms}.
 \newblock {\em Nature biotechnology} 32(5):462--464.
 
-\bibitem{Bray2015}
-Bray NL, Pimentel H, Melsted P, Pachter L (2015) {Near-optimal RNA-Seq
-  quantification}.
-\newblock {\em aRxiv}.
-
 \bibitem{Patro2015}
-Patro R, Duggal G, Kingsford C (2015) {Salmon: Accurate, Versatile and
-  Ultrafast Quantification from RNA-seq Data using Lightweight-Alignment}.
+Patro R, Duggal G, Love MI, Irizarry RA, Kingsford C (2016) {Salmon provides
+  accurate, fast, and bias-aware transcript expression estimates using
+  dual-phase inference}.
 \newblock {\em bioRxiv} p. 021592.
 
 \bibitem{Pimentel2016}
-Pimentel HJ, Bray N, Puente S, Melsted P, Pachter L (2016) {Differential
+Pimentel HJ, Bray NL, Puente S, Melsted P, Pachter L (2016) {Differential
   analysis of RNA-Seq incorporating quantification uncertainty}.
 \newblock {\em bioRxiv} p. 058164.
 
@@ -56,7 +52,7 @@ Singer M et~al. (2016) {A Distinct Gene Module for Dysfunction Uncoupled from
 
 \bibitem{Shalek2013}
 Shalek AK et~al. (2013) {Single-cell transcriptomics reveals bimodality in
-  expression and splicing in immune cells.}
+  expression and splicing in immune cells}.
 \newblock {\em Nature} 498(7453):236--40.
 
 \bibitem{Schwarz2012}
@@ -92,9 +88,9 @@ Yeung KY, Medvedovic M, Bumgarner RE (2003) {Clustering gene-expression data
 \newblock {\em Genome biology} 4(5):R34.
 
 \bibitem{Shen2006}
-Shen C, Shao Z, Powell-Coffman JA (2006) {The Caenorhabditis elegans rhy-1 gene
-  inhibits HIF-1 hypoxia-inducible factor activity in a negative feedback loop
-  that does not include vhl-1}.
+Shen C, Shao Z, Powell-Coffman JA (2006) {The Caenorhabditis elegans rhy-1 Gene
+  Inhibits HIF-1 Hypoxia-Inducible Factor Activity in a Negative Feedback Loop
+  That Does Not Include vhl-1}.
 \newblock {\em Genetics} 174(3):1205--1214.
 
 \bibitem{Shen2005}
@@ -114,64 +110,43 @@ Park EC et~al. (2012) {Hypoxia regulates glutamate receptor trafficking through
 \newblock {\em The EMBO Journal} 31(6):1618--1619.
 
 \bibitem{Shao2009}
-Shao Z, Zhang Y, Powell-Coffman JA (2009) {Two distinct roles for EGL-9 in the
-  regulation of HIF-1-mediated gene expression in Caenorhabditis elegans}.
+Shao Z, Zhang Y, Powell-Coffman JA (2009) {Two Distinct Roles for EGL-9 in the
+  Regulation of HIF-1-mediated gene expression in Caenorhabditis elegans}.
 \newblock {\em Genetics} 183(3):821--829.
 
 \bibitem{Powell-Coffman2010}
 Powell-Coffman JA (2010) {Hypoxia signaling and resistance in C. elegans}.
 \newblock {\em Trends in Endocrinology and Metabolism} 21(7):435--440.
 
-\bibitem{Angeles-Albores2016}
-Angeles-Albores D, {N. Lee} RY, Chan J, Sternberg PW (2016) {Tissue enrichment
-  analysis for C. elegans genomics}.
-\newblock {\em BMC Bioinformatics} 17(1):366.
-
-\bibitem{Zhou2007}
-Zhou B et~al. (2007) {Hypertonic induction of aquaporin-5: novel role of
-  hypoxia-inducible factor-1alpha}.
-\newblock {\em Am J Physiol Cell Physiol} 292(4):C1280--90.
-
 \bibitem{Hell2014}
-Hell MP, Duda M, Weber TC, Moch H, Krek W (2014) {Tumor suppressor vhl
-  functions in the control of mitotic fidelity}.
+Hell MP, Duda M, Weber TC, Moch H, Krek W (2014) {Tumor Suppressor VHL
+  Functions in the Control of Mitotic Fidelity}.
 \newblock {\em Cancer Research} 74(9):2422--2431.
 
-\bibitem{Liu2015}
-Liu Y et~al. (2015) {High expression of Solute Carrier Family 1, member 5
-  (SLC1A5) is associated with poor prognosis in clear-cell renal cell
-  carcinoma.}
-\newblock {\em Scientific reports} 5(October):16954.
-
-\bibitem{Bishop2004}
-Bishop T et~al. (2004) {Genetic analysis of pathways regulated by the von
-  Hippel-Lindau tumor suppressor in Caenorhabditis elegans}.
-\newblock {\em PLoS Biology} 2(10).
+\bibitem{Chang2008}
+Chang AJ, Bargmann CI (2008) {Hypoxia and the HIF-1 transcriptional pathway
+  reorganize a neuronal circuit for oxygen-dependent behavior in Caenorhabditis
+  elegans}.
+\newblock {\em Proceedings of the National Academy of Sciences of the United
+  States of America} 105(20):7321--7326.
 
 \bibitem{Gray2004}
 Gray JM et~al. (2004) {Oxygen sensation and social feeding mediated by a C.
   elegans guanylate cyclase homologue.}
 \newblock {\em Nature} 430(6997):317--322.
 
-\bibitem{Cheung2005}
-Cheung BHH, Cohen M, Rogers C, Albayram O, {De Bono} M (2005)
-  {Experience-dependent modulation of C. elegans behavior by ambient oxygen}.
-\newblock {\em Current Biology} 15(10):905--917.
+\bibitem{Bishop2004}
+Bishop T et~al. (2004) {Genetic Analysis of Pathways Regulated by the von
+  Hippel-Lindau Tumor Suppressor in Caenorhabditis elegans}.
+\newblock {\em PLoS Biology} 2(10).
 
-\bibitem{Chang2008}
-Chang AJ, Bargmann CI (2008) {Hypoxia and the HIF-1 transcriptional pathway
-  reorganize a neuronal circuit for oxygen-dependent behavior in Caenorhabditis
-  elegans.}
-\newblock {\em Proceedings of the National Academy of Sciences of the United
-  States of America} 105(20):7321--7326.
-
-\bibitem{Ma2013}
-Ma DK et~al. (2013) {Cytochrome P450 drives a HIF-regulated behavioral response
-  to reoxygenation by C. elegans.}
-\newblock {\em Science (New York, N.Y.)} 341(6145):554--8.
+\bibitem{Alon2007}
+Alon U (2007) {Network motifs: theory and experimental approaches.}
+\newblock {\em Nat Rev Genet} 8(6):450--61.
 
 \bibitem{Team2014}
-Team BD (2014) {Bokeh: Python library for interactive visualization}.
+{Bokeh Development Team} (2014) {Bokeh: Python library for interactive
+  visualization}.
 
 \bibitem{McKinney2011}
 McKinney W (2011) {pandas: a Foundational Python Library for Data Analysis and
@@ -189,18 +164,24 @@ Pedregosa F et~al. (2012) {Scikit-learn: Machine Learning in Python}.
 \bibitem{Salvatier2015}
 Salvatier J, Wiecki T, Fonnesbeck C (2015) {Probabilistic Programming in Python
   using PyMC}.
-\newblock {\em Arxiv} pp. 1--24.
+\newblock {\em PeerJ Computer Science} 2(e55):1--24.
 
 \bibitem{VanDerWalt2011}
 {Van Der Walt} S, Colbert SC, Varoquaux G (2011) {The NumPy array: A structure
   for efficient numerical computation}.
 \newblock {\em Computing in Science and Engineering} 13(2):22--30.
 
-\bibitem{Developers}
-Developers M (year?) matplotlib: v1.5.3.
+\bibitem{Hunter2007}
+Hunter JD (2007) {Matplotlib: A 2D graphics environment}.
+\newblock {\em Computing in Science and Engineering} 9(3):99--104.
+
+\bibitem{Angeles-Albores2016}
+Angeles-Albores D, {N. Lee} RY, Chan J, Sternberg PW (2016) {Tissue enrichment
+  analysis for C. elegans genomics}.
+\newblock {\em BMC Bioinformatics} 17(1):366.
 
 \bibitem{Waskom}
-Waskom M et~al. (year?) {seaborn: v0.7.0 (January 2016)}.
+Waskom M et~al. (2016) {seaborn: v0.7.0 (January 2016)}.
 
 \bibitem{Perez2007}
 P{\'{e}}rez F, Granger B (2007) {IPython: A System for Interactive Scientific

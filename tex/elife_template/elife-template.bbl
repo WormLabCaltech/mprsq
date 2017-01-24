@@ -1,0 +1,63 @@
+\begin{thebibliography}{5}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\urlprefix}{}
+\providecommand{\doiprefix}{doi: }
+
+\bibitem[{Aivazian et~al.(2006)Aivazian, Dikran and Serrano, Ramon L. and
+  Pfeffer, Suzanne}]{Aivazian917}
+\textbf{\color{eLifeMediumGrey} Aivazian D}, Serrano RL, Pfeffer S.
+\newblock TIP47 is a key effector for Rab9 localization.
+\newblock The Journal of Cell Biology.  2006; 173(6):917--926.
+\newblock \urlprefix\url{http://jcb.rupress.org/content/173/6/917},
+  \href{http://dx.doi.org/10.1083/jcb.200510010}{\doiprefix
+  http://dx.doi.org/10.1083/jcb.200510010}.
+
+\bibitem[{Bloss et~al.(2016)Bloss, Cinnamon S and Wineinger, Nathan E and
+  Peters, Melissa and Boeldt, Debra L and Ariniello, Lauren and Kim, Ju Young
+  and Sheard, Judy and Komatireddy, Ravi and Barrett, Paddy and Topol, Eric
+  J}]{Bloss029983}
+\textbf{\color{eLifeMediumGrey} Bloss CS}, Wineinger NE, Peters M, Boeldt DL,
+  Ariniello L, Kim JY, et~al.
+\newblock A prospective randomized trial examining health care utilization in
+  individuals using multiple smartphone-enabled biosensors.
+\newblock bioRxiv.  2016;
+  \urlprefix\url{http://biorxiv.org/content/early/2016/01/14/029983},
+  \href{http://dx.doi.org/10.1101/029983}{\doiprefix
+  http://dx.doi.org/10.1101/029983}.
+
+\bibitem[{Brettar et~al.(2004{\natexlab{a}})Brettar, Ingrid and Christen,
+  Richard and Höfle, Manfred
+  G.}]{SGM:/content/journal/ijsem/10.1099/ijs.0.63255-0}
+\textbf{\color{eLifeMediumGrey} Brettar I}, Christen R, Höfle MG.
+\newblock Aquiflexum balticum gen. nov., sp. nov., a novel marine bacterium of
+  the Cytophaga–Flavobacterium–Bacteroides group isolated from surface
+  water of the central Baltic Sea.
+\newblock International Journal of Systematic and Evolutionary Microbiology.
+  2004; 54(6):2335--2341.
+\newblock
+  \urlprefix\url{http://ijs.microbiologyresearch.org/content/journal/ijsem/10.1099/ijs.0.63255-0}.
+
+\bibitem[{Brettar et~al.(2004{\natexlab{b}})Brettar, Ingrid and Christen,
+  Richard and Höfle, Manfred
+  G.}]{SGM:/content/journal/ijsem/10.1099/ijs.0.02752-0}
+\textbf{\color{eLifeMediumGrey} Brettar I}, Christen R, Höfle MG.
+\newblock Belliella baltica gen. nov., sp. nov., a novel marine bacterium of
+  the Cytophaga–Flavobacterium–Bacteroides group isolated from surface
+  water of the central Baltic Sea.
+\newblock International Journal of Systematic and Evolutionary Microbiology.
+  2004; 54(1):65--70.
+\newblock
+  \urlprefix\url{http://ijs.microbiologyresearch.org/content/journal/ijsem/10.1099/ijs.0.02752-0}.
+
+\bibitem[{McQuilton et~al.(2012)McQuilton, Peter and St. Pierre, Susan E. and
+  Thurmond, Jim and the FlyBase Consortium}]{McQuilton01012012}
+\textbf{\color{eLifeMediumGrey} McQuilton P}, St~Pierre SE, Thurmond J, the
+  FlyBase~Consortium.
+\newblock FlyBase 101 – the basics of navigating FlyBase.
+\newblock Nucleic Acids Research.  2012; 40(D1):D706--D714.
+\newblock
+  \urlprefix\url{http://nar.oxfordjournals.org/content/40/D1/D706.abstract},
+  \href{http://dx.doi.org/10.1093/nar/gkr1030}{\doiprefix
+  http://dx.doi.org/10.1093/nar/gkr1030}.
+
+\end{thebibliography}

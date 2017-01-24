@@ -3,49 +3,49 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: transcriptome_genetics.aux
 The style file: pnas2011.bst
 Database file #1: citations.bib
+Warning--I didn't find a database entry for "Bray2015"
 Warning--I didn't find a database entry for ""
 Warning--empty journal in Team2014
-Warning--empty journal in Developers
 Warning--empty journal in Waskom
-You've used 42 entries,
+You've used 38 entries,
             1797 wiz_defined-function locations,
-            752 strings with 17876 characters,
-and the built_in function-call counts, 9683 in all, are:
-= -- 832
-> -- 443
-< -- 4
-+ -- 137
-- -- 95
-* -- 842
-:= -- 1457
-add.period$ -- 81
-call.type$ -- 42
-change.case$ -- 42
+            729 strings with 12838 characters,
+and the built_in function-call counts, 8879 in all, are:
+= -- 771
+> -- 401
+< -- 3
++ -- 124
+- -- 86
+* -- 781
+:= -- 1331
+add.period$ -- 74
+call.type$ -- 38
+change.case$ -- 38
 chr.to.int$ -- 0
-cite$ -- 45
-duplicate$ -- 450
-empty$ -- 902
-format.name$ -- 95
-if$ -- 2068
+cite$ -- 40
+duplicate$ -- 407
+empty$ -- 828
+format.name$ -- 86
+if$ -- 1894
 int.to.chr$ -- 0
-int.to.str$ -- 42
-missing$ -- 42
-newline$ -- 168
-num.names$ -- 42
-pop$ -- 66
+int.to.str$ -- 38
+missing$ -- 38
+newline$ -- 153
+num.names$ -- 38
+pop$ -- 54
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 255
+skip$ -- 231
 stack$ -- 0
-substring$ -- 841
-swap$ -- 117
-text.length$ -- 4
+substring$ -- 795
+swap$ -- 105
+text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 3
-while$ -- 111
-width$ -- 44
-write$ -- 412
+warning$ -- 2
+while$ -- 103
+width$ -- 40
+write$ -- 376
 (There were 4 warnings)
