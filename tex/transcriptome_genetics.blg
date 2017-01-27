@@ -6,45 +6,45 @@ Database file #1: citations.bib
 Warning--I didn't find a database entry for ""
 Warning--empty journal in Team2014
 Warning--empty journal in Waskom
-You've used 47 entries,
+You've used 53 entries,
             1797 wiz_defined-function locations,
-            783 strings with 15350 characters,
-and the built_in function-call counts, 11125 in all, are:
-= -- 960
-> -- 520
+            824 strings with 17565 characters,
+and the built_in function-call counts, 12371 in all, are:
+= -- 1066
+> -- 572
 < -- 3
-+ -- 159
-- -- 112
-* -- 991
-:= -- 1671
-add.period$ -- 92
-call.type$ -- 47
-change.case$ -- 47
++ -- 176
+- -- 123
+* -- 1107
+:= -- 1865
+add.period$ -- 104
+call.type$ -- 53
+change.case$ -- 53
 chr.to.int$ -- 0
-cite$ -- 49
-duplicate$ -- 495
-empty$ -- 1033
-format.name$ -- 112
-if$ -- 2367
+cite$ -- 55
+duplicate$ -- 554
+empty$ -- 1155
+format.name$ -- 123
+if$ -- 2628
 int.to.chr$ -- 0
-int.to.str$ -- 47
-missing$ -- 47
-newline$ -- 189
-num.names$ -- 47
-pop$ -- 65
+int.to.str$ -- 53
+missing$ -- 53
+newline$ -- 213
+num.names$ -- 53
+pop$ -- 71
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 282
+skip$ -- 308
 stack$ -- 0
-substring$ -- 1021
-swap$ -- 123
+substring$ -- 1121
+swap$ -- 135
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 2
-while$ -- 126
-width$ -- 49
-write$ -- 465
+while$ -- 141
+width$ -- 55
+write$ -- 525
 (There were 3 warnings)

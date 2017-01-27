@@ -30,7 +30,7 @@ Patro R, Mount SM, Kingsford C (2014) {Sailfish enables alignment-free isoform
 \newblock {\em Nature biotechnology} 32(5):462--464.
 
 \bibitem{Bray2016}
-Bray NL, Pimentel H, Melsted P, Pachter L (2016) {Near-optimal probabilistic
+Bray NL, Pimentel HJ, Melsted P, Pachter L (2016) {Near-optimal probabilistic
   RNA-seq quantification.}
 \newblock {\em Nature biotechnology} 34(5):525--7.
 
@@ -107,7 +107,7 @@ Jiang BH, Rue E, Wang GL, Roe R, Semenza GL (1996) {Dimerization, DNA binding,
 \newblock {\em The Journal of biological chemistry} 271(30):17771--17778.
 
 \bibitem{Jiang2001}
-Jiang H, Guo R, Powell-Coffman Ja (2001) {The Caenorhabditis elegans hif-1 gene
+Jiang H, Guo R, Powell-Coffman JA (2001) {The Caenorhabditis elegans hif-1 gene
   encodes a bHLH-PAS protein that is required for adaptation to hypoxia.}
 \newblock {\em Proceedings of the National Academy of Sciences of the United
   States of America} 98(14):7916--7921.
@@ -167,6 +167,11 @@ Yeung KY, Medvedovic M, Bumgarner RE (2003) {Clustering gene-expression data
   with repeated measurements}.
 \newblock {\em Genome biology} 4(5):R34.
 
+\bibitem{Epstein2001}
+Epstein ACR et~al. (2001) {C. elegans EGL-9 and mammalian homologs define a
+  family of dioxygenases that regulate HIF by prolyl hydroxylation}.
+\newblock {\em Cell} 107(1):43--54.
+
 \bibitem{Shen2006}
 Shen C, Shao Z, Powell-Coffman JA (2006) {The Caenorhabditis elegans rhy-1 Gene
   Inhibits HIF-1 Hypoxia-Inducible Factor Activity in a Negative Feedback Loop
@@ -187,9 +192,42 @@ Park EC et~al. (2012) {Hypoxia regulates glutamate receptor trafficking through
 Powell-Coffman JA (2010) {Hypoxia signaling and resistance in C. elegans}.
 \newblock {\em Trends in Endocrinology and Metabolism} 21(7):435--440.
 
-\bibitem{Alon2007}
-Alon U (2007) {Network motifs: theory and experimental approaches.}
-\newblock {\em Nat Rev Genet} 8(6):450--61.
+\bibitem{Angeles-Albores2016}
+Angeles-Albores D, {N. Lee} RY, Chan J, Sternberg PW (2016) {Tissue enrichment
+  analysis for C. elegans genomics}.
+\newblock {\em BMC Bioinformatics} 17(1):366.
+
+\bibitem{Luhachack2012}
+Luhachack LG et~al. (2012) {EGL-9 Controls C. elegans Host Defense Specificity
+  through Prolyl Hydroxylation-Dependent and -Independent HIF-1 Pathways}.
+\newblock {\em PLoS Pathogens} 8(7):48.
+
+\bibitem{Romney2011}
+Romney SJ, Newman BS, Thacker C, Leibold EA (2011) {HIF-1 regulates iron
+  homeostasis in caenorhabditis elegans by activation and inhibition of genes
+  involved in iron uptake and storage}.
+\newblock {\em PLoS Genetics} 7(12).
+
+\bibitem{Semenza2011}
+Semenza GL (2011) {Hypoxia-inducible factor 1: Regulator of mitochondrial
+  metabolism and mediator of ischemic preconditioning}.
+\newblock {\em Biochimica et Biophysica Acta - Molecular Cell Research}
+  1813(7):1263--1268.
+
+\bibitem{Lee2010}
+Lee SJ, Hwang AB, Kenyon C (2010) {Inhibition of respiration extends C. elegans
+  life span via reactive oxygen species that increase HIF-1 activity}.
+\newblock {\em Current Biology} 20(23):2131--2136.
+
+\bibitem{Sikora2010}
+Sikora J et~al. (2010) {Bioinformatic and biochemical studies point to AAGR-1
+  as the ortholog of human acid ??-glucosidase in Caenorhabditis elegans}.
+\newblock {\em Molecular and Cellular Biochemistry} 341(1-2):51--63.
+
+\bibitem{Brugarolas2004}
+Brugarolas J et~al. (2004) {Regulation of mTOR function in response to hypoxia
+  by REDD1 and the TSC1 / TSC2 tumor suppressor complex}.
+\newblock {\em Genes and Development} 18(23):1--12.
 
 \bibitem{Team2014}
 {Bokeh Development Team} (2014) {Bokeh: Python library for interactive
@@ -221,11 +259,6 @@ Salvatier J, Wiecki T, Fonnesbeck C (2015) {Probabilistic Programming in Python
 \bibitem{Hunter2007}
 Hunter JD (2007) {Matplotlib: A 2D graphics environment}.
 \newblock {\em Computing in Science and Engineering} 9(3):99--104.
-
-\bibitem{Angeles-Albores2016}
-Angeles-Albores D, {N. Lee} RY, Chan J, Sternberg PW (2016) {Tissue enrichment
-  analysis for C. elegans genomics}.
-\newblock {\em BMC Bioinformatics} 17(1):366.
 
 \bibitem{Waskom}
 Waskom M et~al. (2016) {seaborn: v0.7.0 (January 2016)}.
