@@ -222,6 +222,7 @@ ubiquitination of \hifp{} leading to its subsequent degradation. In \cel{},
 \eglp{} activity is inhibited by binding of \cyslp{}, and \cyslp{} activity is
 in turn inhibited at the protein level by \rhyp{}, possibly by
 post-translational modifications to \cyslp{}~\cite{Ma2012}.
+
 % old:
 % The hypoxia pathway is a conserved pathway that is found in all
 % metazoans~\cite{Semenza2012}. It plays an important role in oxygen and iron
@@ -390,7 +391,7 @@ altered genes respectively and the overlap between both genes was
 extensive, which makes the weighting factor considerably larger than other pairs.
 Likewise, the weak correlation between \hif{} and \egl{}, \vhl{} and \rhy{} is at
 least partially the result of its relatively weak transcriptomic phenotype relative
-to the other genes, particularly \egl{} and \rhy{}. 
+to the other genes, particularly \egl{} and \rhy{}.
 The fine-grained nature of transcriptional phenotypes means that these weighted
 correlations between transcriptomes of single mutants are predictive of genetic
 interaction.
@@ -527,9 +528,9 @@ We observe that the \egl{};\vhl{} mutant has an identical phenotype to the
 On the other hand, \vhl{} has a positive slope, indicating that \egl{} is
 additive to \vhl{}. However, this positive slope has to be less than the slope that
 would be predicted by an additive model because the slope between \egl{};\vhl{} and
-\egl{} is not statistically different from zero. Partial additivity can be explained
-if \egl{} is inhibiting \hif{} in a \vhl{}-dependent as well as a \vhl{}-independent
-manner, as is well-documented in the literature~\cite{Shao2009}.
+\egl{} is not statistically different from zero. Partial additivity indicates that
+\egl{} inhibits \hif{} in \vhl{}-dependent and independent manners, which has
+been documented in the literature~\cite{Shao2009}.
 
 % double mutant analysis
 \begin{table}%[tbhp]
@@ -894,7 +895,8 @@ seen a complete transcriptional description of hif-1 induced changes in the TCA,
 ETC. Can anyone let me know if I missed something?}
 
 \subsubsection{Bio-energetic pathways}
-\todo{Bio-energetic or bioenergetic?}
+
+\todo[inline]{Bio-energetic or bioenergetic?}
 Our data shows that most of the enzymes involved in the TCA cycle and in the ETC
 are down-regulated when \hifp{} is induced in agreement with the previous
 literature~\cite{Semenza2012}.\todo[inline]{Missing ETC citation} However,
@@ -902,8 +904,9 @@ literature~\cite{Semenza2012}.\todo[inline]{Missing ETC citation} However,
 the trend, as they were up-regulated in every single genotype that causes
 deployment of the hypoxia response. \gene{fum-1} catalyses the reaction of
 fumarate into malate, and complex II catalyses the reaction of succinate into
-fumarate.\todo[inline]{Missing discussion of why this is biologically relevant.
-Fumarate is a poison for egl-9.}
+fumarate. Complex II has been identified as a source of reserve respiratory capacity
+in neonatal rat cardiomyocytes previously~\cite{Pfleger2015}.\todo[inline]{Missing
+discussion of why this is biologically relevant. Fumarate is a poison for egl-9.}
 We found two energy reserve genes that were down-regulated by \hifp{}. \gene{aagr-1}
 and \gene{aagr-2}, which are predicted to function in glycogen
 catabolism~\cite{Sikora2010} were both down-regulated in all the relevant mutants.
@@ -950,137 +953,90 @@ whether the decrease in expression is a direct result of \hifp{} stabilization.
 \section*{Discussion}
 \subsection*{The \cel{} hypoxia pathway can be reconstructed entirely from
              RNA-seq data}
+We have presented the first genetic pathway reconstruction in a multicellular
+organism using whole-organism RNA-seq to measure transcriptomic phenotypes.
+We were able to reconstruct first-order and second-order interactions. We
+were able to infer order of action (\rhy{} activates \egl{}, \egl{} and
+\vhl{} inhibit \hif{}), and we were able to infer from genome-wide epistatic
+measurements that \egl{} exerts \vhl{}-dependent and independent inhibition on
+\hif{}.
+
+In addition to reconstructing the pathway, our dataset afforded us the opportunity
+to observe a wide variety of physiologic changes that occur when the \hif{}-dependent
+hypoxia response is activated. In particular, we observed down-regulation of most
+components of the TCA cycle and the mitochondrial electron transport chain.
+As an exception, \gene{fum-1} and the mitochondrial complex II, which are involved
+in fumarate metabolism within these pathways were up-regulated. The mitochondrial
+complex II catalyses the reaction of succinate into fumarate. Complex II is known
+to be important for hypoxic survival in rat cardiomyocyte cells~\cite{Pfleger2015}.
+Complex II may play a similar role in \cel{}. The product of complex II
+activity is fumarate. In mouse embryonic fibroblasts, fumarate has been
+shown to antagonize \hifp{} prolyl hydroxylase domain (PHD) enzymes, which are
+orthologs of \egl{}. Upregulation of complex II by \hifp{} during hypoxia may
+therefore result in increased intracellular levels of fumarate, which in turn could
+lead to artificially high levels of \hif{} (if the inhibitory role of fumarate is
+conserved in \cel{}) even after hypoxic conditions have vanished in the absence
+of concurrent metabolic changes.
+
+Under this framework, the up-regulation of \gene{fum-1} agrees with intuition. By
+up-regulating \gene{fum-1}, we speculate that \cel{} may be capable of harnessing
+reserve respiratory capacity via complex II, while rapidly degrading the excess
+fumarate that is generated. Degrading fumarate rapidly may allow \cel{} to
+maintain plasticity in the hypoxia pathway, keeping the pathway sensitive to
+oxygen levels.
 
 \subsection*{Non-classical epistasis in the hypoxia pathway}
+The observation of almost 30 genes that exhibit a specific pattern of non-classical
+epistasis reveals new aspects of the pathway. Some of these non-classical
+epistases had been observed previously, but no satisfactory mechanism has been
+proposed to explain this biology. \citep{Romney2011} and \citep{Ackerman2012}
+both suggest that \hif{} integrates information on iron concentration in the
+cell to bind to the \ftna{} promoter, but they could not definitively establish
+a mechanism. In particular, it is unclear why deletion of \hif{} induces \ftna{}
+expression, but deletion of \egl{} also causes induction of \ftna{} expression,
+whereas \vhl{} removes this inhibition. Mechanisms that call for additional
+transcriptional modulators become more unlikely given our data showing that 27
+genes with different biological functions all exhibit the same pattern.
+
+One way to resolve this problem without invoking additional genes is to
+model \hifp{} as a protein with both activating and inhibiting states. In fact,
+\hifp{} already exists in two states in \cel{}: unmodified \hifp{} and
+\hifp{}-hydroxyl. Under this model, \hifp{}-hydroxyl would inhibit gene expression,
+whereas \hifp{} drives it. \vhl{} stabilizes \hifp{}-hydroxyl, which will
+cause inhibition of genes to which both forms of the protein bind; whereas \egl{}
+selectively removes all \hifp{}-hydroxyl, indirectly stimulating accumulation of
+\hifp{} and promoting gene activity. Whether deletion of \hif{} is activating or
+inhibiting will depend on the relative contributions of each protein activity
+under normoxia.
+
+The possibility that \hifp{}-hydroxyl has a function has not been previously
+considered in the existing literature, although experts have wondered about
+the possibility that \hifp{}-hydroxyl may have transcriptional effects independent
+of \hifp{} (William Kaelin, pers.\ comm.). Here, we draw multiple, varied lines
+of circumstantial evidence to suggest that \hifp{} hydroxylation plays a role
+in the functionality of the hypoxia pathway. First, \hifp{}-hydroxyl is
+challenging to study genetically because no mimetic mutations are available with
+which to study the pure hydroxylated \hifp{} species. Moreover, mutations in
+the Von-Hippel Landau gene stabilize the hydroxyl species, but also increase the
+quantity of \hifp{} by mass action. Since \hif{} exists at low levels in cells
+under normoxic conditions, total \hifp{} protein (unmodified \hifp{} plus
+\hifp{}-hydroxyl) is often tacitly assumed to be vanishingly rare.
+
+Our data shows that there are hundreds of genes that change expression in response
+to loss of \hif{} under normoxic conditions. This establishes that there is sufficient
+total \hifp{} protein to be biologically active. Moreover, our analysis of the
+hypoxia pathway using transcriptomic phenotypes reveals that \hif{} shares main
+positive correlations with \egl{}, \rhy{} and \vhl{}, and that each of these genes
+also shows a small set of genes with large magnitude, negative rank-ordered expression
+correlations. These cross-patterns between all controllers of \hif{} and \hif{} can
+be most easily explained if \hifp{}-hydroxyl is biologically active.
+
+If hydroxylation of \hifp{} has biochemical repercussions, then presumably this
+should be reflected in the biological functionality of the pathway. Indeed, \egl{}
+mutants are documented to have opposite expression phenotypes to \vhl{} mutants
+for genes important
 
 \subsection{Looking forward}
-
-% % new model:
-% \begin{figure}[tbhp]
-% \centering
-% \includegraphics[width=\linewidth]{figs/new_model.pdf}
-% \caption{
-% A schematic of the hypoxia pathway in \cel{}. \rhyp{} likely inhibits a
-% protein-protein interaction between \eglp{} and \cyslp{}~\cite{Ma2012}. This
-% interaction inhibits the activity of \eglp{}. When active, \eglp{} can inhibit
-% \hifp{} by catalyzing the hydroxylation of \hifp{}, which leads to its
-% recognition and ubiquitination by \vhlp{} and ultimately leads to rapid
-% degradation of \hifp{} protein. Independently of its enzymatic function,
-% \eglp{} can also inhibit \hifp{} transcriptional activity. Our results identified
-% \rhy{}, \egl{} and \cysl{} as downstream targets of the \hif{}-dependent
-% transcriptional response.
-% However, we also identified increased in the mRNA levels of \rhy{} and \cysl{}
-% when \hif{} was knocked out.
-% Moreover, the \hif{} knock-out transcriptome correlated positively with \rhy{},
-% \egl{} and \vhl{}. One plausible explanation for these observations is that
-% hydroxylated \hifp{} has transcriptional consequences.
-% Inset shows a simplified diagram of the hypoxia pathway.
-% }
-% \label{fig:newmodel}
-% \end{figure}
-%
-% Previous work has established a circuit in which \rhy{} leads to the activation
-% of \egl{}, and \egl{} inhibits \hif{} in an oxygen-dependent manner. Hydroxylated
-% \hifp{} can then be degraded in a \vhl{}-dependent manner. There is also evidence
-% that \egl{} and \rhy{} are in turn activated by \hif{}~\cite{Bishop2004,
-% Powell-Coffman2010}.
-% Finally, there is evidence that although the interaction between \egl{} and
-% \vhl{} is important for \hif{} repression, \egl{} can also act in a non-\vhl{}
-% and non-oxygen dependent manner (see Fig.~\ref{fig:newmodel} top).
-%
-% Using only information gathered from transcriptomic profiling, we were able to
-% reconstruct the known regulatory relationships between \egl{}, \rhy{} and \vhl{}
-% using a combination of inter-transcriptome correlations and epistasis
-% measurements. Using clustering as a proxy for phenotype, we were able to infer
-% the relationship between \egl{} and \hif{}.
-% Alternatively, we could have used our epistasis measurements to conclude that
-% \egl{} inhibits \hif{}. By looking at single gene measurements using \emph{in
-% silico} qPCR, we were able to determine that \rhy{} transcription is stimulated
-% by \hifp{}. Single gene measurements also suggested that \egl{} is
-% transcriptionally downstream of \hif{}, although only the measurements from
-% \egl{} mutants were statistically significantly different from 0 and all other
-% \hif{}-constitutive mutants only trended towards increased \egl{} expression.
-% In addition, our dataset also identified \cysl{} as a \hif{}-responsive gene.
-% We were unable to detect \vhl{} transcripts in our RNA-seq measurements, and
-% therefore we cannot rule out effects of \hif{} on \vhl{} using this data. All
-% of these measurements are consistent with the previous literature.
-%
-% Although we reconstructed the reported pathway, some of our data cannot be
-% easily explained under a model in which \hifp{} is transcriptionally active but
-% hydroxylated \hifp{} is not. For example, the \hif{} transcriptome correlated
-% positively with the \egl{}, \rhy{} and \vhl{} transcriptomes. Moreover, our
-% \emph{in silico} qPCR suggests that \rhy{} expression levels are increased upon
-% mutation of the \hif{} gene, which is hard to explain under the standard model,
-% since \hif{} is an activator of \rhy{}, most \hifp{} is expected to be
-% hydroxylated under normoxic conditions, and total \hifp{} are not anywhere near
-% their hypoxic levels. The simplest explanation that could explain these results
-% without involving another gene would be to postulate that hydroxylated \hifp{}
-% is an active player with downstream transcriptional consequences, and that one
-% of these consequences is repression of \rhy{}.
-%
-% Such a model is appealing because the network that emerges has certain
-% characteristics of homeostatic pathways. First, under oxygen deplete conditions,
-% \hifp{} will no longer be hydroxylated and it will initiate transcription of the
-% hypoxic response. Upregulation of its controller genes generates a negative
-% feedback loop which has positive consequences for the response time of a \hifp{}
-% growth curve~\cite{Alon2007}. On the other hand, we can envision an environment
-% in which \hifp{} is completely hydroxylated. Presumably, an organism always
-% needs non-hydroxylated \hifp{}, or alternatively, needs hydroxylated \hifp{}
-% levels to be below a certain threshold. If hydroxylated \hifp{} can mediate a
-% transcriptional response, then the organism benefits from complete information
-% about the iron and oxygen balance within it, as both species of \hifp{} signal
-% with strengths proportional to their total levels in the cell.
-
-% \subsection*{Towards A Genetic Theory of Transcriptomics}
-% We have shown that transcriptomes contain sufficient information to be used as
-% semi-quantitative phenotypes in complex metazoans. These phenotypes can be
-% interpreted globally via correlation tests, clustering or other probabilistic
-% methods; alternatively, they can be used to query single reporter genes in a
-% manner similar to qPCR today. As a result of this dynamic range, transcriptomic
-% phenotypes have distinct advantages over physical traits.
-% Firstly, due to their increased complexity, the genotype-phenotype mapping
-% degeneracy ought to be greatly reduced, which facilitates predictions of genetic
-% interaction. Secondly, genes that result in subtle or no visible traits when
-% mutated may have detectable, reproducible phenotypes at the transcriptomic level,
-% which would facilitate the study of small-effect genes and other quantitative
-% traits.
-%
-% We have formalized the concept of genetic transcriptome by developing a controlled
-% language and formal notation to study these objects. In our language, perturbations
-% are unary operators that act on a single gene, which has consequences for the
-% function it controls (its transcriptome). This notation makes it possible to think
-% about transcriptome genetics in a manner analogous to classical genetics using
-% scalar phenotypes, and also makes identification of specific transcriptomes
-% easier and more rigorous. For example, we concluded that \rhy{} does not have a
-% specific transcriptome. All of its transcriptomic consequences appear to emanate
-% from the downstream gene \egl{}.
-% We arrived at this conclusion through theoretical considerations that suggested
-% that a \rhy{} specific transcriptome should manifest in a negative correlation
-% when the \egl{} and \rhy{} transcriptomes are plotted on a rank-plot. Using
-% simple binary exclusion principles one might arrive at the conclusion that the
-% \rhy{} specific transcriptome is defined as the genes that are not present in
-% the intersection between \egl{} and \rhy{}, which would result in almost 400
-% genes being assigned to \rhy{}. Although such substractive logic is attractive
-% at first sight, it is fundamentally untestable due to the large number of genes
-% involved.
-% On the other hand, using our notation and logic, we can directly query the data
-% for signs of a specific transcriptome. If those signs are not missing, we have
-% some degree of confidence that the specific transcriptome was not measured,
-% could not be identified, was not perturbed or does not exist. Further tests can
-% be envisioned to test each possibility.
-%
-% Of particular interest to us was the idea that the logic necessary to understand
-% transcriptome genetics is fundamentally simple. It builds in a logical manner
-% from genetics principles derived from macroscopic observations, and makes
-% predictions that are easily testable through linear regressions. This contrasts
-% starkly with preconceived notions of complicated bioinformatics that are believed
-% to be necessary to extract information from next-generation sequencing data.
-% Even more striking is the fact that transcriptomes seem to exhibit quantitative
-% epistatic behavior. Finally, we note that the linear structure of the logic we
-% have developed hints at the possibility that an algebra exists that encompasses
-% these rules. Finding such an algebra would constitute an important development
-% which could have important consequences for the kind of algorithms that are
-% developed to deconvolute, dissect and understand transcriptomes in the future.
 
 \matmethods{
 \label{methods}
