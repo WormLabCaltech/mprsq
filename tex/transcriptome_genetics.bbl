@@ -235,6 +235,28 @@ Brugarolas J et~al. (2004) {Regulation of mTOR function in response to hypoxia
   by REDD1 and the TSC1 / TSC2 tumor suppressor complex}.
 \newblock {\em Genes and Development} 18(23):1--12.
 
+\bibitem{Shao2010}
+Shao Z, Zhang Y, Ye Q, Saldanha JN, Powell-Coffman JA (2010) {C. elegans swan-1
+  binds to egl-9 and regulates hif-1- mediated resistance to the bacterial
+  pathogen pseudomonas aeruginosa pao1}.
+\newblock {\em PLoS Pathogens} 6(8):91--92.
+
+\bibitem{Goentoro2009a}
+Goentoro L, Shoval O, Kirschner MW, Alon U (2009) {The Incoherent Feedforward
+  Loop Can Provide Fold-Change Detection in Gene Regulation}.
+\newblock {\em Molecular Cell} 36(5):894--899.
+
+\bibitem{Hart2012}
+Hart Y, Antebi YE, Mayo AE, Friedman N, Alon U (2012) {Design principles of
+  cell circuits with paradoxical components}.
+\newblock {\em Proceedings of the National Academy of Sciences of the United
+  States of America} 109(21):8346--8351.
+
+\bibitem{Hart2013}
+Hart Y, Alon U (2013) {The Utility of Paradoxical Components in Biological
+  Circuits}.
+\newblock {\em Molecular Cell} 49(2):213--221.
+
 \bibitem{Team2014}
 {Bokeh Development Team} (2014) {Bokeh: Python library for interactive
   visualization}.

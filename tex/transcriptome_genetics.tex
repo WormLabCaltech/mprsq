@@ -437,7 +437,7 @@ interactions reflect the literature.
 \centering
 \includegraphics[width=\linewidth]{figs/qpcr.pdf}
 \caption{
-\textbf{Top}: \emph{In silico} qPCR. We extracted
+\textbf{Top}: \emph{In silico} qPCR.\@ We extracted
 four genes (\rhy{}, \egl{}, \nhr{} and \lam{}, shown on the x-axis) and plotted
 their regression coefficients, $\beta$, as measured for every genotype (represented by
 one of six colors) to study the epistatic relationships between each gene.
@@ -588,8 +588,11 @@ in various ways. First, the double mutant shows less statistically significantly
 differentially expressed genes than either single mutant. Secondly, the genes
 that are common to the \egl{} and \egl{};\hif{} transcriptomes show decreased
 expression in the \egl{};\hif{} mutant than they do in \egl{} on average (see
-Fig.~\ref{fig:egl9epistasis}). Likewise, the genes that are common to \hif{}
-and \egl{};\hif{} show no change in expression on average between these two mutants.
+Fig.~\ref{fig:egl9epistasis}). The slope coefficient for the line of best fit is
+$-0.85$. An interpretation for this slope value is that \hif{} suppresses
+\emph{at least} 85\% of the \egl{} phenotype. Meanwhile, the genes that are common
+to \hif{} and \egl{};\hif{} show no change in expression on average between
+these two mutants, which shows that \egl{} and \hif{} are acting in the same pathway.
 
 Because of the feedback between \hif{} and \egl{}, we expected a small subset of
 genes to be differentially expressed in every hypoxia pathway mutant.
@@ -721,8 +724,8 @@ decoupled via subtractive logic. In other words, to identify the \rhy{}-specific
 transcriptome (the effects of \rhy{} not dependent on \egl{}), subtractive logic
 might suggest to find the overlap between the two transcriptomes. The genes that
 are differentially expressed but are not in the overlap would then be considered
-\rhy{}-specific transcriptomes. Such a gene set would consider of almost 700 genes.
-However, this approach suffers from a number of
+\rhy{}-specific transcriptomes. Such a gene set would consider of almost
+700 genes. However, this approach suffers from a number of
 drawbacks, principally that it does not take into account the relationship
 between the two genes in question. Moreover, these genes have no testable properties:
 i.e., a gene might not be in the overlap because it was not identified due to
@@ -760,10 +763,17 @@ it may be the case that \egl{} does not have a \hif{}-independent transcriptomic
 phenotype, it is also possible that the change in \hifp{} dosage between a
 wild-type normoxic animal and a \hif{} mutant is not sufficient to alter the
 activity of \eglp{} to a consistently detectable level given our read-depth.
+% Due
+% to the privileged role of \eglp{} in controlling this circuit, the comparison
+% between \hif{} and \egl{};\hif{} animals is the most important comparison for
+% identifying an \egl{}-specific transcriptome.
 
 We leveraged this genetic logic to identify a main hypoxia
-response induced by removing inhibition on \hif{} (260 genes). We also
-identified a \vhl{}-specific response, resulting in \vhltargets{}
+response induced by removing inhibition on \hif{} (260 genes). Although the
+hypoxic response is likely to involve between five and ten times more genes,
+this is a conservative estimate that minimizes false negative results, since
+these changes were identified in four independent genotypes with three replicates
+each. We also identified a \vhl{}-specific response, resulting in \vhltargets{}
 genes. We searched for candidates directly regulated by \hif{}.
 Initially, we generated this list using the most stringent pattern
 matching, but this revealed only 2 genes (\emph{R08E5.3} and
@@ -892,7 +902,7 @@ extensively described in other organisms (see, for example~\cite{Semenza1994,
 Semenza2012}).
 \todo[inline]{I have searched the literature fairly thoroughly, and haven't
 seen a complete transcriptional description of hif-1 induced changes in the TCA,
-ETC. Can anyone let me know if I missed something?}
+ETC.\@ Can anyone let me know if I missed something?}
 
 \subsubsection{Bio-energetic pathways}
 
@@ -990,13 +1000,33 @@ The observation of almost 30 genes that exhibit a specific pattern of non-classi
 epistasis reveals new aspects of the pathway. Some of these non-classical
 epistases had been observed previously, but no satisfactory mechanism has been
 proposed to explain this biology. \citep{Romney2011} and \citep{Ackerman2012}
-both suggest that \hif{} integrates information on iron concentration in the
-cell to bind to the \ftna{} promoter, but they could not definitively establish
-a mechanism. In particular, it is unclear why deletion of \hif{} induces \ftna{}
+suggest that \hif{} integrates information on iron concentration in the
+cell to bind to the \ftna{} promoter, but could not definitively establish
+a mechanism.
+In particular, it is unclear why deletion of \hif{} induces \ftna{}
 expression, but deletion of \egl{} also causes induction of \ftna{} expression,
-whereas \vhl{} removes this inhibition. Mechanisms that call for additional
-transcriptional modulators become more unlikely given our data showing that 27
-genes with different biological functions all exhibit the same pattern.
+whereas \vhl{} removes this inhibition. Moreover, \citep{Luhachack2012} have
+previously reported that certain genes important for the \cel{} immune response
+against pathogens reflect similar expression patterns. Their interpretation
+was that \gene{swan-1}, a binding partner to \egl{}~\cite{Shao2010}, is important
+for modulating \hifp{} activity somehow. The lack of a conclusive double
+mutant analysis in this work means the role of \gene{swan-1} in modulation of
+\hifp{} activity remains to be demonstrated.
+At any rate, mechanisms that call for additional
+transcriptional modulators become more unlikely given our data the large number of
+genes with different biological functions that exhibit the same pattern.
+
+\begin{figure}[tbhp]
+\centering
+\includegraphics[width=\linewidth]{figs/hif1oh_model.pdf}
+\caption{
+A toy model showing that an interpretation where \hifp{}-hydroxyl
+is biochemically active can potentially explain how genes that exhibit
+non-canonical epistasis are regulated.
+}
+\label{fig:hif1oh_table}
+\end{figure}
+
 
 One way to resolve this problem without invoking additional genes is to
 model \hifp{} as a protein with both activating and inhibiting states. In fact,
@@ -1007,7 +1037,7 @@ cause inhibition of genes to which both forms of the protein bind; whereas \egl{
 selectively removes all \hifp{}-hydroxyl, indirectly stimulating accumulation of
 \hifp{} and promoting gene activity. Whether deletion of \hif{} is activating or
 inhibiting will depend on the relative contributions of each protein activity
-under normoxia.
+under normoxia (see Fig.~\ref{fig:hif1oh_table}).
 
 The possibility that \hifp{}-hydroxyl has a function has not been previously
 considered in the existing literature, although experts have wondered about
@@ -1024,19 +1054,55 @@ under normoxic conditions, total \hifp{} protein (unmodified \hifp{} plus
 
 Our data shows that there are hundreds of genes that change expression in response
 to loss of \hif{} under normoxic conditions. This establishes that there is sufficient
-total \hifp{} protein to be biologically active. Moreover, our analysis of the
+total \hifp{} protein to be biologically active. Previous literature showing
+substantial changes in mRNA expression of \ftna{} support our claim that under
+normoxia \hif{} is biologically relevant. Moreover, our analysis of the
 hypoxia pathway using transcriptomic phenotypes reveals that \hif{} shares main
 positive correlations with \egl{}, \rhy{} and \vhl{}, and that each of these genes
-also shows a small set of genes with large magnitude, negative rank-ordered expression
-correlations. These cross-patterns between all controllers of \hif{} and \hif{} can
-be most easily explained if \hifp{}-hydroxyl is biologically active.
+also shows a set of genes negative rank-ordered expression correlations. These
+cross-patterns between all controllers of \hif{} and \hif{} can be most easily
+explained if \hifp{}-hydroxyl is biologically active.
 
-If hydroxylation of \hifp{} has biochemical repercussions, then presumably this
-should be reflected in the biological functionality of the pathway. Indeed, \egl{}
-mutants are documented to have opposite expression phenotypes to \vhl{} mutants
-for genes important
+An additional argument in favor of the activity of \hifp{}-hydroxyl is a
+homeostatic argument. At any point in time, the cell must measure the levels of
+multiple small molecules at once. Strictly speaking, the \hif{}-dependent hypoxia
+response integrates information from O$_2$, $\alpha$-ketoglutarate
+(2-oxoglutarate) and iron concentrations in the cell. One way to encode this
+information is by encoding it only in the effective hydroxylation rate of \hifp{} by
+\eglp{}. Then the dynamics in this system will evolve exclusively as a result of
+the total amount of \hifp{} in the cell. Such a system can be sensitive to
+fluctuations in the absolute concentration of \hifp{}~\cite{Goentoro2009a}. In the
+case of severe hypoxia, when the levels of \hifp{} are expected to rise enormously
+within the cell, simple information integration via \egl{} would probably be
+sufficient encoding for a subset of protective genes.
+
+For yet other set of genes that must change expression in response to the hypoxia
+pathway, it may not make as much sense to integrate metabolite information
+exclusively via \eglp{}-dependent hydroxylation of \hifp{}. In particular, genes
+that may increase survival in mild hypoxia may benefit from homeostatic regulation
+that is not susceptible to transient changes in protein copy number. Likewise,
+genes that are involved in iron or $\alpha$-ketoglutarate metabolism
+(such as \ftna{}) may benefit from being able to sense, accurately, small and
+consistent deviations from basal concentrations of these metabolites. For these
+genes, the information may be better encoded by using \hifp{} and
+\hifp{}-hydroxyl as an activator/repressor pair. Such paradoxical circuits are
+known to possess distinct advantages for controlling output in a manner that
+is robust to transient fluctuations in the levels of their
+components~\cite{Hart2012,Hart2013}.
+
+Our RNA-seq data suggests that one of the targets that \hif{} may target
+paradoxically is \rhy{}. Although \rhy{} does not exhibit non-classical epistasis,
+genotypes that included a loss-of-function \hif{} caused increased \rhy{} activity.
+We speculate that if \rhy{} is controlled by both \hifp{} and \hifp{}-hydroxyl,
+then this might mean that \hif{} regulates the expression of its pathway (and
+therefore itself) in a manner that is robust to total \hifp{} levels.
 
 \subsection{Looking forward}
+We have demonstrated the first complete reconstruction of a genetic pathway using
+whole-organism RNA-seq in a complex multicellular organism. Future work must
+rigorously demonstrate that macroscopically derived genetic rules of interaction
+hold genome-wide, and if not, how genetic rules deviate from expectations.
+
 
 \matmethods{
 \label{methods}
