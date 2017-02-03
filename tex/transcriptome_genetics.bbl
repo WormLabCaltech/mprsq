@@ -92,6 +92,28 @@ Angeles-Albores D et~al. (2016) {Transcriptomic Description of an Endogenous
   Female State in C. elegans}.
 \newblock {\em bioRxiv}.
 
+\bibitem{Epstein2001}
+Epstein ACR et~al. (2001) {C. elegans EGL-9 and mammalian homologs define a
+  family of dioxygenases that regulate HIF by prolyl hydroxylation}.
+\newblock {\em Cell} 107(1):43--54.
+
+\bibitem{Shen2006}
+Shen C, Shao Z, Powell-Coffman JA (2006) {The Caenorhabditis elegans rhy-1 Gene
+  Inhibits HIF-1 Hypoxia-Inducible Factor Activity in a Negative Feedback Loop
+  That Does Not Include vhl-1}.
+\newblock {\em Genetics} 174(3):1205--1214.
+
+\bibitem{Shao2009}
+Shao Z, Zhang Y, Powell-Coffman JA (2009) {Two Distinct Roles for EGL-9 in the
+  Regulation of HIF-1-mediated gene expression in Caenorhabditis elegans}.
+\newblock {\em Genetics} 183(3):821--829.
+
+\bibitem{Jiang2001}
+Jiang H, Guo R, Powell-Coffman JA (2001) {The Caenorhabditis elegans hif-1 gene
+  encodes a bHLH-PAS protein that is required for adaptation to hypoxia.}
+\newblock {\em Proceedings of the National Academy of Sciences of the United
+  States of America} 98(14):7916--7921.
+
 \bibitem{Semenza2012}
 Semenza GL (2012) {Hypoxia-inducible factors in physiology and medicine}.
 \newblock {\em Cell} 148(3):399--408.
@@ -105,12 +127,6 @@ Loenarz C et~al. (2011) {The hypoxia-inducible transcription factor pathway
 Jiang BH, Rue E, Wang GL, Roe R, Semenza GL (1996) {Dimerization, DNA binding,
   and transactivation properties of hypoxia-inducible factor 1.}
 \newblock {\em The Journal of biological chemistry} 271(30):17771--17778.
-
-\bibitem{Jiang2001}
-Jiang H, Guo R, Powell-Coffman JA (2001) {The Caenorhabditis elegans hif-1 gene
-  encodes a bHLH-PAS protein that is required for adaptation to hypoxia.}
-\newblock {\em Proceedings of the National Academy of Sciences of the United
-  States of America} 98(14):7916--7921.
 
 \bibitem{Powell-Coffman1998}
 Powell-Coffman JA, Bradfield CA, Wood WB (1998) {Caenorhabditis elegans
@@ -157,26 +173,10 @@ Ma DK, Vozdek R, Bhatla N, Horvitz HR (2012) {CYSL-1 Interacts with the O
   Behavioral Plasticity in C. elegans}.
 \newblock {\em Neuron} 73(5):925--940.
 
-\bibitem{Shao2009}
-Shao Z, Zhang Y, Powell-Coffman JA (2009) {Two Distinct Roles for EGL-9 in the
-  Regulation of HIF-1-mediated gene expression in Caenorhabditis elegans}.
-\newblock {\em Genetics} 183(3):821--829.
-
 \bibitem{Yeung2003}
 Yeung KY, Medvedovic M, Bumgarner RE (2003) {Clustering gene-expression data
   with repeated measurements}.
 \newblock {\em Genome biology} 4(5):R34.
-
-\bibitem{Epstein2001}
-Epstein ACR et~al. (2001) {C. elegans EGL-9 and mammalian homologs define a
-  family of dioxygenases that regulate HIF by prolyl hydroxylation}.
-\newblock {\em Cell} 107(1):43--54.
-
-\bibitem{Shen2006}
-Shen C, Shao Z, Powell-Coffman JA (2006) {The Caenorhabditis elegans rhy-1 Gene
-  Inhibits HIF-1 Hypoxia-Inducible Factor Activity in a Negative Feedback Loop
-  That Does Not Include vhl-1}.
-\newblock {\em Genetics} 174(3):1205--1214.
 
 \bibitem{Ackerman2012}
 Ackerman D, Gems D (2012) {Insulin/IGF-1 and hypoxia signaling act in concert
