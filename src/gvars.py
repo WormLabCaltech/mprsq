@@ -6,6 +6,8 @@ class genvars:
 
     def __init__(self):
         """Initialize the class object with all the necessary variables."""
+        self.double_mapping = {'bd': 'a', 'bc': 'f'}
+
         # fancy mapping, for use in graphs
         self.fancy_mapping = {'a': r'\emph{egl-9;vhl-1}',
                               'f': r'\emph{egl-9;hif-1}',
