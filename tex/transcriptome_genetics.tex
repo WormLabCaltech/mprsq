@@ -515,37 +515,27 @@ well-defined number. Third, it should have an intuitive behavior, such that
 the special values of the statistic (maximum, minimum, zero) should have an
 unambiguous interpretation.
 
-One way of defining genome-wide epistasis is to plot
-the change in the expression regression coefficients between a double
-mutant \emph{XY} and a single mutant \emph{X} ($XY - X$) against
-the regression coefficients of the single mutant \emph{X} ($X$) for genes
-that are differentially expressed in both genotypes.
-% One way of defining genome-wide epistasis is to use linear regressions to describe
-% the relationship between the change in expression for a set of genes caused by a
-% single mutant and the change in expression in the same set of genes caused by a
-% double mutant containing the single mutant.
-% The set of genes
-% to be studied can be defined as the set of differentially expressed genes common
-% to both genotypes.
-% Once the set is defined, the regression coefficient of each gene in the single
-% mutant can be plotted against the difference between the regression coefficients of
-% the double mutant and the single mutant.
-Ideally, such an epistasis plot would have an intuitive explanation.
-% If two genes are acting entirely independently of each other, the plot will show
-% a line with slope equal to 0. This is because each mutant is acting on entirely
-% different sets of genes, so the perturbation caused by a gene $X^-$ is unchanged
-% in the double mutant, $X^-Y^-$.
-If two genes are acting additively on a gene module, then the plot will show a line
-with slope equal to the line of best fit between the expression levels of the
-two mutants, $X^-$ and $Y^-$ that make up the double mutant.
-% , because $XY - X =
-% X + Y - X$
-% Formally, since $\beta_{X,i}$ is independent of $\beta_{Y,i}$ the slope of this
-% line will be on average close to 0 with large variation (small $R^2$).
-If two genes are in a linear pathway, then we should observe that the double
-mutant has the same phenotype as the single mutant ($X^-Y^-$ = $X^-$) and therefore
-completely epistatic mutants will generate a line with slope equal to 0 with
-small variance around this line.
+One way of defining genome-wide epistasis is to plot transcriptome data onto
+an epistasis plot. In an epistasis plot, the X-axis represents the
+expected expression of a double mutant $X^-Y^-$ if $X$ and $Y$ interact additively.
+The X-axis coordinate is equal to $\beta_{X,i} + \beta_{Y,i}$, the sum of
+the regression coefficients for an isoform $i$ calculated from the single mutants $X$
+and $Y$. The Y-axis represents the deviations from the additive (null) model, and
+can be calculated as $\beta_{XY, i} - (\beta_{X,i} + \beta_{Y,i})$. Only
+genes that are differentially expressed in $X^-$, $Y^-$ and $X^-Y^-$ are plotted.
+
+Epistasis plots can be understood intuitively for simple cases of genetic
+interactions. If two genes are acting additively on their shared transcriptomes,
+then all the plotted points will fall along the line $y=0$.
+If two genes interact in a single, unbranched pathway, then $X^-$ and $Y^-$ should
+have identical phenotypes, expressed as $\beta_{X,i} = \beta_{Y,i}$ for all
+$i$. Moreover, the double mutant should have an identical phenotype to both
+$X$ and $Y$, $\beta_{X,i} = \beta_{XY,i}$. Then each point $i$ will fall
+along the coordinates, $(2\cdot\beta_{X,i}, -\beta_{X,i})$, which corresponds
+to the line $y=\frac{1}{2}x$.
+
+We can consider\todo[inline]{finish}
+
 If two genes share a negative regulatory interaction, then epistasis will be
 reflected in the plot as a line with a negative slope that should approach $-1$,
 because the double mutant, $X^-Y^-$ should have regression coefficients near 0,

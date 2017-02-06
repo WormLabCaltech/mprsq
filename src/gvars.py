@@ -69,7 +69,8 @@ class genvars:
                            r'\emph{egl-9}': 1,
                            r'\emph{hif-1}': 3,
                            r'\emph{vhl-1}': 2,
-                           r'\emph{rhy-1}': 0
+                           r'\emph{rhy-1}': 0,
+                           r'\emph{fog-2}': 6
                            }
 
         # plot colors for all qpcr plots
