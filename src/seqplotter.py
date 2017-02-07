@@ -18,6 +18,8 @@ import genpy
 
 from matplotlib import rc
 rc('text', usetex=True)
+rc('text.latex', preamble=r'\usepackage{cmbright}')
+rc('font', **{'family': 'sans-serif', 'sans-serif': ['Helvetica']})
 
 # JB's favorite Seaborn settings for notebooks
 rc = {'lines.linewidth': 2,

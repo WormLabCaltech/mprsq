@@ -365,17 +365,16 @@ same phenotype as mutants from the hypoxia pathway.
 % genetic correlations
 \begin{figure}%[tbhp]
 \centering
-\includegraphics[width=\linewidth]{figs/correlative_genetics.pdf}
+\includegraphics[width=\linewidth]{figs/multiplemodes-eb.pdf}
 \caption{
 Strong transcriptional correlations can be identified between genes
 that share a positive regulatory connection. We took the \egl{} and the \rhy{}
 transcriptomes, identified differentially expressed genes common to both
 transcriptomes and ranked each gene according to its differential expression
-coefficient $\beta$. We then plotted the rank of each gene in \rhy{} versus the
+coefficient $\beta$. We plotted the rank of each gene in \rhy{} versus the
 rank of the same gene in the \egl{} transcriptome. The result is an almost
-perfect correlation. Green, transparent large points mark inliers to the
-regression (blue line); red, opaque, small points mark outliers to the
-regression. The two furthest outliers are annotated as pseudogenes in WormBase.
+perfect correlation. Green, transparent large points mark inliers to the primary
+regressions (blue lines); red squares mark outliers to the primary regressions.
 }
 \label{fig:genetic_interactions}
 \end{figure}
@@ -518,92 +517,107 @@ unambiguous interpretation.
 One way of defining genome-wide epistasis is to plot transcriptome data onto
 an epistasis plot. In an epistasis plot, the X-axis represents the
 expected expression of a double mutant $X^-Y^-$ if $X$ and $Y$ interact additively.
-The X-axis coordinate is equal to $\beta_{X,i} + \beta_{Y,i}$, the sum of
-the regression coefficients for an isoform $i$ calculated from the single mutants $X$
-and $Y$. The Y-axis represents the deviations from the additive (null) model, and
-can be calculated as $\beta_{XY, i} - (\beta_{X,i} + \beta_{Y,i})$. Only
-genes that are differentially expressed in $X^-$, $Y^-$ and $X^-Y^-$ are plotted.
+In other words, it is the sum of the regression coefficients for an isoform
+calculated from the single mutants $X^-$ and $Y^-$. The Y-axis represents the
+deviations from the additive (null) model, and
+can be calculated as the difference between the observed regression coefficient
+and the predicted regression coefficient. Only genes that are differentially
+expressed in all three genotypes are plotted.
 
 Epistasis plots can be understood intuitively for simple cases of genetic
 interactions. If two genes are acting additively on their shared transcriptomes,
 then all the plotted points will fall along the line $y=0$.
 If two genes interact in a single, unbranched pathway, then $X^-$ and $Y^-$ should
-have identical phenotypes, expressed as $\beta_{X,i} = \beta_{Y,i}$ for all
-$i$. Moreover, the double mutant should have an identical phenotype to both
-$X$ and $Y$, $\beta_{X,i} = \beta_{XY,i}$. Then each point $i$ will fall
-along the coordinates, $(2\cdot\beta_{X,i}, -\beta_{X,i})$, which corresponds
-to the line $y=\frac{1}{2}x$.
-
-We can consider\todo[inline]{finish}
-
-If two genes share a negative regulatory interaction, then epistasis will be
-reflected in the plot as a line with a negative slope that should approach $-1$,
-because the double mutant, $X^-Y^-$ should have regression coefficients near 0,
-such that the y-axis becomes equal to $-X^-$.
-% If the two genes have a synthetic interaction, we would expect that the slope must
-% be positive and it must be greater than the slope predicted by an additive model.
+have identical phenotypes for $X^-$, $Y^-$ and $X^-Y^-$. It follows that the
+data points should fall along a line with slope equal to $-\frac{1}{2}$. On the
+other hand, cases where $X$ is a very strong inhibitor of $Y$ should result in points
+that fall along the line with slope equal to $-1$. Finally, genes that have a
+synthetic interaction between them will fall along lines with slopes $>0$. Finally,
+we can also create models, using only the data from the single mutants, to
+predict the slope that results for each epistatic combination ($X^-Y^-=X^-$ or
+$X^-Y^-=Y^-$). Given the biological relevance of the slope of the lines of best
+fit to the biological relationship between the genes under study, we refer to it
+as the genome-wide epistasis coefficient, because it integrates information from
+many different genes into a single number.
 
 In our experiment, we studied two double mutants, \eglhif{} and \eglvhl{}.
 We wanted to understand how well the global epistasis agreed with the literature
-based on qPCR of single reporters. Therefore, we fit weighted linear regressions
-to each of the four possible combinations (\egl{} vs. \eglhif{};
-\hif{} vs. \eglhif{}; \egl{} vs. \eglvhl{}; and \vhl{} vs. \eglvhl{})
-to measure the slopes of the lines of best fit.
+based on qPCR of single reporters. Therefore, we performed orthogonal distance
+regression on to the two gene combinations we studied (\gene{egl-9} and \gene{vhl-1};
+and \gene{egl-9} and \gene{hif-1}) to determine the epistasis coefficient for each
+gene pair.
 
-We observe that the \eglvhl{} mutant has an identical phenotype to the
-\egl{} single mutant (slope = 0; see Table.~\ref{tab:double_mutant_comparison}).
-On the other hand, \vhl{} plotted versus \eglvhl{} has a positive slope,
-indicating that \gene{egl-9} is additive to \gene{vhl-1}. However, this positive
-slope has to be less than the slope that would be predicted by an additive model
-because the slope between \egl{};\vhl{} and \egl{} is not statistically different
-from zero. Partial additivity indicates that \gene{egl-9} inhibits \gene{hif-1}
-in \gene{vhl-1}-dependent and independent manners~\cite{Shao2009}.
+We generated predictions for the epistasis coefficient that the double mutant
+should have if \gene{egl-9} was epistatic to \gene{vhl-1} ($s_\mathrm{Pred}=-0..42$)
+using only the single mutant data. Next, we plotted the double mutant onto an
+epistasis plot and calculated the line of best fit. We observed that the observed
+slope agreed almost exactly with the predicted slope ($s_\mathrm{Obs}=-0.42$)
+(see Fig.~\ref{fig:egl9epistasis}). The epistasis coefficient is close to $-0.5$,
+which suggests that \gene{egl-9} and \gene{vhl-1} interact in a linear pathway.
+However, the epistasis coefficient for this gene pair has negligible probability
+density near $-0.5$ and the distribution is sharply peaked around $-0.42$. A
+genetic pattern that can lead to epistasis coefficients between $-\frac{1}{2}$ and
+$0$ is a branched pattern, where the gene that is most upstream interacts with
+the output phenotype via two arrows of the same valency. Biologically, this
+means that \eglp{} inhibits \hifp{} in \gene{vhl-1}-dependent and independent
+manners~\cite{Shao2009}.
 
 % double mutant analysis
-\begin{table}%[tbhp]
-{\centering
-\caption{Response Modeling of Double Mutants to Single Mutants}
-\begin{tabular}{llrrr}
-Double Mutant & Single Mutant & $\Delta$ & SE & p-value\\
-\midrule
-1. \eglvhl{} & \egl{} & $0.00$ & $0.01$ & $0.81$\\
-2. \eglvhl{} & \vhl{} & $0.28$ & $0.03$ & $10^{-15}$\\
-3. \eglhif{} & \egl{} & $-0.85$ & $0.07$ & $10^{-13}$\\
-4. \eglhif{} & \hif{} & $-0.18$ & $0.10$ & $0.10$\\
-\bottomrule
-\end{tabular}
-\par
-\label{tab:double_mutant_comparison}
-}
-\addtabletext{
-Table showing changes between single and double mutants.
-$\Delta$ is the result of a weighted-linear regression (WLS) between
-$\beta_\mathrm{Single~Mutant}$ and $\Delta = \beta_\mathrm{Double~Mutant} -
-\beta_\mathrm{Single~Mutant}$. $\Delta$ > 0 represents a more severe phenotype
-than the single mutant. $\Delta$ < 0 represents a suppressed phenotype relative
-to the single mutant. $\Delta$ = 0 is expected for linear pathways or genes that
-are acting in linear or AND-gated fashion. $\Delta > 0$ is expected for genes
-that are acting additively on a pathway. WLS were performed only on genes that
-were significantly altered in both single mutants and the double mutant.
-$1+\Delta$ is a very close approximation to the line of best fit between single
-mutant and double mutant.
-}
-\end{table}
-
+% \begin{table}%[tbhp]
+% {\centering
+% \caption{Response Modeling of Double Mutants to Single Mutants}
+% \begin{tabular}{llrrr}
+% Double Mutant & Single Mutant & $\Delta$ & SE & p-value\\
+% \midrule
+% 1. \eglvhl{} & \egl{} & $0.00$ & $0.01$ & $0.81$\\
+% 2. \eglvhl{} & \vhl{} & $0.28$ & $0.03$ & $10^{-15}$\\
+% 3. \eglhif{} & \egl{} & $-0.85$ & $0.07$ & $10^{-13}$\\
+% 4. \eglhif{} & \hif{} & $-0.18$ & $0.10$ & $0.10$\\
+% \bottomrule
+% \end{tabular}
+% \par
+% \label{tab:double_mutant_comparison}
+% }
+% \addtabletext{
+% Table showing changes between single and double mutants.
+% $\Delta$ is the result of a weighted-linear regression (WLS) between
+% $\beta_\mathrm{Single~Mutant}$ and $\Delta = \beta_\mathrm{Double~Mutant} -
+% \beta_\mathrm{Single~Mutant}$. $\Delta$ > 0 represents a more severe phenotype
+% than the single mutant. $\Delta$ < 0 represents a suppressed phenotype relative
+% to the single mutant. $\Delta$ = 0 is expected for linear pathways or genes that
+% are acting in linear or AND-gated fashion. $\Delta > 0$ is expected for genes
+% that are acting additively on a pathway. WLS were performed only on genes that
+% were significantly altered in both single mutants and the double mutant.
+% $1+\Delta$ is a very close approximation to the line of best fit between single
+% mutant and double mutant.
+% }
+% \end{table}
+%
 % epistasis graph
 \begin{figure}[tbhp]
 \centering
-\includegraphics[width=\linewidth]{figs/egl9_epistatic_eglhif.pdf}
+\includegraphics[width=\linewidth]{figs/egl9hif1-epistasis.pdf}
 \caption{
-The mutant \egl{} transcriptomic phenotype is suppressed by \hif{}.
-The graph shows the $\beta$ coefficients for \egl{} in the x-axis, and the change
-in $\beta$ coefficient between the \eglhif{} and \egl{} mutant. The dotted
-line is the regression line between the complete \egl{} and \eglhif{} shared
-transcriptome. For clarity, only genes that were differentially expressed in the
-\egl{}, \rhy{}, \vhl{}, \hif{} and \eglvhl{} datasets are shown. These points
-constitute a very high-quality subset of the measured hypoxia response, as each
-isoform was identified as differentially expressed in 5 independent genotypes.
-% The single outlier near (6, 0) is \nog{}.
+The \gene{egl-9} is epistatic over \gene{vhl-1}. (\textbf{A}) Epistasis plot showing
+that the \eglvhl{} transcriptome deviates significantly from a null additive model
+and approaches slopes typical for genes that interact in a linear pathway. Points
+are colored qualitatively according to density (purple---low density, yellow---high
+density) and their size is inversely proportional to the standard error of the
+y-axis (larger points, more accurate measurement). In red is the line of best fit
+from an orthogonal distance regression. (\textbf{B}) Probability density plot
+showing predicted slopes if \gene{vhl-1} was epistatic over \gene{egl-9}; if
+\gene{egl-9} was epistatic over \gene{vhl-1}; and the observed slope. Slopes
+that have significant density around the point $-0.5$ are indicative of genes
+in a linear pathway. The observed slope is consistent with a \gene{egl-9} acting
+via \gene{vhl-1}-dependent and independent pathways.
+% The graph shows the $\beta$ coefficients for \egl{} in the x-axis, and the change
+% in $\beta$ coefficient between the \eglhif{} and \egl{} mutant. The dotted
+% line is the regression line between the complete \egl{} and \eglhif{} shared
+% transcriptome. For clarity, only genes that were differentially expressed in the
+% \egl{}, \rhy{}, \vhl{}, \hif{} and \eglvhl{} datasets are shown. These points
+% constitute a very high-quality subset of the measured hypoxia response, as each
+% isoform was identified as differentially expressed in 5 independent genotypes.
+% % The single outlier near (6, 0) is \nog{}.
 }
 \label{fig:egl9epistasis}
 \end{figure}
@@ -735,12 +749,12 @@ valuable information for decoding more interactions in our circuit.
 % correlative genetics again
 \begin{figure}[tbhp]
 \centering
-\includegraphics[width=\linewidth]{figs/correlative_genetics2.pdf}
+\includegraphics[width=\linewidth]{figs/multiplemodes-ed.pdf}
 \caption{
 \textbf{Top}: A feedback loop can generate transcriptomes that are both
 correlated and anti-correlated. \textbf{Bottom}: \hif{} transcriptome correlated
 to the \rhy{} transcriptome. Green large points are inliers to the first
-regression. Red small points are outliers to the first regression. Only the red
+regression. Red squares are outliers to the first regression. Only the red
 small points were used for the secondary regression. Blue lines are representative
 samples of the primary bootstrapped regression lines. Orange lines are
 representative samples of the secondary bootstrapped regression lines.
@@ -888,9 +902,14 @@ we have identified a new aspect of the hypoxia pathway.
 \centering
 \includegraphics[width=\linewidth]{figs/hif1oh_epistasis.pdf}
 \caption{
-Genes that have altered differential expression between \egl{} and \vhl{} also
-often exhibit the same epistatic patterns between \egl{} and \hif{}, and \egl{}
-and \vhl{}, which suggests they are the result of the same biological effect.
+(\textbf{A}) 27 genes in \cel{} exhibit non-classical epistasis in the hypoxia
+pathway, characterized by an opposite phenotypes of the \vhl{} and \egl{} (or
+\rhy{}) mutants. Shown are a random selection of the 27 genes for illustrative
+purposes.
+(\textbf{B}) Representative genes showing that non-canonical epistasis shows a
+consistent pattern. \vhl{} mutants have an opposite effect to \egl{}, but
+\gene{egl-9} remains epistatic to \gene{vhl-1} and loss of function mutations in
+\gene{hif-1} suppress the \egl{} phenotype.
 }
 \label{fig:hif1oh}
 \end{figure}
@@ -924,7 +943,7 @@ yet is epistatic to \gene{egl-9}.
 \subsection{Genome-wide effects of \hifp{}}
 \label{sub:metabolism}
 
-\todo{This section is missing figures.}
+% \todo{This section is missing figures.}
 The high quality of this dataset also provides us directly with a high-level
 overview of the transcriptional responses that lead to physiologic and metabolic
 changes in hypoxia (see Fig~\ref{fig:genomewide}).
