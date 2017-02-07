@@ -500,7 +500,8 @@ genotypes. Using a single reporter we would have been able to reconstruct an
 important fraction of the genetic relationships between the genes in the hypoxia
 pathway.
 
-\subsubsection*{Genes in the hypoxia pathway exhibit genome-wide epistasis}
+% \subsection*{Genes in the hypoxia pathway exhibit genome-wide epistasis}
+\subsection*{Genome-wide epistasis}
 Although it may be sufficient to extract the regression coefficients of a
 known reporter gene and use it to rebuild a genetic pathway, we felt that by
 relying on just a single gene, or even a handful of genes to rebuild the pathway
@@ -538,7 +539,8 @@ predict the slope that results for each case stated above, and for  each epistat
 combination ($X^-Y^-=X^-$ or $X^-Y^-=Y^-$). Given the biological relevance of the
 slope of the lines of best fit to the biological relationship between the genes
 under study, we refer to it as the genome-wide epistasis coefficient, because it
-integrates information from many different genes into a single number.
+integrates information from many different genes into a single number
+(see Fig.~\ref{fig:egl9epistasis}).
 
 In our experiment, we studied two double mutants, \eglhif{} and \eglvhl{}.
 We wanted to understand how well the global epistasis agreed with the literature
@@ -556,12 +558,12 @@ should have if \gene{egl-9} was epistatic over \gene{vhl-1} (if the double mutan
 looked like \egl{}, $s_\mathrm{Pred}=-0..42$)
 using only the single mutant data. Next, we plotted the double mutant onto an
 epistasis plot and calculated the line of best fit. We observed that the observed
-slope agreed exactly with the predicted slope ($s_\mathrm{Obs}=-0.42$)
-(see Fig.~\ref{fig:egl9epistasis}). The epistasis coefficient is close to $-0.5$,
-which suggests that \gene{egl-9} and \gene{vhl-1} interact primarily in a linear
-pathway. However, when we simulated a linear pathway using the single mutant data,
-we observed that the linear pathway has negligible probability density at $-0.42$,
-($p = 0$).
+slope agreed with the predicted slope ($s_\mathrm{Obs}=-0.42$)
+(see Fig.~\ref{fig:egl9epistasis}). The epistasis
+coefficient is close to $-0.5$, which suggests that \gene{egl-9} and \gene{vhl-1}
+interact primarily in a linear pathway. However, when we simulated a linear pathway
+using the single mutant data, we observed that the linear pathway has negligible
+probability density at $-0.42$, ($p = 0$).
 Therefore, \gene{egl-9} acts on the downstream phenotype effector (\hifp{}) in a
 more complex manner than a linear pathway with \vhl{}.  A genetic pattern that
 can lead to epistasis coefficients between $-\frac{1}{2}$ and $0$ is a branched
@@ -620,6 +622,27 @@ with the expected distribution for an pathway where \hif{} is strongly repressed
 by \egl{}. We found that this distribution overlapped extensively with the empirical
 distribution ($p=0.53$). Therefore, we conclude that \gene{hif-1} is very strongly
 suppressed by \gene{egl-9}.
+
+\subsubsection*{Epistasis can be predicted}
+Given our success in measuring epistasis coefficients, we wanted to know whether
+we could predict the epistasis coefficient between \gene{egl-9} and \gene{vhl-1}
+in the absence of the \egl{} genotype. We reasoned that since \rhyp{} controls
+\eglp{} in a strong fashion, the \rhy{} transcriptome should contain more or less
+equivalent information to the \egl{} transcriptome. Therefore, we generated
+predictions of the epistasis coefficient between \gene{egl-9} and \gene{vhl-1}
+by substituting in the \rhy{} data. We predicted $s_{rhy-1,vhl-1} = -0.45$. However
+this number was statistically distinguishable from $s_{Obs,egl-9,vhl-1}=-0.42$
+($p=0.02$). On the other hand, the predicted coefficient is statistically
+different from 0 ($p=0$). Similarly, we used the \eglvhl{} double mutant to
+measure the epistasis coefficient while replacing the \egl{} dataset with the \rhy{}
+dataset. We found that the epistasis coefficient using this substitution was $-0.40$,
+which was statistically indistinguishable from the real observed value $-0.42$
+($p=0.055$). In conclusion, we were able to obtain a quantitatively
+close prediction of the epistasis coefficient for two mutants using the transcriptome
+of a related, upstream mutant. Moreover, the qualitative interpretation of $s$
+was the same between the predicted and observed datasets---both suggest a branching
+pathway. Finally, we showed that in the absence of a single mutant, an upstream
+locus can under some circumstances be used to estimate epistasis between two genes.
 
 \subsection*{Transcriptomic decorrelation can be used to infer functional distance}
 \label{sub:decorrelation}
@@ -1271,7 +1294,7 @@ for each isoform $i$:
 \end{equation}
 
 To calculate the genome-wide epistasis coefficient, we plotted
-($\beta_{\mathrm{Exp},i}, \delta_i$) and found the line of best fit using
+($\beta_{\mathrm{Exp},i}, \Delta_i$) and found the line of best fit using
 orthogonal distance regression using the scipy.odr package. We performed a
 parametric bootstrap sampling the ordered tuples with replacement using 5,000
 iterations to generate a probability distribution of slopes of best fit.
