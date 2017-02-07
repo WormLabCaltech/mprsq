@@ -257,6 +257,11 @@ Hart Y, Alon U (2013) {The Utility of Paradoxical Components in Biological
   Circuits}.
 \newblock {\em Molecular Cell} 49(2):213--221.
 
+\bibitem{Picelli2014}
+Picelli S et~al. (2014) {Full-length RNA-seq from single cells using
+  Smart-seq2.}
+\newblock {\em Nature protocols} 9(1):171--81.
+
 \bibitem{Team2014}
 {Bokeh Development Team} (2014) {Bokeh: Python library for interactive
   visualization}.
