@@ -4,19 +4,19 @@ title: Complete Analysis of the HIF-1 pathway in <em>C. elegans</em>
 permalink: /analysis/
 ---
 
-# Basic statistics
+## Basic statistics
 
-# Predicting interactions between genes
+## Predicting interactions between genes
 
-# Decoupling the transcriptomic Responses
+## Decoupling the transcriptomic Responses
 
-# Genome-wide epistasis analysis
+## Genome-wide epistasis analysis
 
-# Decorrelation in a pathway
+## Decorrelation in a pathway
 
-# Non-canonical epistasis
+## Non-canonical epistasis
 
-# Enrichment analysis and pathway analysis
+## Enrichment analysis and pathway analysis
 
 ### Contact us
 If there are broken links, or you have questions, you can contact us at:
