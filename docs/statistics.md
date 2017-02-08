@@ -40,6 +40,7 @@ See their paper at BioRxiv:
 <a href="{{ site.baseurl }}/stats_tutorial/Noise Mitigation Tutorial.html"> Jupyter Notebook on Bayesian Robust Regressions</a>
 
 ## Orthogonal distance regression
+<a href="{{site.baseurl}}/stats_tutorial/ODR.html" >Jupyter Notebook on Orthogonal Regression</a>
 
 ## Bootstrapping to test a hypothesis
 
