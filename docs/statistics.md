@@ -40,6 +40,7 @@ See their paper at BioRxiv:
 ## Orthogonal distance regression
 
 ## Bootstrapping to test a hypothesis
+
 ### Parametric
 
 ### Non-parametric
