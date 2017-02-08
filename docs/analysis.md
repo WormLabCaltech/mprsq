@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Complete Analysis of the HIF-1 pathway in <em>C. elegans*<\em>
+title: Complete Analysis of the HIF-1 pathway in <em>C. elegans</em>
 permalink: /analysis/
 ---
 

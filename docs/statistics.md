@@ -18,7 +18,6 @@ anyone who needs to replicate partially or completely some of the code we used.
 # Bootstrapping
 
 
-
 ### Contact us
 If there are broken links, or you have questions, you can contact us at:
 [dangeles@caltech.edu](mailto:dangeles@caltech.edu)
