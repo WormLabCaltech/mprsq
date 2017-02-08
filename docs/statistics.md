@@ -40,13 +40,43 @@ See their paper at BioRxiv:
 <a href="{{ site.baseurl }}/stats_tutorial/Noise Mitigation Tutorial.html"> Jupyter Notebook on Bayesian Robust Regressions</a>
 
 ## Orthogonal distance regression
+Orthogonal distance regression (ODR) is a method to fit the line of best fit when you
+have measurements that have errors in both the x- and the y-coordinates. Usually,
+when we have measurements with no error bars, we use a method called Least Squares
+to find the line of best fit. When the measurements have errors along the y-axis,
+we can modify this method and use Weighted Least Squares. Weighted Least Squares
+takes points with large errors and makes them less important, whereas points with
+smaller errors are more important. ODR is similar in the sense that it is takes
+into account errors in both x and y and weights points accordingly.
+
+A major difference between usual Least Squares and ODR is the minimization we are performing.
+For Least Squares, we are usually minimizing the vertical distance of the points
+to the line. In other words, when we have minimized the equation,
+
+$$
+\sum_\mathrm{data}(y_\mathrm{data} - y__{fit}),
+$$
+
+we have found the line of best fit. However, if there are errors on both X and Y,
+we need to minimize something else. In this case, it again makes sense to find the
+line that also minimizes the distance between the points and the lines. However,
+in this case, we will add the constraint that the ruler we use to measure this
+distance must always *be at right angles to the line itself* (hence the orthogonal).
+
+The reasoning behind this has been explained previously. For further information
+on the mathematics behind regressions, we refer you to David Hogg's excellent
+article on [Data Analysis recipes: Fitting a model to data](https://arxiv.org/abs/1008.4686).
+
+In the next Jupyter notebook, we show quickly how ODR is considerably better than
+least-squares when errors in both coordinates are known.
+
 <a href="{{site.baseurl}}/stats_tutorial/ODR.html" >Jupyter Notebook on Orthogonal Regression</a>
 
 ## Bootstrapping to test a hypothesis
 
-### Parametric
+### Parametric Bootstrap
 
-### Non-parametric
+### Non-parametric Bootstrap
 
 
 ### Contact us
