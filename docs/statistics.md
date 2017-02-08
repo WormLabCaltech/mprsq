@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Introduction to Statistics for this Paper
+title: Statistical Methods Primer
 permalink: /statistics/
 ---
 
