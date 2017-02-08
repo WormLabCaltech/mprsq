@@ -36,6 +36,7 @@ See their paper at BioRxiv:
 [Differential Analysis of RNA-seq incorporating quantification uncertainty](http://biorxiv.org/content/early/2016/06/10/058164)
 
 ## Bayesian robust regressions for interaction prediction
+<a href="./stats_tutorial/Noise Mitigation Tutorial.html">Jupyter Notebook on Bayesian Robust Regressions</a>
 
 ## Orthogonal distance regression
 
