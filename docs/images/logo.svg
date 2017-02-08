@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="508px" height="303px" viewBox="0 0 508 303" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="458px" height="272px" viewBox="0 0 458 272" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
     <title>Logo</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Logo">
-            <g id="figure_1" transform="translate(-54.000000, -12.000000)">
+            <g id="figure_1" transform="translate(-74.000000, -25.000000)">
                 <g id="axes_1" transform="translate(6.000000, 6.000000)">
-                    <g id="patch_2" transform="translate(48.000000, 6.000000)" fill-rule="nonzero" fill="#EAEAF2">
-                        <polygon id="Shape" points="0.408609 299.008517 446.808609 299.008517 446.808609 0.028517 0.408609 0.028517"></polygon>
+                    <g id="patch_2" transform="translate(68.000000, 19.000000)" fill-rule="nonzero" fill="#EAEAF2">
+                        <polygon id="Shape" points="0.372044436 273.094446 406.825736 273.094446 406.825736 0.0260455267 0.372044436 0.0260455267"></polygon>
                     </g>
                     <g id="PathCollection_1" transform="translate(68.000000, 25.000000)" fill-opacity="0.5" fill-rule="nonzero">
                         <path d="M171.460487,106.559798 C172.699118,106.559798 173.887184,106.067685 174.763029,105.19184 C175.638873,104.315996 176.130986,103.127929 176.130986,101.889298 C176.130986,100.650667 175.638873,99.462601 174.763029,98.586757 C173.887184,97.710912 172.699118,97.218799 171.460487,97.218799 C170.221856,97.218799 169.033789,97.710912 168.157945,98.586757 C167.2821,99.462601 166.789987,100.650667 166.789987,101.889298 C166.789987,103.127929 167.2821,104.315996 168.157945,105.19184 C169.033789,106.067685 170.221856,106.559798 171.460487,106.559798 Z" id="Shape" fill="#CAE11F"></path>
@@ -454,21 +454,9 @@
                     <g id="line2d_14" transform="translate(68.000000, 36.000000)" stroke="#A849A7" stroke-width="2" stroke-linecap="round">
                         <path d="M0.699518,0.341278 L406.517699,220.369968" id="Shape"></path>
                     </g>
-                    <g id="patch_3" transform="translate(48.000000, 6.000000)">
-                        <path d="M0.408609,299.008517 L0.408609,0.028517" id="Shape"></path>
-                    </g>
-                    <g id="patch_4" transform="translate(494.000000, 6.000000)">
-                        <path d="M0.808609,299.008517 L0.808609,0.028517" id="Shape"></path>
-                    </g>
-                    <g id="patch_5" transform="translate(48.000000, 305.000000)">
-                        <path d="M0.408609,0.008517 L446.808609,0.008517" id="Shape"></path>
-                    </g>
-                    <g id="patch_6" transform="translate(48.000000, 6.000000)">
-                        <path d="M0.408609,0.028517 L446.808609,0.028517" id="Shape"></path>
-                    </g>
                 </g>
             </g>
-            <g id="Point-Size-Bar" transform="translate(482.000000, 72.000000)" fill="#470F62">
+            <g id="Point-Size-Bar" transform="translate(432.000000, 62.000000)" fill="#470F62">
                 <g id="Group-3" transform="translate(41.500000, 85.500000) rotate(270.000000) translate(-41.500000, -85.500000) translate(-43.500000, 44.500000)">
                     <g id="Group-2" transform="translate(85.000000, 12.500000) rotate(180.000000) translate(-85.000000, -12.500000) translate(0.000000, -0.000000)">
                         <ellipse id="Oval-4" cx="49.5" cy="12.5" rx="8.5" ry="8.5"></ellipse>
@@ -481,7 +469,7 @@
                     </g>
                 </g>
             </g>
-            <g id="Density-Bar" transform="translate(453.000000, -1.000000)">
+            <g id="Density-Bar" transform="translate(413.000000, -4.000000)">
                 <g id="Scale-Bar" transform="translate(0.000000, 2.000000)">
                     <g id="Group">
                         <image id="Image-62" x="0" y="0.5" width="15.84" height="297" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAGqCAYAAAAPy7SBAAAABGdBTUEAA1teXP8meAAAAyNJREFUeAHt3d1NxDAQBGAHpRX6L4sqkuDL3ZoG8iGNtLzknqzV/O3EB2I7fr6vAX6+wJn3kfs5TnL2flzmYAkF4W7IiQ3Gk7w8KNImPoaZeFraHOx0nCg3kppjV6qQ5Bko3MQmNMeLvI1gAaEwUQF3nsI4krw0uUHyjEfMqTMk9vNq8t5hOdumgdmcepOHAs5N7JwXSF6e84ww2nmrrhmAX1lxoKCfhcUMbU69YzMuKxTGTBWQvDi5qV4xb1jiNkg77xP1kcXbuNqcKoM+8iXdwGxOvQsLSrfpPDO0OfWGIm5itZoSXxVQ8YZyQxUrcOedCApIHpJbInlxscmux/KuefO2NNx5ae95geSx2EQ11m2QzorPO3rit2MqhPLkFllY8oLeTBx4t5kYm4o8tEzzQshNfCGM23m1/dGr/+tCz5GHVJGnYzexCvqpiiW9Rz9AKOJebtp5Ja1AuTHy1MHQeYFBX8p79smWqSMvT25oM7km5MhDf9aU2DbzCkue8wYK+sD1386rzbk3FAVFXtDvI+6tKU9uauLpPHNp6nSct6WbvEq3fUPN28mtyVvkKSgiyStUnn1KKNKCXmVFXttkqmAHs6APLCwdm5WRTBVOx01eNHlpO0/JrZ1XMoYX011YCuS8ipVnkN55pbbByAvUsdogTm4dmyVkpmNHnpJboPOUjpu88kdgdwskr3Vcekskr2Z/+JkHhZtYGSRw56n13+Qt/+ZB4SZWcuvi/Q9ya/IK5MCg39Cv3URCUTw+++zYXHjmQeEm7rZZsojc0uYX3iKhKB6ffULnoX9p0jtvKcCRN1RhUXksoVh4P/rBTawwns4zeZwHhZu43/PKZfs40+TW5P2Rh7Kiu1tBTL/PM86bll7TP/rB5bG6unETsxDq9V+aleQh521xzsuTG3NeYggZHUPnIYPMwhIHRU/8SfouLLXyYNtUQR94X6Gg6NgM1rEkz6ymdl6w3CLv3Ux5g85DFSuSPBNCieQhVUAoznbeO+sTd17cFyzXZeTWsfkfhQVlRaDzLgQFDHq0miKdZ0LIkXehoJ/OayjeyenIUxj/AsCzg/X9cCBGAAAAAElFTkSuQmCC"></image>
