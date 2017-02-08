@@ -15,7 +15,8 @@ anyone who needs to replicate partially or completely some of the code we used.
 
 # Bayesian robust regressions
 
-# 
+# Bootstrapping
+
 
 
 ### Contact us
