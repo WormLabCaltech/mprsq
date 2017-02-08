@@ -28,7 +28,9 @@ library was developed to optimally accept Kallisto processed reads, although it
 can work with other alignment tools. Sleuth performs the differential expression
 analysis by fitting a log-linear model to explain changes in expression between
 the different samples. Together, the combination of Sleuth and Kallisto are
-fantastic tools for processing RNA-seq data.
+fantastic tools for processing RNA-seq data. Equally important, they are succinct.
+Kallisto is run via a single command using Terminal, and Sleuth requires about
+20 lines of fairly standardized code.
 
 See their paper at BioRxiv:
 (Differential Analysis of RNA-seq incorporating quantification uncertainty)[http://biorxiv.org/content/early/2016/06/10/058164]
