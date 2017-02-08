@@ -9,7 +9,7 @@ a very brief set of tutorials for the statistical methods that we used for our
 paper. Hopefully this will make the article more accessible and be helpful to
 anyone who needs to replicate partially or completely some of the code we used.
 
-# Kallisto: read pseudo-alignment
+# [Kallisto](http://pachterlab.github.io/kallisto/): read pseudo-alignment
 We used Kallisto, an excellent piece of software from Lior Pachter's group, to
 perform read pseudo-alignment for each mutant we analyzed. Although pseudo-alignment
 is initially not as accurate as complete alignment, the speed at which the algorithm
@@ -17,7 +17,7 @@ completes means that it can be bootstrapped. The bootstrapping is what really ma
 it really great (well, that and the way in which they compute k-classes). We really
 love this software.
 
-# (Sleuth)[http://pachterlab.github.io/sleuth/about.html]: differential expression analysis
+# [Sleuth](http://pachterlab.github.io/sleuth/about.html): differential expression analysis
 Another piece of software from Lior Pachter's group. This beautiful library was
 developed to optimally accept Kallisto processed reads, although it can work with
 other alignment tools. Sleuth performs the differential expression analysis by
