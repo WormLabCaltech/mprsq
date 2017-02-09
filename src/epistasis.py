@@ -168,9 +168,15 @@ def plot_epistasis_regression(X, slope, **kwargs):
     plt.plot(x, y0, **kwargs)
 
 
+def draw_bs_sample(n):
+    """Draw a bootstrap sample from a 1D data set."""
+    ind = np.arange(0, n)
+    return np.random.choice(ind, size=n)
+
+
 def bootstrap(bframe, sebframe, epistasis='actual', nsim=1000):
     """
-    Perform parametric bootstrapping for an epistasis ODR.
+    Perform non-parametric bootstrapping for an epistasis ODR.
 
     Given a list of three numpy vectors containing betas and a separate list of
     vectors containing their standard errors, fit a model according to the
@@ -194,62 +200,68 @@ def bootstrap(bframe, sebframe, epistasis='actual', nsim=1000):
     xseb, yseb, xyseb = sebframe
 
     s = np.zeros(nsim)
-    se_s = np.zeros(nsim)
+
+    # draw bootstrap repetitions
     for i in range(nsim):
-        # test the construction.
-        indices = np.random.randint(0, len(xb), len(xb))
+        # sample data, keeping tuples paired:
+        ind = draw_bs_sample(len(xb))
 
-        # extract the array stuff:
-        currx = xb[indices]
-        curry = yb[indices]
-        currxy = xyb[indices]
+        currx = xb[ind]
+        curry = yb[ind]
+        currxy = xyb[ind]
 
-        currsex = xseb[indices]
-        currsey = yseb[indices]
-        currsexy = xyseb[indices]
+        currsex = xseb[ind]
+        currsey = yseb[ind]
+        currsexy = xyseb[ind]
 
         # different bootstraps to do:
+        # for the actual data, do a non-parametric bootstrap
         if epistasis == 'actual':
             X = currx + curry
             Y = currxy - X
             wadd = np.sqrt(currsex**2 + currsey**2)
             wdev = wadd**2 + currsexy**2
 
-        elif epistasis == 'XY=X':
+        elif epistasis == 'xy=x':
             X = currx + curry
             Y = -curry
             wadd = np.sqrt(currsex**2 + currsey**2)
             wdev = currsey
 
-        elif epistasis == 'XY=Y':
+        elif epistasis == 'xy=y':
             X = currx + curry
             Y = -currx
             wadd = np.sqrt(currsex**2 + currsey**2)
             wdev = currsex
 
-        elif epistasis == 'XY=X+Y':
-            X = currx + curry
-            Y = 0
-            wadd = np.sqrt(currsex**2 + currsey**2)
+        # for all others, do a parametric bootstrap
+        # because we know what the slope should be,
+        # but we need to generate a structure to test
+        # against. Non-parametric bootstrapping will
+        # yield perfect lines every time.
+        elif epistasis == 'xy=x+y':
             wdev = currsex
+            X = currx + curry
+            Y = np.random.normal(0, wdev, len(curry))
+            wadd = np.sqrt(currsex**2 + currsey**2)
 
-        elif epistasis == 'XY=X=Y':
+        elif epistasis == 'xy=x=y':
             # flip a coin:
             coin = np.random.randint(0, 1)
 
             # half the time use the X data
             # half the time use the Y
             if coin == 0:
-                X = 2*currx
-                Y = -currx
                 wadd = np.sqrt(2*currsex**2)
                 wdev = currsex
+                X = 2*currx + np.random.normal(0, wadd, len(curry))
+                Y = -currx + np.random.normal(0, wdev, len(currx))
 
             else:
-                X = 2*curry
-                Y = -curry
                 wadd = np.sqrt(2*currsey**2)
-                wdev = currsex
+                wdev = currsey
+                X = 2*curry + np.random.normal(0, wadd, len(curry))
+                Y = -curry + np.random.normal(0, wdev, len(curry))
 
         elif epistasis == 'suppress':
             # flip a coin:
@@ -258,20 +270,16 @@ def bootstrap(bframe, sebframe, epistasis='actual', nsim=1000):
             # half the time use the X data
             # half the time use the Y
             if coin == 0:
-                X = curry
-                Y = -curry
-                wadd = currsey
-                wdev = currsex
+                wadd = np.sqrt(2*currsey**2)
+                wdev = currsey
+                X = curry + np.random.normal(0, wadd, len(curry))
+                Y = -curry + np.random.normal(0, wdev, len(curry))
 
             else:
-                X = currx
-                Y = -currx
-                wadd = currsex
-                wdev = currsey
-
-        # turn X, Y into random vars:
-        X = np.random.normal(X, wadd)
-        Y = np.random.normal(Y, wdev)
+                wadd = np.sqrt(2*currsex**2)
+                wdev = currsex
+                X = currx + np.random.normal(0, wadd, len(currx))
+                Y = -currx + np.random.normal(0, wdev, len(currx))
 
         # do calcs and store in vectors
         output = perform_odr(X, Y, wadd=wadd, wdev=wdev)
@@ -279,9 +287,9 @@ def bootstrap(bframe, sebframe, epistasis='actual', nsim=1000):
         # extract the slope and standard error from the output
         # and store it
         s[i] = output.beta[0]
-        se_s[i] = output.sd_beta[0]
+        # se_s[i] = output.sd_beta[0]
 
-    return s, se_s
+    return s
 
 
 def bootstrap_regression(singles, double, df, epistasis='actual', nsim=100):
@@ -313,11 +321,11 @@ def bootstrap_regression(singles, double, df, epistasis='actual', nsim=100):
     yseb = y.se_b.values
     xyseb = xy.se_b.values
 
-    beta, sebeta = bootstrap([xb, yb, xyb],
-                             [xseb, yseb, xyseb],
-                             epistasis=epistasis,
-                             nsim=nsim)
-    return beta, sebeta
+    beta = bootstrap([xb, yb, xyb],
+                     [xseb, yseb, xyseb],
+                     epistasis=epistasis,
+                     nsim=nsim)
+    return beta
 
 
 def epistasis_plot(singles, double, df, **kwargs):
@@ -368,53 +376,6 @@ def epistasis_plot(singles, double, df, **kwargs):
     return x, y, xy, ax
 
 
-def curves(means, errors, labels, **kwargs):
-    """Will be DEPRECATED soon."""
-    def normal(x, mu, sigma):
-        return 1/(2*np.pi)*np.exp(-(x-mu)**2/(2*sigma**2))
-
-    maxe = np.max(errors)
-    maxm = np.max(means)
-    minm = np.min(means)
-
-    color = kwargs.pop('color', {})
-    fill = kwargs.pop('fill', False)
-
-    X = np.linspace(minm - 3*maxe, maxm+3*maxe, 1000)
-
-    fig, ax = plt.subplots()
-    for i, mean in enumerate(means):
-        if labels[i] is 'fit':
-            lw = 3
-        else:
-            lw = 2
-
-        if len(color) > 0:
-            plot = plt.plot(X, normal(X, mean, errors[i]),
-                            label=labels[i], lw=lw, color=color[labels[i]])
-        else:
-            plot = plt.plot(X, normal(X, mean, errors[i]),
-                            label=labels[i], lw=lw)
-        if not fill:
-            next
-
-        if labels[i] is 'fit':
-            ax.fill_between(X, 0, normal(X, mean, errors[i]), color='r',
-                            alpha=0.3)
-
-    if minm - 3*maxe < -0.5 < maxm - 3*maxe:
-        plt.gca().axvline(-0.5, color='k', ls='--', label='Unbranched Pathway')
-    if minm - 3*maxe < 0 < maxm - 3*maxe:
-        plt.gca().axvline(0, color='k', ls='-.', label='Additive Model')
-
-    plt.legend(loc='upper right')
-    plt.title('Epistasis Coefficient Predictions vs. Observed')
-    plt.xlabel('Epistasis Coefficient')
-    plt.ylabel('Density')
-
-    return plot
-
-
 def calculate_all_bootstraps(x, y, xy, df, nsim=5000):
     """
     Given two double mutants and a double find the bootstrapped epistasis coef.
@@ -429,28 +390,26 @@ def calculate_all_bootstraps(x, y, xy, df, nsim=5000):
     Output:
     epicoef, epierr
     """
-    epistasis_choice = ['actual', 'XY=X', 'XY=Y', 'XY=X=Y', 'XY=X+Y',
+    epistasis_choice = ['actual', 'xy=x', 'xy=y', 'xy=x=y', 'xy=x+y',
                         'suppress']
 
-    epicoef, epierr = {}, {}
+    epicoef = {}
     for epistasis in epistasis_choice:
-        s, se_b = bootstrap_regression([x, y], xy, df,
-                                       epistasis=epistasis, nsim=nsim)
+        s = bootstrap_regression([x, y], xy, df,
+                                 epistasis=epistasis, nsim=nsim)
         epicoef[epistasis.lower()] = s
-        epierr[epistasis.lower()] = se_b
-
-    return epicoef, epierr
+    return epicoef
 
 
 def plot_bootstraps(x, y, epicoef, **kwargs):
     """Make KDE plots of the bootstrapped epistasis coefficients."""
     # make dictionaries for plotting
     colors = {'actual': '#33a02c', 'xy=x': 'blue', 'xy=y': 'k',
-              'xy=x=y': '#1f78b4', 'xy=x+y': '#ff7f00', 'suppressed': '#e31a1c'
+              'xy=x=y': '#1f78b4', 'xy=x+y': '#ff7f00', 'suppress': '#e31a1c'
               }
     labels = {'actual': 'actual', 'xy=x': label(x, y),
               'xy=y': label(y, x), 'xy=x=y': 'Unbranched',
-              'xy=x+y': 'Additive', 'suppressed': '#Suppression'
+              'xy=x+y': 'Additive', 'suppress': 'Suppression'
               }
     # checks and balances
     if type(epicoef) is not dict:
@@ -475,6 +434,7 @@ def plot_bootstraps(x, y, epicoef, **kwargs):
             sns.kdeplot(data=s, label=labels[model.lower()],
                         color=colors[model.lower()], **kwargs)
         except:
+            print('{0} did not have a label'.format(model))
             next
 
     # plot a horizontal line wherever the actual data mean is
@@ -484,3 +444,17 @@ def plot_bootstraps(x, y, epicoef, **kwargs):
     plt.ylabel('Cumulative Density Function')
 
     return ax
+
+
+def permutation_test(s):
+    """A bootstrap version of the permutation test."""
+    epistasis_choice = ['xy=x', 'xy=y', 'xy=x=y', 'xy=x+y', 'suppress']
+
+    diff_d = {}
+
+    for epistasis in epistasis_choice:
+        act_s = np.random.choice(s['actual'], size=len(s['actual']))
+        curr_s = np.random.choice(s[epistasis], size=len(s[epistasis]))
+        diff = [act_s[i] - curr_s[i] for i in range(len(act_s))]
+        diff_d[epistasis] = diff
+    return diff_d
