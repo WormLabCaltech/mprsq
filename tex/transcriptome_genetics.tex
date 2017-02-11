@@ -22,13 +22,13 @@
 \newcommand{\nhr}{\emph{nhr-57}}
 \newcommand{\lam}{\emph{lam-3}}
 
-\newcommand{\fog}{\emph{fog-2~(lf)}}
-\newcommand{\egl}{\emph{egl-9~(lf)}}
-\newcommand{\rhy}{\emph{rhy-1~(lf)}}
-\newcommand{\vhl}{\emph{vhl-1~(lf)}}
-\newcommand{\eglvhl}{\emph{egl-9;vhl-1~(lf)}}
-\newcommand{\eglhif}{\emph{egl-9;hif-1~(lf)}}
-\newcommand{\hif}{\emph{hif-1~(lf)}}
+\newcommand{\fog}{\emph{fog-2(lf)}}
+\newcommand{\egl}{\emph{egl-9(lf)}}
+\newcommand{\rhy}{\emph{rhy-1(lf)}}
+\newcommand{\vhl}{\emph{vhl-1(lf)}}
+\newcommand{\eglvhl}{\emph{egl-9;vhl-1(lf)}}
+\newcommand{\eglhif}{\emph{egl-9;hif-1(lf)}}
+\newcommand{\hif}{\emph{hif-1(lf)}}
 
 % protein names
 \newcommand{\eglp}{EGL-9}
@@ -158,41 +158,46 @@ can be found at \url{www.wormlabcaltech.github.io/mprsq}.
 % the line after the list may have some extra indentation. If this is the case,
 % add \parshape=0 to the end of the list environment.
 \dropcap{G}enetic analysis of molecular pathways has traditionally been performed
-through epistatic analysis. Epistasis occurs when two genes interact, either
+through epistatis analysis. Epistasis occurs when two genes interact, either
 directly (biochemical interaction of their gene products) or indirectly. If two
 genes interact, and the mutants of these genes have a quantifiable phenotype,
-the double mutant will have a phenotype that is not the sum of the phenotypes of
-the single mutants that make up its genotype. Epistatic analysis remains a
-cornerstone of genetics today~\cite{Phillips2008}.
+the double mutant of interacting genes will have a phenotype that is not the sum
+of the phenotypes of the single mutants that make up its genotype. Epistatic
+analysis remains a cornerstone of genetics today~\cite{Phillips2008}.
 
-Previous work in \emph{S. cerevisiae} and \dicty{} using microarrays has shown
+Recent developments in biology have seen a shift in focus from studying single
+genes to -omics methods that measure a property of the biological system
+genome-wide. In particular, RNA-seq~\cite{Mortazavi2008} enables biologists to
+identify genes that change expression in response to a perturbation. Recent
+developments have improved the power and resolution of this technique by enabling
+deeper and more frequent sequencing due to lower sequencing costs~\cite{Metzker2010};
+better and faster abundance quantification~\cite{Patro2014,Bray2016,Patro2015};
+as well as improved differential expression analysis
+methods~\cite{Pimentel2016,Trapnell2013}. As a result, RNA-Seq has been
+successfully used to identify genetic modules involved in a variety of processes,
+including T-cell regulation~\cite{Singer2016,Shalek2013}, the \cel{} linker
+cell migration~\cite{Schwarz2012}, or planarian stem cell
+maintenance~\cite{VanWolfswinkel2014,Scimone2014}. For the most part, the role of
+transcriptional profiling has been restricted to target gene identification.
+
+Although transcriptional profiling has been primarily used for descriptive purposes,
+transcriptomic phenotypes have been used to make genetic inferences previously.
+Work in \emph{S. cerevisiae} and \dicty{} using microarrays showed
 that transcriptomes can be used to infer genetic relationships in simple
 eukaryotes~\cite{Hughes2000, VanDriessche2005}. Additionally, eQTL studies in
 \cel{} and \emph{Drosophila melanogaster} have established the usefulness of
 transcriptomic phenotypes for population genetics studies~\cite{}.
-\todo[inline]{Need citations.}
-Developments in the area of transcriptomics have brought forward new protocols,
-such as RNA-Seq~\cite{Mortazavi2008}, and have also made important progress
-towards cheaper sequencing~\cite{Metzker2010}, better and faster abundance
-quantification~\cite{Patro2014,Bray2016,Patro2015} and improved differential
-analysis of gene expression~\cite{Pimentel2016,Trapnell2013}.
-As a result, RNA-Seq has been successfully used to identify genetic %key regulatory
-modules involved in a variety of processes, including T-cell
-regulation~\cite{Singer2016,Shalek2013}, the \cel{} linker cell
-migration~\cite{Schwarz2012}, or planarian stem cell
-maintenance~\cite{VanWolfswinkel2014,Scimone2014}. For the most part,
-the role of transcriptional profiling has been restricted to target gene
-identification.
+\todo[inline]{Need citations. Maybe add a bit more, it's fluffy.}
 In cell culture, single-cell RNA-seq has seen significant progress towards using
 transcriptomes as phenotypes with which to test genetic interactions
 ~\cite{Adamson2016,Dixit2016}.
 More recently, we have shown the first identification of a developmental state
 of \cel{} using whole-organism transcriptome profiling~\cite{Angeles-Albores2016a}.
+To investigate the ability of whole-organism transcriptomes to serve as quantitative
+phenotypes for epistasis analysis in metazoans, we sequenced the transcriptomes of
+of four well-characterized loss of function mutants in the \cel{} hypoxia
+pathway~\cite{Epstein2001,Shen2006,Shao2009,Jiang2001}.
 
-To investigate the ability of transcriptomes to serve as quantitative phenotypes,
-we selected four loss of function mutants in the \cel{} hypoxia pathway that have
-been extensively characterized previously~\cite{Epstein2001,Shen2006,Shao2009,Jiang2001}
-for transcriptome sequencing.
 % carmie:
 Metazoans depend on the presence of oxygen in sufficient concentrations to
 support aerobic metabolism. Genetic pathways evolved to rapidly respond to any
@@ -242,21 +247,6 @@ that pathway is considerably less well understood.
 }
 \label{fig:pathway}
 \end{figure}
-
-% old:
-% The hypoxia pathway is a conserved pathway that is found in all
-% metazoans~\cite{Semenza2012}. It plays an important role in oxygen and iron
-% homeostasis and in the immune response among
-% others~\cite{Nizet2009,Ackerman2012,Kirienko2013}, and it is believed to play
-% an important role in cancer appearance and progression, making it an attractive
-% therapeutic target for disease~\cite{Semenza2003}.
-% In \cel{} and other systems, \hifp{} is constitutively degraded by a futile
-% cycle that involves hydroxylation by the EGLN1 ortholog
-% \eglp{}~\cite{,Epstein2001,To2005}, followed by ubiquitination by the von
-% Hippel-Lindau Suppressor 1, \vhlp{}~\cite{Bishop2004,Shao2009,Tanimoto2000,Jaakkola2001}.
-% Inhibition of hydroxylation leads to accumulation of activated
-% \hifp{}~\cite{Bishop2004}. Among the known targets of \hifp{} activation are
-% \rhy{} and \egl{}. Increased \rhyp{} activates \eglp{}~\cite{Shen2006,Ma2012}.
 
 Here, we show that transcriptomes contain strong, robust signals that can be
 used to infer relationships between genes in complex metazoans by reconstructing
@@ -446,8 +436,8 @@ and \gene{egl-9}~\cite{Powell-Coffman2010}.
 
 Our dataset enables us to perform an equivalent computational experiment to qPCR
 by selectively looking at expression of a few genes at a time. Therefore, we
-queried the changes in expression of \gene{rhy-1}, \gene{egl-9}, \nhr{} and \lam{}
-as a representative negative control. In our dataset, \nhr{} is upregulated in
+queried the changes in expression of \gene{rhy-1}, \gene{egl-9}, \nhr{}. We included
+\lam{} as a representative negative control. In our dataset, \nhr{} is upregulated in
 \egl{}, \rhy{} and \vhl{}, but remains unchanged in \hif{}.
 \eglvhl{} had an expression level similar to \egl{}; whereas the
 \eglhif{} mutant showed wild-type levels of the reporter expression, as reported
@@ -505,7 +495,7 @@ pathway.
 Although it may be sufficient to extract the regression coefficients of a
 known reporter gene and use it to rebuild a genetic pathway, we felt that by
 relying on just a single gene, or even a handful of genes to rebuild the pathway
-discards most of the valuable information present in RNA-seq datasets. Therefore,
+we discarded most of the valuable information present in RNA-seq datasets. Therefore,
 we decided to explore a new epistatic metric---genome-wide epistasis.
 
 Ideally, any measurement of genome-wide epistasis should conform to certain
@@ -526,53 +516,89 @@ and the predicted regression coefficient. Only genes that are differentially
 expressed in all three genotypes are plotted.
 
 Epistasis plots can be understood intuitively for simple cases of genetic
-interactions. If two genes are acting additively on their shared transcriptomes,
-then all the plotted points will fall along the line $y=0$.
+interactions. If two genes act additively on the same set of differentially expressed
+isoforms then all the plotted points will fall along the line $y=0$.
 If two genes interact in a single, unbranched pathway, then $X^-$ and $Y^-$ should
-have identical phenotypes for $X^-$, $Y^-$ and $X^-Y^-$. It follows that the
+have identical phenotypes for $X^-$, $Y^-$ and $X^-Y^-$, if all the genotypes are
+homozygous for complete loss of function mutations~\cite{Huang2006}. It follows that the
 data points should fall along a line with slope equal to $-\frac{1}{2}$. On the
-other hand, cases where $X$ is a very strong inhibitor of $Y$ should result in points
-that fall along the line with slope equal to $-1$. Finally, genes that have a
-synthetic interaction between them will fall along lines with slopes $>0$. Finally,
-we can also create models, using only the data from the single mutants, to
-predict the slope that results for each case stated above, and for  each epistatic
-combination ($X^-Y^-=X^-$ or $X^-Y^-=Y^-$). Given the biological relevance of the
-slope of the lines of best fit to the biological relationship between the genes
-under study, we refer to it as the genome-wide epistasis coefficient, because it
-integrates information from many different genes into a single number
-(see Fig.~\ref{fig:egl9epistasis}).
+other hand, in the limit of complete inhibition of $Y$ by $X$, the plots should show
+a line of best fit with slope equal to $-1$\footnote{Specifically, this follows
+from assuming that $Y^-$ is wild-type under the conditions assayed; and
+$X^-Y^-$ = $Y^-$ = wild-type}.
+Genes that have a synthetic interaction between them will fall along lines
+with slopes $>0$. When there is epistasis of one gene over another, the points will
+fall along a line of best fit with slope $s_{XY=Y}$ or $s_{XY=X}$. This slope must
+be determined from the single-mutant data.
+From this information, we can use the single mutant data to
+predict the distribution of slopes that results for each case stated above, as well
+as for each epistatic combination ($X^-Y^-=X^-$ or $X^-Y^-=Y^-$). Given the biological
+relevance of the slope of the lines of best fit to the biological relationship
+between the genes under study, we refer to it as the genome-wide epistasis
+coefficient ($s_{X, Y}$), because it integrates information from many different
+genes into a single number (see Fig.~\ref{fig:egl9epistasis}).
 
 In our experiment, we studied two double mutants, \eglhif{} and \eglvhl{}.
 We wanted to understand how well the global epistasis agreed with the literature
 based on qPCR of single reporters. Therefore, we performed orthogonal distance
 regression on to the two gene combinations we studied (\gene{egl-9} and \gene{vhl-1};
 and \gene{egl-9} and \gene{hif-1}) to determine the epistasis coefficient for each
-gene pair. We generated models for a number of pathways using the single mutant
-data. For every simulation, as well as for the observed data, we used parametric
-bootstraps to generate probability distributions of the epistasis coefficients.
-This enables us to test whether two coefficients are statistically distinguishable
-from each other.
+gene pair. We also generated models for the epistatic cases mentioned above using
+the single mutant data. For every simulation, as well as for the observed data,
+we used bootstraps to generate probability distributions of the epistasis
+coefficients.
 
-We generated predictions for the epistasis coefficient that the double mutant
-should have if \gene{egl-9} was epistatic over \gene{vhl-1} (if the double mutant
-looked like \egl{}, $s_\mathrm{Pred}=-0..42$)
-using only the single mutant data. Next, we plotted the double mutant onto an
-epistasis plot and calculated the line of best fit. We observed that the observed
-slope agreed with the predicted slope ($s_\mathrm{Obs}=-0.42$)
-(see Fig.~\ref{fig:egl9epistasis}). The epistasis
-coefficient is close to $-0.5$, which suggests that \gene{egl-9} and \gene{vhl-1}
-interact primarily in a linear pathway. However, when we simulated a linear pathway
-using the single mutant data, we observed that the linear pathway has negligible
-probability density at $-0.42$, ($p = 0$).
-Therefore, \gene{egl-9} acts on the downstream phenotype effector (\hifp{}) in a
-more complex manner than a linear pathway with \vhl{}.  A genetic pattern that
-can lead to epistasis coefficients between $-\frac{1}{2}$ and $0$ is a branched
-pattern, where the gene that is epistatic interacts with the output
-phenotype via two arrows of the same valency.
-Overall, this suggests that \gene{egl-9} and \gene{vhl-1} form a branched circuit
-with \gene{hif-1}. Since \gene{egl-9} was epistatic over \gene{vhl-1}, this
-suggests that \gene{egl-9} acts to inhibit \hifp{} in \gene{vhl-1}-dependent and
-independent ways~\cite{Shao2009}.
+When we compared the predictions for the genome-wide epistasis coefficient,
+$s_{egl-9,vhl-1}$ under different assumptions with the observed slope ($-0.42$). We
+observed that the predicted slope matched the simulated slope for the case where
+\gene{egl-9} is epistatic over \gene{vhl-1} (\egl{} = \eglvhl{}, see
+Fig.~\ref{fig:egl9epistasis}) and did not overlap with any other prediction.
+Next, we predicted the distribution of $s_{egl-9,hif-1}$ for different pathways
+and contrasted with the observed slope. In this case, we saw that the uncertainty
+in the observed coefficient overlapped significantly with the strong suppression
+model, where \eglp{} strongly suppresses \hifp{}, and also with the model where
+\hif{} = \eglhif{}. In this case, both models are reasonable---\hifp{} is strongly
+suppressed by \eglp{}, and we know from previous literature that the epistatic
+relationship, \hif{} = \eglhif{}, is true for these mutants. In fact, as the
+repression of \hifp{} by \eglp{} becomes stronger, the epistatic model should converge
+on the limit of strong repression.
+
+Another way to test which model best explains the epistatic relationship between
+\gene{egl-9} and \gene{vhl-1} is to use Bayesian model selection to calculate
+an odds ratio between two models to explain the observed data. Models can be placed
+into two categories: parameter-free and fit. Parameter free models are `simpler'
+because their parameter space is smaller (0 parameters) than the fit models ($n$
+parameters). By Occam's razor, simpler models should be preferred to more
+complicated models. However, simple models suffer from the drawback that
+systematic deviations from them cannot be explained or accomodated, whereas more
+complicated models can alter the fit values to maximize their explanatory power.
+In this sense, more complicated models should be preferred when the data shows
+systematic deviations from the simple model. Odds-ratio selection gives us a way
+to quantify the trade-off between simplicity and explanatory power.
+
+We reasoned that comparing a fit model ($y = \alpha\cdot x$, where $\alpha$ is
+the slope of best fit) against a parameter-free model ($y = \gamma\cdot x$,
+where $\gamma$ is a single number) constituted a conservative approach towards
+selecting which theoretical model (if any) best explained the data. In particular,
+this approach will tend to strongly favor the line of best fit over simpler model
+for all but very small, non-systematic deviations. We decided
+that we would reject the theoretical models only if the line of best-fit
+was $10^3$ times more likely than the theoretical models (odds ratio, OR $>10^3$).
+Comparing the odds-ratio between the line of best fit and the different pathway
+models for \gene{egl-9} and \gene{vhl-1} showed similar results to the simulation.
+Only the theoretical model \egl{} = \eglvhl{} could not be rejected (OR = 0.02),
+whereas all other models were significantly less likely than the line of best fit
+(OR $>10^{42}$).
+Therefore, \gene{egl-9} is epistatic to \gene{vhl-1}. Moreover,
+since $s_{egl-9, vhl-1}$ is strictly between and not equal to $0$ and $-0.5$, we
+conclude that \gene{egl-9} acts on its transcriptomic phenotype in
+\gene{vhl-1}-dependent and independent manners. A branched pathway that can lead
+to epistasis coefficients in this range is a pathway where \gene{egl-9} interacts
+with its transcriptomic phenotype via branches that have the same valence (both
+positive or both negative)~\cite{Shao2009}. When we performed a similar analysis
+to establish the epistatic relationship between \gene{egl-9} and \gene{hif-1},
+we observed similar results. All models were rejected (OR $>10^{25}$) except for
+the model where \gene{hif-1} is epistatic over \gene{egl-9}.
 
 % epistasis graph
 \begin{figure}[tbhp]
@@ -615,19 +641,11 @@ linear pathway strongly suggests that \eglp{} acts on \hifp{} in
 \label{fig:egl9epistasis}
 \end{figure}
 
-We repeated our calculations for \gene{egl-9} and \gene{hif-1}. We predicted that
-these genes would exhibit an epistatic coefficient equal to $-0.72$, and we
-observed a coefficient of $-0.84$ ($p=0.06$). We compared the observed distribution
-with the expected distribution for an pathway where \hif{} is strongly repressed
-by \egl{}. We found that this distribution overlapped extensively with the empirical
-distribution ($p=0.53$). Therefore, we conclude that \gene{hif-1} is very strongly
-suppressed by \gene{egl-9}.
-
 \subsubsection*{Epistasis can be predicted}
 Given our success in measuring epistasis coefficients, we wanted to know whether
 we could predict the epistasis coefficient between \gene{egl-9} and \gene{vhl-1}
-in the absence of the \egl{} genotype. We reasoned that since \rhyp{} controls
-\eglp{} in a strong fashion, the \rhy{} transcriptome should contain more or less
+in the absence of the \egl{} genotype. Since \rhyp{} activates
+\eglp{}, the \rhy{} transcriptome should contain more or less
 equivalent information to the \egl{} transcriptome. Therefore, we generated
 predictions of the epistasis coefficient between \gene{egl-9} and \gene{vhl-1}
 by substituting in the \rhy{} data. We predicted $s_{rhy-1,vhl-1} = -0.45$. However
@@ -835,13 +853,13 @@ Suite~\cite{Angeles-Albores2016}.
 \centering
 \includegraphics[width=\linewidth]{figs/hypoxia_response_gea.pdf}
 \caption{
-GEA of genes associated with the main hypoxia response. A number of terms
-reflecting catabolism and bioenergetics are enriched.
+Gene ontology enrichment analysis of genes associated with the main hypoxia response.
+A number of terms reflecting catabolism and bioenergetics are enriched.
 }
 \label{fig:hyp_gea}
 \end{figure}
 
-Gene enrichment analysis (GEA) showed that the terms `oxoacid metabolic process'
+Gene ontology enrichment analysis (GEA) showed that the terms `oxoacid metabolic process'
 (\qval{3}, 3.4 fold-change, 19 genes),
 `iron ion binding' (\qval{3}, 5.5 fold-change, 10 genes),
 and `immune system process' (\qval{3}, 3.4 fold-change, 17 genes) were enriched
@@ -1107,7 +1125,8 @@ under normoxia (see Fig.~\ref{fig:hif1oh_table}).
 The possibility that \hifp{}-hydroxyl has a function has not been previously
 considered in the existing literature, although experts have wondered about
 the possibility that \hifp{}-hydroxyl may have transcriptional effects independent
-of \hifp{} (William Kaelin, pers.\ comm.). Here, we draw multiple, varied lines
+of \hifp{} (William Kaelin, pers.\ comm.). \todo[inline]{Paul, do we need to ask
+W. K. for permission to cite? }Here, we draw multiple, varied lines
 of circumstantial evidence to suggest that \hifp{} hydroxylation plays a role
 in the functionality of the hypoxia pathway. First, \hifp{}-hydroxyl is
 challenging to study genetically because no mimetic mutations are available with
@@ -1270,7 +1289,7 @@ the set of differentially expressed genes (DEGs) common to both transcriptomes u
 analysis. DEGs were then rank-ordered according to their regression coefficient,
 $\beta$. Bayesian robust regressions were performed using a Student-T distribution.
 Bayesian analysis was performed using the PyMC3 library~\cite{Salvatier2015}
-(\texttt{pm.glm.families.StudenT()} in Python). If the correlation has an average
+(\texttt{pm.glm.families.StudenT} in Python). If the correlation has an average
 value >1, the correlation coefficient was set to 1.
 
 Weights were calculated as the proportion of genes that were $<1.5$ standard deviations

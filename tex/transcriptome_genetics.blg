@@ -4,47 +4,48 @@ The top-level auxiliary file: transcriptome_genetics.aux
 The style file: pnas2011.bst
 Database file #1: citations.bib
 Warning--I didn't find a database entry for ""
+Warning--there's a number but no volume in Huang2006
 Warning--empty journal in Team2014
 Warning--empty journal in Waskom
-You've used 59 entries,
+You've used 60 entries,
             1797 wiz_defined-function locations,
-            859 strings with 18750 characters,
-and the built_in function-call counts, 13894 in all, are:
-= -- 1193
-> -- 663
+            866 strings with 18910 characters,
+and the built_in function-call counts, 14108 in all, are:
+= -- 1212
+> -- 673
 < -- 3
-+ -- 202
-- -- 143
-* -- 1252
-:= -- 2096
-add.period$ -- 116
-call.type$ -- 59
-change.case$ -- 59
++ -- 205
+- -- 145
+* -- 1272
+:= -- 2128
+add.period$ -- 118
+call.type$ -- 60
+change.case$ -- 60
 chr.to.int$ -- 0
-cite$ -- 61
-duplicate$ -- 614
-empty$ -- 1289
-format.name$ -- 143
-if$ -- 2948
+cite$ -- 63
+duplicate$ -- 624
+empty$ -- 1309
+format.name$ -- 145
+if$ -- 2993
 int.to.chr$ -- 0
-int.to.str$ -- 59
-missing$ -- 59
-newline$ -- 237
-num.names$ -- 59
-pop$ -- 77
+int.to.str$ -- 60
+missing$ -- 60
+newline$ -- 241
+num.names$ -- 60
+pop$ -- 79
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 345
+skip$ -- 348
 stack$ -- 0
-substring$ -- 1259
-swap$ -- 147
+substring$ -- 1275
+swap$ -- 149
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 2
-while$ -- 159
-width$ -- 61
-write$ -- 585
-(There were 3 warnings)
+warning$ -- 3
+while$ -- 162
+width$ -- 62
+write$ -- 595
+(There were 4 warnings)

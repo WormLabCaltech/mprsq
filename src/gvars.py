@@ -81,3 +81,20 @@ class genvars:
                            r'\emph{vhl-1}': '#ff7f00',
                            r'\emph{rhy-1}': '#ffff33'
                            }
+
+
+class epistasis:
+    """
+    An object that holds all possible epistasis models.
+
+    Functions:
+    init - initialize the object
+
+    Attributes:
+    models - a list of epistatic models
+    """
+
+    def __init__(self):
+        """Initialize object."""
+        self.models = ['actual', 'xy=x', 'xy=y', 'xy=x=y', 'xy=x+y',
+                       'suppress']

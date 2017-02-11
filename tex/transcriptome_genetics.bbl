@@ -5,16 +5,6 @@ Phillips PC (2008) {Epistasis---the essential role of gene interactions in the
   structure and evolution of genetic systems}.
 \newblock {\em Nat Rev Genet} 9(11):855--867.
 
-\bibitem{Hughes2000}
-Hughes TR et~al. (2000) {Functional Discovery via a Compendium of Expression
-  Profiles}.
-\newblock {\em Cell} 102(1):109--126.
-
-\bibitem{VanDriessche2005}
-{Van Driessche} N et~al. (2005) {Epistasis analysis with global transcriptional
-  phenotypes}.
-\newblock {\em Nature genetics} 37(5):471--477.
-
 \bibitem{Mortazavi2008}
 Mortazavi A, Williams BA, McCue K, Schaeffer L, Wold B (2008) {Mapping and
   quantifying mammalian transcriptomes by RNA-Seq}.
@@ -76,6 +66,16 @@ Schwarz EM, Kato M, Sternberg PW (2012) {Functional transcriptomics of a
 Scimone ML, Kravarik KM, Lapan SW, Reddien PW (2014) {Neoblast specialization
   in regeneration of the planarian schmidtea mediterranea}.
 \newblock {\em Stem Cell Reports} 3(2):339--352.
+
+\bibitem{Hughes2000}
+Hughes TR et~al. (2000) {Functional Discovery via a Compendium of Expression
+  Profiles}.
+\newblock {\em Cell} 102(1):109--126.
+
+\bibitem{VanDriessche2005}
+{Van Driessche} N et~al. (2005) {Epistasis analysis with global transcriptional
+  phenotypes}.
+\newblock {\em Nature genetics} 37(5):471--477.
 
 \bibitem{Adamson2016}
 Adamson B et~al. (2016) {A Multiplexed Single-Cell CRISPR Screening Platform
@@ -191,6 +191,11 @@ Park EC et~al. (2012) {Hypoxia regulates glutamate receptor trafficking through
 \bibitem{Powell-Coffman2010}
 Powell-Coffman JA (2010) {Hypoxia signaling and resistance in C. elegans}.
 \newblock {\em Trends in Endocrinology and Metabolism} 21(7):435--440.
+
+\bibitem{Huang2006}
+Huang LS, Sternberg PW (2006) {Genetic dissection of developmental pathways.}
+\newblock {\em WormBook : the online review of C. elegans biology}
+  (1995):1--19.
 
 \bibitem{Angeles-Albores2016}
 Angeles-Albores D, {N. Lee} RY, Chan J, Sternberg PW (2016) {Tissue enrichment

@@ -1,9 +1,8 @@
 """A script that contains all functions to do RNA-seq epistasis analysis."""
 # important stuff:
-# import os
 import pandas as pd
 import numpy as np
-# from IPython.core.display import HTML
+import scipy
 
 # Graphics
 import matplotlib as mpl
@@ -13,21 +12,9 @@ import scipy.odr as odr
 
 # labeller:
 import gvars
-
-# from IPython.core.display import HTML
-# # bokeh
-# import bokeh.charts
-# import bokeh.charts.utils
-# import bokeh.io
-# import bokeh.models
-# import bokeh.palettes
-# import bokeh.plotting
-# from bokeh.plotting import figure
-# from bokeh.resources import CDN
-# from bokeh.embed import file_html
-
 from scipy.stats import gaussian_kde
 from matplotlib import rc
+
 rc('text', usetex=True)
 rc('text.latex', preamble=r'\usepackage{cmbright}')
 rc('font', **{'family': 'sans-serif', 'sans-serif': ['Helvetica']})
@@ -45,6 +32,7 @@ mpl.rcParams['ytick.labelsize'] = 16
 mpl.rcParams['legend.fontsize'] = 16
 
 genvar = gvars.genvars()
+epi = gvars.epistasis()
 
 
 def label(code1, code2):
@@ -216,22 +204,20 @@ def bootstrap(bframe, sebframe, epistasis='actual', nsim=1000):
 
         # different bootstraps to do:
         # for the actual data, do a non-parametric bootstrap
+        wadd = np.sqrt(currsex**2 + currsey**2)
         if epistasis == 'actual':
             X = currx + curry
             Y = currxy - X
-            wadd = np.sqrt(currsex**2 + currsey**2)
             wdev = wadd**2 + currsexy**2
 
         elif epistasis == 'xy=x':
             X = currx + curry
             Y = -curry
-            wadd = np.sqrt(currsex**2 + currsey**2)
             wdev = currsey
 
         elif epistasis == 'xy=y':
             X = currx + curry
             Y = -currx
-            wadd = np.sqrt(currsex**2 + currsey**2)
             wdev = currsex
 
         # for all others, do a parametric bootstrap
@@ -240,10 +226,9 @@ def bootstrap(bframe, sebframe, epistasis='actual', nsim=1000):
         # against. Non-parametric bootstrapping will
         # yield perfect lines every time.
         elif epistasis == 'xy=x+y':
-            wdev = currsex
             X = currx + curry
-            Y = np.random.normal(0, wdev, len(curry))
-            wadd = np.sqrt(currsex**2 + currsey**2)
+            Y = np.random.normal(0, wadd, len(X))
+            wdev = wadd
 
         elif epistasis == 'xy=x=y':
             # flip a coin:
@@ -258,25 +243,25 @@ def bootstrap(bframe, sebframe, epistasis='actual', nsim=1000):
                 Y = -currx + np.random.normal(0, wdev, len(currx))
 
             else:
-                wadd = np.sqrt(2*currsey**2)
+                wadd = np.sqrt(2)*currsey
                 wdev = currsey
                 X = 2*curry + np.random.normal(0, wadd, len(curry))
                 Y = -curry + np.random.normal(0, wdev, len(curry))
 
         elif epistasis == 'suppress':
             # flip a coin:
-            coin = np.random.randint(0, 1)
+            coin = np.random.randint(0, 2)
 
             # half the time use the X data
             # half the time use the Y
             if coin == 0:
-                wadd = np.sqrt(2*currsey**2)
+                wadd = np.sqrt(2)*currsex
                 wdev = currsey
                 X = curry + np.random.normal(0, wadd, len(curry))
                 Y = -curry + np.random.normal(0, wdev, len(curry))
 
             else:
-                wadd = np.sqrt(2*currsex**2)
+                wadd = np.sqrt(2)*currsex
                 wdev = currsex
                 X = currx + np.random.normal(0, wadd, len(currx))
                 Y = -currx + np.random.normal(0, wdev, len(currx))
@@ -390,14 +375,12 @@ def calculate_all_bootstraps(x, y, xy, df, nsim=5000):
     Output:
     epicoef, epierr
     """
-    epistasis_choice = ['actual', 'xy=x', 'xy=y', 'xy=x=y', 'xy=x+y',
-                        'suppress']
-
+    models = epi.models
     epicoef = {}
-    for epistasis in epistasis_choice:
+    for model in models:
         s = bootstrap_regression([x, y], xy, df,
-                                 epistasis=epistasis, nsim=nsim)
-        epicoef[epistasis.lower()] = s
+                                 epistasis=model, nsim=nsim)
+        epicoef[model] = s
     return epicoef
 
 
@@ -411,6 +394,7 @@ def plot_bootstraps(x, y, epicoef, **kwargs):
               'xy=y': label(y, x), 'xy=x=y': 'Unbranched',
               'xy=x+y': 'Additive', 'suppress': 'Suppression'
               }
+
     # checks and balances
     if type(epicoef) is not dict:
         raise ValueError('epicoef must be a dictionary')
@@ -447,14 +431,38 @@ def plot_bootstraps(x, y, epicoef, **kwargs):
 
 
 def permutation_test(s):
-    """A bootstrap version of the permutation test."""
-    epistasis_choice = ['xy=x', 'xy=y', 'xy=x=y', 'xy=x+y', 'suppress']
+    """Perform a permutation test on the slope the genetic data."""
+    epistasis = ['xy=x', 'xy=y', 'xy=x=y', 'xy=x+y',
+                 'suppress']
 
-    diff_d = {}
+    diff = {}
+    for epi in epistasis:
+        d = [s['actual'][i] - s[epi][i] for i in range(len(s[epi]))]
+        diff[epi] = d
 
-    for epistasis in epistasis_choice:
-        act_s = np.random.choice(s['actual'], size=len(s['actual']))
-        curr_s = np.random.choice(s[epistasis], size=len(s[epistasis]))
-        diff = [act_s[i] - curr_s[i] for i in range(len(act_s))]
-        diff_d[epistasis] = diff
-    return diff_d
+    return diff
+
+
+def message(name, pval, alpha=0.01):
+    """Write a message."""
+    if pval < alpha:
+        return '{0} can be rejected (pval <= {1:.2g})'.format(name, pval)
+    else:
+        return '{0} cannot be rejected (pval = {1:.2g})'.format(name, pval)
+
+
+def calculate_pval(s, diff):
+    """Given `s` and  `diff`, print out the p-values for each comparison."""
+    tests = {'suppress': -1, 'add': 0, 'xy=x=y': -1/2}
+    for key, array in diff.items():
+        # test =
+        if s[key].mean() > s['actual'].mean():
+            pval = len(array[array > 0])/len(array)
+        else:
+            pval = len(array[array < 0])/len(array)
+        if pval == 0:
+            p = 1/(len(array)/10)
+        else:
+            p = pval
+        mess = message(key, p)
+        print(mess)
