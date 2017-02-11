@@ -119,3 +119,5 @@ tex/transcriptome_genetics.fdb_latexmk
 tex/transcriptome_genetics.aux
 
 tex/transcriptome_genetics.synctex.gz
+
+*.docx
