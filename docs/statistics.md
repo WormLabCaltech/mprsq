@@ -76,7 +76,15 @@ least-squares when errors in both coordinates are known.
 
 ### Parametric Bootstrap
 
+<a href="{{site.baseurl}}/stats_tutorial/parametric_bootstrapping.html" >Jupyter Notebook on Parametric Bootstrapping</a>
+
+
 ### Non-parametric Bootstrap
+<a href="{{site.baseurl}}/stats_tutorial/nonparametric_bootstrapping.html" >Jupyter Notebook on Non-parametric Bootstrapping</a>
+
+## Model Selection
+<a href="{{site.baseurl}}/stats_tutorial/model_selection.html" >Jupyter Notebook on Model Selection</a>
+
 
 
 ### Contact us
