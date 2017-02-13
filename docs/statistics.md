@@ -49,22 +49,19 @@ takes points with large errors and makes them less important, whereas points wit
 smaller errors are more important. ODR is similar in the sense that it is takes
 into account errors in both x and y and weights points accordingly.
 
-A major difference between usual Least Squares and ODR is the minimization we are performing.
-For Least Squares, we are usually minimizing the vertical distance of the points
-to the line. In other words, when we have minimized the equation,
-
-![chi squared is equal to the sum of the squares of the residuals]({{ site.baseurl }}/images/chi_square.png)
-
-we have found the line of best fit. However, if there are errors on both X and Y,
-we need to minimize something else. In this case, it again makes sense to find the
-line that also minimizes the distance between the points and the lines. However,
-in this case, we will add the constraint that the ruler we use to measure this
-distance must always *be at right angles to the line itself* (hence the orthogonal).
+A major difference between usual Least Squares and ODR is the minimization we are
+performing. For Least Squares, we are usually minimizing the vertical distance of
+the points to the line. In other words, when we have minimized the sum of the
+squares of the residuals we have found the line of best fit. However, if there
+are errors on both X and Y, we need to minimize something else. In this case, it
+again makes sense to find the line that also minimizes the distance between the
+points and the lines. However, in this case, we will add the constraint that the
+ruler we use to measure this distance must always *be at right angles to the line
+itself* (hence the orthogonal).
 
 The reasoning behind this has been explained previously. For further information
 on the mathematics behind regressions, we refer you to David Hogg's excellent
 article: [Data Analysis recipes: Fitting a model to data](https://arxiv.org/abs/1008.4686).
-
 In the next Jupyter notebook, we show quickly how ODR is considerably better than
 least-squares when errors in both coordinates are known.
 
