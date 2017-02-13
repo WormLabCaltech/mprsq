@@ -53,9 +53,7 @@ A major difference between usual Least Squares and ODR is the minimization we ar
 For Least Squares, we are usually minimizing the vertical distance of the points
 to the line. In other words, when we have minimized the equation,
 
-$$
-\sum_\mathrm{data}(y_\mathrm{data} - y__{fit}),
-$$
+![chi squared is equal to the sum of the squares of the residuals]({{ site.baseurl }}/images/chi_square.pdf)
 
 we have found the line of best fit. However, if there are errors on both X and Y,
 we need to minimize something else. In this case, it again makes sense to find the
