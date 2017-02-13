@@ -37,7 +37,7 @@ See their paper at BioRxiv:
 
 ## Bayesian robust regressions for interaction prediction
 
-<a href="{{ site.baseurl }}/stats_tutorial/Noise Mitigation Tutorial.html"> Jupyter Notebook on Bayesian Robust Regressions</a>
+<a href="{{ site.baseurl }}/stats_tutorial/noise_mitigation.html"> Jupyter Notebook on Bayesian Robust Regressions</a>
 
 ## Orthogonal distance regression
 Orthogonal distance regression (ODR) is a method to fit the line of best fit when you
@@ -65,7 +65,7 @@ distance must always *be at right angles to the line itself* (hence the orthogon
 
 The reasoning behind this has been explained previously. For further information
 on the mathematics behind regressions, we refer you to David Hogg's excellent
-article on [Data Analysis recipes: Fitting a model to data](https://arxiv.org/abs/1008.4686).
+article: [Data Analysis recipes: Fitting a model to data](https://arxiv.org/abs/1008.4686).
 
 In the next Jupyter notebook, we show quickly how ODR is considerably better than
 least-squares when errors in both coordinates are known.
@@ -77,7 +77,6 @@ least-squares when errors in both coordinates are known.
 ### Parametric Bootstrap
 
 <a href="{{site.baseurl}}/stats_tutorial/parametric_bootstrapping.html" >Jupyter Notebook on Parametric Bootstrapping</a>
-
 
 ### Non-parametric Bootstrap
 <a href="{{site.baseurl}}/stats_tutorial/nonparametric_bootstrapping.html" >Jupyter Notebook on Non-parametric Bootstrapping</a>
