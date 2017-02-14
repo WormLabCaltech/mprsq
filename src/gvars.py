@@ -27,6 +27,16 @@ class genvars:
                         'g': 'fog-2'
                         }
 
+        # mapping, for use in printing or networkx
+        self.sort_muts = {'a': 6,
+                          'b': 2,
+                          'c': 4,
+                          'd': 3,
+                          'e': 1,
+                          'f': 7,
+                          'g': 5
+                          }
+
         # sort pairs, for plotting pairwise correlations
         self.sort_pairs = {'eb': 1, 'be': 1,
                            'ed': 2, 'de': 2,

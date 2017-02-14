@@ -268,10 +268,21 @@ A complete, interactive version of the analysis is also available at
 \label{sub:summary}
 
 We performed whole-organism RNA-seq of the hypoxia pathway at a moderate
-sequencing depth ($\sim7$ million mapped reads for each individual replicate) under
-normoxic conditions, which allowed us to measure 13,598 isoforms across all
+sequencing depth ($\sim7$ million mapped reads for each individual replicate)
+under normoxic conditions, which allowed us to measure 13,598 isoforms across all
 replicates and genotypes, which constitutes over half of all isoforms in \cel{}.
-In spite of the low sequencing depth, transcriptome profiling of the hypoxia
+We analyzed our data using a general linear model (see~\ref{methods}) on
+logarithm-transformed counts. Changes in gene expression are quantified via a
+regression coefficient, $\beta$ which is specific to each isoform within a genotype.
+Statistical significance is achieved when the q-values for each $\beta$ (p-values
+adjusted for multiple testing) are less than 0.1. Genes that are significantly
+altered between wild-type and a given mutant have $\beta$ values that are
+statistically significantly different from 0.  These coefficients are not equal
+to the average log-fold change per gene, although they are loosely related to
+this quantity. Larger magnitudes of $\beta$ correspond to larger perturbations.
+These coefficients can be used to study the RNA-Seq data in question.
+
+In spite of the moderate sequencing depth, transcriptome profiling of the hypoxia
 pathway revealed that this pathway controls thousands of genes in \cel{}. The
 \egl{} transcriptome showed differential expression of \egln{} genes, similarly to
 the \rhyn{} genes differentially expressed in \rhy{} mutants. The \vhl{}
@@ -282,49 +293,87 @@ possibly reflecting the known fact that it is a weaker controller of \hif{} than
 transcriptomic phenotype involving \hifn{} genes. The \eglhif{} double mutant
 showed a similar number of genes with altered expression (\eglhifn{}).
 
-\subsection*{Clustering visualizes epistatic relationships between genes}
+% \subsection*{Clustering visualizes epistatic relationships between genes}
+% \label{sub:Clustering}
+%
+% As a first step in our analysis, we analyzed our data using a general
+% linear model (see~\ref{methods}) on logarithm-transformed
+% counts. Genes that are significantly altered between wild-type and a given
+% mutant have a genotype coefficient ($\beta$) that is statistically significantly
+% different from 0. We refer to these coefficients through the greek letter. These
+% coefficients are not identical to the average log-fold change per gene, although
+% they are loosely related to this quantity. Larger magnitudes of $\beta$
+% correspond to larger perturbations. These coefficients can be used to study the
+% RNA-Seq data in question.
+%
+% Clustering is a well-known technique in bioinformatics that is used to identify
+% relationships between high dimensional data points~\cite{Yeung2003}. We wanted
+% to make sure that clustering by differential expression yielded genetically
+% relevant information. \hif{} exhibits no obvious phenotypes under normoxic
+% conditions, in contrast to \egl{}, which exhibits an egg-laying (Egl)
+% phenotype in the same environment. \eglhif{} mutants suppress the
+% Egl phenotype. If transcriptomic phenotypes correlate with their identified
+% phenotypes, \hif{} should cluster with the \eglhif{} double
+% mutant, whereas \egl{} should cluster away from the \hif{} mutant.
+% Indeed, when blind, unsupervised clustering was performed on the data, three
+% clusters emerged. \hif{} and \eglhif{} clustered together, indicating
+% suppression of the \egl{} phenotype; whereas \egl{}, \eglvhl{}, \vhl{} and
+% \rhy{} all clustered separately. Finally, our negative control \fog{} was in its
+% own cluster (see Fig.~\ref{fig:dendrogram}). We conclude that expression profiling
+% measures enough signal to cluster genes in a meaningful manner in complex
+% metazoans.
+%
+% % dendrogram
+% \begin{figure}%[tbhp]
+% \centering
+% \includegraphics[width=0.75\linewidth]{figs/dendrogram.pdf}
+% \caption{
+% Unsupervised aggregative clustering of various \cel{} mutants. Genes
+% cluster in a manner that is biologically intuitive. Genotypes that have an
+% activated hypoxia response (i.e, \egl{}, \vhl{}, and \rhy{}) cluster far
+% from \hif{}. \hif{} clusters with the suppressed \eglhif{} double mutant.
+% The \fog{} transcriptome, used as an outgroup, clusters farthest away.
+% }
+% \label{fig:dendrogram}
+% \end{figure}
+
+\subsection*{Principal Component Analysis visualizes epistatic relationships between genotypes}
 \label{sub:Clustering}
 
-As a first step in our analysis, we analyzed our data using a general
-linear model (see~\ref{methods}) on logarithm-transformed
-counts. Genes that are significantly altered between wild-type and a given
-mutant have a genotype coefficient ($\beta$) that is statistically significantly
-different from 0. We refer to these coefficients through the greek letter. These
-coefficients are not identical to the average log-fold change per gene, although
-they are loosely related to this quantity. Larger magnitudes of $\beta$
-correspond to larger perturbations. These coefficients can be used to study the
-RNA-Seq data in question.
+Principal Component Analysis (PCA) is a well-known technique in bioinformatics that is
+used to identify relationships between high dimensional data points\todo[inline]{
+Need new citation for PCA
+}
+% ~\cite{Yeung2003}
+We performed PCA on our data to examine whether each genotype clustered in a biologically
+relevant manner. We expected \hif{} to cluster near \eglhif{}, because
+\hif{} exhibits no obvious phenotypes under normoxic conditions, in contrast to
+\egl{}, which exhibits an egg-laying (Egl) phenotype in the same environment.
+\eglhif{} mutants suppress the Egl phenotype and exhibit the \hif{} (wild-type) phenotype
+instead. On the other hand, we expected \egl{}, \rhy{}, \vhl{} and \eglvhl{} to
+form a separate cluster since each of these genotypes is Egl and has a constitutive
+hypoxic response. Finally, we expected that \fog{}, which we included as a negative
+control, should appear far away from either cluster.
 
-Clustering is a well-known technique in bioinformatics that is used to identify
-relationships between high dimensional data points~\cite{Yeung2003}. We wanted
-to make sure that clustering by differential expression yielded genetically
-relevant information. \hif{} exhibits no obvious phenotypes under normoxic
-conditions, in contrast to \egl{}, which exhibits an egg-laying (Egl)
-phenotype in the same environment. \eglhif{} mutants suppress the
-Egl phenotype. If transcriptomic phenotypes correlate with their identified
-phenotypes, \hif{} should cluster with the \eglhif{} double
-mutant, whereas \egl{} should cluster away from the \hif{} mutant.
-Indeed, when blind, unsupervised clustering was performed on the data, three
-clusters emerged. \hif{} and \eglhif{} clustered together, indicating
-suppression of the \egl{} phenotype; whereas \egl{}, \eglvhl{}, \vhl{} and
-\rhy{} all clustered separately. Finally, our negative control \fog{} was in its
-own cluster (see Fig.~\ref{fig:dendrogram}). We conclude that expression profiling
-measures enough signal to cluster genes in a meaningful manner in complex
-metazoans.
+The first dimension of the PCA analysis was able to discriminate between \hifp{}
+positive and negative animals, whereas the second dimension was able to discriminate
+between mutants within the hypoxia pathway and outside the hypoxia pathway.
+Therefore expression profiling measures enough signal to cluster genes in a
+meaningful manner in complex metazoans.
 
 % dendrogram
 \begin{figure}%[tbhp]
 \centering
-\includegraphics[width=0.75\linewidth]{figs/dendrogram.pdf}
+\includegraphics[width=0.75\linewidth]{figs/pca.pdf}
 \caption{
-Unsupervised aggregative clustering of various \cel{} mutants. Genes
-cluster in a manner that is biologically intuitive. Genotypes that have an
+Principal component analysis of various \cel{} mutants. Genotypes that have an
 activated hypoxia response (i.e, \egl{}, \vhl{}, and \rhy{}) cluster far
 from \hif{}. \hif{} clusters with the suppressed \eglhif{} double mutant.
-The \fog{} transcriptome, used as an outgroup, clusters farthest away.
+The \fog{} transcriptome, used as an outgroup, is far away from either cluster.
 }
 \label{fig:dendrogram}
 \end{figure}
+
 
 \subsection*{Reconstruction of the hypoxia pathway from first genetic principles}
 \label{sec:reconstruct}
