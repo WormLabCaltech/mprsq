@@ -7,45 +7,45 @@ Warning--I didn't find a database entry for ""
 Warning--there's a number but no volume in Huang2006
 Warning--empty journal in Team2014
 Warning--empty journal in Waskom
-You've used 61 entries,
+You've used 66 entries,
             1797 wiz_defined-function locations,
-            873 strings with 19596 characters,
-and the built_in function-call counts, 14379 in all, are:
-= -- 1243
-> -- 674
+            908 strings with 21177 characters,
+and the built_in function-call counts, 15488 in all, are:
+= -- 1330
+> -- 734
 < -- 3
-+ -- 206
-- -- 145
-* -- 1298
-:= -- 2165
-add.period$ -- 120
-call.type$ -- 61
-change.case$ -- 61
++ -- 224
+- -- 158
+* -- 1402
+:= -- 2338
+add.period$ -- 130
+call.type$ -- 66
+change.case$ -- 66
 chr.to.int$ -- 0
-cite$ -- 64
-duplicate$ -- 634
-empty$ -- 1338
-format.name$ -- 145
-if$ -- 3050
+cite$ -- 69
+duplicate$ -- 683
+empty$ -- 1442
+format.name$ -- 158
+if$ -- 3284
 int.to.chr$ -- 0
-int.to.str$ -- 61
-missing$ -- 61
-newline$ -- 245
-num.names$ -- 61
-pop$ -- 80
+int.to.str$ -- 66
+missing$ -- 66
+newline$ -- 265
+num.names$ -- 66
+pop$ -- 85
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 350
+skip$ -- 377
 stack$ -- 0
-substring$ -- 1322
-swap$ -- 151
+substring$ -- 1408
+swap$ -- 161
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 3
-while$ -- 166
-width$ -- 63
-write$ -- 605
+while$ -- 177
+width$ -- 68
+write$ -- 655
 (There were 4 warnings)

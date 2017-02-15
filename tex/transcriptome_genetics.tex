@@ -117,11 +117,11 @@ microscopy. DA, CPR and PWS wrote the manuscript.
 addressed. E-mail: pws@caltech.edu}
 
 % Keywords are not mandatory, but authors are strongly encouraged to provide
-\keywords{genetics $|$ RNA-Seq $|$ epistasis $|$ hypoxia $|$
+\keywords{genetics $|$ RNA-seq $|$ epistasis $|$ hypoxia $|$
           transcriptomics $ | $ systems biology}
 
 \begin{abstract}
-RNA-Seq is a technology that is commonly used to identify genetic modules that
+RNA-seq is a technology that is commonly used to identify genetic modules that
 are responsive to a perturbation. In theory, global gene expression could also
 be used as a phenotype in complex metazoans, with all the implications that has
 for genetic analysis. To that end, we sequenced the transcriptome of four single
@@ -158,22 +158,24 @@ can be found at \url{www.wormlabcaltech.github.io/mprsq}.
 % the line after the list may have some extra indentation. If this is the case,
 % add \parshape=0 to the end of the list environment.
 \dropcap{G}enetic analysis of molecular pathways has traditionally been performed
-through epistatis analysis. Epistasis occurs when two genes interact, either
-directly (biochemical interaction of their gene products) or indirectly. If two
+through epistatis analysis. Epistasis indicates that two genes interact
+functionally; such interaction can involve the direct interaction of their
+products or the interaction of any consequence of their function (small molecules,
+physiological or behavioral effects)~\cite{Huang2006}. If two
 genes interact, and the mutants of these genes have a quantifiable phenotype,
 the double mutant of interacting genes will have a phenotype that is not the sum
 of the phenotypes of the single mutants that make up its genotype. Epistasis
 analysis remains a cornerstone of genetics today~\cite{Phillips2008}.
 
-Recent developments in biology have seen a shift in focus from studying single
-genes to -omics methods that measure a property of the biological system
-genome-wide. In particular, RNA-seq~\cite{Mortazavi2008} enables biologists to
+Recent developments in biology shifted in focus from studying single
+genes to studying all genes in parallel. In particular,
+RNA-seq~\cite{Mortazavi2008} enables biologists to
 identify genes that change expression in response to a perturbation. Recent
 developments have improved the power and resolution of this technique by enabling
 deeper and more frequent sequencing due to lower sequencing costs~\cite{Metzker2010};
 better and faster abundance quantification~\cite{Patro2014,Bray2016,Patro2015};
 as well as improved differential expression analysis
-methods~\cite{Pimentel2016,Trapnell2013}. As a result, RNA-Seq has been
+methods~\cite{Pimentel2016,Trapnell2013}. RNA-seq has been
 successfully used to identify genetic modules involved in a variety of processes,
 including T-cell regulation~\cite{Singer2016,Shalek2013}, the \cel{} linker
 cell migration~\cite{Schwarz2012}, or planarian stem cell
@@ -182,16 +184,16 @@ transcriptional profiling has been restricted to target gene identification.
 
 Although transcriptional profiling has been primarily used for descriptive purposes,
 transcriptomic phenotypes have been used to make genetic inferences previously.
-Work in \emph{S. cerevisiae} and \dicty{} using microarrays showed
+Microarray analyses in \emph{S. cerevisiae} and \dicty{} showed
 that transcriptomes can be used to infer genetic relationships in simple
-eukaryotes~\cite{Hughes2000, VanDriessche2005}. Additionally, eQTL studies in
-\cel{} and \emph{Drosophila melanogaster} have established the usefulness of
-transcriptomic phenotypes for population genetics studies~\cite{}.
-\todo[inline]{Need citations. Maybe add a bit more, it's fluffy.}
-In cell culture, single-cell RNA-seq has seen significant progress towards using
-transcriptomes as phenotypes with which to test genetic interactions
-~\cite{Adamson2016,Dixit2016}.
-More recently, we have shown the first identification of a developmental state
+eukaryotes~\cite{Hughes2000, VanDriessche2005}. Also, eQTL studies in
+many organisms, including yeast, maize, \emph{Caenorhabditis elegans},
+\emph{Drosophila melanogaster}, mice and humans have established the usefulness of
+transcriptomic phenotypes for population genetics studies~\cite{Brem2002,Schadt2003,
+Li2006,King2014}. In cell culture, single-cell RNA-seq has seen significant
+progress towards using transcriptomes as phenotypes with which to test genetic
+interactions~\cite{Adamson2016,Dixit2016}.
+More recently, we have identified a new developmental state
 of \cel{} using whole-organism transcriptome profiling~\cite{Angeles-Albores2016a}.
 To investigate the ability of whole-organism transcriptomes to serve as quantitative
 phenotypes for epistasis analysis in metazoans, we sequenced the transcriptomes of
@@ -204,7 +206,7 @@ support aerobic metabolism. Genetic pathways evolved to rapidly respond to any
 acute or chronic changes in oxygen levels at the cellular or organismal level.
 These oxygen sensitive pathways are involved in a broad range of human
 pathologies and they have been subject to investigation biochemical and
-genetic approaches~\cite{Semenza2012}. These approaches identified the Hypoxia
+genetic approaches~\cite{Semenza2012} that identified the Hypoxia
 Inducible Factors (HIFs) as an important group of oxygen responsive genes.
 
 Hypoxia Inducible Factors are highly conserved in metazoans~\cite{Loenarz2011}.
@@ -248,9 +250,9 @@ that pathway is considerably less well understood.
 \label{fig:pathway}
 \end{figure}
 
-Here, we show that transcriptomes contain strong, robust signals that can be
+Here, we show that transcriptomes contain robust signals that can be
 used to infer relationships between genes in complex metazoans by reconstructing
-the hypoxia pathway in \cel{} using RNA-Seq.
+the hypoxia pathway in \cel{} using RNA-seq.
 Furthermore, we show that the phenomenon of phenotypic epistasis, a hallmark of
 genetic interaction, holds at the molecular systems level.
 We also demonstrate that transcriptomes contain sufficient information, under
@@ -269,8 +271,10 @@ A complete, interactive version of the analysis is also available at
 
 We performed whole-organism RNA-seq of the hypoxia pathway at a moderate
 sequencing depth ($\sim7$ million mapped reads for each individual replicate)
-under normoxic conditions, which allowed us to measure 13,598 isoforms across all
-replicates and genotypes, which constitutes over half of all isoforms in \cel{}.
+under normoxic conditions. For single samples, we identified around 22,000 different
+isoforms per sample, which allowed us to measure differential expression of 18,685
+isoforms across all replicates and genotypes (this constitutes  $\sim$80\% of
+the protein coding isoforms in \cel{}).
 We analyzed our data using a general linear model (see~\ref{methods}) on
 logarithm-transformed counts. Changes in gene expression are quantified via a
 regression coefficient, $\beta$ which is specific to each isoform within a genotype.
@@ -280,7 +284,7 @@ altered between wild-type and a given mutant have $\beta$ values that are
 statistically significantly different from 0.  These coefficients are not equal
 to the average log-fold change per gene, although they are loosely related to
 this quantity. Larger magnitudes of $\beta$ correspond to larger perturbations.
-These coefficients can be used to study the RNA-Seq data in question.
+These coefficients can be used to study the RNA-seq data in question.
 
 In spite of the moderate sequencing depth, transcriptome profiling of the hypoxia
 pathway revealed that this pathway controls thousands of genes in \cel{}. The
@@ -304,7 +308,7 @@ showed a similar number of genes with altered expression (\eglhifn{}).
 % coefficients are not identical to the average log-fold change per gene, although
 % they are loosely related to this quantity. Larger magnitudes of $\beta$
 % correspond to larger perturbations. These coefficients can be used to study the
-% RNA-Seq data in question.
+% RNA-seq data in question.
 %
 % Clustering is a well-known technique in bioinformatics that is used to identify
 % relationships between high dimensional data points~\cite{Yeung2003}. We wanted
@@ -341,9 +345,7 @@ showed a similar number of genes with altered expression (\eglhifn{}).
 \label{sub:Clustering}
 
 Principal Component Analysis (PCA) is a well-known technique in bioinformatics that is
-used to identify relationships between high dimensional data points\todo[inline]{
-Need new citation for PCA
-}
+used to identify relationships between high dimensional data points~\cite{Yeung2001}
 % ~\cite{Yeung2003}
 We performed PCA on our data to examine whether each genotype clustered in a biologically
 relevant manner. We expected \hif{} to cluster near \eglhif{}, because
@@ -384,7 +386,11 @@ we must assess whether two genes act on the same phenotype (independence);
 then we must measure whether these genes act additively or epistatically on the
 measured phenotype; and if there is epistasis we must measure whether it is positive
 or negative, in order to assess whether the epistatic relationship is a genetic
-suppression or a synthetic interaction.
+suppression or a synthetic interaction. As a first step towards reconstructing
+a pathway, we defined transcriptomic phenotypes as a set of genes or isoforms
+that are shared between two genes when these become mutated. Importantly,
+transcriptomic phenotypes are not directional---genes that are commonly altered
+between mutants need not be regulated in the same diretion.
 
 \subsubsection{Genes in the hypoxia mutant act on the same transcriptional phenotype}
 \label{sec:phenotypes}
@@ -396,10 +402,10 @@ shared between \hif{} and \eglhif{} to a maximum of 1,468 shared genes between
 \fog{} transcriptome~\cite{Angeles-Albores2016a}. The \gene{fog-2} gene is
 involved in masculinization of the \cel{} germline, which enables sperm formation,
 and is not known to be involved in the hypoxia pathway. The hypoxia
-pathway transcriptomes and the \fog{} transcriptome showed significant overlap
-(141--795 genes). Given the similar overlaps between known interactors and an
-unknown transcriptome, we conclude that the \fog{} mutant we studied acts on the
-same phenotype as mutants from the hypoxia pathway.
+pathway transcriptomes and the \fog{} transcriptome overlapped (141--795 genes),
+but correlations between expression level changes were considerably weaker (see
+below), suggesting that there is at most only minor cross-talk between these
+pathways.
 
 % genetic correlations
 \begin{figure}%[tbhp]
@@ -422,7 +428,7 @@ Although overlapping transcriptomes may be enough to conclude that a set of muta
 share a phenotype, we wanted to know whether it was informative to
 look at quantitative agreement between perturbations. We rank-transformed
 the regression coefficients $\beta$ for each transcriptome, and calculated lines
-of best fit using Bayesian regression with a Student-T distribution to mitigate
+of best fit using bayesian regression with a Student-T distribution to mitigate
 noise from outliers (see Fig~\ref{fig:genetic_interactions}). For transcriptomes
 associated with the hypoxia pathway, we found that these correlations tended to have
 values higher than 0.9 with a tight distribution around the line of best fit.
@@ -447,7 +453,7 @@ The magnitude of this weighted correlation derives from the magnitude of the
 transcriptomes for these mutants (\egln{} and \rhyn{} differentially expressed
 genes respectively) and the overlap between both genes was
 extensive, which makes the weighting factor considerably larger than other pairs.
-The weak correlation between \hif{} and \egl{} is derived from the small size of
+The weak correlation between \hif{} and \egl{} results from the small size of
 the \hif{} transcriptome and the small overlap between the transcriptomes.
 % Likewise, the weak correlation between \hif{} and \egl{}, \vhl{} and \rhy{} is at
 % least partially the result of its relatively weak transcriptomic phenotype relative
@@ -478,7 +484,7 @@ One way to establish whether genes are acting additively or epistatically to eac
 other is to perform qPCR of a reporter gene in the single and double mutants. This
 approach was used to successfully map the relationships within the hypoxia
 pathway (see, for example~\cite{Shao2009,Shen2006}). A commonly used reporter is
-\nhr{}, which is known to exhibit a several fold increase in mRNA expression when
+\nhr{}, which is known to exhibit a several-fold increase in mRNA expression when
 \hifp{} accumulates\cite{Shen2006,Shen2005,Ackerman2012,
 Park2012}. Likewise, \hifp{} is known to increase transcription of \gene{rhy-1}
 and \gene{egl-9}~\cite{Powell-Coffman2010}.
@@ -613,7 +619,7 @@ repression of \hifp{} by \eglp{} becomes stronger, the epistatic model should co
 on the limit of strong repression.
 
 Another way to test which model best explains the epistatic relationship between
-\gene{egl-9} and \gene{vhl-1} is to use Bayesian model selection to calculate
+\gene{egl-9} and \gene{vhl-1} is to use bayesian model selection to calculate
 an odds ratio between two models to explain the observed data. Models can be placed
 into two categories: parameter-free and fit. Parameter free models are `simpler'
 because their parameter space is smaller (0 parameters) than the fit models ($n$
@@ -635,9 +641,9 @@ that we would reject the theoretical models only if the line of best-fit
 was $10^3$ times more likely than the theoretical models (odds ratio, OR $>10^3$).
 Comparing the odds-ratio between the line of best fit and the different pathway
 models for \gene{egl-9} and \gene{vhl-1} showed similar results to the simulation.
-Only the theoretical model \egl{} = \eglvhl{} could not be rejected (OR = 0.02),
+Only the theoretical model \egl{} = \eglvhl{} could not be rejected (OR = 0.46),
 whereas all other models were significantly less likely than the line of best fit
-(OR $>10^{42}$).
+(OR $>10^{44}$).
 Therefore, \gene{egl-9} is epistatic to \gene{vhl-1}. Moreover,
 since $s_{egl-9, vhl-1}$ is strictly between and not equal to $0$ and $-0.5$, we
 conclude that \gene{egl-9} acts on its transcriptomic phenotype in
@@ -646,8 +652,9 @@ to epistasis coefficients in this range is a pathway where \gene{egl-9} interact
 with its transcriptomic phenotype via branches that have the same valence (both
 positive or both negative)~\cite{Shao2009}. When we performed a similar analysis
 to establish the epistatic relationship between \gene{egl-9} and \gene{hif-1},
-we observed similar results. All models were rejected (OR $>10^{25}$) except for
-the model where \gene{hif-1} is epistatic over \gene{egl-9}.
+we observed that the best alternative to a free-fit model was a model where
+\gene{hif-1} is epistatic over \gene{egl-9} (OR$=2551$), but the free-fit model
+was still preferred. All other models were strongly rejected (OR $>10^{25}$).
 
 % epistasis graph
 \begin{figure}[tbhp]
@@ -663,29 +670,27 @@ of best fit is $s$. This coefficient is related to genetic architectures. Genes
 that act additively on a phenotype \textbf{(Ph)} will have $s=0$; whereas genes that act
 along a single unbranched pathway will have $s=-1/2$. Strong repression
 is reflected by $s=-1$. Cases where $s>0$ correspond to synthetic interactions,
-and in the limit as $s\rightarrow\infty$, the synthetic interaction is most likely
-to represent an OR-gate. Cases where $0 < s < -1/2$ correspond to circuits
-that have positive branches; whereas cases where $-1/2 < s < -1$
-correspond to cases where the branches have different valency. Cases where
-$s < -1$ represent inhibitory branches.
+and in the limit as $s\rightarrow\infty$, the synthetic interaction must be
+an OR-gate. Cases where $0 < s < -1/2$ correspond to circuits
+that have multiple positive branches; whereas cases where
+$-1/2<s< -1$ correspond to cases where the branches have different valence.
+Cases where $s < -1$ represent inhibitory branches.
 (\textbf{B}) Epistasis plot showing
 that the \eglvhl{} transcriptome deviates significantly from a null additive.
 Points are colored qualitatively according to density (purple---low,
 yellow---high) and size is inversely proportional to the standard
 error of the y-axis (larger points, higher accuracy). The purple line
 is the line of best fit from an orthogonal distance regression.
-(\textbf{C}) Bootstrapped cumulative
-density function for the observed genome-wide epistasis coefficient for
-\gene{egl-9} and \gene{vhl-1}. Dashed purple line shows the mean value of the
-data. Using the single mutants, we simulated coefficient
-distributions for a linear model; an additive model; a model where either
-\gene{egl-9} or \gene{vhl-1} suppresses the other gene strongly and epistasis
-models where the double mutant has a phenotype equal to one of the single mutants.
-We find that the double mutant matches the predicted epistasis curve for
-\eglvhl{} = \egl{} (orange and purple). The lack of overlap
-between the purple/blue curve (observed epistasis) and the distribution for the
-linear pathway strongly suggests that \eglp{} acts on \hifp{} in
-\gene{vhl-1}-dependent and independent ways.
+(\textbf{C}) Comparison of simulated epistatic coefficients against the observed
+coefficient. Green curve shows the bootstrapped observed genome-wide epistasis
+coefficient for \gene{egl-9} and \gene{vhl-1}. Dashed green line shows the mean
+value of the data. Using the single mutants, we simulated coefficient
+distributions for a linear model (light blue, centered at $-0.5$);
+an additive model (orange, centered at 0); a model where either
+\gene{egl-9} or \gene{vhl-1} masks the other phenotype (dark blue and black,
+respectively) and a complete suppression model (red, centered at $-1$).
+The observed coefficient overlaps the predicted epistasis curve for
+\eglvhl{} = \egl{} (green and dark blue).
 }
 \label{fig:egl9epistasis}
 \end{figure}
@@ -712,8 +717,8 @@ between two genes.
 \subsection*{Transcriptomic decorrelation can be used to infer functional distance}
 \label{sub:decorrelation}
 
-We were interested in figuring out whether RNA-Seq could be used to identify
-functional interactions within a genetic pathway. Although there is no \emph{a
+Can RNA-seq be used to identify functional interactions within a genetic pathway?
+Although there is no \emph{a
 priori} reason why global gene expression should reflect functional interactions,
 the strength of the unweighted correlations between genes in the hypoxia pathway
 made us wonder how much information can be extracted from this dataset. Single
@@ -751,10 +756,9 @@ separated by many edges may begin to behave almost independently of each other
 with marginal transcriptomic overlap or correlation, reflecting the weak control
 distant nodes exert on each other.
 \textbf{D} The hypoxia pathway can be ordered according to functional distance.
-We hypothesize the rapid decay in correlation is probably due to a mixture of
-upstream and downstream branching that happens along this pathway.
-% At this time, we are unable
-% to demonstrate branching in this pathway.
+We hypothesize the rapid decay in correlation is due to a mixture of
+upstream and downstream branching that happens along this pathway. Bars show the
+standard error of the weighted coefficient.
 }
 \label{fig:decorrelation}
 \end{figure}
@@ -858,43 +862,35 @@ outliers, which are annotated as pseudogenes in WormBase). Therefore, it is like
 that a large portion or possibly all the transcriptomic effects of \rhyp{} in
 this dataset are downstream of \egl{}.
 
-Next, we wanted to know whether our dataset was able to capture
-\gene{hif-1}-independent transcriptomic effects of  \gene{egl-9}. We have observed
-that \hif{} leads to a modest increase in the transcription of \gene{rhy-1},
-from which we speculated that \eglp{} would have increased activity in the \hif{} mutant
-than in the wild-type. Therefore, we searched for genes that were regulated in
-opposite manner between \hif{} and \eglhif{}, and that were regulated
-in the same direction between the \eglhif{} and \egl{} (and \rhy{}) mutants.
-We were only able to find a single gene, \emph{clec-88}, which was down-regulated
-in \hif{}, but upregulated in every other mutant we studied. Although
-it may be the case that \gene{egl-9} does not have a \gene{hif-1}-independent transcriptomic
-phenotype, it is also possible that the change in \hifp{} dosage between a
-wild-type normoxic animal and a \hif{} animal is not sufficient to alter the
-activity of \eglp{} to a consistently detectable level given our read-depth.
-% Due
-% to the privileged role of \eglp{} in controlling this circuit, the comparison
-% between \hif{} and \egl{};\hif{} animals is the most important comparison for
-% identifying an \egl{}-specific transcriptome.
+Using this approach, we identified a main hypoxia response induced by disinhibiting
+\gene{hif-1} (367 genes). Although the hypoxic response is likely
+to involve between three and seven times more genes, this is a conservative
+estimate that minimizes false negative results, since these changes were
+identified in four different genotypes with three replicates each. This response
+included six transcription factors (\emph{F17C11.1}, \nhr{}, \gene{ztf-18},
+\gene{W02D7.6} and \gene{dmd-9}).
 
-We leveraged this genetic logic to identify a main hypoxia
-response induced by removing inhibition on \gene{hif-1} (260 genes). Although the
-hypoxic response is likely to involve between five and ten times more genes,
-this is a conservative estimate that minimizes false negative results, since
-these changes were identified in four independent genotypes with three replicates
-each. We also identified a \gene{vhl-1}-specific response, resulting in \vhltargets{}
-genes. We searched for candidates directly regulated by \gene{hif-1}.
-Initially, we generated this list using the most stringent pattern
-matching, but this revealed only 2 genes (\emph{R08E5.3} and
-\emph{nit-1}). A relaxed set of conditions (target genes should go up in all
-mutants that induce \hifp{}, and should not be up in \hif{}) identified
-\hiftargets{} candidate genes.
+\gene{hif-1}-independent effects of \gene{egl-9} have been reported
+previously~\cite{Park2012}, which led us to question whether we could identify
+similar effects in our dataset. We have observed that \hif{} leads to a modest
+increase in the transcription of \gene{rhy-1}, from which we speculated that
+\eglp{} would have increased activity in the \hif{} mutant than in the wild-type.
+Therefore, we searched for genes that were regulated in an opposite manner between
+\hif{} and \eglhif{}, and that were regulated in the same direction between the
+\eglhif{} and \egl{} (and \rhy{}) mutants. We were able to find \egltargets{}
+genes that obeyed this pattern (see Supplementary Information). We also identified
+a \gene{vhl-1}-specific response, comprising \vhltargets{} genes. We searched
+for candidates directly regulated by \gene{hif-1}. Initially, we generated this
+list using the most stringent pattern matching, but this revealed only three genes
+(\emph{R08E5.3}, \emph{R08E5.1.1} and \emph{nit-1}). A relaxed set of conditions
+(target genes should go up in all mutants that induce \hifp{}, and should not be
+up in \hif{}) identified \hiftargets{} candidate genes for direct regulation.
 
 \subsubsection*{Enrichment analysis of the hypoxia response}
 \label{sub:ea_hypoxia}
 In order to validate that our transcriptomes were correct, and to understand how
 functionalities may vary between them, we subjected each decoupled response to
-enrichment analysis using the WormBase Enrichment
-Suite~\cite{Angeles-Albores2016}.
+enrichment analysis using the WormBase Enrichment Suite~\cite{Angeles-Albores2016}.
 
 \begin{figure}[tbhp]
 \centering
@@ -907,31 +903,25 @@ A number of terms reflecting catabolism and bioenergetics are enriched.
 \end{figure}
 
 Gene ontology enrichment analysis (GEA) showed that the terms `oxoacid metabolic process'
-(\qval{3}, 3.4 fold-change, 19 genes),
-`iron ion binding' (\qval{3}, 5.5 fold-change, 10 genes),
-and `immune system process' (\qval{3}, 3.4 fold-change, 17 genes) were enriched
-with the lowest q-values. GEA also showed enrichment of terms including
-`electron carrier activity' (\qval{1}, 4.8 fold-change, 5 genes),
-`mitochondrion' (\qval{2}, 2.5 fold-change, 20 genes)
-and `respiratory chain' (\qval{1}, 4.6 fold-change, 4 genes) (see
+(\qval{4}, 3.0 fold-change, 24 genes),
+`iron ion binding' (\qval{2}, 3.8 fold-change, 10 genes),
+and `immune system process' (\qval{3}, 2.9 fold-change, 20 genes) were enriched
+with the lowest q-values. GEA also showed enrichment of the term
+`mitochondrion' (\qval{3}, 2.5 fold-change, 29 genes) (see
 Fig.~\ref{fig:hyp_gea}). Indeed, \hif{} has been implicated in
 all of these biological and molecular functions~\cite{Luhachack2012,Ackerman2012,
-Romney2011,Semenza2011}. Phenotype Enrichment Analysis (PEA) revealed that this
-gene list was enriched in two phenotypes: `oxygen response variant' (\qval{2},
-5.8 fold-change, 7 genes) and `pleiotropic defects severe early embryo' (\qval{2},
-4.4 fold-change, 9 genes). The overrepresented terms from PEA and GEA are biologically
-directly connected to the process we are studying, which suggests that we have
-correctly identified the main hypoxic response. As a final test to guarantee the
-quality of our data, we selected a set of 21 known reporters from the literature
-and asked whether these reporters were present in our list. We found $5/21$ known
-reporters, which constitutes a statistically significant result ($p<10^{5}$).
+Romney2011,Semenza2011}. As a further benchmark on the quality of our data,
+we selected a set of 22 genes known to be responsive to \hifp{} levels from the literature
+and asked whether these genes were present in our hypoxia response list. We found $8/22$ known
+genes, which constitutes a statistically significant result ($p<10^{10}$).
 The small number of reporters found in this list probably reflects the conservative
 nature of our estimates. We also analyzed the list of predicted \hifp{} direct targets.
 Phenotype Enrichment Analysis revealed that this list was significantly enriched in
 `oxygen response variant' (\qval{2}, 12.3 fold-change, 4 genes) and Tissue Enrichment
 Analysis (TEA) showed enrichment of the `coelomic system' (\qval{1}, 2.7 fold-change,
 16 genes). The \gene{vhl-1}, \gene{hif-1}-independent specific transcriptome was also submitted
-for enrichment analysis but no terms were significantly enriched.\todo{closer is missing.}
+for enrichment analysis but no terms were significantly enriched.
+% \todo{closer is missing.}
 
 \subsection{Identification of non-classical epistatic interactions}
 \label{sub:hifoh}
@@ -984,7 +974,7 @@ of strain-specific interference. Moreover, Ackerman and Gems (2012) showed that
 \hifp{} is associated with increased expression of \ftna{} and \ftnb{}. We observe
 that \gene{hif-1} is epistatic to \gene{egl-9}, and that \gene{egl-9} and
 \gene{hif-1} both promote \ftna{} and \ftnb{} expression.
-\todo[inline]{see Romney2011 figure 2b; Ackerman2012 Fig. 3; Fig.6}
+% \todo[inline]{see Romney2011 figure 2b; Ackerman2012 Fig. 3; Fig.6}
 This further validates the quality of our RNA-seq data and the analysis, and
 highlights the power of RNA-seq to identify novel interactions.
 
@@ -993,7 +983,7 @@ epistatic to \gene{hif-1}; that \gene{vhl-1} has opposite effects to \gene{egl-9
 and \gene{vhl-1} is epistatic to \gene{egl-9}. Analysis of \nlp{}
 reveals similar relationships. \nlp{} expression is decreased in \hif{},
 and increased in \egl{}. However, \gene{egl-9} is epistatic to \gene{hif-1}.
-Like \ftna{} and \ftnb{},  \gene{vhl-1} has the opposite effect to \gene{egl-9},
+Like \ftna{} and \ftnb{}, \gene{vhl-1} has the opposite effect to \gene{egl-9},
 yet is epistatic to \gene{egl-9}.
 
 \subsection{Genome-wide effects of \hifp{}}
@@ -1009,9 +999,9 @@ response~\cite{Lee2010}, but transcriptional feedback from \hifp{} into
 bioenergetic pathways has not been as well described in \cel{}, although it has
 been extensively described in vertebrates (see, for example~\cite{Semenza1994,
 Semenza2012}).
-\todo[inline]{I have searched the literature fairly thoroughly, and haven't
-seen a complete transcriptional description of hif-1 induced changes in the TCA,
-ETC.\@ Can anyone let me know if I missed something?}
+% \todo[inline]{I have searched the literature fairly thoroughly, and haven't
+% seen a complete transcriptional description of hif-1 induced changes in the TCA,
+% ETC.\@ Can anyone let me know if I missed something?}
 We also searched for the changes in ribosomal components and the proteasome, as
 well as for terms relating to immune response (see Fig~\ref{fig:genomewide}).
 
@@ -1024,25 +1014,19 @@ A graphic summary of the genome-wide effects of \hifp{} from our RNA-seq data.
 \label{fig:genomewide}
 \end{figure}
 
-
 \subsubsection{Bio-energetic pathways}
-
-\todo[inline]{Bio-energetic or bioenergetic?}
+% \todo[inline]{Bio-energetic or bioenergetic?}
 Our data shows that most of the enzymes involved in the TCA cycle and in the ETC
 are down-regulated when \hifp{} is induced in agreement with the previous
 literature~\cite{Semenza2012}.
-\todo[inline]{Missing ETC citation}
-However,
-\gene{fum-1} and the mitochondrial complex II stood out as notable exceptions to
-the trend, as they were up-regulated in every single genotype that causes
-deployment of the hypoxia response. \gene{fum-1} catalyses the reaction of
-fumarate into malate, and complex II catalyses the reaction of succinate into
-fumarate. Complex II has been identified as a source of reserve respiratory capacity
-in neonatal rat cardiomyocytes previously~\cite{Pfleger2015}.
-\todo[inline]{Missing
-discussion of why this is biologically relevant. Fumarate is a poison for egl-9.}
-We found two energy reserve genes that were down-regulated by \hifp{}. \gene{aagr-1}
-and \gene{aagr-2}, which are predicted to function in glycogen
+However, \gene{fum-1} and the mitochondrial complex II stood out as notable
+exceptions to the trend, as they were up-regulated in every single genotype that
+causes deployment of the hypoxia response. \gene{fum-1} catalyses the reaction
+of fumarate into malate, and complex II catalyses the reaction of succinate into
+fumarate. Complex II has been identified as a source of reserve respiratory
+capacity in neonatal rat cardiomyocytes previously~\cite{Pfleger2015}.
+We found two energy reserve genes that were down-regulated by \hifp{}.
+\gene{aagr-1} and \gene{aagr-2}, which are predicted to function in glycogen
 catabolism~\cite{Sikora2010} were both down-regulated in all the relevant mutants.
 Three distinct genes involved in energy reserve were up-regulated. These genes were
 \gene{ogt-1}, an O-linled GlcNac Transferase; \gene{T04A8.7}, an ortholog of human
@@ -1056,13 +1040,13 @@ phosphorylase isozymes.
 via inhibition of mTOR~\cite{Brugarolas2004}. However, most reported effects of
 \hifp{} on the translation machinery are posttranslational, and no reports to date
 show decreases in transcription of the ribosomal machinery in \cel{}. We used
-the WormBase Enrichment Suite Gene Ontology dictionary~\cite{} to extract 143 genes
-annotated as `structural constituents of the ribosome' and we queried whether they
-were differentially expressed in our mutants. \egl{}, \vhl{}, \rhy{} and
-\egl{};\vhl{} showed differential expression of 91 distinct ribosomal
-constituents (not all constituents were detected in all genotypes). For every one
-of these genotypes, these genes were always down-regulated. In contrast,
-\hif{} showed up-regulation of a single ribosomal constituent.
+the WormBase Enrichment Suite Gene Ontology dictionary~\cite{} to extract 143
+protein-coding genes annotated as `structural constituents of the ribosome' and
+we queried whether they were differentially expressed in our mutants. \egl{},
+\vhl{}, \rhy{} and \egl{};\vhl{} showed differential expression of 91 distinct
+ribosomal constituents (not all constituents were detected in all genotypes).
+For every one of these genotypes, these genes were always down-regulated. In
+contrast, \hif{} showed up-regulation of a single ribosomal constituent.
 
 Next, we asked whether \hifp{} has any transcriptional effects on the
 proteasomal constituents, because no such effects of \hifp{} on the proteasome
@@ -1153,17 +1137,21 @@ accumulation of \hifp{} and promoting gene activity. Whether deletion of \hif{}
 is overall activating or inhibiting will depend on the relative activity of each
 protein state under normoxia (see Fig.~\ref{fig:hif1oh_table}).
 
-The possibility that \hifp{}-hydroxyl has a function has not been previously
-considered in the existing literature, although experts have wondered about
-the possibility that \hifp{}-hydroxyl may have transcriptional effects independent
-of \hifp{} (William Kaelin, pers.\ comm.). \todo[inline]{Paul, do we need to ask
-W. K. for permission to cite? } Varied lines
-of circumstantial evidence that \hifp{} hydroxylation plays a role
+% Arguments for biological activity of \hifp{}-hydroxyl have not yet been made
+% although experts have wondered about
+% the possibility that \hifp{}-hydroxyl may have transcriptional effects independent
+% of \hifp{} (William Kaelin, pers.\ comm.). \todo[inline]{Paul, do we need to ask
+% W. K. for permission to cite? }
+Varied lines of circumstantial evidence that \hifp{}-hydroxyl plays a role
 in the functionality of the hypoxia pathway. First, \hifp{}-hydroxyl is
 challenging to study genetically because no mimetic mutations are available with
 which to study the pure hydroxylated \hifp{} species. Second, although mutations in
 the Von-Hippel Landau gene stabilize the hydroxyl species, they also increase the
-quantity of \hifp{} by mass action. Finally, since \hifp{} is detected low levels
+quantity of \hifp{} by mass action. Third, although deletion of \gene{vhl-1} and
+\gene{egl-9} lead to similar \hifp{} expression levels, the Egl phenotype of
+\vhl{} is considerably attenuated---in fact, \gene{vhl-1} is not annotated with
+an egg-laying defective phenotype in WormBase (version WS256).
+Finally, since \hifp{} is detected low levels
 in cells under normoxic conditions~\cite{Wang1993}, total \hifp{} protein
 (unmodified \hifp{} plus \hifp{}-hydroxyl) is often tacitly assumed to be
 vanishingly rare and therefore biologically inactive.
@@ -1319,8 +1307,8 @@ at XXXXXXXXXXX
 Pairwise correlations between transcriptomes where calculated by first identifying
 the set of differentially expressed genes (DEGs) common to both transcriptomes under
 analysis. DEGs were then rank-ordered according to their regression coefficient,
-$\beta$. Bayesian robust regressions were performed using a Student-T distribution.
-Bayesian analysis was performed using the PyMC3 library~\cite{Salvatier2015}
+$\beta$.\ bayesian robust regressions were performed using a Student-T distribution.
+bayesian analysis was performed using the PyMC3 library~\cite{Salvatier2015}
 (\texttt{pm.glm.families.StudenT} in Python). If the correlation has an average
 value >1, the correlation coefficient was set to 1.
 
@@ -1346,36 +1334,52 @@ for each isoform $i$:
 
 To calculate the genome-wide epistasis coefficient, we plotted
 ($\beta_{\mathrm{Exp},i}, \Delta_i$) and found the line of best fit using
-orthogonal distance regression using the scipy.odr package. We performed a
-parametric bootstrap sampling the ordered tuples with replacement using 5,000
-iterations to generate a probability distribution of slopes of best fit.
+orthogonal distance regression using the scipy.odr package. We performed
+non-parametric bootstrap sampling of the ordered tuples with replacement using
+5,000 iterations to generate a probability distribution of slopes of best fit.
 
 To understand the epistatic relationships completely, we needed to simulate the
 possible relationships.
 There are as many models as epistatic relationships. The epistatic relationships
 are such that:
-
 \begin{equation}
   X^-Y^- = Z,
 \end{equation}
-
 where $Z$ is some combination of $X^-$ and $Y^-$. Specifically, $Z$ can take on
-the values $X^-$ (X is epistatic to Y); $Y^-$ (Y is epistatic to X);
+the values $X^-$ (\gene{X} is epistatic to \gene{Y}); $Y^-$ (\gene{Y} is epistatic
+to \gene{X});
 $X^- + Y^-$ (additive); $k^-, k^-=X^-=Y^-$ (unbranched pathway) and
 $X^-, Y^-=WT$ (strong repression, where $Y^-$ is wild-type).
-
 For each case, we modified equation~\ref{eq:deviation}:
 \begin{equation}
   \Delta_{Z,i} = \beta_{Z,i} - \beta_{\mathrm{Exp},i}.
 \end{equation}
+In each case, $\Delta_{Z,i}$ reduces to a linear combination of $-\beta_{X,i}$
+and $-\beta_{Y,i}$.
 
-In each case, $\Delta_{Z,i}$ reduces to $-\beta_{X,i}$ or $-\beta_{Y,i}$. For each
-model, we performed parametric bootstraps as previously described to generate
-probability distributions for each model.
+To select between theoretical models, we implemented an approximate bayesian
+Odds Ratio. We defined a free-fit model, $M_1$,
 
-We tested whether a given model could be rejected by identifying the fraction
-of the slopes that were equal to a critical value $x$ or more extreme under the model.
-Models were rejected if $p<0.05$.
+\begin{equation}
+  P(\alpha~|M_1, D) \propto \prod_{(x_i, y_i, \sigma_i)\in D}
+  \exp{\frac{(y_i - \alpha\cdot x_i)^2}{2\sigma_i}}\cdot (1+\alpha^2)^{-3/2},
+  \label{eq:free_model}
+\end{equation}
+
+where $\alpha$ is the slope of the model to be determined, $x_i, y_i$ were the
+x- and y-coordinates of each point respectively, and $\sigma_i$ was the standard
+error associated with each coordinate (obtained from Sleuth). We minimized the
+negative logarithm of~\ref{eq:free_model} to obtain the most likely slope given
+the data, $D$ (\texttt{scipy.optimize.minimize} in Python). Finally, we
+approximated the computed the odds ratio as:
+\begin{equation}
+  OR = \frac{
+  P(D~|\alpha^*, M_1)\cdot (2\pi)^{1/2}\sigma_{\alpha^*}
+  }{P(D~| M_i)},
+\end{equation}
+where $\alpha^*$ is the slope found after minimization, $\sigma_\alpha^*$ is the
+standard deviation of the parameter at the point $\alpha^*$ and $P(D~|M_i)$ is the
+probability of the data given the parameter-free model, $M_i$.
 
 
 }
