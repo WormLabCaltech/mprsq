@@ -42,24 +42,24 @@
 \newcommand{\cyslp}{CYSL-1}
 
 % DE genes numbers:
-\newcommand{\egln}{1,487}
-\newcommand{\rhyn}{1,816}
-\newcommand{\vhln}{605}
-\newcommand{\eglvhln}{1,989}
-\newcommand{\hifn}{481}
-\newcommand{\eglhifn}{364}
-\newcommand{\fogn}{1,896}
-\newcommand{\total}{3,211}
-\newcommand{\inall}{53}
-\newcommand{\allup}{10}
-\newcommand{\alldown}{13}
+\newcommand{\egln}{1,807}
+\newcommand{\rhyn}{2,104}
+\newcommand{\vhln}{690}
+\newcommand{\eglvhln}{2,377}
+\newcommand{\hifn}{547}
+\newcommand{\eglhifn}{405}
+\newcommand{\fogn}{2091}
+\newcommand{\total}{3,2XXXX} % Needs review!!!!
+% \newcommand{\inall}{53}
+% \newcommand{\allup}{10}
+% \newcommand{\alldown}{13}
 
 % downstream targets
-\newcommand{\egltargets}{1}
+\newcommand{\egltargets}{63}
 \newcommand{\rhytargets}{0}
-\newcommand{\vhltargets}{36}
-\newcommand{\hiftargets}{120}
-\newcommand{\hifohtargets}{27}
+\newcommand{\vhltargets}{44}
+\newcommand{\hiftargets}{196}
+\newcommand{\hifohtargets}{31}
 
 \templatetype{pnasresearcharticle}[9pt,twocolumn,twoside,lineno] % Choose template
 
@@ -390,14 +390,14 @@ suppression or a synthetic interaction.
 \label{sec:phenotypes}
 We observed that all the hypoxia mutants had significant overlap between their
 differentially expressed transcriptomes relative to a wild-type control
-(fraction of shared transcriptomes ranged from a minimum of 65 genes
-shared between \hif{} and \eglhif{} to a maximum of 1,249 shared genes between
+(fraction of shared transcriptomes ranged from a minimum of 78 genes
+shared between \hif{} and \eglhif{} to a maximum of 1,468 shared genes between
 \egl{} and \eglvhl{}). For comparison, we also analyzed a previously published
 \fog{} transcriptome~\cite{Angeles-Albores2016a}. The \gene{fog-2} gene is
 involved in masculinization of the \cel{} germline, which enables sperm formation,
 and is not known to be involved in the hypoxia pathway. The hypoxia
 pathway transcriptomes and the \fog{} transcriptome showed significant overlap
-(123--618 genes). Given the similar overlaps between known interactors and an
+(141--795 genes). Given the similar overlaps between known interactors and an
 unknown transcriptome, we conclude that the \fog{} mutant we studied acts on the
 same phenotype as mutants from the hypoxia pathway.
 
@@ -853,7 +853,7 @@ the \egl{} and \rhy{} transcriptomes should exhibit a cross-pattern when plotted
 against each other: The positive
 arm of the cross is the result of the \eglp{} `null'; \hifp{} `on' dynamics; and the
 negative arm reflects the different direction of \rhyp{} activity between
-transcriptomes. However, no negative arm is visible (with the exception of two
+transcriptomes. No negative arm is visible (with the exception of two
 outliers, which are annotated as pseudogenes in WormBase). Therefore, it is likely
 that a large portion or possibly all the transcriptomic effects of \rhyp{} in
 this dataset are downstream of \egl{}.
@@ -861,10 +861,10 @@ this dataset are downstream of \egl{}.
 Next, we wanted to know whether our dataset was able to capture
 \gene{hif-1}-independent transcriptomic effects of  \gene{egl-9}. We have observed
 that \hif{} leads to a modest increase in the transcription of \gene{rhy-1},
-from which we concluded that \eglp{} would be more active in the \hif{} mutant
+from which we speculated that \eglp{} would have increased activity in the \hif{} mutant
 than in the wild-type. Therefore, we searched for genes that were regulated in
 opposite manner between \hif{} and \eglhif{}, and that were regulated
-in the same direction between the \eglhif{} and \egl{} (or \rhy{}) mutants.
+in the same direction between the \eglhif{} and \egl{} (and \rhy{}) mutants.
 We were only able to find a single gene, \emph{clec-88}, which was down-regulated
 in \hif{}, but upregulated in every other mutant we studied. Although
 it may be the case that \gene{egl-9} does not have a \gene{hif-1}-independent transcriptomic

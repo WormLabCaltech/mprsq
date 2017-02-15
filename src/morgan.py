@@ -250,60 +250,8 @@ class hunt(object):
         filtered_tpm
         filtered_beta
         """
-        names = ['']
-        for key, df in self.tpm.items():
-            # drop anything in the bottom 10%
-            quantile = (df.tpm.quantile(count_quantile))
-            min_tpm = (df.tpm < quantile)
-            # drop anything that has 0 tpm
-            zero = (df.tpm <= count_min)
-            # find those ids:
-            series = df[min_tpm | zero][self.gene]
-            names = names + series.values.tolist()
-        # find the set of names (no repetitions) that don't pass the filter
-        names = list(set(names))
-        names = names[1:]
-
-        na = []
-        for key, genotype in enumerate(self.beta):
-
-            # replace beta dfs with filtered values also
-            ind = self.beta[genotype][self.gene].isin(names)
-            # don't know if this works
-            self.beta[genotype] = self.beta[genotype][~ind]
-
-            # b value filtering:
-            subset = ['b', 'qval']
-            not_dropped = self.beta[genotype].dropna(axis=0,
-                                                     subset=subset)[self.gene]
-            ind = ~self.beta[genotype][self.gene].isin(not_dropped)
-            na_here = self.beta[genotype][ind][self.gene].values
-
-            na = na + na_here.tolist()
-
-        na = list(set(na))
-        print('Number of na genes: {0}'.format(len(na)))
-
-        # filter everything that has beta == nan
-        self.beta_filtered = {}
-        self.tpm_filtered = {}
-        for key, name in enumerate(self.tpm):
-            # replace tpm dfs with the filtered values:
-            filter1 = (~self.tpm[name][self.gene].isin(names))
-            temp = self.tpm[name][filter1]
-            filter2 = (~temp[self.gene].isin(na))
-            temp2 = temp[filter2]
-            self.tpm_filtered[name] = temp2.copy()
-            self.tpm_filtered[name].reset_index(drop=True, inplace=True)
-
-        for key, genotype in enumerate(self.beta):
-            # replace beta dfs with filtered values also
-            filter1 = (~self.beta[genotype][self.gene].isin(names))
-            temp = self.beta[genotype][filter1]
-            filter2 = (~temp[self.gene].isin(na))
-            temp2 = temp[filter2]
-            self.beta_filtered[genotype] = temp2.copy()
-            self.beta_filtered[genotype].reset_index(drop=True, inplace=True)
+        for genotype, df in self.beta.items():
+            df.dropna(subset=['b'], inplace=True)
 
     def enrichment_analysis(self, x, dictionary='tissue', analysis=''):
         """
@@ -897,15 +845,15 @@ class mcclintock(object):
                     continue
 
                 # find significant overlap between the two genotypes:
-                significance1 = morgan.beta_filtered[letter1].qval < morgan.q
-                x = morgan.beta_filtered[letter1][significance1]
+                significance1 = morgan.beta[letter1].qval < morgan.q
+                x = morgan.beta[letter1][significance1]
 
-                significance2 = morgan.beta_filtered[letter2].qval < morgan.q
-                inx = morgan.beta_filtered[letter2][morgan.gene].\
+                significance2 = morgan.beta[letter2].qval < morgan.q
+                inx = morgan.beta[letter2][morgan.gene].\
                     isin(x[morgan.gene])
 
-                y = morgan.beta_filtered[letter2][(significance2) &
-                                                  (inx)].copy()
+                y = morgan.beta[letter2][(significance2) &
+                                         (inx)].copy()
                 # store the sizes of x and y:
                 sizex = len(x)
                 sizey = len(y)
@@ -929,7 +877,7 @@ class mcclintock(object):
                     trace = robust_regress(data)
                     a_and_b = len(genes)
                     a_or_b = sizex + sizey - a_and_b
-                    # total = len(morgan.beta_filtered[letter1][significance1])
+                    # total = len(morgan.beta[letter1][significance1])
                     weight = a_and_b/a_or_b
                     matrix[l, m] = trace.x.mean()*weight
                     tstd = trace.x.std()
@@ -993,8 +941,8 @@ class sturtevant(object):
             m = 0
             cols += [key]
             for j in morgan.single_mutants:
-                x = morgan.beta_filtered[key]
-                y = morgan.beta_filtered[j]
+                x = morgan.beta[key]
+                y = morgan.beta[j]
 
                 ovx = x[lind(x)]
                 ovy = y[lind(y) & y[morgan.gene].isin(ovx[morgan.gene])].copy()
@@ -1071,8 +1019,8 @@ class sturtevant(object):
 
                 candidates = self.candidates[(key, j)]
 
-                x = morgan.beta_filtered[key]
-                y = morgan.beta_filtered[j]
+                x = morgan.beta[key]
+                y = morgan.beta[j]
 
                 ovx = x[lind(x)]
                 ovy = y[lind(y) & y[morgan.gene].isin(ovx[morgan.gene])].copy()
@@ -1194,8 +1142,8 @@ class haldane(object):
                     continue
 
                 # find overlap:
-                x = morgan.beta_filtered[mutant1]
-                y = morgan.beta_filtered[mutant2]
+                x = morgan.beta[mutant1]
+                y = morgan.beta[mutant2]
 
                 xsig = len(x[x[morgan.qval] < morgan.q])
                 ysig = len(y[y[morgan.qval] < morgan.q])

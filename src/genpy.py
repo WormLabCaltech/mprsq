@@ -11,11 +11,27 @@ Citation: Forthcoming
 import pandas as pd
 import numpy as np
 import pymc3 as pm
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 import seaborn as sns
 import networkx as nx
 import gvars
+from matplotlib import rc
+rc('text', usetex=True)
+rc('text.latex', preamble=r'\usepackage{cmbright}')
+rc('font', **{'family': 'sans-serif', 'sans-serif': ['Helvetica']})
 
+# JB's favorite Seaborn settings for notebooks
+rc = {'lines.linewidth': 2,
+      'axes.labelsize': 18,
+      'axes.titlesize': 18,
+      'axes.facecolor': 'DFDFE5'}
+sns.set_context('notebook', rc=rc)
+sns.set_style("dark")
+
+mpl.rcParams['xtick.labelsize'] = 18
+mpl.rcParams['ytick.labelsize'] = 18
+mpl.rcParams['legend.fontsize'] = 14
 
 genvar = gvars.genvars()
 #################################################################
@@ -149,8 +165,8 @@ def qPCR_plot(df, plotting, colors, **kwargs):
     A function to make prettified qPCR barplots.
 
     Takes as entry a dataframe as output by qPCR_prep method
-
     Params:
+    ------
     df -- df as output by qPCR_prep
     plotting -- a dictionary of plotting order for each gene;
                 keys must be in dataframe column 'plotting_group'
@@ -167,6 +183,7 @@ def qPCR_plot(df, plotting, colors, **kwargs):
               title
 
     outputs:
+    -------
     a Seaborn barchart
     """
     clustering = kwargs.pop('clustering', 'ext_gene')
@@ -259,16 +276,17 @@ def qPCR_plot(df, plotting, colors, **kwargs):
         else:
             fancy_names += name
 
-    # plt.xticks(index + bar_width*len(df[clustering].unique())/2,
-    #            fancy_names, rotation=rotation, fontsize=20,
-    #            fontname='Helvetica')
+    plt.yticks(fontsize=18)
     plt.xticks(index + bar_width*len(df[clustering].unique())/2,
-               fancy_names, rotation=rotation)
+               fancy_names, rotation=rotation, fontsize=18,
+               fontname='Helvetica')
+    # plt.xticks(index + bar_width*len(df[clustering].unique())/2,
+    #            fancy_names, rotation=rotation)
 
     # pathify(title, '', r'Regression Coefficient, $\beta$')
-    plt.ylabel(r'Regression Coefficient, $\beta$', fontsize=18)
-    plt.legend(title='Genotype', loc=(1.02, 0.5))
-
+    plt.ylabel(r'Regression Coefficient, $\beta$', fontsize=20)
+    legend = plt.legend(title='Genotype', loc=(1.02, 0.5), fontsize=18)
+    plt.setp(legend.get_title(), fontsize=18)
     plt.ylim(ymin, ymax)
 
 
