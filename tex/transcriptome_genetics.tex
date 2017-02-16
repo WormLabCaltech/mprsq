@@ -49,13 +49,13 @@
 \newcommand{\hifn}{547}
 \newcommand{\eglhifn}{405}
 \newcommand{\fogn}{2091}
-\newcommand{\total}{3,2XXXX} % Needs review!!!!
+\newcommand{\total}{5,671} % isoforms!!!!
 % \newcommand{\inall}{53}
 % \newcommand{\allup}{10}
 % \newcommand{\alldown}{13}
 
 % downstream targets
-\newcommand{\egltargets}{63}
+\newcommand{\egltargets}{126}
 \newcommand{\rhytargets}{0}
 \newcommand{\vhltargets}{44}
 \newcommand{\hiftargets}{196}
@@ -868,7 +868,7 @@ that a large portion or possibly all the transcriptomic effects of \rhyp{} in
 this dataset are downstream of \egl{}.
 
 Using this approach, we identified a main hypoxia response induced by disinhibiting
-\gene{hif-1} (367 genes). Although the hypoxic response is likely
+\gene{hif-1} (356 genes). Although the hypoxic response is likely
 to involve between three and seven times more genes, this is a conservative
 estimate that minimizes false negative results, since these changes were
 identified in four different genotypes with three replicates each. This response
@@ -908,25 +908,33 @@ A number of terms reflecting catabolism and bioenergetics are enriched.
 \label{fig:hyp_gea}
 \end{figure}
 
-Gene ontology enrichment analysis (GEA) showed that the terms `oxoacid metabolic process'
-(\qval{4}, 3.0 fold-change, 24 genes),
-`iron ion binding' (\qval{2}, 3.8 fold-change, 10 genes),
-and `immune system process' (\qval{3}, 2.9 fold-change, 20 genes) were enriched
-with the lowest q-values. GEA also showed enrichment of the term
-`mitochondrion' (\qval{3}, 2.5 fold-change, 29 genes) (see
-Fig.~\ref{fig:hyp_gea}). Indeed, \hif{} has been implicated in
+We used gene ontology enrichment analysis (GEA) on the main hypoxia response program.
+This showed that the terms `oxoacid metabolic process' (\qval{4}, 3.0 fold-change,
+24 genes), `iron ion binding' (\qval{2}, 3.8 fold-change, 10 genes), and `immune
+system process' (\qval{3}, 2.9 fold-change, 20 genes) were significantly enriched.
+GEA also showed enrichment of the term `mitochondrion' (\qval{3}, 2.5 fold-change,
+29 genes) (see Fig.~\ref{fig:hyp_gea}). Indeed, \hif{} has been implicated in
 all of these biological and molecular functions~\cite{Luhachack2012,Ackerman2012,
-Romney2011,Semenza2011}. As a further benchmark on the quality of our data,
-we selected a set of 22 genes known to be responsive to \hifp{} levels from the literature
-and asked whether these genes were present in our hypoxia response list. We found $8/22$ known
-genes, which constitutes a statistically significant result ($p<10^{10}$).
-The small number of reporters found in this list probably reflects the conservative
-nature of our estimates. We also analyzed the list of predicted \hifp{} direct targets.
-Phenotype Enrichment Analysis revealed that this list was significantly enriched in
-`oxygen response variant' (\qval{2}, 12.3 fold-change, 4 genes) and Tissue Enrichment
-Analysis (TEA) showed enrichment of the `coelomic system' (\qval{1}, 2.7 fold-change,
-16 genes). The \gene{vhl-1}, \gene{hif-1}-independent specific transcriptome was also submitted
-for enrichment analysis but no terms were significantly enriched.
+Romney2011,Semenza2011}.
+As benchmark on the quality of our data, we selected a set of 22 genes known to
+be responsive to \hifp{} levels from the literature and asked whether these genes
+were present in our hypoxia response list. We found $8/22$ known genes, which
+constitutes a statistically significant result ($p<10^{10}$). The small number of
+reporters found in this list probably reflects the conservative nature of our
+estimates.
+We also analyzed the list of predicted \hifp{} direct targets. GEA revealed that
+this list was significantly enriched in `immune system process' (\qval{5}, 5.7
+fold-change, 15 genes) and `carbohydrate binding' (\qval{4}, 13 genes). Multiple
+terms involving enzymatic activities were enriched (\qval{1}) as well as
+`oxoacid metabolic process' (\qval{1}, 3 genes), suggesting that this gene list
+is enriched for enzymes.
+When we analyzed the \gene{hif-1}-independent, \gene{egl-9}-dependent transcriptome,
+we found genes that were enriched in programmed cell death, as well as ribosomal
+constituents. Phenotype enrichment analysis suggested that germline defects were
+enriched in this gene list, and tissue enrichment analysis singled out the P$_1$
+and P$_3$ cells as significantly enriched.
+We studied the \gene{hif-1}-independent, \gene{vhl-1}-dependent gene set
+using enrichment analysis terms were significantly enriched.
 % \todo{closer is missing.}
 
 \subsection{Identification of non-classical epistatic interactions}
