@@ -8,8 +8,6 @@ contact: dangeles at caltech edu
 import pandas as pd
 import warnings as wng
 import numpy as np
-from scipy import stats
-import tissue_enrichment_analysis as tea
 import pymc3 as pm
 # import theano
 ###############################################################################
@@ -114,27 +112,24 @@ class hunt(object):
         """
         if type(lettercode) != type(genotype):
             raise ValueError('types of lettercode and genotype must match!')
-
         if type(lettercode) is not str:
             if len(lettercode) != len(genotype):
                 raise ValueError('lengths of lettercode\
                                  and genotype must match!')
-
         if type(lettercode) is str:
             if lettercode.lower() in self.double_muts.keys():
                 w = '{0} is already in string\
                      and was replaced'.format(lettercode.lower())
                 wng.warn(w)
-
             self.double_muts[lettercode.lower()] = genotype.lower()
-        else:
-            for i, letter in enumerate(lettercode):
-                if letter.lower() in self.double_muts.keys():
-                    w = '{0} is already in string\
-                        and was replaced'.format(letter.lower())
-                    wng.warn('{0} is already in string!'.format(letter))
+            return
 
-                self.double_muts[letter.lower()] = genotype[i].lower()
+        for i, letter in enumerate(lettercode):
+            if letter.lower() in self.double_muts.keys():
+                w = '{0} is already in string\
+                    and was replaced'.format(letter.lower())
+                wng.warn('{0} is already in string!'.format(letter))
+            self.double_muts[letter.lower()] = genotype[i].lower()
 
     def add_genmap(self, genmap_path, sep=',', comment='#'):
         """
@@ -144,6 +139,7 @@ class hunt(object):
         project_name - the name of each RNA-seq run
         genotype - typically, each genotype has n replicates
         with n project_name's
+        batch - batch each project belonged to
 
         I.e.:
         run1,WT
@@ -164,8 +160,8 @@ class hunt(object):
             raise ValueError('genmap is not in the right format!')
 
         self.genmap.genotype = self.genmap.genotype.apply(str)
-        self.genmap.genotype = self.genmap.genotype.apply(str.lower)
         # make sure everything is always in lowercase
+        self.genmap.genotype = self.genmap.genotype.apply(str.lower)
 
     def add_tpm(self, main_path, tpm_fname, folder='', sep='\t'):
         """
@@ -218,7 +214,6 @@ class hunt(object):
             path = main_path + folders[genotype] + fc_fname
             self.beta[genotype] = pd.read_csv(path, sep=sep)
             # beta dataframes from sleuth MUST BE SORTED By ID!!!!
-            # if you don't do this, nothing works!
             self.beta[genotype].sort_values(self.gene, inplace=True)
             self.beta[genotype].reset_index(drop=True, inplace=True)
 
@@ -232,15 +227,13 @@ class hunt(object):
         """A function to set the qvalue parameter."""
         if type(q) is not float:
             raise ValueError('`q` must be a float!')
-
         if q == 0 or q == 1:
             raise ValueError('`q` must be between 0, 1 noninclusive')
-
         self.q = q
 
-    def filter_data(self, count_min, count_quantile):
+    def filter_data(self):
         """
-        A function to filter data based on a set of conditions.
+        A function to filter out NaNs in the beta dataframes.
 
         Params:
         count_min - int or float
@@ -253,385 +246,13 @@ class hunt(object):
         for genotype, df in self.beta.items():
             df.dropna(subset=['b'], inplace=True)
 
-    def enrichment_analysis(self, x, dictionary='tissue', analysis=''):
-        """
-        A neatly packaged enrichment analysis tool.
-
-        Params:
-        ------------
-        dictionary - str or pandas df, at the moment, can only be 'tissue'
-        if a pandas dataframe, must be in the same format as the dataframe
-        used for TEA.
-
-        Outputs:
-        ------------
-        enrichment - a hash of the results for each and every dataframe in
-        the betas hash
-        """
-        if dictionary == 'tissue':
-            dictionary = tea.fetch_dictionary()
-            analysis = 'tissue'
-
-        self.enrichment = {}
-
-        if type(dictionary) is str:
-            dictionary = tea.fetch_dictionary()
-            self.enrichment[dictionary] = {}
-        else:
-            if len(analysis) == 0:
-                raise ValueError('`analysis` can\'t be empty!')
-            else:
-                self.enrichment[analysis] = {}
-
-        for key, df in self.beta.items():
-            sig_genes = df[df[self.qval] < self.q][x]
-            df_enr, unused = tea.enrichment_analysis(sig_genes, dictionary,
-                                                     show=False, save=False)
-            if len(df_enr) > 0:
-                self.enrichment[analysis][key] = df_enr
-
-
-###############################################################################
-# --------------------------------------------------------------------------- #
-# --------------------------------------------------------------------------- #
-###############################################################################
-
-class brenner(object):
-    """
-    An object to perform and hold fast analyses for morgan single-mutants.
-
-    Attributes:
-    ------------------
-    rho
-    hyper_plus
-    overlap_plus
-    expected_plus
-    hyper_minus
-    overlap_minus
-    expected_minus
-    """
-
-    def __init__(self, name, morgan, alpha=10**-4):
-        """
-        Initialize function.
-
-        Automatically performs spearman analysis and
-        hypergeometric interaction tests.
-        """
-        self.name = name
-        self.spearman_analysis(morgan, alpha=alpha)
-        self.probabilistic_interaction_analysis(morgan)
-
-    def spearman_analysis(self, morgan, alpha=10**-4):
-        """
-        A function to perform spearmanr analyses on all single mutants.
-
-        Params:
-        alpha - significance value for spearmanr correlation
-
-        Outputs:
-        res_dict - a hash containing the results of the analysis.
-        """
-        s = len(morgan.single_mutants)
-
-        rho_matrix = np.empty(shape=(s, s))
-
-        l = 0
-        for i in morgan.single_mutants:
-            m = 0
-            for j in morgan.single_mutants:
-                x = morgan.beta[i]
-                y = morgan.beta[j]
-                # find overlap in stat.sig.genes between both lists:
-                indx = (x[morgan.qval] < 0.1)
-                indy = (y[morgan.qval] < 0.1)
-                ovx = x[indx]
-                ovy = y[indy & y[morgan.gene].isin(ovx[morgan.gene])]
-                ovx = x[x[morgan.gene].isin(ovy[morgan.gene])]
-
-                if len(ovx) < 20:
-                    continue
-
-                # spearman analysis
-                rho = stats.spearmanr(ovx[morgan.change], ovy.b)
-                if rho[1] < alpha:
-                    # return the spearman corr. weighted by fraction overlap
-                    a_and_b = len(ovx)
-                    a_or_b = len(x[indx]) + len(y[indy]) - a_and_b
-                    rho_matrix[l, m] = rho[0]*a_and_b/a_or_b
-                else:
-                    rho_matrix[l, m] = 0
-                m += 1
-            l += 1
-        self.rho = pd.DataFrame(data=rho_matrix, columns=morgan.single_mutants)
-        self.rho['corr_with'] = morgan.single_mutants
-
-    def find(self, x, y, morgan):
-        """
-        Thin wrapper around isin() function.
-
-        Given a dataframe 'x' with a column 'col',
-        and a set of target_id names 'y', find the entries
-        in x that are present in y.
-
-        Params:
-        x - dataframe
-        y - pandas series or list-like
-
-        output:
-        x[col].isin(y) - a pandas series object
-        """
-        return x[morgan.gene].isin(y)
-
-    def polarize(self, test_df, ref_df, ids, sign, morgan):
-        """
-        Return the list of polarized genes between two dataframes.
-
-        Given two dataframes, a list of overlapping genes and a sign,
-        returns the list of genes that satisfy the sign condition.
-
-        Params:
-        test_df - pandas dataframe
-        ref_df - pandas dataframe
-        ids - list of ids that overlap between test_df and ref_df
-          (from 'overlap' function)
-          sign - one of '+', '-', 'p'. '+' means that genes must be positively
-           correlated between test_df and ref_df, '-' requires anticorrelation,
-           and 'p' means that they must have 0 correlation (function not yet
-           implemented)
-         col - name of column containing the gene names
-         change - name of column containing fold change, regression value or a
-             related metric for change relative to the WT. Absolute value
-             doesn't matter, but it must not be absolute change!
-
-        Output:
-        g_overlap - numpy.ndarray of overlapping gene names
-        """
-        test = test_df[self.find(test_df, ids, morgan)].copy()
-        ref = ref_df[self.find(ref_df, ids, morgan)]
-
-        if ~(test[morgan.gene].values == ref[morgan.gene].values).all():
-            test.sort_values(morgan.gene, inplace=True)
-            test.reset_index(inplace=True)
-            ref.sort_values(morgan.gene, inplace=True)
-            ref.reset_index(inplace=True)
-
-        test['polarity'] = test[morgan.change]*ref[morgan.change]
-
-        if sign == '+':
-            g_overlap = test[test.polarity > 0][morgan.gene].values
-        elif sign == '-':
-            g_overlap = test[test.polarity < 0][morgan.gene].values
-        elif sign == 'p':
-            g_overlap = 0
-            print('Unfinished business!')
-        else:
-            raise ValueError('sign must be one of +, -, or p')
-        return g_overlap
-
-    def overlap(self, x, y, morgan):
-        """
-        Given two dataframes, returns the overlap between sig. genes.
-
-        Params:
-        x - pandas df
-        y - pandas df
-
-        output:
-        overlap - a numpy ndarray
-        """
-        x_sig = x[x[morgan.qval] < morgan.q]
-        y_sig = y[y[morgan.qval] < morgan.q]
-
-        # overlap between x, y
-        ind = x_sig[morgan.gene].isin(y_sig[morgan.gene].values)
-        overlap = x_sig[ind][morgan.gene].values
-        return overlap
-
-    def overlap_prob(self, key1, key2, sign, morgan):
-        """
-        A function to calculate the hypergeom probability of overlap.
-
-        Note: this function can't distinguish the direction of the network, so
-        a ---> b and b ----> a are the same for the purposes of this function.
-
-        Params:
-        key1 - reference dataframe (must be df with largest # of sig. genes)
-        key2 - test dataframe
-        sign - "+", "-" or "p". + means activating relationship, "-" means
-                inhibitory relationship
-
-        Output:
-        prob_overlap - probability of overlap as measured by hypergeometric
-        overlap_fraction - fraction of overlap genes (A and B)/(A U B)
-        expected_frac - expected fraction of overlap for these gene sets
-        polarized_ids - gene ids of the overlapping set
-        """
-        ref_df = morgan.beta[key1]
-        test_df = morgan.beta[key2]
-
-        # find overlap:
-        ovrlp_ids = self.overlap(ref_df, test_df, morgan)
-
-        # sig genes:
-        ref_sig_df = ref_df[ref_df[morgan.qval] < morgan.q].copy()
-        test_sig_df = test_df[test_df[morgan.qval] < morgan.q].copy()
-
-        # for overlapping ids, check what number of them satisfy the condition
-        # specified by 'sign'
-        # call them polarized bc they have a sign
-        polarized_ids = self.polarize(test_df, ref_df, ovrlp_ids, sign,
-                                      morgan)
-
-        # turn this into a scalar:
-        n_polar = len(polarized_ids)
-
-        # genes that changed significantly in either comparison (non-redundant)
-        temp = pd.Series.tolist(ref_sig_df[morgan.gene].values)
-        g_sig_ref = list(set(temp))
-
-        temp = pd.Series.tolist(test_sig_df[morgan.gene].values)
-        g_sig_test = list(set(temp))
-
-        # convert those lists to scalars:
-        n_sig_ref = len(g_sig_ref)
-        n_sig_test = len(g_sig_test)
-
-        # to calculate the overlap fraction, we need to know how
-        # many genes in A U B (A or B)
-        total_genes_changed = len(list(set(g_sig_ref+g_sig_test)))
-
-        # total genes measured in this experiment pair:
-        genes_ref = pd.Series.tolist(ref_df[morgan.gene].values)
-        genes_test = pd.Series.tolist(test_df[morgan.gene].values)
-        total_genes_measured = len(list(set(genes_ref + genes_test)))
-
-        # calculate prob of overlap:
-        prob_overlap = stats.hypergeom.cdf(n_polar, total_genes_measured,
-                                           n_sig_ref, n_sig_test)
-
-        # overlap fraction
-        overlap_fraction = n_polar/total_genes_changed
-
-        # expected:
-        expected = stats.hypergeom.mean(total_genes_measured,
-                                        n_sig_ref, n_sig_test)
-        expected_frac = expected/total_genes_changed
-
-        return prob_overlap, overlap_fraction, expected_frac, polarized_ids
-
-    def a_interacts_b(self, key1, key2, morgan, sign='+'):
-        """
-        A function to test whether a interacts with b in some way.
-
-        a --> b or b --> a are the same thing for this function.
-
-        Params:
-        key1 - pandas dataframe
-        key2 - pandas dataframe
-        sign - '+', '-', 'p'. + tests activation, - tests inhibition, p not yet
-                implemented.
-
-        Ouput:
-        overlap_p
-        overlap_f
-        expected
-        ids_overlap
-        """
-        a_sig_genes = (morgan.beta[key1][morgan.qval] < morgan.q)
-        b_sig_genes = (morgan.beta[key1][morgan.qval] < morgan.q)
-
-        # name proxies for ease of reading
-        a = morgan.beta[key1][a_sig_genes]
-        b = morgan.beta[key2][b_sig_genes]
-
-        # choose the reference set
-        if len(a) > len(b):
-            results = self.overlap_prob(key1, key2, sign, morgan)
-        else:
-            results = self.overlap_prob(key2, key1, sign, morgan)
-        # unpack results
-        overlap_p, overlap_f, expected_frac, ids_overlap = results
-        # return
-        return overlap_p, overlap_f, expected_frac, ids_overlap
-
-    def probabilistic_interaction_analysis(self, morgan):
-        """A function that predicts interactions based on Bayesian modeling."""
-        s = len(morgan.single_mutants)
-
-        prob_plus = np.zeros(shape=(s, s))
-        overlap_plus = np.zeros(shape=(s, s))
-        expected_plus = np.zeros(shape=(s, s))
-
-        prob_minus = np.zeros(shape=(s, s))
-        overlap_minus = np.zeros(shape=(s, s))
-        expected_minus = np.zeros(shape=(s, s))
-
-        self.overlap_ids_plus = {}
-        self.overlap_ids_minus = {}
-
-        l = 0
-        for i in morgan.single_mutants:
-            m = 0
-            for j in morgan.single_mutants:
-                # store the results from genpy.a_interacts_b in an array
-                # called results, but remember it has 4 elements:
-                # overlap prob, overlap frac, expected frac, ids overlapped
-                results = self.a_interacts_b(i, j, morgan, sign='+')
-                results2 = self.a_interacts_b(i, j, morgan, sign='-')
-
-                # artificially set i,i entries for overlap fraction to zero,
-                # this allows better discrimination of interactions for
-                # heatmaps
-                if i == j:
-                    overlap_plus[l, m] = 0
-                    overlap_minus[l, m] = 0
-                else:
-                    overlap_plus[l, m] = results[1]
-                    overlap_minus[l, m] = results2[1]
-
-                prob_plus[l, m] = results[0]
-                prob_minus[l, m] = results2[0]
-                expected_plus[l, m] = results[2]
-                expected_minus[l, m] = results2[2]
-                if i != j:
-                    if len(results[3]):
-                        self.overlap_ids_plus[(i, j)] = results[3]
-                    if len(results2[3]):
-                        self.overlap_ids_minus[(i, j)] = results2[3]
-                m += 1
-            l += 1
-
-        self.hyper_plus = pd.DataFrame(prob_plus,
-                                       columns=morgan.single_mutants)
-        self.hyper_plus['corr_with'] = morgan.single_mutants
-
-        self.overlap_plus = pd.DataFrame(overlap_plus,
-                                         columns=morgan.single_mutants)
-        self.overlap_plus['corr_with'] = morgan.single_mutants
-
-        self.expected_plus = pd.DataFrame(expected_plus,
-                                          columns=morgan.single_mutants)
-        self.expected_plus['corr_with'] = morgan.single_mutants
-
-        self.hyper_minus = pd.DataFrame(prob_minus,
-                                        columns=morgan.single_mutants)
-        self.hyper_minus['corr_with'] = morgan.single_mutants
-
-        self.overlap_minus = pd.DataFrame(overlap_minus,
-                                          columns=morgan.single_mutants)
-        self.overlap_minus['corr_with'] = morgan.single_mutants
-
-        self.expected_minus = pd.DataFrame(expected_minus,
-                                           columns=morgan.single_mutants)
-        self.expected_minus['corr_with'] = morgan.single_mutants
-
-
 ###############################################################################
 # --------------------------------------------------------------------------- #
 # --------------------------------------------------------------------------- #
 ###############################################################################
 # some common functions
+
+
 def find_rank(morgan, df):
     """A function to find the rank values of a variable."""
     d = df.copy()
@@ -663,7 +284,7 @@ def find_inliers(morgan, ovx, ovy, trace):
     return candidates
 
 
-def robust_regress(data, progress=True):
+def robust_regress(data, progress=False):
     """A robust regression using a StudentT instead of a Gaussian model."""
     with pm.Model():
         family = pm.glm.families.StudentT()
@@ -773,7 +394,8 @@ class mcclintock(object):
         slope_matrix = np.zeros(shape=(s, s))
         weights = np.zeros(shape=(s, s))
         error_matrix = np.zeros(shape=(s, s))
-
+        if len(morgan.single_mutants) == 0:
+            raise ValueError('morgan single_mutants is empty!')
         for l in range(len(morgan.single_mutants)):
             for m in range(l, len(morgan.single_mutants)):
                 if l == m:
@@ -895,269 +517,3 @@ class mcclintock(object):
         w = pd.DataFrame(weights, columns=morgan.single_mutants)
         self.weights_secondary = w
         self.weights_secondary['corr_with'] = morgan.single_mutants
-
-
-###############################################################################
-# --------------------------------------------------------------------------- #
-# --------------------------------------------------------------------------- #
-###############################################################################
-
-class sturtevant(object):
-    """
-    An object to perform epistasis analysis of double mutants.
-
-    Attributes
-    ------------------
-    epistasis
-    """
-
-    def __init__(self, name):
-        """Initialize function."""
-        self.name = name
-
-    def epistasis_analysis(self, morgan, progress=True):
-        """
-        A function to perform correlational epistatic analysis of mutants.
-
-        Parameters:
-        -----------
-        morgan
-        progress - Boolean, show progressbar for MCMC
-        """
-        self.candidates = {}
-        # lambda index function:
-
-        def lind(x):
-            """To avoid writing ind = blah < q all the time."""
-            return (x[morgan.qval] < 0.1)
-        temp1 = len(morgan.double_muts)
-        temp2 = len(morgan.single_mutants)
-        double_mat = np.zeros(shape=(temp1, temp2))  # TODO Fix this!
-        weights = np.zeros(shape=(temp1, temp2))
-        l = 0
-        cols = []
-        size = []
-        for key in morgan.double_muts:
-            m = 0
-            cols += [key]
-            for j in morgan.single_mutants:
-                x = morgan.beta[key]
-                y = morgan.beta[j]
-
-                ovx = x[lind(x)]
-                ovy = y[lind(y) & y[morgan.gene].isin(ovx[morgan.gene])].copy()
-                ovx = x[lind(x) & x[morgan.gene].isin(ovy[morgan.gene])].copy()
-
-                ovx = find_rank(morgan, ovx)
-                ovy = find_rank(morgan, ovy)
-
-                # size of the overlap between double and single
-                size += [len(ovx)]
-
-                # go to next comparison if size is less than 20
-                if len(ovx) < 20:
-                    continue
-
-                # mean_slope = stats.spearmanr(ovx.b, ovy.b)[0]
-                # Set up MCMC parameters
-                data = dict(x=ovx.r, y=ovy.r)
-                trace = robust_regress(data, progress)
-                candidates = find_inliers(morgan, ovx, ovy, trace)
-
-                self.candidates[(key, j)] = candidates
-
-                # find the weight
-                a_or_b = len(candidates)
-                a_and_b = len(x[lind(x)]) + len(y[lind(y)]) - a_or_b
-                weight = a_or_b/a_and_b
-
-                # weight the regression by the fractional overlap
-                mean_slope = trace.x.mean()*weight
-                double_mat[l, m] = mean_slope
-                weights[l, m] = weight
-                m += 1
-            l += 1
-
-        # place results in dataframe:
-        double_corr = pd.DataFrame(double_mat.transpose(), columns=cols)
-        double_corr = pd.melt(double_corr, var_name='double_mutant',
-                              value_name='correlation')
-        double_corr['corr_with'] = morgan.single_mutants*temp1
-
-        w = pd.DataFrame(weights.transpose(), columns=cols)
-        w = pd.melt(w, var_name='double_mutant',
-                    value_name='weights')
-        w['corr_with'] = morgan.single_mutants*temp1
-        self.epistasis = double_corr
-        self.epistasis['weights'] = w['weights']
-
-    def epistasis_secondary(self, morgan, progress=True):
-        """
-        A function to perform a secondary epistatic analysis of mutants.
-
-        Parameters:
-        -----------
-        morgan
-        progress - Boolean, show progressbar for MCMC
-        """
-        # lambda index function:
-        def lind(x):
-            """To avoid writing ind = blah < q all the time."""
-            return (x[morgan.qval] < 0.1)
-
-        temp1 = len(morgan.double_muts)
-        temp2 = len(morgan.single_mutants)
-        double_mat = np.zeros(shape=(temp1, temp2))  # TODO Fix this!
-        weights = np.zeros(shape=(temp1, temp2))
-        l = 0
-        cols = []
-        size = []
-        for key in morgan.double_muts:
-            m = 0
-            cols += [key]
-            for j in morgan.single_mutants:
-
-                candidates = self.candidates[(key, j)]
-
-                x = morgan.beta[key]
-                y = morgan.beta[j]
-
-                ovx = x[lind(x)]
-                ovy = y[lind(y) & y[morgan.gene].isin(ovx[morgan.gene])].copy()
-                ovx = x[lind(x) & x[morgan.gene].isin(ovy[morgan.gene])].copy()
-
-                ovx = find_rank(morgan, ovx)
-                ovy = find_rank(morgan, ovy)
-
-                # perform this regression on outliers only:
-                ovx = ovx[~ovx[morgan.gene].isin(candidates)]
-                ovy = ovy[~ovy[morgan.gene].isin(candidates)]
-
-                # size of the overlap between double and single
-                size += [len(ovx)]
-
-                # go to next comparison if size is less than 20
-                if len(ovx) < 20:
-                    continue
-
-                # mean_slope = stats.spearmanr(ovx.b, ovy.b)[0]
-                # Set up MCMC parameters
-                data = dict(x=ovx.r, y=ovy.r)
-                trace = robust_regress(data, progress)
-                inliers = find_inliers(morgan, ovx, ovy, trace)
-
-                a_or_b = len(inliers)
-                a_and_b = len(x[lind(x)]) + len(y[lind(y)]) - a_or_b
-                weight = a_or_b/a_and_b
-
-                mean_slope = trace.x.mean()*weight
-                double_mat[l, m] = mean_slope
-                weights[l, m] = weight
-                m += 1
-            l += 1
-
-        # place results in dataframe:
-        double_corr = pd.DataFrame(double_mat.transpose(), columns=cols)
-        double_corr = pd.melt(double_corr, var_name='double_mutant',
-                              value_name='correlation')
-        double_corr['corr_with'] = morgan.single_mutants*temp1
-
-        w = pd.DataFrame(weights.transpose(), columns=cols)
-        w = pd.melt(w, var_name='double_mutant',
-                    value_name='weights')
-        w['corr_with'] = morgan.single_mutants*temp1
-
-        self.epistasis_secondary = double_corr
-        self.epistasis_secondary['weights'] = w['weights']
-
-###############################################################################
-# --------------------------------------------------------------------------- #
-# --------------------------------------------------------------------------- #
-###############################################################################
-# some common functions
-
-
-def entropy(p):
-    """Return the information entropy of a binary probability."""
-    return -p*np.log2(p) - (1-p)*np.log2(1-p)
-
-
-def mutual_info(overlap, X=10**3, Y=10**3, N=2*10**4):
-    """A function to calculate information of two datasets on each other."""
-    px = X/N
-    entx = entropy(px)
-    # py = Y/N
-    # enty = entropy(py)
-
-    # conditional entropy:
-    p_ygivenx = overlap/X
-    p_ygivennotx = (Y-overlap)/(N-X)
-
-    p_notygivenx = (X-overlap)/X
-    p_notygiven_notx = (N - X - Y + overlap)/(N-X)
-
-    p = {
-        'y|x': p_ygivenx,
-        'y|-x': p_ygivennotx,
-        '-y|x': p_notygivenx,
-        '-y|-x': p_notygiven_notx,
-        }
-
-    ent_ = px*(p['y|x']*np.log2(p['y|x']) + p['-y|x']*np.log2(p['-y|x']))
-    ent_ += (1-px)*(p['-y|-x']*np.log2(p['-y|-x']) +
-                    p['y|-x']*np.log2(p['y|-x']))
-
-    return (entx - ent_)
-
-
-class haldane(object):
-    """
-    An object to perform information theoretic queries on morgan classes.
-
-    Attributes:
-    -----------
-    """
-
-    def __init__(self, name):
-        """Initialize function."""
-        self.name = name
-
-    def single_mut_info(self, morgan):
-        """
-        A function to calculate the information between all relevant genotypes.
-
-        Params:
-        -------
-        """
-        # lambda index function:
-        def lind(x):
-            """To avoid writing ind = blah < q all the time."""
-            return (x[morgan.qval] < morgan.q)
-
-        s = len(morgan.single_mutants)
-        info = np.zeros(shape=(s, s))
-        for i, mutant1 in enumerate(morgan.single_mutants):
-            for j, mutant2 in enumerate(morgan.single_mutants):
-                if i == j:
-                    continue
-
-                # find overlap:
-                x = morgan.beta[mutant1]
-                y = morgan.beta[mutant2]
-
-                xsig = len(x[x[morgan.qval] < morgan.q])
-                ysig = len(y[y[morgan.qval] < morgan.q])
-
-                ovx = x[lind(x)]
-                ovy = y[lind(y) & y[morgan.gene].isin(ovx[morgan.gene])]
-                ovx = ovx[(lind(ovx)) &
-                          ovx[morgan.gene].isin(ovy[morgan.gene])]
-
-                mi = mutual_info(len(ovy), xsig, ysig, len(x))
-                info[i, j] = mi
-
-        # place results in dataframe:
-        df = pd.DataFrame(data=info, columns=morgan.single_mutants)
-        df['corr_with'] = morgan.single_mutants
-
-        self.single_information = df

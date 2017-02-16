@@ -3,49 +3,52 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: transcriptome_genetics.aux
 The style file: pnas2011.bst
 Database file #1: citations.bib
-Warning--I didn't find a database entry for ""
+Repeated entry---line 1972 of file citations.bib
+ : @article{Angeles-Albores2016a
+ :                              ,
+I'm skipping whatever remains of this entry
 Warning--there's a number but no volume in Huang2006
 Warning--empty journal in Team2014
 Warning--empty journal in Waskom
-You've used 66 entries,
+You've used 67 entries,
             1797 wiz_defined-function locations,
-            908 strings with 21177 characters,
-and the built_in function-call counts, 15488 in all, are:
-= -- 1330
-> -- 734
+            914 strings with 21422 characters,
+and the built_in function-call counts, 15666 in all, are:
+= -- 1340
+> -- 752
 < -- 3
-+ -- 224
-- -- 158
-* -- 1402
-:= -- 2338
-add.period$ -- 130
-call.type$ -- 66
-change.case$ -- 66
++ -- 229
+- -- 162
+* -- 1414
+:= -- 2369
+add.period$ -- 132
+call.type$ -- 67
+change.case$ -- 67
 chr.to.int$ -- 0
-cite$ -- 69
-duplicate$ -- 683
-empty$ -- 1442
-format.name$ -- 158
-if$ -- 3284
+cite$ -- 70
+duplicate$ -- 692
+empty$ -- 1455
+format.name$ -- 162
+if$ -- 3321
 int.to.chr$ -- 0
-int.to.str$ -- 66
-missing$ -- 66
-newline$ -- 265
-num.names$ -- 66
-pop$ -- 85
+int.to.str$ -- 67
+missing$ -- 67
+newline$ -- 269
+num.names$ -- 67
+pop$ -- 88
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 377
+skip$ -- 384
 stack$ -- 0
 substring$ -- 1408
-swap$ -- 161
+swap$ -- 163
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 3
-while$ -- 177
-width$ -- 68
-write$ -- 655
-(There were 4 warnings)
+while$ -- 178
+width$ -- 69
+write$ -- 664
+(There was 1 error message)

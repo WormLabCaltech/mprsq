@@ -67,15 +67,14 @@
 
 % Use letters for affiliations, numbers to show equal authorship (if applicable)
 % and to indicate the corresponding author
-% \author[a,b]{David Angeles-Albores}
-% \author[a,b]{Carmie Puckett Robinson}
-% \author[a]{Brian Williams}
-% \author[b]{Igor Antoshechkin}
-% \author[a,b]{Paul W Sternberg}
+\author[a,b,*]{David Angeles-Albores}
+\author[a,b,*]{Carmie Puckett Robinson}
+\author[a]{Brian Williams}
+\author[a,b]{Paul W Sternberg}
 %
-% \affil[a]{Department of Biology and Biological Engineering, Caltech, Pasadena, USA, 91125}
-% \affil[b]{Howard Hughes Medical Institute}
-% \affil[*]{These authors contributed equally to this manuscript}
+\affil[a]{Division of Biology and Biological Engineering, Caltech, Pasadena, USA, 91125}
+\affil[b]{Howard Hughes Medical Institute}
+\affil[*]{These authors contributed equally to this manuscript}
 
 % Please give the surname of the lead author for the running footer
 \leadauthor{Angeles-Albores}
@@ -121,22 +120,27 @@ addressed. E-mail: pws@caltech.edu}
           transcriptomics $ | $ systems biology}
 
 \begin{abstract}
-RNA-seq is a technology that is commonly used to identify genetic modules that
-are responsive to a perturbation. In theory, global gene expression could also
-be used as a phenotype in complex metazoans, with all the implications that has
-for genetic analysis. To that end, we sequenced the transcriptome of four single
-mutants and two double mutants of the hypoxia pathway in \cel{}. We successfully
-analyzed the single mutants in a blinded fashion to predict the genetic
-relationships between the genes, and used the double mutants as a test of our
-predictions and to infer the directionality of the relationship.
-We show that genes along a pathway tend to decorrelate as a result of
-alternative regulatory modes and crosstalk with other pathways; and that this
-decorrelation accurately reflects functional distance between genes. As a
-by-product of our analysis, we predict \hiftargets{} genes under the regulation
-of \gene{hif-1}, and \vhltargets{} genes under the regulation of \gene{vhl-1}.
-Interactive graphics for this paper
-can be found at \url{www.wormlabcaltech.github.io/mprsq}.
-\todo[inline]{Abstract must be re-written.}
+RNA-seq is commonly used to identify genetic modules that respond to a
+perturbation. Although transcriptomes have been mainly used for target gene
+discovery, the quantitative nature of these measurements makes them attractive
+structures with which to study genetic interactions. To understand whether
+whole-organism RNA-seq was suitable for genetic pathway reconstruction, we
+sequenced the transcriptome of four single mutants and two double mutants of the
+hypoxia pathway in \cel{}. Using principal component analysis or correlational
+analysis, we show that whole-organism transcriptomes contain sufficient information
+to identify genetic interactions. By comparing the expression levels of double
+mutants with their corresponding single mutants, we were able to determine, on a
+genome-wide level, that \eglp{} acts along \vhlp{}-dependent and independent
+branches to inhibit \hifp{}. We were also able to observe genome-wide suppression
+of the \egl{} phenotype in an \eglhif{} double mutant. We show that genes along
+a pathway tend to decorrelate as a result of alternative regulatory modes and
+crosstalk; and that this decorrelation accurately reflects functional distance
+between genes. As a by-product of our analysis, we predict \hiftargets{} genes
+under the regulation of \gene{hif-1}, and \vhltargets{} genes under the regulation
+of \gene{vhl-1}. Finally, we are able to identify \hifohtargets{} genes that exhibit
+non-canonical epistasis: for these genes, \vhl{} mutants show opposing effects to
+\egl{} mutants, but the \eglvhl{} exhibits the \egl{} phenotype. We suggest that
+this non-canonical epistasis reflects unexplored aspects of the hypoxia pathway.
 \end{abstract}
 
 \dates{This manuscript was compiled on \today}
@@ -354,8 +358,10 @@ relevant manner. We expected \hif{} to cluster near \eglhif{}, because
 \eglhif{} mutants suppress the Egl phenotype and exhibit the \hif{} (wild-type) phenotype
 instead. On the other hand, we expected \egl{}, \rhy{}, \vhl{} and \eglvhl{} to
 form a separate cluster since each of these genotypes is Egl and has a constitutive
-hypoxic response. Finally, we expected that \fog{}, which we included as a negative
-control, should appear far away from either cluster.
+hypoxic response. Finally, we included as a negative control a \fog{} mutant we
+have analyzed previously~\cite{Angeles-Albores2016a}. Since \gene{fog-2} has not
+been described to interact with the hypoxia pathway, we expected that it should
+appear far away from either cluster.
 
 The first dimension of the PCA analysis was able to discriminate between \hifp{}
 positive and negative animals, whereas the second dimension was able to discriminate
@@ -736,29 +742,28 @@ reflecting the flux in information between them.
 % decorrelation
 \begin{figure}[tbhp]
 \centering
-\includegraphics[width=\linewidth]{figs/decorrelation.pdf}
+\includegraphics[width=.9\linewidth]{figs/decorrelation.pdf}
 \caption{
 Theoretically, transcriptomes can be used to order genes in a pathway under
 certain assumptions. Arrows in the diagrams above are intended to show the
 direction of flow, and do not indicate valence.
 \textbf{A} A linear pathway in which \gene{rhy-1} is the only gene controlling
-\gene{egl-9},
-which in turn controls \gene{hif-1} does not contain transcriptomes with enough
-information to infer the order between genes.
-\textbf{B} On the other hand, if \gene{rhy-1} and \gene{egl-9} have transcriptomic
-effects that are separable from \gene{hif-1}, then the \gene{rhy-1} transcriptome
-should contain contributions from \gene{egl-9}, \gene{hif-1} and \gene{egl-9}- and
+\gene{egl-9}, which in turn controls \gene{hif-1} does not contain information
+to infer the order between genes.
+\textbf{B} If \gene{rhy-1} and \gene{egl-9} have transcriptomic effects that are
+separable from \gene{hif-1}, then the \gene{rhy-1} transcriptome should contain
+contributions from \gene{egl-9}, \gene{hif-1} and \gene{egl-9}- and
 \gene{hif-1}-independent pathways. This pathway contains enough information to
 infer order.
-\textbf{C} If a pathway is branched in both upstream and downstream directions,
-observed transcriptomes will show even faster decorrelation. Nodes that are
+\textbf{C} If a pathway is branched both upstream and downstream,
+transcriptomes will show even faster decorrelation. Nodes that are
 separated by many edges may begin to behave almost independently of each other
-with marginal transcriptomic overlap or correlation, reflecting the weak control
-distant nodes exert on each other.
+with marginal transcriptomic overlap or correlation.
 \textbf{D} The hypoxia pathway can be ordered according to functional distance.
 We hypothesize the rapid decay in correlation is due to a mixture of
 upstream and downstream branching that happens along this pathway. Bars show the
-standard error of the weighted coefficient.
+standard error of the weighted coefficient from the Monte Carlo Markov Chain
+computations.
 }
 \label{fig:decorrelation}
 \end{figure}
@@ -890,7 +895,8 @@ up in \hif{}) identified \hiftargets{} candidate genes for direct regulation.
 \label{sub:ea_hypoxia}
 In order to validate that our transcriptomes were correct, and to understand how
 functionalities may vary between them, we subjected each decoupled response to
-enrichment analysis using the WormBase Enrichment Suite~\cite{Angeles-Albores2016}.
+enrichment analysis using the WormBase Enrichment Suite~\cite{Angeles-Albores2016,
+Angeles-Albores2016b}.
 
 \begin{figure}[tbhp]
 \centering
@@ -1014,8 +1020,7 @@ A graphic summary of the genome-wide effects of \hifp{} from our RNA-seq data.
 \label{fig:genomewide}
 \end{figure}
 
-\subsubsection{Bio-energetic pathways}
-% \todo[inline]{Bio-energetic or bioenergetic?}
+\subsubsection{Bioenergetic pathways}
 Our data shows that most of the enzymes involved in the TCA cycle and in the ETC
 are down-regulated when \hifp{} is induced in agreement with the previous
 literature~\cite{Semenza2012}.
@@ -1040,13 +1045,14 @@ phosphorylase isozymes.
 via inhibition of mTOR~\cite{Brugarolas2004}. However, most reported effects of
 \hifp{} on the translation machinery are posttranslational, and no reports to date
 show decreases in transcription of the ribosomal machinery in \cel{}. We used
-the WormBase Enrichment Suite Gene Ontology dictionary~\cite{} to extract 143
-protein-coding genes annotated as `structural constituents of the ribosome' and
-we queried whether they were differentially expressed in our mutants. \egl{},
-\vhl{}, \rhy{} and \egl{};\vhl{} showed differential expression of 91 distinct
-ribosomal constituents (not all constituents were detected in all genotypes).
-For every one of these genotypes, these genes were always down-regulated. In
-contrast, \hif{} showed up-regulation of a single ribosomal constituent.
+the WormBase Enrichment Suite Gene Ontology dictionary~\cite{Angeles-Albores2016b}
+to extract 143 protein-coding genes annotated as
+`structural constituents of the ribosome' and we queried whether they were
+differentially expressed in our mutants. \egl{}, \vhl{}, \rhy{} and \egl{};\vhl{}
+showed differential expression of 91 distinct ribosomal constituents (not all
+constituents were detected in all genotypes). For every one of these genotypes,
+these genes were always down-regulated. In contrast, \hif{} showed up-regulation
+of a single ribosomal constituent.
 
 Next, we asked whether \hifp{} has any transcriptional effects on the
 proteasomal constituents, because no such effects of \hifp{} on the proteasome
@@ -1091,7 +1097,7 @@ in fumarate produced by the complex could be compensated by increasing expressio
 \gene{fum-1}. Increased fumarate degradation allows \cel{} to maintain plasticity
 in the hypoxia pathway, keeping the pathway sensitive to oxygen levels.
 
-\subsection*{Non-classical epistasis in the hypoxia pathway}
+\subsection*{Interpretation of the non-classical epistasis in the hypoxia pathway}
 The observation of almost 30 genes that exhibit a specific pattern of non-classical
 epistasis suggests new aspects of the hypoxia pathway. Some of these non-classical
 epistases had been observed previously, but no satisfactory mechanism has been
@@ -1104,13 +1110,12 @@ expression, deletion of \gene{egl-9} also causes induction of \ftna{} expression
 but deletion of \gene{vhl-1} removes this inhibition. Moreover, \citep{Luhachack2012}
 have previously reported that certain genes important for the \cel{} immune response
 against pathogens reflect similar expression patterns. Their interpretation
-was that \gene{swan-1}, a binding partner to \eglp{}~\cite{Shao2010}, is important
-for modulating \hifp{} activity in some manner. The lack of a conclusive double
-mutant analysis in this work means the role of SWAN-1 in modulation of
-\hifp{} activity remains to be demonstrated.
-At any rate, mechanisms that call for additional
-transcriptional modulators become more unlikely given our data the large number of
-genes with different biological functions that exhibit the same pattern.
+was that \gene{swan-1}, which encodes a binding partner to \eglp{}~\cite{Shao2010},
+is important for modulating \hifp{} activity in some manner. The lack of a
+conclusive double mutant analysis in this work means the role of SWAN-1 in
+modulation of \hifp{} activity remains to be demonstrated. At any rate, mechanisms
+that call for additional transcriptional modulators become less likely given the
+number of genes with different biological functions that exhibit the same pattern.
 
 \begin{figure}[tbhp]
 \centering
@@ -1118,7 +1123,7 @@ genes with different biological functions that exhibit the same pattern.
 \caption{
 A hypothetical model showing a mechanism where \hifp{}-hydroxyl antagonises
 \hifp{}. Such a mechanism can potentially explain how genes that exhibit
-non-canonical epistasis are regulated.
+non-canonical epistasis are regulated. S.S = Steady-state.
 }
 \label{fig:hif1oh_table}
 \end{figure}
@@ -1142,7 +1147,7 @@ protein state under normoxia (see Fig.~\ref{fig:hif1oh_table}).
 % the possibility that \hifp{}-hydroxyl may have transcriptional effects independent
 % of \hifp{} (William Kaelin, pers.\ comm.). \todo[inline]{Paul, do we need to ask
 % W. K. for permission to cite? }
-Varied lines of circumstantial evidence that \hifp{}-hydroxyl plays a role
+Multiple lines of circumstantial evidence that \hifp{}-hydroxyl plays a role
 in the functionality of the hypoxia pathway. First, \hifp{}-hydroxyl is
 challenging to study genetically because no mimetic mutations are available with
 which to study the pure hydroxylated \hifp{} species. Second, although mutations in
@@ -1381,6 +1386,9 @@ where $\alpha^*$ is the slope found after minimization, $\sigma_\alpha^*$ is the
 standard deviation of the parameter at the point $\alpha^*$ and $P(D~|M_i)$ is the
 probability of the data given the parameter-free model, $M_i$.
 
+\subsection*{Enrichment Analysis}
+Tissue, Phenotype and Gene Ontology Enrichment Analysis were carried out using
+the WormBase Enrichment Suite for Python~\cite{Angeles-Albores2016b,Angeles-Albores2016}.
 
 }
 
