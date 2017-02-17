@@ -57,7 +57,7 @@
 % downstream targets
 \newcommand{\egltargets}{126}
 \newcommand{\rhytargets}{0}
-\newcommand{\vhltargets}{44}
+\newcommand{\vhltargets}{43} % 44 genes, minus vhl-1 itself (IDed due to deletion)
 \newcommand{\hiftargets}{196}
 \newcommand{\hifohtargets}{31}
 
@@ -100,18 +100,16 @@ structures, which represents an important advance towards studying small effect
 genes that make up the majority of animals' genetic repertoire.
 }
 
-% Please include corresponding author, author contribution and author declaration information
 \authorcontributions{
 DA, CPR and PWS designed the experiments. CPR selected the
-genes and extracted mRNA from all mutants. BW made the libraries. IA performed
-all sequencing. DA developed the mathematical theory. DA wrote all computer code
-and performed all analyses. DA made all the reporter strains and performed all
-microscopy. DA, CPR and PWS wrote the manuscript.
+genes and extracted mRNA from all mutants. BW made the libraries. DA developed
+the genetic theory. DA wrote all computer code and performed all analyses.
+DA, CPR and PWS wrote the manuscript.
 }
 
 \authordeclaration{The authors declare no conflict of interest.}
-% \equalauthors{\textsuperscript{1}A.O.(Author One) and A.T. (Author Two)
-% contributed equally to this work (remove if not applicable).}
+\equalauthors{\textsuperscript{*}DA and CPR
+contributed equally to this work.}
 \correspondingauthor{\textsuperscript{2}To whom correspondence should be
 addressed. E-mail: pws@caltech.edu}
 
@@ -247,9 +245,9 @@ Genetic and biochemical representation of the hypoxia pathway in \cel{}.
 Red arrows are arrows that lead to inhibition of \hifp{}, and blue arrows
 are arrows that increase \hifp{} activity or are the result of \hifp{} activity.
 \eglp{} is known to exert \gene{vhl-1}-dependent and independent repression
-on \hifp{} as shown in the genetic diagram. The biochemical diagram does not
-reflect the \gene{vhl-1}-independent repression of \hifp{} by \eglp{} because
-that pathway is considerably less well understood.
+on \hifp{} as shown in the genetic diagram. The \gene{vhl-1}-independent
+repression of \hifp{} by \eglp{} is denoted by a dashed line and is not dependent
+on the hydroxylating activity of \eglp{}.
 }
 \label{fig:pathway}
 \end{figure}
