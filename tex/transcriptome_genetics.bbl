@@ -207,11 +207,6 @@ Yeung KY, Ruzzo WL (2001) {Principal component analysis for clustering gene
   expression data.}
 \newblock {\em Bioinformatics (Oxford, England)} 17(9):763--774.
 
-\bibitem{Ackerman2012}
-Ackerman D, Gems D (2012) {Insulin/IGF-1 and hypoxia signaling act in concert
-  to regulate iron homeostasis in \emph{Caenorhabditis elegans}}.
-\newblock {\em PLoS Genetics} 8(3).
-
 \bibitem{Park2012}
 Park EC et~al. (2012) {Hypoxia regulates glutamate receptor trafficking through
   an HIF-independent mechanism}.
@@ -237,6 +232,11 @@ Luhachack LG et~al. (2012) {EGL-9 Controls \emph{C. elegans} Host Defense
   Specificity through Prolyl Hydroxylation-Dependent and -Independent HIF-1
   Pathways}.
 \newblock {\em PLoS Pathogens} 8(7):48.
+
+\bibitem{Ackerman2012}
+Ackerman D, Gems D (2012) {Insulin/IGF-1 and hypoxia signaling act in concert
+  to regulate iron homeostasis in \emph{Caenorhabditis elegans}}.
+\newblock {\em PLoS Genetics} 8(3).
 
 \bibitem{Romney2011}
 Romney SJ, Newman BS, Thacker C, Leibold EA (2011) {HIF-1 regulates iron

@@ -313,7 +313,41 @@ def bootstrap_regression(singles, double, df, epistasis='actual', nsim=100):
     return beta
 
 
-def epistasis_plot(singles, double, df, **kwargs):
+def epiplot(X, Y, Y_se, **kwargs):
+    """Given two arrays, X and Y, plot the points."""
+    plot_unbranched = kwargs.pop('plot_unbranched', False)
+    beta = kwargs.pop('beta', np.nan)
+    s0 = kwargs.pop('s0', 15)
+
+    # Calculate the point density
+    points = np.vstack([X, Y])
+    z = gaussian_kde(points)(points)
+
+    # plot:
+    fig, ax = plt.subplots()
+    if len(X) > 50:
+        ax.scatter(X, Y, c=z, s=s0/Y_se,
+                   edgecolor='', cmap='viridis', alpha=0.5)
+    else:
+        ax.scatter(X, Y, s=s0/np.sqrt(Y_se),
+                   color='#33a02c', alpha=.9)
+
+    if plot_unbranched:
+        smoothX = np.linspace(X.min() - 0.5, X.max() + 0.5, 1000)
+        plt.plot(smoothX, -1/2*smoothX, color='#1f78b4', ls='--',
+                 label='Unbranched Pathway')
+    if beta:
+        plot_epistasis_regression(X, beta, ls='-', lw=2.3,
+                                  color='#33a02c', label='fit')
+
+    plt.xlabel(r'Predicted Additive Effect')
+    plt.ylabel(r'Deviation from Additive Effect')
+
+    plt.legend()
+    return ax
+
+
+def make_epiplot(singles, double, df, **kwargs):
     """
     Draw an epistasis plot of the data.
 
@@ -333,30 +367,32 @@ def epistasis_plot(singles, double, df, **kwargs):
     # transform coordinates:
     X = x.b + y.b
     Y = xy.b - X
+    Y_se = np.sqrt(x.se_b**2 + y.se_b**2 + xy.se_b**2)
 
-    # Calculate the point density
-    points = np.vstack([X, Y])
-    z = gaussian_kde(points)(points)
-
-    # plot:
-    fig, ax = plt.subplots()
-    if len(X) > 50:
-        ax.scatter(X, Y, c=z, s=15/np.sqrt(x.se_b**2 + y.se_b**2 + xy.se_b**2),
-                   edgecolor='', cmap='viridis', alpha=0.5)
-    else:
-        ax.scatter(X, Y, s=15/np.sqrt(x.se_b**2 + y.se_b**2 + xy.se_b**2),
-                   color='#33a02c', alpha=.9)
-
-    smoothX = np.linspace(X.min() - 0.5, X.max() + 0.5, 1000)
-    plt.plot(smoothX, -1/2*smoothX, color='#1f78b4', ls='--',
-             label='Unbranched Pathway')
-    plot_epistasis_regression(X, actual.beta, ls='-', lw=2.3,
-                              color='#33a02c', label='fit')
-
-    plt.xlabel(r'Predicted Additive Effect')
-    plt.ylabel(r'Deviation from Additive Effect')
-
-    plt.legend()
+    ax = epiplot(X, Y, Y_se, plot_unbranched=True, beta=actual.beta)
+    # # Calculate the point density
+    # points = np.vstack([X, Y])
+    # z = gaussian_kde(points)(points)
+    #
+    # # plot:
+    # fig, ax = plt.subplots()
+    # if len(X) > 50:
+    #     ax.scatter(X, Y, c=z, s=15/np.sqrt(x.se_b**2 + y.se_b**2 + xy.se_b**2),
+    #                edgecolor='', cmap='viridis', alpha=0.5)
+    # else:
+    #     ax.scatter(X, Y, s=15/np.sqrt(x.se_b**2 + y.se_b**2 + xy.se_b**2),
+    #                color='#33a02c', alpha=.9)
+    #
+    # smoothX = np.linspace(X.min() - 0.5, X.max() + 0.5, 1000)
+    # plt.plot(smoothX, -1/2*smoothX, color='#1f78b4', ls='--',
+    #          label='Unbranched Pathway')
+    # plot_epistasis_regression(X, actual.beta, ls='-', lw=2.3,
+    #                           color='#33a02c', label='fit')
+    #
+    # plt.xlabel(r'Predicted Additive Effect')
+    # plt.ylabel(r'Deviation from Additive Effect')
+    #
+    # plt.legend()
 
     return x, y, xy, ax
 
