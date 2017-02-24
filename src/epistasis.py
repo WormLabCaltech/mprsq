@@ -2,7 +2,6 @@
 # important stuff:
 import pandas as pd
 import numpy as np
-import scipy
 
 # Graphics
 import matplotlib as mpl
@@ -41,20 +40,17 @@ def label(code1, code2):
                                 genvar.fancy_mapping[code2])
 
 
-def find_overlap(genotypes, df, q=0.1):
-    """Given a n genotypes, df and a q-value, find genes that are DE in all."""
+def find_overlap(genotypes, df, q=0.1, col='code'):
+    """Given a list of genotypes, df and a q-value, find DEG common to all."""
     # find only DE genes:
-    sig = df[(df.code.isin(genotypes)) & (df.qval < q)]
+    sig = df[(df[col].isin(genotypes)) & (df.qval < q)]
     grouped = sig.groupby('target_id')
     genes = []
     for target, group in grouped:
-        # # make sure all q-values are significant
-        # q_sig = (group.qval < q).all()
         # make sure the group contains all desired genotypes
         all_in = (len(group.code.unique()) == len(genotypes))
         if all_in:
             genes += [target]
-
     return genes
 
 
@@ -370,29 +366,6 @@ def make_epiplot(singles, double, df, **kwargs):
     Y_se = np.sqrt(x.se_b**2 + y.se_b**2 + xy.se_b**2)
 
     ax = epiplot(X, Y, Y_se, plot_unbranched=True, beta=actual.beta)
-    # # Calculate the point density
-    # points = np.vstack([X, Y])
-    # z = gaussian_kde(points)(points)
-    #
-    # # plot:
-    # fig, ax = plt.subplots()
-    # if len(X) > 50:
-    #     ax.scatter(X, Y, c=z, s=15/np.sqrt(x.se_b**2 + y.se_b**2 + xy.se_b**2),
-    #                edgecolor='', cmap='viridis', alpha=0.5)
-    # else:
-    #     ax.scatter(X, Y, s=15/np.sqrt(x.se_b**2 + y.se_b**2 + xy.se_b**2),
-    #                color='#33a02c', alpha=.9)
-    #
-    # smoothX = np.linspace(X.min() - 0.5, X.max() + 0.5, 1000)
-    # plt.plot(smoothX, -1/2*smoothX, color='#1f78b4', ls='--',
-    #          label='Unbranched Pathway')
-    # plot_epistasis_regression(X, actual.beta, ls='-', lw=2.3,
-    #                           color='#33a02c', label='fit')
-    #
-    # plt.xlabel(r'Predicted Additive Effect')
-    # plt.ylabel(r'Deviation from Additive Effect')
-    #
-    # plt.legend()
 
     return x, y, xy, ax
 
@@ -489,7 +462,6 @@ def message(name, pval, alpha=0.01):
 
 def calculate_pval(s, diff):
     """Given `s` and  `diff`, print out the p-values for each comparison."""
-    tests = {'suppress': -1, 'add': 0, 'xy=x=y': -1/2}
     for key, array in diff.items():
         # test =
         if s[key].mean() > s['actual'].mean():

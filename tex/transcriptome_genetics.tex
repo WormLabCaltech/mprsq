@@ -1156,8 +1156,17 @@ number of genes with different biological functions that exhibit the same patter
 \includegraphics[width=\linewidth]{figs/hif1oh_model.pdf}
 \caption{
 A hypothetical model showing a mechanism where \hifp{}-hydroxyl antagonises
-\hifp{}. Such a mechanism can potentially explain how genes that exhibit
-non-canonical epistasis are regulated. S.S = Steady-state.
+\hifp{}.
+\textbf{A}. Diagram showing that RHY-1 activates EGL-9.
+EGL-9 hydroxylates HIF-1 in an oxygen dependent fashion. Under normoxia, HIF-1
+is rapidly hydroxylated and only slowly does hydroxylated HIF-1 return to its
+original state. EGL-9 can also inhibit HIF-1 in an oxygen-independent fashion.
+HIF-1 hydroxyl is rapidly degraded in a VHL-1 dependent fashion. In our model,
+HIF-1 and HIF-1 hydroxyl have opposing effects on transcription. The width of the
+arrows represents the rates under normoxic conditions.
+\textbf{B}. Table showing the effects of loss-of-function mutations on HIF-1 and
+HIF-1 hydroxyl activity, showing how this can potentially explain the behavior
+of \gene{ftn-1} in each case.  S.S = Steady-state.
 }
 \label{fig:hif1oh_table}
 \end{figure}
@@ -1271,8 +1280,55 @@ outliers, rank-transformations do not remove the cross-patterns that appear when
 feedback loops or other complex interactions are present between two genes.
 Such cross-patterns can still lead to vanishing correlations if both patterns are
 equally strong. Therefore, correlation analyses must take into account the possible
-existence of systematic outliers. Moreover, primary and secondary correlations
-must be performed to measure the strength of both interactions that are present.
+existence of systematic outliers. Moreover, correlation values must be measured
+for both interactions in cross-patterned rank plots. Weighted correlations could
+be informative for ordering genes along pathways.
+A drawback of correlation
+analysis is that the number of pairwise comparisons that must be made increases
+combinatorially, though strategies could be used to decrease the total number of
+effective comparisons.
+
+Epistasis plots are a novel way to visualize epistasis in vectorial phenotypes.
+Here, we have shown how an epistasis plot can be used to identify interactions
+between two single mutants and a double mutant. In reality, epistasis plots
+can be generated for any set of measurements involving a set of $N$ mutants and
+an $N$-mutant genotype. Epistasis plots can accumulate an arbitrary number of
+points within them, possess a rich structure that can be visualized and have
+straightforward interpretations for special slope values.
+
+Another way to analyze epistasis is via general linear models (GLMs) that include
+interaction terms between two or more genes. In this way, GLMs can quantify
+the epistatic effect of an interaction on single genes. We and
+others~\cite{Dixit2016,Angeles-Albores2016a} have previously used GLMs to identify
+gene sets that are epistatically regulated by two or more inputs. While powerful,
+GLMs suffer from the multiple comparison problem. Correcting for false positives
+using well-known multiple comparison corrections such as FDR~\cite{Storey2003}
+tends to increase false negative rates.  Moreover, since GLMs attempt to estimate
+effect magnitudes for individual gene or isoform expression levels, they
+effectively treat each gene as an independent quantity, which prevents better
+estimation of the magnitude and direction of the epistasis between two genes.
+
+Epistasis plots do not suffer from the multiple comparison problem because the
+number of tests performed is orders of magnitudes smaller than the number
+of tests performed by GLMs. Ideally, in an epistasis plot we need only perform
+3 tests---rejection of additive, unbranched and suppressive null models---compared
+with the tens of thousands of tests that are performed in GLMs. Moreover, the
+magnitude of epistasis between two genes can be estimated using hundreds of genes,
+which greatly improves the statistical resolution of the epistatic coefficient.
+This increased resolution is important because the size and magnitude of the
+epistasis has specific consequences for the type of pathway that is expected.
+
+Any quantitative use of genome-wide datasets requires a good experimental setup.
+Here, we have demonstrated that whole-organism RNA-seq can be used to dissect
+molecular pathways in exquisite detail. Much more research will be necessary
+to understand whether epistasis has different consequences in the microscopic
+realm of transcriptional phenotypes than in the macroscopic world that geneticists
+have explored previously. Our hope is that these tools, coupled with the classic
+genetics experimental  designs, will reveal hitherto unknown aspects of genetics
+theory.
+
+
+
 
 
 \matmethods{
@@ -1348,7 +1404,7 @@ correlation within genotype was $>0.9$.
 
 \subsection*{Read Alignment and Differential Expression Analysis}
 We used Kallisto to perform read pseudo-alignment and performed differential
-analysis using Sleuth. We fit a generalized linear model for a transcript $t$ in
+analysis using Sleuth. We fit a general linear model for a transcript $t$ in
 sample $i$:
 
 \begin{equation}
@@ -1406,44 +1462,50 @@ for each isoform $i$:
 
 To calculate the transcriptome-wide epistasis coefficient, we plotted
 ($\beta_{\mathrm{Exp},i}, \Delta_i$) and found the line of best fit using
-orthogonal distance regression using the scipy.odr package. We performed
+orthogonal distance regression using the \texttt{scipy.odr} package in Python.
+We performed
 non-parametric bootstrap sampling of the ordered tuples with replacement using
 5,000 iterations to generate a probability distribution of slopes of best fit.
 
 To understand the epistatic relationships completely, we needed to simulate the
 possible relationships.
-There are as many models as epistatic relationships. The epistatic relationships
-are such that:
+There are as many models as epistatic relationships. For quantitative phenotypes,
+epistatic relationships (except synthetic interactions) can be generally
+expressed as:
+
 \begin{equation}
-  X^-Y^- = Z,
+  P_{XY} = \sum_{g\in G} \lambda_g P_g,
+  \label{eq:epi}
 \end{equation}
-where $Z$ is some combination of $X^-$ and $Y^-$. Specifically, $Z$ can take on
-the values $X^-$ (\gene{X} is epistatic to \gene{Y}); $Y^-$ (\gene{Y} is epistatic
-to \gene{X});
-$X^- + Y^-$ (additive); $k^-, k^-=X^-=Y^-$ (unbranched pathway) and
-$X^-, Y^-=WT$ (strong repression, where $Y^-$ is wild-type).
-For each case, we modified equation~\ref{eq:deviation}:
-\begin{equation}
-  \Delta_{Z,i} = \beta_{Z,i} - \beta_{\mathrm{Exp},i}.
-\end{equation}
-In each case, $\Delta_{Z,i}$ reduces to a linear combination of $-\beta_{X,i}$
-and $-\beta_{Y,i}$.
+
+where $P_i$ is the quantitative phenotype belonging to the genotype $i$; $G$ is
+the set of single mutants $\{X, Y\}$ that make up the double mutant, $XY$; and
+$\lambda_g$ is the contribution of the phenotype $P_g$ to $P_{XY}$.
+Additive interactions between genes are the result of setting $\lambda_g=1$. All
+other interactions correspond to setting  $\lambda_X=0,~\lambda_Y=1$ or
+$\lambda_X=1,~\lambda_Y=0$.
 
 To select between theoretical models, we implemented an approximate Bayesian
 Odds Ratio. We defined a free-fit model, $M_1$,
 
 \begin{equation}
   P(\alpha~|M_1, D) \propto \prod_{(x_i, y_i, \sigma_i)\in D}
-  \exp{\frac{(y_i - \alpha\cdot x_i)^2}{2\sigma_i}}\cdot (1+\alpha^2)^{-3/2},
+  \exp{\frac{
+            (y_i - \alpha\cdot x_i)^2
+            } % numerator
+            {
+            2\sigma_i
+            } % denominator
+            } \cdot (1+\alpha^2)^{-3/2},
   \label{eq:free_model}
 \end{equation}
 
 where $\alpha$ is the slope of the model to be determined, $x_i, y_i$ were the
 x- and y-coordinates of each point respectively, and $\sigma_i$ was the standard
 error associated with each coordinate (obtained from Sleuth). We minimized the
-negative logarithm of~\ref{eq:free_model} to obtain the most likely slope given
-the data, $D$ (\texttt{scipy.optimize.minimize} in Python). Finally, we
-approximated the computed the odds ratio as:
+negative logarithm of equation~\ref{eq:free_model} to obtain the most likely
+slope given the data, $D$ (\texttt{scipy.optimize.minimize} in Python). Finally,
+we approximated the odds ratio as:
 \begin{equation}
   OR = \frac{
   P(D~|\alpha^*, M_1)\cdot (2\pi)^{1/2}\sigma_{\alpha^*}
