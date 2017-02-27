@@ -22,12 +22,12 @@
 \newcommand{\nhr}{\emph{\mbox{nhr-57}}}
 \newcommand{\lam}{\emph{\mbox{lam-3}}}
 
-\newcommand{\fog}{\emph{\mbox{fog-2}}(lf)}
-\newcommand{\egl}{\emph{\mbox{egl-9}}(lf)}
-\newcommand{\rhy}{\emph{\mbox{rhy-1}}(lf)}
-\newcommand{\vhl}{\emph{\mbox{vhl-1}}(lf)}
-\newcommand{\eglvhl}{\emph{\mbox{egl-9;vhl-1}}(lf)}
-\newcommand{\eglhif}{\emph{\mbox{egl-9}~\mbox{hif-1}}(lf)}
+\newcommand{\fog}{\emph{\mbox{fog-2(lf)}}}
+\newcommand{\egl}{\emph{\mbox{egl-9}(lf)}}
+\newcommand{\rhy}{\emph{\mbox{rhy-1}(lf)}}
+\newcommand{\vhl}{\emph{\mbox{vhl-1}(lf)}}
+\newcommand{\eglvhl}{\emph{\mbox{egl-9(lf);vhl-1(lf)}}}
+\newcommand{\eglhif}{\emph{\mbox{egl-9(lf)}~\mbox{hif-1(lf)}}}
 \newcommand{\hif}{\emph{\mbox{hif-1}}(lf)}
 
 % protein names
@@ -212,7 +212,7 @@ broad range of human pathologies~\cite{Semenza2012}.
 
 Hypoxia Inducible Factors are highly conserved in metazoans~\cite{Loenarz2011}.
 A common mechanism for hypoxia-response induction is heterodimerization between a
-HIF$\alpha$ and a HIF$\beta$ subunit. The heterodimer then initiates
+HIF$\alpha$ and a HIF$\beta$ subunit; the heterodimer then initiates
 transcription of target genes~\cite{Jiang1996}. The number and complexity of
 HIFs varies throughout metazoans, with humans having three HIF$\alpha$ subunits
 and two HIF$\beta$ subunits, whereas in the roundworm \cel{} there is a single
@@ -235,7 +235,7 @@ and \cyslp{} activity is in turn inhibited at the protein level by \rhyp{},
 possibly by post-translational modifications to \cyslp{}~\cite{Ma2012} (see
 Fig.~\ref{fig:pathway}).
 
-% heatmap
+% hif1pathway
 \begin{figure}[tbhp]
 \centering
 \includegraphics[width=\linewidth]{figs/HIF1pathway.pdf}
@@ -247,6 +247,8 @@ are arrows that increase \hifp{} activity or are the result of \hifp{} activity.
 on \hifp{} as shown in the genetic diagram. The \gene{vhl-1}-independent
 repression of \hifp{} by \eglp{} is denoted by a dashed line and is not dependent
 on the hydroxylating activity of \eglp{}.
+Technically, RHY-1 inhibits CYSL-1, which in turn inhibits EGL-9, but this
+interaction was abbreviated in the genetic diagram for clarity.
 }
 \label{fig:pathway}
 \end{figure}
@@ -271,11 +273,11 @@ A complete, interactive version of the analysis is also available at
 \label{sub:summary}
 
 We selected four single mutants within the hypoxia pathway for expression profiling:
-\egl{} (\emph{sa307}), \rhy{} (\emph{ok1402}), \vhl{} (\emph{ok161}), \hif{} (\emph{ia4}). We also sequenced
-the transcriptomes of two double mutants, \eglvhl{} (\emph{sa307}, \emph{ok161}) and
-\eglhif{} (\emph{sa307}, \emph{ia4}) as well as wild-type N2 as a control sample. Each genotype
- was sequenced in triplicate at a depth of 15 million reads.
-We performed whole-organism RNA-seq of these mutants at a moderate
+\egl{} (\emph{sa307}), \rhy{} (\emph{ok1402}), \vhl{} (\emph{ok161}), \hif{} (\emph{ia4}).
+We also sequenced the transcriptomes of two double mutants, \eglvhl{} (\emph{sa307},
+\emph{ok161}) and \eglhif{} (\emph{sa307}, \emph{ia4}) as well as wild-type N2 as
+a control sample. Each genotype  was sequenced in triplicate at a depth of 15
+million reads. We performed whole-organism RNA-seq of these mutants at a moderate
 sequencing depth ($\sim7$ million mapped reads for each individual replicate)
 under normoxic conditions. For single samples, we identified around 22,000 different
 isoforms per sample, which allowed us to measure differential expression of 18,685
@@ -334,7 +336,7 @@ used to identify relationships between high dimensional data points~\cite{Yeung2
 % ~\cite{Yeung2003}
 We performed PCA on our data to examine whether each genotype clustered in a biologically
 relevant manner. PCA identifies the vector that can explain most of the variation
-in the data---this is called the first PCA dimension. Using PCA, one can identify
+in the data;this is called the first PCA dimension. Using PCA, one can identify
 the first $n$ dimensions that can explain more than 95\% of the variation in the
 data. Sample clustering in these $n$ dimensions often indicates biological
 relationships between the data, although interpreting PCA dimensions can be
@@ -348,7 +350,9 @@ the grossly wild-type phenotype of \hif{} is observed. On the other hand, we
 expected \egl{}, \rhy{}, \vhl{} and \eglvhl{} to form a separate cluster since
 each of these genotypes is Egl and has a constitutive hypoxic response. Finally,
 we included as a negative control a \fog{} mutant we have analyzed
-previously~\cite{Angeles-Albores2016a}. Since \gene{fog-2} has not been described
+previously~\cite{Angeles-Albores2016a}. This data was obtained at a different
+time from the other genotypes, so we included a batch-normalization term in our
+equations to account for this. Since \gene{fog-2} has not been described
 to interact with the hypoxia pathway, we expected that it should appear far away
 from either cluster.
 
@@ -359,7 +363,7 @@ hypoxia pathway and outside the hypoxia pathway (see Fig.~\ref{fig:pca}).
 Therefore expression profiling measures enough signal to cluster genes in a
 meaningful manner in complex metazoans.
 
-% dendrogram
+% pca
 \begin{figure}%[tbhp]
 \centering
 \includegraphics[width=0.75\linewidth]{figs/pca.pdf}
@@ -376,16 +380,16 @@ The \fog{} transcriptome, used as an outgroup, is far away from either cluster.
 \subsection*{Reconstruction of the hypoxia pathway from first genetic principles}
 \label{sec:reconstruct}
 Having shown that the signal in the mutants we selected was sufficient to
-cluster mutants using the values of the regression coefficients, $\beta$, we set
+cluster mutants using the values of the regression coefficients $\beta$, we set
 out to reconstruct the hypoxia pathway from genetic first principles. In general,
 to reconstruct a pathway, we must first assess whether two genes act on the same
 phenotype. If they do not act on the same phenotype (the set of commonly differentially
 regulated genes between two mutants is empty), these mutants are independent.
 If they are not independent, then two mutants have a shared transcriptomic
-phenotype (SRP)---a set of genes or isoforms that are differentially expressed in
+phenotype (STP)---a set of genes or isoforms that are differentially expressed in
 both mutants, without taking into account what direction they change in. In this
 case, we must measure whether these genes act additively or epistatically on the
-measured phenotype; and if there is epistasis we must measure whether it is
+measured phenotype; if there is epistasis we must measure whether it is
 positive or negative, in order to assess whether the epistatic relationship is a
 genetic suppression or a synthetic interaction.
 % Is this statement really necessary?
@@ -396,7 +400,7 @@ genetic suppression or a synthetic interaction.
 % Importantly, shared transcriptomic phenotypes are not directional---genes that
 % are commonly altered between mutants need not be regulated in the same direction.
 
-\subsubsection{Genes in the hypoxia mutant act on the same transcriptional phenotype}
+\subsubsection*{Genes in the hypoxia mutant act on the same transcriptional phenotype}
 \label{sec:phenotypes}
 We observed that all the hypoxia mutants had significant shared transcriptomic
 phenotypes (fraction of the transcriptomes that was shared between mutants
@@ -447,7 +451,7 @@ between mutants of these genes and \hif{} were positive.
 % to identify the nature of these positive interactions.
 After we calculated the pairwise correlation within each STP,
 we weighted the result of each regression by the
-number of isoforms within the SRP and
+number of isoforms within the STP and
 divided by the total number of differentially expressed isoforms present in the
 two mutant transcriptomes that contributed to that specific STP,
 $N_\mathrm{overlap}/N_{\mathrm{g_1} \cup \mathrm{g2}}$.
@@ -562,7 +566,7 @@ One way of displaying transcriptome-wide epistasis is to plot transcriptome data
 an epistasis plot (see Fig~\ref{fig:egl9epistasis}). In an epistasis plot, the
 X-axis represents the expected expression of a double mutant $a^-b^-$ if $a$
 and $b$ interact additively.
-In other words, the each individual isoform's x-coordinate is the sum of the regression
+In other words, each individual isoform's x-coordinate is the sum of the regression
 coefficients from the single mutants $a^-$ and $b^-$.
 The Y-axis represents the deviations from the additive (null) model, and
 can be calculated as the difference between the observed regression coefficient
@@ -576,7 +580,7 @@ lines, $s_{a,b}$, is the transcriptome-wide epistasis coefficient.
 Epistasis plots can be understood intuitively for simple cases of genetic
 interactions. If two genes act additively on the same set of differentially expressed
 isoforms then all the plotted points will fall along the line $y=0$.
-If two genes interact in a single, unbranched pathway, then $a^-$ and $b^-$ should
+If two genes interact in an unbranched pathway, then $a^-$ and $b^-$ should
 have identical phenotypes for $a^-$, $b^-$ and $a^-b^-$, if all the genotypes are
 homozygous for genetic null alleles~\cite{Huang2006}. It follows that the
 data points should fall along a line with slope equal to $-\frac{1}{2}$. On the
@@ -599,7 +603,7 @@ In our experiment, we studied two double mutants, \eglhif{} and \eglvhl{}.
 We wanted to understand how well an epistasis analysis based on transcriptome-wide
 coefficients agreed with the epistasis results reported in the literature, which
 were based on qPCR of single genes. Therefore, we performed orthogonal distance
-regression on to the two gene combinations we studied (\gene{egl-9} and
+regression on the two gene combinations we studied (\gene{egl-9} and
 \gene{vhl-1}; and \gene{egl-9} and \gene{hif-1}) to determine the epistasis
 coefficient for each gene pair. We also generated models for the special cases
 mentioned above (additivity, $a^-b^-=a^-$, strong suppression, etc\ldots) using
@@ -673,7 +677,7 @@ deviate in a systematic manner from the null model exhibit transcriptome-wide ep
 the line of best fit is $s$. This coefficient is related to genetic architectures.
 Genes that act additively on a phenotype \textbf{(Ph)} will have $s=0$ (orange
 line); whereas
-genes that act along a single unbranched pathway will have $s=-1/2$ (blue line).
+genes that act along an unbranched pathway will have $s=-1/2$ (blue line).
 Strong
 repression is reflected by $s=-1$ (red line). Cases where $s>0$ correspond to
 synthetic interactions (purple line), and in the limit as $s\rightarrow\infty$,
@@ -705,7 +709,7 @@ The observed coefficient overlaps the predicted epistasis curve for
 \subsubsection*{Epistasis can be predicted}
 Given our success in measuring epistasis coefficients, we wanted to know whether
 we could predict the epistasis coefficient between \gene{egl-9} and \gene{vhl-1}
-in the absence of the \egl{} genotype. Since \rhyp{} activates
+in the absence of the \egl{} genotype. Since \rhyp{} indirectly activates
 \eglp{}, the \rhy{} transcriptome should contain more or less
 equivalent information to the \egl{} transcriptome. Therefore, we generated
 predictions of the epistasis coefficient between \gene{egl-9} and \gene{vhl-1}
@@ -741,7 +745,7 @@ two nodes can in theory be characterized by the strength of the edges connecting
 them (the thickness of the edge); the sources that regulate both
 nodes (the fraction of inputs common to both nodes); and the genes that are
 regulated by both nodes (the fraction of outputs that are common to both nodes).
-In other words we expected that expression profiles associated with a pathway
+In other words, we expected that expression profiles associated with a pathway
 would respond quantitatively to quantitative changes in activity of the pathway.
 Targeting a pathway at multiple points would lead to expression profile
 divergence as we compare nodes that are separated by more degrees of freedom,
@@ -887,8 +891,7 @@ increase in the transcription of \gene{rhy-1}, from which we speculated that
 \eglp{} would have increased activity in the \hif{} mutant compared to the wild-type.
 Therefore, we searched for genes that were regulated in an opposite manner between
 \hif{} and \eglhif{}, and that were regulated in the same direction between
-all \egl{} genotypes. We were did not find any genes that
-met these conditions.
+all \egl{} genotypes. We did not find any genes that met these conditions.
 % I don't really know if we need this next sentence.
 % If we relaxed our conditions substantially by identifying
 % genes that changed expression in \gene{egl-9}$^-$ genotypes and which did not
@@ -906,12 +909,12 @@ conditions. This probably reflects the fact that \hifp{} exists at very low
 levels in \cel{}, so loss of function mutations in \gene{hif-1} only have mild
 effects on its transcriptional targets. We reasoned that genes
 that are overexpressed in mutants that induce the \hifp{} response would be enriched
-for genes that are direct candidates.  We found \hiftargets{}  genes which
-consistently increase expression in mutants with a constitutive hypoxic response.
+for genes that are direct candidates.  We found \hiftargets{}  genes which have
+consistently increased expression in mutants with a constitutive hypoxic response.
 
 \subsubsection*{Enrichment analysis of the hypoxia response}
 \label{sub:ea_hypoxia}
-In order to validate that our transcriptomes were correct, and to understand how
+To validate that our transcriptomes were correct, and to understand how
 functionalities may vary between them, we subjected each decoupled response to
 enrichment analysis using the WormBase Enrichment Suite~\cite{Angeles-Albores2016,
 Angeles-Albores2016b}.
@@ -955,7 +958,7 @@ We studied the \gene{hif-1}-independent, \gene{vhl-1}-dependent gene set
 using enrichment analysis but no terms were significantly enriched.
 % \todo{closer is missing.}
 
-\subsection{Identification of non-classical epistatic interactions}
+\subsection*{Identification of non-classical epistatic interactions}
 \label{sub:hifoh}
 \hif{} has traditionally been viewed as existing in a genetic OFF state under
 normoxic conditions. However, our dataset indicates that \hifn{} genes show
@@ -1022,7 +1025,7 @@ yet is epistatic to \gene{egl-9}. We propose in the Discussion a model for how
 \hifp{} might regulate these targets.
 
 
-\subsection{\hifp{} in the cellular context}
+\subsection*{\hifp{} in the cellular context}
 \label{sub:metabolism}
 
 We identified the transcriptional changes
@@ -1048,7 +1051,7 @@ A graphic summary of the genome-wide effects of \hifp{} from our RNA-seq data.
 \label{fig:genomewide}
 \end{figure}
 
-\subsubsection{Bioenergetic pathways}
+\subsubsection*{Bioenergetic pathways}
 Our data shows that most of the enzymes involved in the TCA cycle and in the ETC
 are down-regulated when \hifp{} is induced in agreement with the previous
 literature~\cite{Semenza2012}.
@@ -1062,11 +1065,11 @@ We found two energy reserve genes that were down-regulated by \hifp{}.
 \gene{aagr-1} and \gene{aagr-2}, which are predicted to function in glycogen
 catabolism~\cite{Sikora2010}.
 Three distinct genes involved in energy reserve were up-regulated. These genes were
-\gene{ogt-1}, an O-linked GlcNac Transferase gene; \gene{T04A8.7}, encoding an ortholog
-of human glucosidase, acid beta (GBA); and \gene{T22F3.3}, the gene for the
-ortholog of human glycogen phosphorylase isozyme in the muscle (PYGM).
+\gene{ogt-1}, which encodes O-linked GlcNac Transferase gene; \gene{T04A8.7},
+encoding an ortholog of human glucosidase, acid beta (GBA); and \gene{T22F3.3},
+encoding ortholog of human glycogen phosphorylase isozyme in the muscle (PYGM).
 
-\subsubsection{Protein synthesis and degradation}
+\subsubsection*{Protein synthesis and degradation}
 
 % \hifp{} is known to control the translational machinery indirectly
 % via inhibition of mTOR
@@ -1147,7 +1150,7 @@ against pathogens reflect similar expression patterns. Their interpretation
 was that \gene{swan-1}, which encodes a binding partner to \eglp{}~\cite{Shao2010},
 is important for modulating \hifp{} activity in some manner. The lack of a
 conclusive double mutant analysis in this work means the role of SWAN-1 in
-modulation of \hifp{} activity remains to be demonstrated. At any rate, mechanisms
+modulation of \hifp{} activity remains to be demonstrated. Nevertheless, mechanisms
 that call for additional transcriptional modulators become less likely given the
 number of genes with different biological functions that exhibit the same pattern.
 
@@ -1223,18 +1226,21 @@ integrate this information is by encoding it only in the effective hydroxylation
 rate of \hifp{} by \eglp{}. Then the dynamics in this system will evolve
 exclusively as a result of the total amount of \hifp{} in the cell. Such a system
 can be sensitive to fluctuations in the absolute concentration of
-\hifp{}~\cite{Goentoro2009a}. When the system is in normoxic conditions, when
-absolute levels of \hifp{} are low, small fluctuations in copy-number could lead
-to partial activation of the hypoxic response due to random change for genes
-that are under strong control by \hifp{}. On the other hand, genes that have a low
-affinity for \hifp{} will not be affected by these small fluctuations.
+\hifp{}~\cite{Goentoro2009a}. Since the absolute levels of \hifp{} are low in
+normoxic conditions, small fluctuations in protein copy-number represent can
+represent a large fold-change in \hifp{} levels. These fluctuations would
+not be problematic for genes that must be turned on only under conditions of severe
+hypoxia---presumably, these genes would be associated with low affinity
+sites for \hifp{}, so that they are only activated when \hifp{} levels are far
+above random fluctuations.
 
 For yet other sets of genes that must change expression in response to the hypoxia
 pathway, it may not make as much sense to integrate metabolite information
 exclusively via \eglp{}-dependent hydroxylation of \hifp{}. In particular, genes
 that may function to increase survival in mild hypoxia may benefit from regulatory
-mechanisms that are robust to transient changes in protein copy number. Likewise,
-genes that are involved in iron or $\alpha$-ketoglutarate metabolism
+mechanisms that can sense minor changes in environmental conditions and which
+therefore benefit from robustness to transient changes in protein copy number.
+Likewise, genes that are involved in iron or $\alpha$-ketoglutarate metabolism
 (such as \ftna{}) may benefit from being able to sense, accurately, small and
 consistent deviations from basal concentrations of these metabolites. For these
 genes, the information may be better encoded by using \hifp{} and
@@ -1450,31 +1456,26 @@ find expected value of the coefficient for a double mutant under an additive mod
 for each isoform $i$.
 Specifically,
 \begin{equation}
-  \beta_{\mathrm{Exp},i} = \beta_{X,i} + \beta_{Y,i}.
+  \beta_{\mathrm{Add},i} = \beta_{X,i} + \beta_{Y,i}.
 \end{equation}
 
-Next, we found the deviation of the double mutant from the additive model ($\delta$)
-for each isoform $i$:
-\begin{equation}
-  \Delta_i = \beta_{XY,i} - \beta_{\mathrm{Exp},i}
-  \label{eq:deviation}
-\end{equation}
+Next, we find the difference, $\Delta_i$, between the observed double mutant expression
+coefficient, $\beta_{XY, \mathrm{Obs},i}$, and the predicted expression coefficient
+under an additive model for each isoform $i$.
 
 To calculate the transcriptome-wide epistasis coefficient, we plotted
-($\beta_{\mathrm{Exp},i}, \Delta_i$) and found the line of best fit using
+($\beta_{\mathrm{Add},i}, \Delta_i$) and found the line of best fit using
 orthogonal distance regression using the \texttt{scipy.odr} package in Python.
 We performed
 non-parametric bootstrap sampling of the ordered tuples with replacement using
 5,000 iterations to generate a probability distribution of slopes of best fit.
 
-To understand the epistatic relationships completely, we needed to simulate the
-possible relationships.
 There are as many models as epistatic relationships. For quantitative phenotypes,
 epistatic relationships (except synthetic interactions) can be generally
 expressed as:
 
 \begin{equation}
-  P_{XY} = \sum_{g\in G} \lambda_g P_g,
+  \beta_{XY} = \sum_{g\in G} \lambda_g \beta_g,
   \label{eq:epi}
 \end{equation}
 
@@ -1482,11 +1483,18 @@ where $P_i$ is the quantitative phenotype belonging to the genotype $i$; $G$ is
 the set of single mutants $\{X, Y\}$ that make up the double mutant, $XY$; and
 $\lambda_g$ is the contribution of the phenotype $P_g$ to $P_{XY}$.
 Additive interactions between genes are the result of setting $\lambda_g=1$. All
-other interactions correspond to setting  $\lambda_X=0,~\lambda_Y=1$ or
+other relationships correspond to setting  $\lambda_X=0,~\lambda_Y=1$ or
 $\lambda_X=1,~\lambda_Y=0$.
 
+A given epistatic interaction can be simulated by predicting the double mutant
+phenotype under that interaction and re-calculating the y-coordinates. The
+recalculated y-coordinates can then be used to predict the possible epistasis
+coefficients for the cases where $X$ is epistatic over $Y$, and $Y$ is epistatic
+over $X$.
+
 To select between theoretical models, we implemented an approximate Bayesian
-Odds Ratio. We defined a free-fit model, $M_1$,
+Odds Ratio. We defined a free-fit model, $M_1$, that found the line of best fit
+for the data:
 
 \begin{equation}
   P(\alpha~|M_1, D) \propto \prod_{(x_i, y_i, \sigma_i)\in D}
@@ -1502,15 +1510,17 @@ Odds Ratio. We defined a free-fit model, $M_1$,
 
 where $\alpha$ is the slope of the model to be determined, $x_i, y_i$ were the
 x- and y-coordinates of each point respectively, and $\sigma_i$ was the standard
-error associated with each coordinate (obtained from Sleuth). We minimized the
+error associated with the y-value. We minimized the
 negative logarithm of equation~\ref{eq:free_model} to obtain the most likely
 slope given the data, $D$ (\texttt{scipy.optimize.minimize} in Python). Finally,
 we approximated the odds ratio as:
+
 \begin{equation}
   OR = \frac{
-  P(D~|\alpha^*, M_1)\cdot (2\pi)^{1/2}\sigma_{\alpha^*}
-  }{P(D~| M_i)},
+  P(D~|\alpha^*, M_1)\cdot (2\pi)^{1/2}\sigma_{\alpha^*} % numerator
+  }{P(D~| M_i)}, % denominator
 \end{equation}
+
 where $\alpha^*$ is the slope found after minimization, $\sigma_\alpha^*$ is the
 standard deviation of the parameter at the point $\alpha^*$ and $P(D~|M_i)$ is the
 probability of the data given the parameter-free model, $M_i$.
