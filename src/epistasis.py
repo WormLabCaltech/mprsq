@@ -97,7 +97,8 @@ def f(B, x):
 def perform_odr(add, dev, wadd, wdev):
     """A wrapper to calculate an ODR regression."""
     linear = odr.Model(f)
-    mydata = odr.Data(add, dev, wd=1./wadd, we=1./wdev)
+    # mydata = odr.Data(add, dev, wd=1./wadd, we=1./wdev)
+    mydata = odr.RealData(add, dev, sx=wadd, sy=wdev)
     myodr = odr.ODR(mydata, linear, beta0=[0])
     myoutput = myodr.run()
     return myoutput

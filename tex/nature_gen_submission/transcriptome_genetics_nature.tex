@@ -109,7 +109,7 @@
 \newcommand{\vhl}{\emph{\mbox{vhl-1}(lf)}}
 \newcommand{\eglvhl}{\emph{\mbox{egl-9(lf);vhl-1(lf)}}}
 \newcommand{\eglhif}{\emph{\mbox{egl-9(lf)}~\mbox{hif-1(lf)}}}
-\newcommand{\hif}{\emph{\mbox{hif-1}}(lf)}
+\newcommand{\hif}{\emph{\mbox{hif-1(lf)}}}
 
 % protein names
 \newcommand{\eglp}{EGL-9}
@@ -161,13 +161,13 @@ Transcriptomic Phenotypes}
   \textbf{\titleone}
 }
 
-\author{David Angeles-Albores\textsuperscript{1,$\dagger{}$}
+\author{David Angeles-Albores\textsuperscript{1, 2,$\dagger{}$}
 \and{}
-Carmie Puckett-Robinson\textsuperscript{1,$\dagger{}$}
+Carmie Puckett Robinson\textsuperscript{1, 2, 3,$\dagger{}$}
 \and{}
 Brian Williams\textsuperscript{1}
 \and{}
-Paul W. Sternberg\textsuperscript{1, *}
+Paul W. Sternberg\textsuperscript{1, 2, *}
 }
 
 % document begins here
@@ -181,33 +181,37 @@ Paul W. Sternberg\textsuperscript{1, *}
 \maketitle
 % author info
 \textbf{$\dagger$} These authors contributed equally to this work\\
-\textbf{1} Department of Biology and Biological Engineering,
-and Howard Hughes Medical Institute, Caltech, Pasadena, CA, 91125, USA\\
+\textbf{1} Division of Biology and Biological Engineering, Caltech,
+Pasadena, CA, 91125, USA\\
+\textbf{2} Howard Hughes Medical Institute, Caltech, Pasadena, CA, 91125, USA\\
+\textbf{3} Department of Neurology, Keck School of Medicine, University of
+Southern California, Los Angeles, California, 90033, USA\\
 \textbf{*} Corresponding author. Contact:pws@caltech.edu
 
 \section*{Abstract}
 \textbf{
 RNA-seq is commonly used to identify genetic modules that respond to a
 perturbation. Although transcriptomes have been mainly used for target gene
-discovery, the quantitative nature of these measurements makes them attractive
+discovery, their quantitative nature makes them attractive
 structures with which to study genetic interactions. To understand whether
-whole-organism RNA-seq was suitable for genetic pathway reconstruction, we
+whole-organism RNA-seq is suitable for genetic pathway reconstruction, we
 sequenced the transcriptome of four single mutants and two double mutants of the
-hypoxia pathway in \cel{}. Using principal component analysis or correlational
-analysis, we show that whole-organism transcriptomes contain sufficient information
-to identify genetic interactions. By comparing the expression levels of double
+hypoxia pathway in \cel{}.
+By comparing the expression levels of double
 mutants with their corresponding single mutants, we were able to determine, on a
 genome-wide level, that \eglp{} acts along \vhlp{}-dependent and independent
-branches to inhibit \hifp{}. We were also able to observe genome-wide suppression
-of the \egl{} phenotype in an \eglhif{} double mutant. We show that genes along
-a pathway tend to decorrelate as a result of alternative regulatory modes and
-crosstalk; and that this decorrelation accurately reflects functional distance
-between genes. As a by-product of our analysis, we predict \hiftargets{} genes
-under the regulation of \gene{hif-1}, and \vhltargets{} genes under the regulation
-of \gene{vhl-1}. Finally, we are able to identify \hifohtargets{} genes that exhibit
-non-canonical epistasis: for these genes, \vhl{} mutants show opposing effects to
-\egl{} mutants, but the \eglvhl{} exhibits the \egl{} phenotype. We suggest that
-this non-canonical epistasis reflects unexplored aspects of the hypoxia pathway.
+branches to inhibit \hifp{}. We were also able to observe transcriptome-wide
+suppression of the \egl{} phenotype in an \eglhif{} double mutant.
+As a by-product of our analysis, we identified a core hypoxic response consisting
+of 355 genes, and \vhltargets{} genes that have \gene{hif-1}-independent,
+\gene{vhl-1}-dependent expression.
+Finally, we are able to identify \hifohtargets{} genes that exhibit non-canonical
+epistasis: for these genes, \vhl{} mutants show opposing effects to
+\egl{} mutants, but the \eglvhl{} exhibits the \egl{} phenotype.
+We suggest that this non-canonical epistasis reflects unexplored aspects of the
+hypoxia pathway.
+We discuss the implications, benefits and advantages of using transcriptomic
+phenotypes to perform pathway analysis.
 }
 \vspace{10mm}
 
@@ -249,7 +253,7 @@ Although transcriptional profiling has been primarily used for descriptive purpo
 transcriptomic phenotypes have previously been used to make genetic inferences.
 Microarray analyses in \emph{S. cerevisiae} and \dicty{} were used to show
 that transcriptomes can be interpreted to infer genetic relationships in simple
-eukaryotes~\cite{Hughes2000, VanDriessche2005}. eQTL studies in
+eukaryotes~\cite{Hughes2000, VanDriessche2005}.\@ eQTL studies in
 many organisms, from yeast to humans, have established the usefulness of
 transcriptomic phenotypes for population genetics studies~\cite{Brem2002,Schadt2003,
 Li2006,King2014}. In cell culture, single-cell RNA-seq has seen significant
@@ -325,7 +329,7 @@ and \gene{vhl-1}, but do not appear to be targets of \gene{hif-1}.
 Using a single set of genome-wide measurements, we were able to observe and
 quantitatively assess  significant fraction of the known transcriptional
 effects of \gene{hif-1} in \cel{}.
-A complete, interactive version of the analysis is also available at
+A complete version of the analysis, with ample documentation, is available at
 \url{https://wormlabcaltech.github.io/mprsq}.
 
 \section*{Results}
@@ -482,8 +486,8 @@ regressions (blue lines); red squares mark outliers to the primary regressions.
 \end{figure}
 
 We wanted to know whether it was informative to look at quantitative agreement
-within SRPs. For each mutant pair, we rank-transformed
-the regression coefficients $\beta$ of each isoform within the SRP, and
+within STPs. For each mutant pair, we rank-transformed
+the regression coefficients $\beta$ of each isoform within the STP, and
 calculated lines of best fit using Bayesian regression with a Student-T
 distribution to mitigate noise from outliers and plotted the results in a rank plot
 (see Fig~\ref{fig:genetic_interactions}). For transcriptomes associated with the
@@ -550,7 +554,7 @@ and \gene{egl-9}~\cite{Powell-Coffman2010}.
 We can
 selectively look at the expression of a few genes at a time. Therefore, we
 queried the changes in expression of \gene{rhy-1}, \gene{egl-9}, and \nhr{}. We
-included the nuclear laminin gene\lam{} as a representative negative control not
+included the nuclear laminin gene \lam{} as a representative negative control not
 believed to be responsive to alterations in the hypoxia pathway.
 \nhr{} was upregulated in \egl{}, \rhy{} and \vhl{}, but remains unchanged in \hif{}.
 \eglvhl{} had an expression level similar to \egl{}; whereas the
@@ -667,7 +671,9 @@ model, where \eglp{} strongly suppresses \hifp{}, and also with the model where
 suppressed by \eglp{}, and we know from previous literature that the epistatic
 relationship, \hif{} = \eglhif{}, is true for these mutants. In fact, as the
 repression of \hifp{} by \eglp{} becomes stronger, the epistatic model should converge
-on the limit of strong repression (see Supplementary Information).
+on the limit of strong repression (see
+\href{https://wormlabcaltech.github.io/mprsq/analysis_notebooks/epistasis_6.html}
+{Supplementary Information, Epistasis}).
 
 Another way to test which model best explains the epistatic relationship between
 \gene{egl-9} and \gene{vhl-1} is to use Bayesian model selection to calculate
@@ -915,7 +921,9 @@ reflects the maximal hypoxic response), this is a conservative
 estimate that minimizes false positive results, since these changes were
 identified in four different genotypes with three replicates each. This response
 included five transcription factors (\gene{W02D7.6}, \nhr{}, \gene{ztf-18},
-\gene{nhr-135} and \gene{dmd-9}).
+\gene{nhr-135} and \gene{dmd-9}). The full list of genes associated with the
+hypoxia response can be found in the Supplementary Table 1.
+% TODO: SI numbering
 
 \gene{hif-1}-independent effects of \gene{egl-9} have been reported
 previously~\cite{Park2012}, which led us to question whether we could identify
@@ -927,18 +935,19 @@ Therefore, we searched for genes that were regulated in an opposite manner betwe
 all \egl{} genotypes. We did not find any genes that met these conditions.
 
 We also searched for genes with \gene{hif-1} independent, \gene{vhl-1}-dependent gene
-expression and found \vhltargets{} genes.
+expression and found \vhltargets{} genes, which can be found in the Supplementary
+Table 2.
 Finally, we searched for candidates directly regulated by \gene{hif-1}. Initially, we
 searched for genes that had were significantly altered in \hif{} genotypes in one
 direction, but altered in the opposite direction in mutants that activate the
-\hifp{} response. Only two genes
-only three genes (\emph{R08E5.3}, and \emph{nit-1}) met these
+\hifp{} response. Only two genes (\emph{R08E5.3}, and \emph{nit-1}) met these
 conditions. This could reflect the fact that \hifp{} exists at very low
 levels in \cel{}, so loss of function mutations in \gene{hif-1} might only have
 mild effects on its transcriptional targets. We reasoned that genes
 that are overexpressed in mutants that induce the \hifp{} response would be enriched
 for genes that are direct candidates.  We found \hiftargets{}  genes which have
 consistently increased expression in mutants with a constitutive hypoxic response.
+These genes can be found in the Supplementary Table 3.
 
 
 \subsubsection*{Enrichment analysis of the hypoxia response}
@@ -995,7 +1004,7 @@ between \rhy{} and \vhl{} (we assume that all results from the
 \hifohtargets{} that satisfied this condition (see Fig.~\ref{fig:hif1oh}).
 Additionally, many of these genes exhibited a new kind of epistasis. Namely,
 \gene{egl-9} was epistatic over \gene{vhl-1}. Identification of a set of genes
-that have a consistent set of relationships with between themselves suggests that
+that have a consistent set of relationships between themselves suggests that
 we have identified a new aspect of the hypoxia pathway.
 
 \begin{figure}[tbhp]
@@ -1022,8 +1031,8 @@ the hypoxia pathway. Moreover, these genes have been previously described to hav
 aberrant behaviors~\cite{Ackerman2012,Romney2011}, specifically the
 opposite effects of \egl{} and \vhl{}. These studies showed that loss of \vhl{}
 decreases expression of \ftna{} and \ftnb{} using both RNAi and alleles, which
-allays concerns of strain-specific interference. Moreover, Ackerman and Gems
-(2012) showed that \gene{vhl-1} is epistatic to \gene{hif-1} for the \ftna{}
+allays concerns of strain-specific interference. Moreover, Ackerman and Gems (2012)
+showed that \gene{vhl-1} is epistatic to \gene{hif-1} for the \ftna{}
 expression phenotype, and that loss of
 \hifp{} is associated with increased expression of \ftna{} and \ftnb{}. We observed
 that \gene{hif-1} was epistatic to \gene{egl-9}, and that \gene{egl-9} and
@@ -1335,41 +1344,44 @@ JT307 \gene{egl-9}(\emph{sa307}),
 ZG31 \gene{hif-1}(\emph{ia4}),
 RB1297 \gene{rhy-1}(\emph{ok1402}).
 All lines were grown on standard
-nematode growth media (NGM) plates with seeded with OP50 \ecol{} at 20\degree{}C
+nematode growth media (NGM) plates seeded with OP50 \ecol{} at 20\degree{}C
 (Brenner 1974).
 
 \subsection*{RNA Isolation}
 Unsynchronized lines were grown on NGM plates at 20C and eggs harvested by
 sodium hypochlorite treatment. Eggs were plated on 6 to 9 6cm NGM plates
-with ample OP50 \ecol{} at a density chosen to avoid starvation and grown at
+with ample OP50 \ecol{} to avoid starvation and grown at
 20\degree{}C.  Worms were staged and harvested based on the time after plating,
 vulva morphology and the absence of eggs.  Approximately 30--50 non-gravid young
 adults were picked and placed in 100$\mu$L of TE pH 8.0 at 4\degree{}C in
 $0.2$mL PCR tubes.   After settling and a brief spin in microcentrifuge approximately
-$80\mu$L of TE was removed from the top of the sample and individual replicates
+$80\mu$L of TE (Ambion AM 9849) was removed from the top of the sample and
+individual replicates
 were snap frozen in liquid N2. These replicate samples were then digested with
-Proteinase K for 15min at 60\degree{} in the presence of 1\% SDS and 1.25$\mu$L
+Proteinase K (Roche Lot No. 03115 838001 Recombinant Proteinase K PCR Grade) for
+15min at 60\degree{} in the presence of 1\% SDS and 1.25$\mu$L
 RNA Secure (Ambion AM 7005). RNA samples were then taken up in 5 Volumes of
 Trizol (Tri Reagent Zymo Research) and processed and treated with DNase I using
-Zymo MicroPrep RNA Kit (Zymo Research Quick-RNA MicroPrep  R1050).
+Zymo MicroPrep RNA Kit (Zymo Research Quick-RNA MicroPrep R1050).
 RNA was eluted in RNase-free water and divided into aliquots and stored at -80\degree{}C.
-One aliquot of each replicate was analyzed using a NanoDrop for impurities,
-Qubit for concentration and then analyzed on an Agilent 2100 BioAnalyzer.
+One aliquot of each replicate was analyzed using a NanoDrop (Thermo Fisher) for impurities,
+Qubit for concentration and then analyzed on an Agilent 2100 BioAnalyzer (Agilent
+Technologies).
 Replicates were selected that had RNA integrity numbers (RIN) equal or greater
 than 9.0 and showed no evidence of bacterial ribosomal bands, except for the
 ZG31 mutant where one of three replicates had a RIN of 8.3.
 
 \subsection*{Library Preparation and Sequencing}
-10~ng of quality checked total RNA from each sample was
+10ng of quality checked total RNA from each sample was
 reverse-transcribed into cDNA using the Clontech SMARTer Ultra Low Input RNA for
 Sequencing v3 kit (catalog \#634848) in the SMARTSeq2 protocol
 ~\cite{Picelli2014}.  RNA was denatured at 70$\degree{}$C for 3 minutes
 in the presence of dNTPs, oligo dT primer and spiked-in quantitation standards
 (NIST/ERCC from Ambion, catalog \#4456740).  After chilling to 4$\degree{}$C, the
 first-strand reaction was assembled using the LNA TSO primer described in \citep{Picelli2014},
-and run at 42$\degree{}$C for 90 minutes, followed by denaturation at 70$\degree{}$C for 10
-minutes.  The entire first strand reaction was then used as template for 13
-cycles of PCR using the Clontech v3 kit. Reactions were cleaned up with 1.8X
+and run at 42$\degree{}$C for 90 minutes, followed by denaturation at 70$\degree{}$C
+for 10 minutes.  The entire first strand reaction was then used as template for
+13 cycles of PCR using the Clontech v3 kit. Reactions were cleaned up with 1.8X
 volume of Ampure XP SPRI beads (catalog \#A63880) according to the manufacturer’s
 protocol.  After quantification using the Qubit High Sensitivity DNA assay, a 3ng
 aliquot of the amplified cDNA was run on the Agilent HS DNA chip to confirm the
@@ -1421,7 +1433,7 @@ analysis. DEGs were then rank-ordered according to their regression coefficient,
 $\beta$.\ Bayesian robust regressions were performed using a Student-T distribution.
 Bayesian analysis was performed using the PyMC3 library~\cite{Salvatier2015}
 (\texttt{pm.glm.families.StudenT} in Python). If the correlation has an average
-value >1, the correlation coefficient was set to 1.
+value $>1$, the correlation coefficient was set to 1.
 
 Weights were calculated as the proportion of genes that were $<1.5$ standard deviations
 away from the primary regression out of the entire set of shared DEGs for each

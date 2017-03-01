@@ -114,7 +114,7 @@
 \bibinfo{author}{Scimone, M.~L.}, \bibinfo{author}{Kravarik, K.~M.},
   \bibinfo{author}{Lapan, S.~W.} \& \bibinfo{author}{Reddien, P.~W.}
 \newblock \bibinfo{title}{{Neoblast specialization in regeneration of the
-  planarian schmidtea mediterranea}}.
+  planarian \emph{Schmidtea mediterranea}}}.
 \newblock \emph{\bibinfo{journal}{Stem Cell Reports}}
   \textbf{\bibinfo{volume}{3}}, \bibinfo{pages}{339--352}
   (\bibinfo{year}{2014}).
@@ -130,7 +130,7 @@
 \bibinfo{author}{{Van Driessche}, N.} \emph{et~al.}
 \newblock \bibinfo{title}{{Epistasis analysis with global transcriptional
   phenotypes}}.
-\newblock \emph{\bibinfo{journal}{Nature genetics}}
+\newblock \emph{\bibinfo{journal}{Nature Genetics}}
   \textbf{\bibinfo{volume}{37}}, \bibinfo{pages}{471--477}
   (\bibinfo{year}{2005}).
 
@@ -260,7 +260,7 @@
   \bibinfo{author}{Fang, H.~M.} \& \bibinfo{author}{Wang, G.~L.}
 \newblock \bibinfo{title}{{Transcriptional regulation of genes encoding
   glycolytic enzymes by hypoxia-inducible factor 1.}}
-\newblock \emph{\bibinfo{journal}{The Journal of biological chemistry}}
+\newblock \emph{\bibinfo{journal}{The Journal of Biological Chemistry}}
   \textbf{\bibinfo{volume}{269}}, \bibinfo{pages}{23757--63}
   (\bibinfo{year}{1994}).
 
@@ -446,7 +446,7 @@
 \bibinfo{author}{Wang, G.~L.} \& \bibinfo{author}{Semenza, G.~L.}
 \newblock \bibinfo{title}{{Characterization of hypoxia-inducible factor 1 and
   regulation of DNA binding activity by hypoxia.}}
-\newblock \emph{\bibinfo{journal}{The Journal of biological chemistry}}
+\newblock \emph{\bibinfo{journal}{The Journal of Biological Chemistry}}
   \textbf{\bibinfo{volume}{268}}, \bibinfo{pages}{21513--8}
   (\bibinfo{year}{1993}).
 
