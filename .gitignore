@@ -131,3 +131,9 @@ src/stats_tutorials/Introduction to Non-parametric Bootstrap.html
 src/stats_tutorials/Model Selection.html
 
 *.xwm
+
+input/rawseq/N2A1/SampleSheet.csv
+
+input/rawseq/N2A2/SampleSheet.csv
+
+input/rawseq/N2A3/SampleSheet.csv

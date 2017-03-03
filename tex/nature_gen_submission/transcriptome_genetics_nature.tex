@@ -165,7 +165,9 @@ Transcriptomic Phenotypes}
 \and{}
 Carmie Puckett Robinson\textsuperscript{1, 2, 3,$\dagger{}$}
 \and{}
-Brian Williams\textsuperscript{1}
+Brian A. Williams\textsuperscript{1}
+\and{}
+Barbara J. Wold\textsuperscript{1}
 \and{}
 Paul W. Sternberg\textsuperscript{1, 2, *}
 }
@@ -186,7 +188,7 @@ Pasadena, CA, 91125, USA\\
 \textbf{2} Howard Hughes Medical Institute, Caltech, Pasadena, CA, 91125, USA\\
 \textbf{3} Department of Neurology, Keck School of Medicine, University of
 Southern California, Los Angeles, California, 90033, USA\\
-\textbf{*} Corresponding author. Contact:pws@caltech.edu
+\textbf{*} Corresponding author. Contact: pws@caltech.edu
 
 \section*{Abstract}
 \textbf{
@@ -571,8 +573,8 @@ four genes (\gene{rhy-1}, \gene{egl-9}, \nhr{} and \lam{}, shown on the x-axis)
 and plotted their regression coefficients, $\beta$, as measured for every
 genotype (represented by one of six colors) to study the epistatic relationships
 between each gene. Asterisks above a bar represent a regression coefficient
-statistically significantly different from 0, meaning that expression is altered
-relative to a wild-type control. Error bars show standard error of the mean
+statistically significantly different from 0 (\qval{1}) relative to a wild-type
+control. Error bars show standard error of the mean
 value of $\beta$. \nhr{} is an expression reporter that has been used previously
 to identify \gene{hif-1} regulators~\cite{Shen2006,Shao2009}. \lam{} is shown here
 as a negative control that should not be altered by mutations in this pathway.
@@ -673,7 +675,7 @@ relationship, \hif{} = \eglhif{}, is true for these mutants. In fact, as the
 repression of \hifp{} by \eglp{} becomes stronger, the epistatic model should converge
 on the limit of strong repression (see
 \href{https://wormlabcaltech.github.io/mprsq/analysis_notebooks/epistasis_6.html}
-{Supplementary Information, Epistasis}).
+{Epistasis}).
 
 Another way to test which model best explains the epistatic relationship between
 \gene{egl-9} and \gene{vhl-1} is to use Bayesian model selection to calculate
@@ -1001,7 +1003,8 @@ of the canonical genetic model of the hypoxia pathway. To this end, we searched 
 genes that exhibited different behaviors between \egl{} and \vhl{}, or
 between \rhy{} and \vhl{} (we assume that all results from the
 \rhy{} transcriptome reflect a complete loss of \gene{egl-9} activity). We found
-\hifohtargets{} that satisfied this condition (see Fig.~\ref{fig:hif1oh}).
+\hifohtargets{} that satisfied this condition (see Fig.~\ref{fig:hif1oh},
+Supplemental Table 4).
 Additionally, many of these genes exhibited a new kind of epistasis. Namely,
 \gene{egl-9} was epistatic over \gene{vhl-1}. Identification of a set of genes
 that have a consistent set of relationships between themselves suggests that
@@ -1019,7 +1022,8 @@ purposes.
 \textbf{B}. Representative genes showing that non-canonical epistasis shows a
 consistent pattern. \vhl{} mutants have an opposite effect to \egl{}, but
 \gene{egl-9} remains epistatic to \gene{vhl-1} and loss-of-function mutations in
-\gene{hif-1} suppress the \egl{} phenotype.
+\gene{hif-1} suppress the \egl{} phenotype. Asterisks show $\beta$ values
+significantly different from 0 relative to wild-type (\qval{1}).
 }
 \label{fig:hif1oh}
 \end{figure}
@@ -1074,12 +1078,12 @@ A graphic summary of the genome-wide effects of \hifp{} from our RNA-seq data.
 Our data shows that most of the enzymes involved in the TCA cycle and in the ETC
 are down-regulated when \hifp{} is induced in agreement with the previous
 literature~\cite{Semenza2012}.
-However, the fumarase gene \gene{fum-1} and the mitochondrial complex II stood out as notable
-exceptions to the trend, as they were up-regulated in every single genotype that
-causes deployment of the hypoxia response. FUM-1 catalyzes the reaction
-of fumarate into malate, and complex II catalyzes the reaction of succinate into
-fumarate. Complex II has been identified as a source of reserve respiratory
-capacity in neonatal rat cardiomyocytes previously~\cite{Pfleger2015}.
+However, the fumarase gene \gene{fum-1} and the mitochondrial complex II stood out
+as notable exceptions to the trend, as they were up-regulated in every single
+genotype that causes deployment of the hypoxia response. FUM-1 catalyzes the
+reaction of fumarate into malate, and complex II catalyzes the reaction of
+succinate into fumarate. Complex II has been identified as a source of reserve
+respiratory capacity in neonatal rat cardiomyocytes previously~\cite{Pfleger2015}.
 We found two energy reserve genes that were down-regulated by \hifp{}.
 \gene{aagr-1} and \gene{aagr-2}, which are predicted to function in glycogen
 catabolism~\cite{Sikora2010}.
@@ -1271,8 +1275,8 @@ principal dimensions are the product of a linear combination of vectors, and the
 must be interpreted with extreme care. In this case, the first principal dimension
 separated genotypes that increase \hifp{} protein levels from those that decrease
 it, but this dimension is a mix of vectors of change in gene expression. Although
-PCA showed that there is information hidden in these genotypes, it was not enough by
-itself to provide biological insight.
+PCA showed that there is information hidden in these genotypes, it was not enough
+by itself to provide biological insight.
 
 Whereas PCA operates on all genotypes simultaneously, correlation analysis is a
 pairwise procedure that measures how predictable the gene
@@ -1354,19 +1358,19 @@ with ample OP50 \ecol{} to avoid starvation and grown at
 20\degree{}C.  Worms were staged and harvested based on the time after plating,
 vulva morphology and the absence of eggs.  Approximately 30--50 non-gravid young
 adults were picked and placed in 100$\mu$L of TE pH 8.0 at 4\degree{}C in
-$0.2$mL PCR tubes.   After settling and a brief spin in microcentrifuge approximately
-$80\mu$L of TE (Ambion AM 9849) was removed from the top of the sample and
-individual replicates
+$0.2$mL PCR tubes.   After settling and a brief spin in microcentrifuge
+approximately $80\mu$L of TE (Ambion AM 9849) was removed from the top of the
+sample and individual replicates
 were snap frozen in liquid N2. These replicate samples were then digested with
 Proteinase K (Roche Lot No. 03115 838001 Recombinant Proteinase K PCR Grade) for
 15min at 60\degree{} in the presence of 1\% SDS and 1.25$\mu$L
 RNA Secure (Ambion AM 7005). RNA samples were then taken up in 5 Volumes of
 Trizol (Tri Reagent Zymo Research) and processed and treated with DNase I using
 Zymo MicroPrep RNA Kit (Zymo Research Quick-RNA MicroPrep R1050).
-RNA was eluted in RNase-free water and divided into aliquots and stored at -80\degree{}C.
-One aliquot of each replicate was analyzed using a NanoDrop (Thermo Fisher) for impurities,
-Qubit for concentration and then analyzed on an Agilent 2100 BioAnalyzer (Agilent
-Technologies).
+RNA was eluted in RNase-free water and divided into aliquots and stored at
+-80\degree{}C. One aliquot of each replicate was analyzed using a NanoDrop (Thermo
+Fisher) for impurities, Qubit for concentration and then analyzed on an Agilent
+2100 BioAnalyzer (Agilent Technologies).
 Replicates were selected that had RNA integrity numbers (RIN) equal or greater
 than 9.0 and showed no evidence of bacterial ribosomal bands, except for the
 ZG31 mutant where one of three replicates had a RIN of 8.3.
@@ -1378,24 +1382,24 @@ Sequencing v3 kit (catalog \#634848) in the SMARTSeq2 protocol
 ~\cite{Picelli2014}.  RNA was denatured at 70$\degree{}$C for 3 minutes
 in the presence of dNTPs, oligo dT primer and spiked-in quantitation standards
 (NIST/ERCC from Ambion, catalog \#4456740).  After chilling to 4$\degree{}$C, the
-first-strand reaction was assembled using the LNA TSO primer described in \citep{Picelli2014},
-and run at 42$\degree{}$C for 90 minutes, followed by denaturation at 70$\degree{}$C
-for 10 minutes.  The entire first strand reaction was then used as template for
-13 cycles of PCR using the Clontech v3 kit. Reactions were cleaned up with 1.8X
-volume of Ampure XP SPRI beads (catalog \#A63880) according to the manufacturer’s
-protocol.  After quantification using the Qubit High Sensitivity DNA assay, a 3ng
-aliquot of the amplified cDNA was run on the Agilent HS DNA chip to confirm the
-length distribution of the amplified fragments.  The median value for the
-average cDNA lengths from all length distributions was 1076bp.  Tagmentation of
-the full length cDNA for sequencing was performed using the Illumina/Nextera DNA
-library prep kit (catalog \#FC-121--1030).  Following Qubit quantitation and
-Agilent BioAnalyzer profiling, the tagmented libraries were sequenced.
-Libraries were sequenced on Illumina HiSeq2500 in single read mode with the read
-length of 50nt to an average depth of 15 million reads per sample following
-manufacturer's instructions. Base calls were performed with RTA 1.13.48.0
-followed by conversion to FASTQ with bcl2fastq 1.8.4. Spearman correlation of
-the transcripts per million (TPM) for each genotype showed that every pairwise
-correlation within genotype was $>0.9$.
+first-strand reaction was assembled using the LNA TSO primer described in
+\citep{Picelli2014}, and run at 42$\degree{}$C for 90 minutes, followed by
+denaturation at 70$\degree{}$C for 10 minutes.  The entire first strand reaction
+was then used as template for 13 cycles of PCR using the Clontech v3 kit.
+Reactions were cleaned up with 1.8X volume of Ampure XP SPRI beads (catalog
+\#A63880) according to the manufacturer’s protocol.  After quantification using
+the Qubit High Sensitivity DNA assay, a 3ng aliquot of the amplified cDNA was
+run on the Agilent HS DNA chip to confirm the length distribution of the
+amplified fragments.  The median value for the average cDNA lengths from all
+length distributions was 1076bp.  Tagmentation of the full length cDNA for
+sequencing was performed using the Illumina/Nextera DNA library prep kit (catalog
+\#FC-121--1030).  Following Qubit quantitation and Agilent BioAnalyzer profiling,
+the tagmented libraries were sequenced. Libraries were sequenced on Illumina
+HiSeq2500 in single read mode with the read length of 50nt to an average depth
+of 15 million reads per sample following manufacturer's instructions. Base calls
+were performed with RTA 1.13.48.0 followed by conversion to FASTQ with bcl2fastq
+1.8.4. Spearman correlation of the transcripts per million (TPM) for each
+genotype showed that every pairwise correlation within genotype was $>0.9$.
 
 \subsection*{Read Alignment and Differential Expression Analysis}
 We used Kallisto to perform read pseudo-alignment and performed differential
@@ -1423,7 +1427,7 @@ required data (except the raw reads) are available at
 \url{https://github.com/WormLabCaltech/mprsq} along with version-control
 information. Our Jupyter Notebook and interactive graphs for this project can be
 found at \url{https://wormlabcaltech.github.io/mprsq/}. Raw reads were deposited
-at XXXXXXXXXXX
+in the Short Read Archive under the study accession number SRP100886.
 
 
 \subsection*{Weighted Correlations}
@@ -1435,9 +1439,9 @@ Bayesian analysis was performed using the PyMC3 library~\cite{Salvatier2015}
 (\texttt{pm.glm.families.StudenT} in Python). If the correlation has an average
 value $>1$, the correlation coefficient was set to 1.
 
-Weights were calculated as the proportion of genes that were $<1.5$ standard deviations
-away from the primary regression out of the entire set of shared DEGs for each
-transcriptome.
+Weights were calculated as the proportion of genes that were $<1.5$ standard
+deviations away from the primary regression out of the entire set of shared DEGs
+for each transcriptome.
 
 \subsection*{Epistasis Analysis}
 For a double mutant $X^-Y^-$, we used the single mutants $X^-$ and $Y^-$ to
@@ -1448,9 +1452,9 @@ Specifically,
   \beta_{\mathrm{Add},i} = \beta_{X,i} + \beta_{Y,i}.
 \end{equation}
 
-Next, we find the difference, $\Delta_i$, between the observed double mutant expression
-coefficient, $\beta_{XY, \mathrm{Obs},i}$, and the predicted expression coefficient
-under an additive model for each isoform $i$.
+Next, we find the difference, $\Delta_i$, between the observed double mutant
+expression coefficient, $\beta_{XY, \mathrm{Obs},i}$, and the predicted
+expression coefficient under an additive model for each isoform $i$.
 
 To calculate the transcriptome-wide epistasis coefficient, we plotted
 ($\beta_{\mathrm{Add},i}, \Delta_i$) and found the line of best fit using
@@ -1516,7 +1520,8 @@ probability of the data given the parameter-free model, $M_i$.
 
 \subsection*{Enrichment Analysis}
 Tissue, Phenotype and Gene Ontology Enrichment Analysis were carried out using
-the WormBase Enrichment Suite for Python~\cite{Angeles-Albores2016b,Angeles-Albores2016}.
+the WormBase Enrichment Suite for Python~\cite{Angeles-Albores2016b,
+Angeles-Albores2016}.
 
 
 
@@ -1532,6 +1537,9 @@ performed all sequencing.
 We thank Hillel Schwartz for all of his careful advice.
 We would like to thank Jonathan Liu, Han Wang, and Porfirio Quintero for helpful
 discussion.
+
+\subsubsection*{Competing Interests:}
+The authors declare they have no conflicts of interest.
 
 
 \nolinenumbers{}

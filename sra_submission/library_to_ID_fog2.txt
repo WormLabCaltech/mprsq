@@ -1,0 +1,1 @@
+# this file contains all the library names as provided after sequencing# double or single mutants	 so the letters represent only distinct genotypes.project_name	genotypeJKY1	JK5740dJKY2	JK5740dJKY3	JK5740dJKA1	JK5746dJKA2	JK5746dJKA3	JK5746dN2A1	N26dN2A2	N26dN2A3	N26dN2Y1	N20dN2Y2	N20dN2Y3	N20d
