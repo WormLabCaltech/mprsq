@@ -11,11 +11,11 @@ mprsq
 │   kallisto_commands_sh    
 │
 └───input
-└───experimental_docs
-└───sleuth_all_adjusted
-└───src
+└───experimental_docs - experimental documents for this project
+└───sleuth_all_adjusted - contains R code for sleuth processing
+└───src - contains all jupyter notebooks with python analysis
 └───output
-└───docs
+└───docs - website
 ```
 
 
