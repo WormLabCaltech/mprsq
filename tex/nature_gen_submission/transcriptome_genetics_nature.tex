@@ -192,28 +192,19 @@ Southern California, Los Angeles, California, 90033, USA\\
 
 \section*{Abstract}
 \textbf{
-RNA-seq is commonly used to identify genetic modules that respond to a
-perturbation. Although transcriptomes have been mainly used for target gene
-discovery, their quantitative nature makes them attractive
-structures with which to study genetic interactions. To understand whether
-whole-organism RNA-seq is suitable for genetic pathway reconstruction, we
-sequenced the transcriptome of four single mutants and two double mutants of the
-hypoxia pathway in \cel{}.
-By comparing the expression levels of double
-mutants with their corresponding single mutants, we were able to determine, on a
-genome-wide level, that \eglp{} acts along \vhlp{}-dependent and independent
-branches to inhibit \hifp{}. We were also able to observe transcriptome-wide
-suppression of the \egl{} phenotype in an \eglhif{} double mutant.
-As a by-product of our analysis, we identified a core hypoxic response consisting
-of 355 genes, and \vhltargets{} genes that have \gene{hif-1}-independent,
-\gene{vhl-1}-dependent expression.
-Finally, we are able to identify \hifohtargets{} genes that exhibit non-canonical
-epistasis: for these genes, \vhl{} mutants show opposing effects to
-\egl{} mutants, but the \eglvhl{} exhibits the \egl{} phenotype.
-We suggest that this non-canonical epistasis reflects unexplored aspects of the
-hypoxia pathway.
-We discuss the implications, benefits and advantages of using transcriptomic
-phenotypes to perform pathway analysis.
+RNA-seq is commonly used to identify genetic modules that respond to perturbations.
+In single cells, transcriptomes have been used as phenotypes, but this concept
+has not been applied to whole-organism RNA-seq. Linear models can quantify
+expression effects of individual mutants and identify epistatic effects in double
+mutants. However, interpreting these high-dimensional measurements is unintuitive.
+We developed a single coefficient to quantify transcriptome-wide epistasis which
+accurately reflects the underlying interactions. To demonstrate the power of our
+approach, we sequenced four single and two double C. elegans mutants. From these
+mutants, we successfully reconstructed the known hypoxia pathway. Using this
+approach, we uncovered a class of 31 genes that have opposing changes in expression
+in \egl{} and \vhl{} but the \eglvhl{} mutant phenocopies \egl{}.
+These changes violate the classical model of HIF-1 regulation, but can be explained
+by postulating a role of hydroxylated HIF-1 in transcriptional control.
 }
 \vspace{10mm}
 
