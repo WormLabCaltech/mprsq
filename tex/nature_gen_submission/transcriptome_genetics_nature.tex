@@ -129,7 +129,7 @@
 \newcommand{\eglvhln}{2,376}
 \newcommand{\hifn}{546}
 \newcommand{\eglhifn}{404}
-\newcommand{\fogn}{2090}
+\newcommand{\fogn}{2,090}
 \newcommand{\total}{5,671} % isoforms!!!!
 % \newcommand{\inall}{53}
 % \newcommand{\allup}{10}
@@ -145,10 +145,10 @@
 
 % website commands
 \newcommand{\website}{
-            \url{https://wormlabcaltech.github.io/Angeles_Leighton_2016/}
+            \url{https://wormlabcaltech.github.io/mprsq/}
             }
 \newcommand{\webref}{
-\href{https://wormlabcaltech.github.io/Angeles_Leighton_2016/}{website}}
+\href{https://wormlabcaltech.github.io/mprsq/}{website}}
 
 % more space between rows
 \newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
@@ -175,7 +175,7 @@ Paul W. Sternberg\textsuperscript{1, 2, *}
 % document begins here
 \begin{document}\sloppy{}
 % \vspace*{0.35in}
-\linenumbers
+\linenumbers{}
 
 % title goes here:
 
@@ -287,8 +287,10 @@ in humans (PHD1, PHD2 and PHD3) but is only hydroxylated by one proline
 hydroxylase (\eglp{}) in \cel{}~\cite{Kaelin2008}. \hifp{} hydroxylation
 increases its binding affinity to Von Hippel Lindau Tumor Suppressor 1
 (\vhlp{}), which allows ubiquitination of \hifp{} leading to its subsequent
-degradation. In \cel{}, \eglp{} activity is inhibited by binding of \cyslp{},
+degradation. In \cel{}, \eglp{} activity is inhibited by binding of \cyslp{}, a
+homolog of sulfhydrylases/cysteine synthases,
 and \cyslp{} activity is in turn inhibited at the protein level by \rhyp{},
+which is a putative transmembrane O-acyltransferase,
 possibly by post-translational modifications to \cyslp{}~\cite{Ma2012} (see
 Fig.~\ref{fig:pathway}).
 
@@ -334,7 +336,7 @@ We selected four single mutants within the hypoxia pathway for expression profil
 We also sequenced the transcriptomes of two double mutants, \eglvhl{} (\emph{sa307},
 \emph{ok161}) and \eglhif{} (\emph{sa307}, \emph{ia4}) as well as wild-type N2 as
 a control sample. Each genotype  was sequenced in triplicate at a depth of 15
-million reads. We performed whole-organism RNA-seq of these mutants at a moderate
+million reads. We performed whole-animal RNA-seq of these mutants at a moderate
 sequencing depth ($\sim7$ million mapped reads for each individual replicate)
 under normoxic conditions. For single samples, we identified around 22,000 different
 isoforms per sample, which allowed us to measure differential expression of 18,344
@@ -375,12 +377,14 @@ Table~\ref{tab:genes}).
     \egl{} & \egln{}\\
     \rhy{} & \rhyn{}\\
     \vhl{} & \vhln{}\\
+    \hif{} & \hifn{}\\
     \eglvhl{} & \eglvhln{}\\
     \eglhif{} & \eglhifn{}\\
     \fog{} & \fogn{}\\
     \bottomrule{}
   \end{tabular}
-  \caption{Number of differentially expressed genes in each mutant.}
+  \caption{Number of differentially expressed genes in each mutant with respect
+  to wildtype (N2).}
 \label{tab:genes}
 \end{table}
 
@@ -388,7 +392,7 @@ Table~\ref{tab:genes}).
 \label{sub:Clustering}
 
 Principal Component Analysis (PCA) is a well-known technique in bioinformatics that is
-used to identify relationships between high dimensional data points~\cite{Yeung2001}
+used to identify relationships between high dimensional data points~\cite{Yeung2001}.
 We performed PCA on our data to examine whether each genotype clustered in a biologically
 relevant manner. PCA identifies the vector that can explain most of the variation
 in the data;this is called the first PCA dimension. Using PCA, one can identify
@@ -438,18 +442,21 @@ out to reconstruct the hypoxia pathway from genetic first principles. In general
 to reconstruct a pathway, we must first assess whether two genes act on the same
 phenotype. If they do not act on the same phenotype (the set of commonly differentially
 regulated genes between two mutants is empty), these mutants are independent.
-If they are not independent, then two mutants have a shared transcriptomic
-phenotype (STP)---a set of genes or isoforms that are differentially expressed in
-both mutants, without taking into account what direction they change in. In this
-case, we must measure whether these genes act additively or epistatically on the
-measured phenotype; if there is epistasis we must measure whether it is
-positive or negative, in order to assess whether the epistatic relationship is a
-genetic suppression or a synthetic interaction.
+If they do not act on the same phenotype, these mutants are independent. If they
+are not independent, then we must measure whether these genes act additively or
+epistatically on the phenotype of interest; if there is epistasis we must measure
+whether it is positive or negative, in order to assess whether the epistatic
+relationship is a genetic suppression or a synthetic interaction.
+To allow coherent comparisons of different mutant transcriptomes (the phenotype
+we are studying here), we define the
+shared transcriptomic phenotype (STP) as the set of genes or isoforms that are
+differentially expressed in two mutants being compared, regardless of the direction
+of change.
 
 \subsubsection*{Genes in the hypoxia mutant act on the same transcriptional phenotype}
 \label{sec:phenotypes}
-We observed that all the hypoxia mutants had significant shared transcriptomic
-phenotypes (fraction of the transcriptomes that was shared between mutants
+We observed that all the hypoxia mutants had a significant STP (the fraction of
+the transcriptomes that was shared between mutants
 ranged from a minimum of 6.8\% shared between \hif{} and \eglvhl{} to a maximum
 of 31\% shared genes between \egl{} and \eglvhl{}). For comparison, we also
 analyzed a previously published \fog{} transcriptome~\cite{Angeles-Albores2016a}.
@@ -501,12 +508,12 @@ two mutant transcriptomes that contributed to that specific STP,
 $N_\mathrm{overlap}/N_{\mathrm{g_1} \cup \mathrm{g2}}$.
 The weighted regressions recapitulated a module network (see Fig.~\ref{fig:heatmap}).
 We identified a strong positive interaction between \egl{} and \rhy{}.
-The magnitude of this weighted correlation derives from the magnitude of the
-transcriptomes for these mutants (\egln{} and \rhyn{} differentially expressed
-genes respectively) and the overlap between both genes was
-extensive, which makes the weighting factor considerably larger than other pairs.
-The weak correlation between \hif{} and \egl{} results from the small size of
-the \hif{} transcriptome and the small overlap between the transcriptomes.
+The magnitude of this weighted correlation derives from the number of genes
+that are differentially expressed for these mutants (\egln{} and \rhyn{}
+differentially expressed genes respectively) and the size of their STP, which makes
+the weighting factor considerably larger than other pairs.
+The weak correlation between \hif{} and \egl{} results from the large effect size
+of the \egl{} transcriptome coupled with the small STP between both mutants.
 
 The fine-grained nature of transcriptional phenotypes means that these weighted
 correlations between transcriptomes of single mutants are predictive of genetic
@@ -541,8 +548,8 @@ approach was used to successfully map the relationships within the hypoxia
 pathway (see, for example~\cite{Shao2009,Shen2006}). A commonly used hypoxia reporter
 gene is \nhr{}, which is known to exhibit a several-fold increase in mRNA
 expression when \hifp{} accumulates~\cite{Shen2006,Shen2005,Park2012}. Likewise,
-increased \hifp{} fucntion is known to cause increased of \gene{rhy-1}
-and \gene{egl-9}~\cite{Powell-Coffman2010}.
+increased \hifp{} function is known to cause increased transcription of
+\gene{rhy-1} and \gene{egl-9}~\cite{Powell-Coffman2010}.
 
 We can
 selectively look at the expression of a few genes at a time. Therefore, we
@@ -620,11 +627,12 @@ lines, $s_{a,b}$, is the transcriptome-wide epistasis coefficient.
 Epistasis plots can be understood intuitively for simple cases of genetic
 interactions. If two genes act additively on the same set of differentially expressed
 isoforms then all the plotted points will fall along the line $y=0$.
-If two genes interact in an unbranched pathway, then $a^-$ and $b^-$ should
+If two genes act positively in an unbranched pathway, then $a^-$ and $b^-$ should
 have identical phenotypes for $a^-$, $b^-$ and $a^-b^-$, if all the genotypes are
 homozygous for genetic null alleles~\cite{Huang2006}. It follows that the
 data points should fall along a line with slope equal to $-\frac{1}{2}$. On the
-other hand, in the limit of complete inhibition of $a$ by $b$, the plots should show
+other hand, in the limit of complete inhibition of $a$ by $b$ in an unbranched
+pathway, the plots should show
 a line of best fit with slope equal to $-1$\footnote{Specifically, this follows
 from assuming that $b^-$ is wild-type under the conditions assayed; and
 $a^-b^-$ = $b^-$ = wild-type}.
@@ -652,8 +660,8 @@ we used bootstraps to generate probability distributions of the epistasis
 coefficients.
 
 When we compared the predictions for the transcriptome-wide epistasis coefficient,
-$s_{egl-9,vhl-1}$ under different assumptions with the observed slope ($-0.42$). We
-observed that the predicted slope matched the simulated slope for the case where
+$s_{egl-9,vhl-1}$ under different assumptions with the observed slope ($-0.42$),
+the predicted slope matched the simulated slope for the case where
 \gene{egl-9} is epistatic over \gene{vhl-1} (\egl{} = \eglvhl{}, see
 Fig.~\ref{fig:egl9epistasis}) and did not overlap with any other prediction.
 Next, we predicted the distribution of $s_{egl-9,hif-1}$ for different pathways
@@ -741,7 +749,7 @@ value of the data. Using the single mutants, we simulated coefficient
 distributions for a linear model (light blue, centered at $-0.5$);
 an additive model (orange, centered at 0); a model where either
 \gene{egl-9} or \gene{vhl-1} masks the other phenotype (dark blue and black,
-respectively) and a complete suppression model (red, centered at $-1$).
+respectively) and a complete suppression epistasis model (red, centered at $-1$).
 The observed coefficient overlaps the predicted epistasis curve for
 \eglvhl{} = \egl{} (green and dark blue).
 }
@@ -846,7 +854,7 @@ We noticed that while some of the rank plots contained a clear positive correlat
 a discernible cross-pattern (see Fig.~\ref{fig:xpattern}). In particular, this
 cross-pattern emerged between \vhl{} and \rhy{} or between \vhl{} and \egl{},
 even though genetically \gene{vhl-1}, \gene{rhy-1} and \gene{egl-9} are all
-inhibitors of \hif{}. Such cross-patterns could be indicative of feedback loops
+suppressors of \hif{}. Such cross-patterns could be indicative of feedback loops
 or other complex interaction patterns.
 
 % correlative genetics again
@@ -868,7 +876,7 @@ representative samples of the secondary bootstrapped regression lines.
 
 
 If the above is correct, then it should be possible to identify
-\gene{egl-9}-independent, \rhy{}-dependent target genes in a
+\gene{egl-9}-independent, \gene{rhy-1}-dependent target genes in a
 logically consistent way.
 One erroneous way to identify these targets is via
 subtractive logic. Using subtractive logic, we would identify genes that are
@@ -914,8 +922,7 @@ reflects the maximal hypoxic response), this is a conservative
 estimate that minimizes false positive results, since these changes were
 identified in four different genotypes with three replicates each. This response
 included five transcription factors (\gene{W02D7.6}, \nhr{}, \gene{ztf-18},
-\gene{nhr-135} and \gene{dmd-9}). The full list of genes associated with the
-hypoxia response can be found in the Supplementary Table 1.
+\gene{nhr-135} and \gene{dmd-9}, Supplementary Table 1)
 % TODO: SI numbering
 
 \gene{hif-1}-independent effects of \gene{egl-9} have been reported
@@ -928,8 +935,7 @@ Therefore, we searched for genes that were regulated in an opposite manner betwe
 all \egl{} genotypes. We did not find any genes that met these conditions.
 
 We also searched for genes with \gene{hif-1} independent, \gene{vhl-1}-dependent gene
-expression and found \vhltargets{} genes, which can be found in the Supplementary
-Table 2.
+expression and found \vhltargets{} genes(Supplementary Table 2).
 Finally, we searched for candidates directly regulated by \gene{hif-1}. Initially, we
 searched for genes that had were significantly altered in \hif{} genotypes in one
 direction, but altered in the opposite direction in mutants that activate the
@@ -939,8 +945,8 @@ levels in \cel{}, so loss of function mutations in \gene{hif-1} might only have
 mild effects on its transcriptional targets. We reasoned that genes
 that are overexpressed in mutants that induce the \hifp{} response would be enriched
 for genes that are direct candidates.  We found \hiftargets{}  genes which have
-consistently increased expression in mutants with a constitutive hypoxic response.
-These genes can be found in the Supplementary Table 3.
+consistently increased expression in mutants with a constitutive hypoxic response
+(Supplementary Table 3).
 
 
 \subsubsection*{Enrichment analysis of the hypoxia response}
@@ -996,7 +1002,7 @@ between \rhy{} and \vhl{} (we assume that all results from the
 \rhy{} transcriptome reflect a complete loss of \gene{egl-9} activity). We found
 \hifohtargets{} that satisfied this condition (see Fig.~\ref{fig:hif1oh},
 Supplemental Table 4).
-Additionally, many of these genes exhibited a new kind of epistasis. Namely,
+Additionally, many of these genes exhibited a new kind of epistasis:
 \gene{egl-9} was epistatic over \gene{vhl-1}. Identification of a set of genes
 that have a consistent set of relationships between themselves suggests that
 we have identified a new aspect of the hypoxia pathway.
@@ -1020,18 +1026,18 @@ significantly different from 0 relative to wild-type (\qval{1}).
 \end{figure}
 
 To illustrate this, we focused on three genes, \nlp{}, \ftna{} and \ftnb{}, which
-epistasis patterns that we felt reflected the population well. \ftna{} and \ftnb{}
-are both described in the literature as genes that are responsive to mutations in
-the hypoxia pathway. Moreover, these genes have been previously described to have
-aberrant behaviors~\cite{Ackerman2012,Romney2011}, specifically the
-opposite effects of \egl{} and \vhl{}. These studies showed that loss of \vhl{}
+had epistasis patterns that we felt reflected the population well. \ftna{} and
+\ftnb{} are both described in the literature as genes that are responsive to
+mutations in the hypoxia pathway. Moreover, these genes have been previously
+described to have aberrant behaviors~\cite{Ackerman2012,Romney2011}, specifically
+the opposite effects of \egl{} and \vhl{}. These studies showed that loss of \vhl{}
 decreases expression of \ftna{} and \ftnb{} using both RNAi and alleles, which
-allays concerns of strain-specific interference. Moreover, Ackerman and Gems (2012)
-showed that \gene{vhl-1} is epistatic to \gene{hif-1} for the \ftna{}
-expression phenotype, and that loss of
-\hifp{} is associated with increased expression of \ftna{} and \ftnb{}. We observed
-that \gene{hif-1} was epistatic to \gene{egl-9}, and that \gene{egl-9} and
-\gene{hif-1} both promoted \ftna{} and \ftnb{} expression.
+allays concerns of strain-specific interference. Moreover, Ackerman and
+Gems~\cite{Ackerman2012} showed that \gene{vhl-1} is epistatic to \gene{hif-1}
+for the \ftna{} expression phenotype, and that loss of \hifp{} is associated with
+increased expression of \ftna{} and \ftnb{}. We observed that \gene{hif-1} was
+epistatic to \gene{egl-9}, and that \gene{egl-9} and \gene{hif-1} both promoted
+\ftna{} and \ftnb{} expression.
 
 Epistasis analysis of \ftna{} and \ftnb{} expression reveals that \gene{egl-9} is
 epistatic to \gene{hif-1}; that \gene{vhl-1} has opposite effects to \gene{egl-9},
@@ -1050,8 +1056,8 @@ associated with bioenergetic pathways in \cel{} by extracting from
 WormBase all genes associated with the tricarboxylic acid (TCA) cycle, the
 electron transport chain (ETC) and with the \cel{} GO term energy reserve.
 Previous research has described the effects of mitochondrial dysfunction in
-eliciting the hypoxia response~\cite{Lee2010}, but transcriptional feedback
-from \hifp{} into bioenergetic pathways has not been as extensively in \cel{},
+eliciting the hypoxia response~\cite{Lee2010}, but transcriptional control
+of bioenergetic pathways by \hifp{} has not been studied as extensively in \cel{}
 as in vertebrates (see, for example~\cite{Semenza1994,Semenza2012}).
 We also searched for the changes in ribosomal components and the proteasome, as
 well as for terms relating to immune response (see Fig~\ref{fig:genomewide}).
@@ -1100,8 +1106,8 @@ up-regulation of a single ribosomal constituent.
 Next, we asked whether \hifp{} has any transcriptional effects on the
 proteasomal constituents; no such effects of \hifp{} on the proteasome
 have been reported in \cel{}. Out of 40 WormBase-annotated proteasomal constituents,
-we found 31 constituents that were differentially expressed in at least one of the
-four genotypes that induce a hypoxic response. Every gene we found was down-regulated
+we found 31 constituents whose genes were downregulated in at least two out of
+the four genotypes we studied. Every gene we found was down-regulated
 in at least two out of the four genotypes we studied.
 
 \section*{Discussion}
@@ -1128,7 +1134,7 @@ shown to antagonize \hifp{} prolyl hydroxylase domain (PHD) enzymes, which are
 orthologs of \eglp{}~\cite{Sudarshan2009}.
 If the inhibitory role of fumarate on PHD enzymes is conserved in \cel{},
 upregulation of complex II by \hifp{} during hypoxia may increase
-intracellular levels of fumarate, which in turn could lead to artificially high
+intracellular levels of fumarate, which in turn could lead to elevated
 levels of \hifp{}
 even after normoxia resumes. The increase in fumarate produced by the complex
 could be compensated by increasing expression of \gene{fum-1}. Increased fumarate
@@ -1141,21 +1147,21 @@ epistasis suggests the existence of previously undescribed aspects of the hypoxi
 pathway. Some of these non-classical epistases had been observed
 previously~\cite{Ackerman2012,Romney2011,Luhachack2012}, but
 no satisfactory mechanism has been proposed to explain this biology.
-\citep{Romney2011} and \citep{Ackerman2012}
-suggest that \hifp{} integrates information on iron concentration in the
-cell to bind to the \ftna{} promoter, but could not definitively establish
-a mechanism.
+Previous studies~\cite{Romney2011,Ackerman2012} suggest that \hifp{} integrates
+information on iron concentration in the cell to bind to the \ftna{} promoter,
+but could not definitively establish a mechanism.
 It is unclear why deletion of \gene{hif-1} induces \ftna{}
 expression, deletion of \gene{egl-9} also causes induction of \ftna{} expression,
-but deletion of \gene{vhl-1} removes this inhibition. Moreover, \citep{Luhachack2012}
-have previously reported that certain genes important for the \cel{} immune response
-against pathogens reflect similar expression patterns. Their interpretation
-was that \gene{swan-1}, which encodes a binding partner to \eglp{}~\cite{Shao2010},
-is important for modulating \hifp{} activity in some manner. The lack of a
-conclusive double mutant analysis in this work means the role of SWAN-1 in
-modulation of \hifp{} activity remains to be demonstrated. Nevertheless, mechanisms
-that call for additional transcriptional modulators become less likely given the
-number of genes with different biological functions that exhibit the same pattern.
+but deletion of \gene{vhl-1} abolishes this induction. Moreover, Luchachack et
+al~\cite{Luhachack2012} have previously reported that certain genes important
+for the \cel{} immune response against pathogens reflect similar expression
+patterns. Their interpretation was that \gene{swan-1}, which encodes a binding
+partner to \eglp{}~\cite{Shao2010}, is important for modulating \hifp{} activity
+in some manner. The lack of a conclusive double mutant analysis in this work
+means the role of SWAN-1 in modulation of \hifp{} activity remains to be
+demonstrated. Nevertheless, mechanisms that call for additional transcriptional
+modulators become less likely given the number of genes with different biological
+functions that exhibit the same pattern.
 
 \begin{figure}[tbhp]
 \centering
@@ -1221,7 +1227,7 @@ rate of \hifp{} by \eglp{}. Then the dynamics in this system will evolve
 exclusively as a result of the total amount of \hifp{} in the cell. Such a system
 can be sensitive to fluctuations in the absolute concentration of
 \hifp{}~\cite{Goentoro2009a}. Since the absolute levels of \hifp{} are low in
-normoxic conditions, small fluctuations in protein copy-number represent can
+normoxic conditions, small fluctuations in protein copy-number can
 represent a large fold-change in \hifp{} levels. These fluctuations would
 not be problematic for genes that must be turned on only under conditions of severe
 hypoxia---presumably, these genes would be associated with low affinity
@@ -1482,13 +1488,10 @@ for the data:
 
 \begin{equation}
   P(\alpha~|M_1, D) \propto \prod_{(x_i, y_i, \sigma_i)\in D}
-  \exp{\frac{
-            (y_i - \alpha\cdot x_i)^2
-            } % numerator
-            {
-            2\sigma_i
-            } % denominator
-            } \cdot (1+\alpha^2)^{-3/2},
+  \exp{
+       [\frac{{(y_i - \alpha\cdot x_i)}^2} % numerator
+            {2\sigma_i^2}] % denominator
+      } \cdot {(1+\alpha^2)}^{-3/2},
   \label{eq:free_model}
 \end{equation}
 
@@ -1501,7 +1504,7 @@ we approximated the odds ratio as:
 
 \begin{equation}
   OR = \frac{
-  P(D~|\alpha^*, M_1)\cdot (2\pi)^{1/2}\sigma_{\alpha^*} % numerator
+  P(D~|\alpha^*, M_1)\cdot {(2\pi)}^{1/2}\sigma_{\alpha^*} % numerator
   }{P(D~| M_i)}, % denominator
 \end{equation}
 

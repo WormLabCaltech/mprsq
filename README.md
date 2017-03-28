@@ -17,8 +17,6 @@ mprsq
 └───output
 └───docs - website
 ```
-
-
 ## Contact
 pws@caltech.edu
 
