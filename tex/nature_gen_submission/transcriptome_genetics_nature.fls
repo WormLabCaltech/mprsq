@@ -292,6 +292,9 @@ INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/lm/ot1lmtt.fd
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/lm/rm-lmtt10.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/lm/rm-lmbx12.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/lm/rm-lmbxi10.tfm
+INPUT ../figs/meaningofbeta.pdf
+INPUT ../figs/meaningofbeta.pdf
+INPUT ../figs/meaningofbeta.pdf
 INPUT ../figs/pca.pdf
 INPUT ../figs/pca.pdf
 INPUT ../figs/pca.pdf
@@ -327,6 +330,8 @@ INPUT ../figs/hif1genomewide.pdf
 INPUT ../figs/hif1oh_model.pdf
 INPUT ../figs/hif1oh_model.pdf
 INPUT ../figs/hif1oh_model.pdf
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/ucs/data/uni-0.def
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/ucs/data/uni-0.def
 INPUT transcriptome_genetics_nature.bbl
 INPUT transcriptome_genetics_nature.bbl
 INPUT transcriptome_genetics_nature.aux

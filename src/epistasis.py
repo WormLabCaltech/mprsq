@@ -236,14 +236,14 @@ def bootstrap(bframe, sebframe, epistasis='actual', nsim=1000):
             if coin == 0:
                 wadd = np.sqrt(2*currsex**2)
                 wdev = currsex
-                X = 2*currx + np.random.normal(0, wadd, len(curry))
-                Y = -currx + np.random.normal(0, wdev, len(currx))
+                X = currx + np.random.normal(0, wadd, len(curry))
+                Y = -1/2*currx + np.random.normal(0, wdev, len(currx))
 
             else:
                 wadd = np.sqrt(2)*currsey
                 wdev = currsey
-                X = 2*curry + np.random.normal(0, wadd, len(curry))
-                Y = -curry + np.random.normal(0, wdev, len(curry))
+                X = curry + np.random.normal(0, wadd, len(curry))
+                Y = -1/2*curry + np.random.normal(0, wdev, len(curry))
 
         elif epistasis == 'suppress':
             # flip a coin:
