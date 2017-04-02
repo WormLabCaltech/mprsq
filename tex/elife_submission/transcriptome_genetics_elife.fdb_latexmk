@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex transcriptome_genetics_nature"] 1490831467 "transcriptome_genetics_nature.aux" "transcriptome_genetics_nature.bbl" "transcriptome_genetics_nature" 1490831655
+["bibtex transcriptome_genetics_elife"] 1490910260 "transcriptome_genetics_elife.aux" "transcriptome_genetics_elife.bbl" "transcriptome_genetics_elife" 1491176517
   "./naturemag.bst" 1080547200 36391 276ebf7641f7f0dbffcfbf85f5bfe88b ""
   "citations.bib" 1488334697 224460 07eead8e38732be54405ff158d7b82ce ""
-  "transcriptome_genetics_nature.aux" 1490831654 30889 4453b546c3846791a65ccb9acbaa0187 ""
+  "transcriptome_genetics_elife.aux" 1491176516 30889 4453b546c3846791a65ccb9acbaa0187 ""
   (generated)
-  "transcriptome_genetics_nature.bbl"
-  "transcriptome_genetics_nature.blg"
-["pdflatex"] 1490831653 "transcriptome_genetics_nature.tex" "transcriptome_genetics_nature.pdf" "transcriptome_genetics_nature" 1490831655
+  "transcriptome_genetics_elife.blg"
+  "transcriptome_genetics_elife.bbl"
+["pdflatex"] 1491176515 "transcriptome_genetics_elife.tex" "transcriptome_genetics_elife.pdf" "transcriptome_genetics_elife" 1491176517
   "../figs/HIF1pathway.pdf" 1487982082 27686 4f10d21a278832a645a9d9c3f87b100d ""
   "../figs/bayesian-heatmap-horizontal.pdf" 1488088756 33474 4d55bc5d15b803afdb17b41d35f8d100 ""
   "../figs/decorrelation-horizontal.pdf" 1488089228 96750 3806919ed6eb7c77cb5f3fbaf26a6c9e ""
@@ -222,12 +222,12 @@
   "/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1489714609 2347740 a64585bea74103e522e12ca1308ca721 ""
   "/usr/local/texlive/2016/texmf-var/web2c/pdftex/pdflatex.fmt" 1489714637 3873789 a9a79940ae8da72f3213765301eb0765 ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "transcriptome_genetics_nature.aux" 1490831654 30889 4453b546c3846791a65ccb9acbaa0187 ""
-  "transcriptome_genetics_nature.bbl" 1490831467 25077 c816a4273454f052a3eb6d2547d22c7a "bibtex transcriptome_genetics_nature"
-  "transcriptome_genetics_nature.out" 1490831654 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "transcriptome_genetics_nature.tex" 1490831653 88615 588c748ad31d07df856cfac2f4516cdb ""
+  "transcriptome_genetics_elife.aux" 1491176516 30889 4453b546c3846791a65ccb9acbaa0187 ""
+  "transcriptome_genetics_elife.bbl" 1490910260 25077 c816a4273454f052a3eb6d2547d22c7a "bibtex transcriptome_genetics_elife"
+  "transcriptome_genetics_elife.out" 1491176516 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "transcriptome_genetics_elife.tex" 1491176514 89817 a71846f3d2b645390585a4bc1dad39f9 ""
   (generated)
-  "transcriptome_genetics_nature.log"
-  "transcriptome_genetics_nature.aux"
-  "transcriptome_genetics_nature.pdf"
-  "transcriptome_genetics_nature.out"
+  "transcriptome_genetics_elife.log"
+  "transcriptome_genetics_elife.pdf"
+  "transcriptome_genetics_elife.aux"
+  "transcriptome_genetics_elife.out"
