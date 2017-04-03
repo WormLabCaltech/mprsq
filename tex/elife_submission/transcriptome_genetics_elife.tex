@@ -376,31 +376,24 @@ reference to isoforms. However, we report the sizes of each gene set in
 by the number of genes they contain, not isoforms. For the case of \cel{}, this
 difference is negligible since the great majority of protein-coding genes have
 a single isoform, and most of the remaining protein-coding genes have two, with
-relatively few genes having more. We have opted for this method of talking about
+relatively few genes having more. We have opted for this method of referring to
 gene sets because it simplifies the language considerably.
 
 \begin{figure}[tbhp]
 \centering
 \includegraphics[width=\linewidth]{../figs/meaningofbeta.pdf}
-\caption{
-An example of a log-linear model to identify differentially expressed
-isoforms between genotypes.
-\textbf{A, C}. Estimated counts are calculated for
-detected isoforms, \gene{R08E5.3} and \gene{F15E11.15a}, using
-Kallisto~\cite{Bray2016} for a wild-type sample (blue dots), and a mutant genotype
-(green dots) each measured in biological triplicates.
-\textbf{B, D}. Estimated counts are log-transformed using a natural logarithm,
-and a regression coefficient is calculated for each perturbation with
-Sleuth~\cite{Pimentel2016}. The regression coefficient can be interpreted as the
-line of best fit between the points if the wild-type points and the mutant
-represented 0 and 1 on the x-coordinate. Within each mutant, every isoform can
-be associated with two numbers, $\beta$ and a q-value. If and only if (iff) the
-q-value for a given isoform is less than an arbitrary threshold (typically chosen
-to be 0.1 for RNA-seq studies), then that isoform is considered to be
-differentially expressed with respect to wild-type (N2). The q-value can be
-interpreted as a p-value that has been adjusted for multiple testing. Selecting
-a significance threshold of 0.1 corresponds to setting a 10\% False Discovery
-Rate.
+\caption{Workflow used to quantify changes in isoform expression.
+\textbf{A}. After sequencing, reads are quantified using Kallisto. Differential
+expression is calculated using Sleuth, which outputs one $\beta$ coefficient per
+detected isoform per perturbation or genotype except wild-type. $\beta$ coefficients
+are analogous to, though not exactly the same as, the natural logarithm of the
+fold-change. Downstream analyses can be performed after identifying $\beta$ coefficients
+that are statistically significantly different from 0. This can be done because
+each $\beta$ coefficient is associated with a q-value. Q-values less than 0.1 are
+considered statistically different from 0.
+\textbf{B}. An example of read quantification using Kallisto for a particular
+isoform (top panel) and differential expression quantification using Sleuth
+(bottom panel).
 }
 \label{fig:explain}
 \end{figure}
