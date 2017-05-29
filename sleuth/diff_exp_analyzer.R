@@ -2,44 +2,6 @@ library("sleuth")
 library("optparse")
 library("files")
 
-#command line arguments
-option_list <- list(
-  make_option(c("-v", "--verbose"), action="store_true", default=TRUE,
-              help="Print extra output [default]"),
-  make_option(c("-d", "--directory"), type='character', default=character(0),
-              help="Please specify the directory"),
-  make_option(c("-ge", "--genovar"), type='character', default=character(0),
-              help="Please specify the genotype variable name"),
-  make_option(c("-ba", "--batch"), action="store_true", default=FALSE,
-              help="Batch correction method"),
-  make_option(c("-bv", "--batchvar"), type='character', default=character(0),
-              help="Please specify the batch variable name"),
-  make_option(c("-s", "--shiny"), action='store_true', default=FALSE,
-              help="Command to open shiny console")
-)
-
-opt = parse_args(OptionParser(option_list=option_list))
-
-try (if(length(opt$d) == 0) stop('Directory cannot be empty'))
-
-try (if(!file.exists(opt$d)) stop('Directory must exist'))
-# try (if(file.exists(opt$d)) setwd(opt$d))
-
-if(length(opt$g) == 0){
-  genovar = 'genotypezmt'
-} else {
-  genovar = paste('genotype', opt$ge, sep='')
-}
-
-if(length(opt$batchvar) == 0){
-  batchvar = 'batchb'
-} else {
-  batchvar = paste('batch', opt$batchvar, sep='')
-}
-
-
-
-
 #gene info for sleuth
 print("Fetching bioMart info:")
 mart <- biomaRt::useMart(biomart = "ensembl", dataset = "celegans_gene_ensembl")
@@ -51,7 +13,7 @@ t2g <- dplyr::rename(t2g, target_id = ensembl_transcript_id,
 
 
 #point to your directory
-base_dir <- opt$d
+base_dir <- 'kallisto'
 
 #get ids
 sample_id <- dir(file.path(base_dir, "results"))
@@ -61,19 +23,28 @@ print(kal_dirs)
 s2c <- read.table(file.path(base_dir, "rna_seq_info.txt"), header = TRUE, stringsAsFactors= FALSE)
 print(s2c)
 
-if (opt$batch == TRUE){
-  s2c <- dplyr::select(s2c, sample= experiment, genotype, batch)
-  s2c <- dplyr::mutate(s2c, path = kal_dirs)
-  so <- sleuth_prep(s2c, ~ genotype+batch, target_mapping= t2g)
-  so <- sleuth_fit(so,~ genotype+batch, fit_name = 'full')
-  so <- sleuth_fit(so, ~batch, 'reduced')
-  so <- sleuth_lrt(so, 'reduced', 'full')
-} else {
-  s2c <- dplyr::select(s2c, sample = experiment, genotype)
-  s2c <- dplyr::mutate(s2c, path = kal_dirs)
-  so <- sleuth_prep(s2c, ~ genotype, target_mapping= t2g)
-  so <- sleuth_fit(so,~ genotype, fit_name = 'full')
-}
+s2c <- dplyr::select(s2c, sample= experiment, genotype, batch)
+s2c <- dplyr::mutate(s2c, path = kal_dirs)
+so <- sleuth_prep(s2c, ~ genotype+batch, target_mapping= t2g)
+so <- sleuth_fit(so,~ genotype+batch, fit_name = 'full')
+so <- sleuth_fit(so, ~batch, 'reduced')
+so <- sleuth_lrt(so, 'reduced', 'full')
+
+# print RSS from model
+sum(so$fits$full$summary[,2])
+
+# exclude outliers. N2Y1 and N2Y2 are outliers
+no_outliers = s2c[c(1:3, 6:27),]
+so <- sleuth_prep(no_outliers, ~ genotype+batch, target_mapping= t2g)
+so <- sleuth_fit(so,~ genotype+batch, fit_name = 'full')
+
+sum(so$fits$full$summary[,2])
+
+
+so <- sleuth_fit(so, ~batch, 'reduced')
+so <- sleuth_lrt(so, 'reduced', 'full')
+
+# make sure new RSS is significantly better than old
 
 #print(s2c)
 
@@ -85,29 +56,44 @@ if (opt$batch == TRUE){
 
 #Wald test implementations
 #no interactions
-so <- sleuth_wt(so, which_beta = genovar, which_model = 'full')
+so <- sleuth_wt(so, which_beta = 'genotypebB', which_model = 'full')
+so <- sleuth_wt(so, which_beta = 'genotypebA', which_model = 'full')
+so <- sleuth_wt(so, which_beta = 'genotypebC', which_model = 'full')
+so <- sleuth_wt(so, which_beta = 'genotypebD', which_model = 'full')
+so <- sleuth_wt(so, which_beta = 'genotypebE', which_model = 'full')
+so <- sleuth_wt(so, which_beta = 'genotypebF', which_model = 'full')
+so <- sleuth_wt(so, which_beta = 'genotypebG', which_model = 'full')
 
 
 #write results to tables
-results_table <- sleuth_results(so, genovar, 'full', test_type= 'wt')
-write.csv(results_table, paste(base_dir, 'betas.csv', sep='/'))
+results_table <- sleuth_results(so, 'genotypebB', 'full', test_type= 'wt')
+write.csv(results_table, paste(base_dir, 'betasB.csv', sep='/'))
+results_table <- sleuth_results(so, 'genotypebA', 'full', test_type= 'wt')
+write.csv(results_table, paste(base_dir, 'betasA.csv', sep='/'))
+results_table <- sleuth_results(so, 'genotypebC', 'full', test_type= 'wt')
+write.csv(results_table, paste(base_dir, 'betasC.csv', sep='/'))
+results_table <- sleuth_results(so, 'genotypebD', 'full', test_type= 'wt')
+write.csv(results_table, paste(base_dir, 'betasD.csv', sep='/'))
+results_table <- sleuth_results(so, 'genotypebE', 'full', test_type= 'wt')
+write.csv(results_table, paste(base_dir, 'betasE.csv', sep='/'))
+results_table <- sleuth_results(so, 'genotypebF', 'full', test_type= 'wt')
+write.csv(results_table, paste(base_dir, 'betasF.csv', sep='/'))
+results_table <- sleuth_results(so, 'genotypebG', 'full', test_type= 'wt')
+write.csv(results_table, paste(base_dir, 'betasG.csv', sep='/'))
 
-results_table <- sleuth_results(so, genovar, 'full', test_type= 'wt')
-write.csv(results_table, paste(base_dir, 'betas.csv', sep='/'))
+#so <- sleuth_wt(so, which_beta = '(Intercept)', which_model = 'full')
+#so <- sleuth_wt(so, which_beta = batchvar, which_model = 'full')
 
-if (opt$batch == TRUE) {
-  so <- sleuth_wt(so, which_beta = '(Intercept)', which_model = 'full')
-  so <- sleuth_wt(so, which_beta = batchvar, which_model = 'full')
-  results_table <- sleuth_results(so, '(Intercept)','full', test_type= 'wt')
-  write.csv(results_table, paste(base_dir, 'intercept.csv', sep='/'))
-  results_table <- sleuth_results(so, batchvar,'full', test_type= 'wt')
-  write.csv(results_table, paste(base_dir, 'batch.csv', sep='/'))
-  sr <- sleuth_results(so, 'reduced:full', 'lrt')
-  write.csv(sr, paste(base_dir, 'batch_lrt.csv', sep='/'))
-}
+#results_table <- sleuth_results(so, '(Intercept)','full', test_type= 'wt')
+#write.csv(results_table, paste(base_dir, 'intercept.csv', sep='/'))
+
+#results_table <- sleuth_results(so, batchvar,'full', test_type= 'wt')
+#write.csv(results_table, paste(base_dir, 'batch.csv', sep='/'))
+
+sr <- sleuth_results(so, 'reduced:full', 'lrt')
+write.csv(sr, paste(base_dir, 'batch_lrt.csv', sep='/'))
 
 
-#if you want to look at shiny
-if (opt$shiny){
-  sleuth_live(so)
-}
+
+sleuth_live(so)
+

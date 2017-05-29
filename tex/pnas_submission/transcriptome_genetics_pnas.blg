@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: transcriptome_genetics_pnas.aux
+The style file: pnas-new.bst
+Database file #1: citations.bib
+Repeated entry---line 1988 of file citations.bib
+ : @article{Angeles-Albores2016a
+ :                              ,
+I'm skipping whatever remains of this entry
+Warning--there's a number but no volume in Huang2006
+Warning--empty journal in Team2014
+Warning--empty journal in Waskom
+You've used 60 entries,
+            1837 wiz_defined-function locations,
+            876 strings with 18859 characters,
+and the built_in function-call counts, 14068 in all, are:
+= -- 1187
+> -- 704
+< -- 3
++ -- 212
+- -- 152
+* -- 1259
+:= -- 2127
+add.period$ -- 118
+call.type$ -- 60
+change.case$ -- 60
+chr.to.int$ -- 0
+cite$ -- 63
+duplicate$ -- 622
+empty$ -- 1307
+format.name$ -- 152
+if$ -- 2996
+int.to.chr$ -- 0
+int.to.str$ -- 60
+missing$ -- 60
+newline$ -- 241
+num.names$ -- 60
+pop$ -- 81
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 357
+stack$ -- 0
+substring$ -- 1218
+swap$ -- 149
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 3
+while$ -- 157
+width$ -- 62
+write$ -- 594
+(There was 1 error message)

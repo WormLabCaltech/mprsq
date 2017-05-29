@@ -315,16 +315,19 @@ def epiplot(X, Y, Y_se, **kwargs):
     plot_unbranched = kwargs.pop('plot_unbranched', False)
     beta = kwargs.pop('beta', np.nan)
     s0 = kwargs.pop('s0', 15)
-
+    cmap = kwargs.pop('cmap', 'viridis')
+    ax = kwargs.pop('ax', None)
     # Calculate the point density
     points = np.vstack([X, Y])
     z = gaussian_kde(points)(points)
 
     # plot:
-    fig, ax = plt.subplots()
+    if ax is None:
+        fig, ax = plt.subplots()
+
     if len(X) > 50:
         ax.scatter(X, Y, c=z, s=s0/Y_se,
-                   edgecolor='', cmap='viridis', alpha=0.5)
+                   edgecolor='', cmap=cmap, alpha=0.5)
     else:
         ax.scatter(X, Y, s=s0/np.sqrt(Y_se),
                    color='#33a02c', alpha=.9)
@@ -335,7 +338,7 @@ def epiplot(X, Y, Y_se, **kwargs):
                  label='Unbranched Pathway')
     if beta:
         plot_epistasis_regression(X, beta, ls='-', lw=2.3,
-                                  color='#33a02c', label='fit')
+                                  color='#33a02c', label='data fit')
 
     plt.xlabel(r'Predicted Additive Effect')
     plt.ylabel(r'Deviation from Additive Effect')
@@ -400,7 +403,7 @@ def plot_bootstraps(x, y, epicoef, **kwargs):
     colors = {'actual': '#33a02c', 'xy=x': 'blue', 'xy=y': 'k',
               'xy=x=y': '#1f78b4', 'xy=x+y': '#ff7f00', 'suppress': '#e31a1c'
               }
-    labels = {'actual': 'actual', 'xy=x': label(x, y),
+    labels = {'actual': 'data', 'xy=x': label(x, y),
               'xy=y': label(y, x), 'xy=x=y': 'Unbranched',
               'xy=x+y': 'Additive', 'suppress': 'Suppression'
               }
