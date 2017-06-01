@@ -1,8 +1,0 @@
-# Sleuth design matrix for WT-d
-experiment genotype
-Project_17434_indexN704-N517 awt
-Project_17435_indexN704-N502 awt
-Project_17436_indexN704-N503 awt
-Project_17446_indexN705-N505 zd
-Project_17447_indexN705-N506 zd
-Project_17448_indexN705-N507 zd

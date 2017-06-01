@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: transcriptome_genetics_pnas.aux
+The style file: pnas-new.bst
+Database file #1: citations.bib
+Warning--there's a number but no volume in Huang2006
+Warning--empty journal in Waskom
+You've used 51 entries,
+            1837 wiz_defined-function locations,
+            826 strings with 16545 characters,
+and the built_in function-call counts, 11982 in all, are:
+= -- 1011
+> -- 604
+< -- 2
++ -- 181
+- -- 130
+* -- 1081
+:= -- 1818
+add.period$ -- 101
+call.type$ -- 51
+change.case$ -- 51
+chr.to.int$ -- 0
+cite$ -- 53
+duplicate$ -- 522
+empty$ -- 1115
+format.name$ -- 130
+if$ -- 2546
+int.to.chr$ -- 0
+int.to.str$ -- 51
+missing$ -- 51
+newline$ -- 206
+num.names$ -- 51
+pop$ -- 65
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 292
+stack$ -- 0
+substring$ -- 1050
+swap$ -- 119
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 2
+while$ -- 136
+width$ -- 53
+write$ -- 507
+(There were 2 warnings)

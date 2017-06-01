@@ -9,45 +9,45 @@ Repeated entry---line 1988 of file citations.bib
 I'm skipping whatever remains of this entry
 Warning--empty journal in Team2014
 Warning--empty journal in Waskom
-You've used 68 entries,
+You've used 60 entries,
             2348 wiz_defined-function locations,
-            1430 strings with 26677 characters,
-and the built_in function-call counts, 27880 in all, are:
-= -- 2032
-> -- 740
+            1376 strings with 23910 characters,
+and the built_in function-call counts, 24656 in all, are:
+= -- 1784
+> -- 676
 < -- 0
-+ -- 370
-- -- 185
-* -- 3468
-:= -- 3099
-add.period$ -- 202
-call.type$ -- 68
-change.case$ -- 68
++ -- 338
+- -- 169
+* -- 3068
+:= -- 2735
+add.period$ -- 178
+call.type$ -- 60
+change.case$ -- 60
 chr.to.int$ -- 0
-cite$ -- 70
-duplicate$ -- 2485
-empty$ -- 2493
-format.name$ -- 244
-if$ -- 5526
+cite$ -- 62
+duplicate$ -- 2203
+empty$ -- 2189
+format.name$ -- 222
+if$ -- 4886
 int.to.chr$ -- 0
-int.to.str$ -- 68
-missing$ -- 576
-newline$ -- 346
-num.names$ -- 68
-pop$ -- 406
+int.to.str$ -- 60
+missing$ -- 512
+newline$ -- 306
+num.names$ -- 60
+pop$ -- 372
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 438
+skip$ -- 398
 stack$ -- 0
-substring$ -- 1433
-swap$ -- 2493
+substring$ -- 1221
+swap$ -- 2215
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 2
-while$ -- 182
-width$ -- 70
-write$ -- 747
+while$ -- 158
+width$ -- 62
+write$ -- 659
 (There was 1 error message)

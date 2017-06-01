@@ -119,21 +119,6 @@
   \textbf{\bibinfo{volume}{3}}, \bibinfo{pages}{339--352}
   (\bibinfo{year}{2014}).
 
-\bibitem{Hughes2000}
-\bibinfo{author}{Hughes, T.~R.} \emph{et~al.}
-\newblock \bibinfo{title}{{Functional Discovery via a Compendium of Expression
-  Profiles}}.
-\newblock \emph{\bibinfo{journal}{Cell}} \textbf{\bibinfo{volume}{102}},
-  \bibinfo{pages}{109--126} (\bibinfo{year}{2000}).
-
-\bibitem{VanDriessche2005}
-\bibinfo{author}{{Van Driessche}, N.} \emph{et~al.}
-\newblock \bibinfo{title}{{Epistasis analysis with global transcriptional
-  phenotypes}}.
-\newblock \emph{\bibinfo{journal}{Nature Genetics}}
-  \textbf{\bibinfo{volume}{37}}, \bibinfo{pages}{471--477}
-  (\bibinfo{year}{2005}).
-
 \bibitem{Brem2002}
 \bibinfo{author}{Brem, R.~B.}, \bibinfo{author}{Yvert, G.},
   \bibinfo{author}{Clinton, R.} \& \bibinfo{author}{Kruglyak, L.}
@@ -167,12 +152,20 @@
   \textbf{\bibinfo{volume}{10}}, \bibinfo{pages}{e1004322}
   (\bibinfo{year}{2014}).
 
-\bibitem{Adamson2016}
-\bibinfo{author}{Adamson, B.} \emph{et~al.}
-\newblock \bibinfo{title}{{A Multiplexed Single-Cell CRISPR Screening Platform
-  Enables Systematic Dissection of the Unfolded Protein Response}}.
-\newblock \emph{\bibinfo{journal}{Cell}} \textbf{\bibinfo{volume}{167}},
-  \bibinfo{pages}{1867--1882.e21} (\bibinfo{year}{2016}).
+\bibitem{Hughes2000}
+\bibinfo{author}{Hughes, T.~R.} \emph{et~al.}
+\newblock \bibinfo{title}{{Functional Discovery via a Compendium of Expression
+  Profiles}}.
+\newblock \emph{\bibinfo{journal}{Cell}} \textbf{\bibinfo{volume}{102}},
+  \bibinfo{pages}{109--126} (\bibinfo{year}{2000}).
+
+\bibitem{VanDriessche2005}
+\bibinfo{author}{{Van Driessche}, N.} \emph{et~al.}
+\newblock \bibinfo{title}{{Epistasis analysis with global transcriptional
+  phenotypes}}.
+\newblock \emph{\bibinfo{journal}{Nature Genetics}}
+  \textbf{\bibinfo{volume}{37}}, \bibinfo{pages}{471--477}
+  (\bibinfo{year}{2005}).
 
 \bibitem{Dixit2016}
 \bibinfo{author}{Dixit, A.} \emph{et~al.}
@@ -333,37 +326,6 @@
   \textbf{\bibinfo{volume}{31}}, \bibinfo{pages}{1618--1619}
   (\bibinfo{year}{2012}).
 
-\bibitem{Powell-Coffman2010}
-\bibinfo{author}{Powell-Coffman, J.~A.}
-\newblock \bibinfo{title}{{Hypoxia signaling and resistance in \emph{C.
-  elegans}}}.
-\newblock \emph{\bibinfo{journal}{Trends in Endocrinology and Metabolism}}
-  \textbf{\bibinfo{volume}{21}}, \bibinfo{pages}{435--440}
-  (\bibinfo{year}{2010}).
-
-\bibitem{Angeles-Albores2016}
-\bibinfo{author}{Angeles-Albores, D.}, \bibinfo{author}{{N. Lee}, R.~Y.},
-  \bibinfo{author}{Chan, J.} \& \bibinfo{author}{Sternberg, P.~W.}
-\newblock \bibinfo{title}{{Tissue enrichment analysis for \emph{C. elegans}
-  genomics}}.
-\newblock \emph{\bibinfo{journal}{BMC Bioinformatics}}
-  \textbf{\bibinfo{volume}{17}}, \bibinfo{pages}{366} (\bibinfo{year}{2016}).
-
-\bibitem{Angeles-Albores2016b}
-\bibinfo{author}{Angeles-Albores, D.}, \bibinfo{author}{Lee, R.~Y.},
-  \bibinfo{author}{Chan, J.} \& \bibinfo{author}{Sternberg, P.~W.}
-\newblock \bibinfo{title}{{Phenotype and gene ontology enrichment as guides for
-  disease modeling in C. elegans}}.
-\newblock \emph{\bibinfo{journal}{bioRxiv}}  (\bibinfo{year}{2017}).
-
-\bibitem{Luhachack2012}
-\bibinfo{author}{Luhachack, L.~G.} \emph{et~al.}
-\newblock \bibinfo{title}{{EGL-9 Controls \emph{C. elegans} Host Defense
-  Specificity through Prolyl Hydroxylation-Dependent and -Independent HIF-1
-  Pathways}}.
-\newblock \emph{\bibinfo{journal}{PLoS Pathogens}}
-  \textbf{\bibinfo{volume}{8}}, \bibinfo{pages}{48} (\bibinfo{year}{2012}).
-
 \bibitem{Ackerman2012}
 \bibinfo{author}{Ackerman, D.} \& \bibinfo{author}{Gems, D.}
 \newblock \bibinfo{title}{{Insulin/IGF-1 and hypoxia signaling act in concert
@@ -380,57 +342,13 @@
 \newblock \emph{\bibinfo{journal}{PLoS Genetics}} \textbf{\bibinfo{volume}{7}}
   (\bibinfo{year}{2011}).
 
-\bibitem{Semenza2011}
-\bibinfo{author}{Semenza, G.~L.}
-\newblock \bibinfo{title}{{Hypoxia-inducible factor 1: Regulator of
-  mitochondrial metabolism and mediator of ischemic preconditioning}}.
-\newblock \emph{\bibinfo{journal}{Biochimica et Biophysica Acta - Molecular
-  Cell Research}} \textbf{\bibinfo{volume}{1813}}, \bibinfo{pages}{1263--1268}
-  (\bibinfo{year}{2011}).
-
-\bibitem{Lee2010}
-\bibinfo{author}{Lee, S.~J.}, \bibinfo{author}{Hwang, A.~B.} \&
-  \bibinfo{author}{Kenyon, C.}
-\newblock \bibinfo{title}{{Inhibition of respiration extends \emph{C. elegans}
-  life span via reactive oxygen species that increase HIF-1 activity}}.
-\newblock \emph{\bibinfo{journal}{Current Biology}}
-  \textbf{\bibinfo{volume}{20}}, \bibinfo{pages}{2131--2136}
-  (\bibinfo{year}{2010}).
-
-\bibitem{Pfleger2015}
-\bibinfo{author}{Pfleger, J.}, \bibinfo{author}{He, M.} \&
-  \bibinfo{author}{Abdellatif, M.}
-\newblock \bibinfo{title}{{Mitochondrial complex II is a source of the reserve
-  respiratory capacity that is regulated by metabolic sensors and promotes cell
-  survival}}.
-\newblock \emph{\bibinfo{journal}{Cell Death and Disease}}
-  \textbf{\bibinfo{volume}{6}}, \bibinfo{pages}{1--14} (\bibinfo{year}{2015}).
-
-\bibitem{Sikora2010}
-\bibinfo{author}{Sikora, J.} \emph{et~al.}
-\newblock \bibinfo{title}{{Bioinformatic and biochemical studies point to
-  AAGR-1 as the ortholog of human acid $\alpha$-glucosidase in
-  \emph{Caenorhabditis elegans}}}.
-\newblock \emph{\bibinfo{journal}{Molecular and Cellular Biochemistry}}
-  \textbf{\bibinfo{volume}{341}}, \bibinfo{pages}{51--63}
-  (\bibinfo{year}{2010}).
-
-\bibitem{Brugarolas2004}
-\bibinfo{author}{Brugarolas, J.} \emph{et~al.}
-\newblock \bibinfo{title}{{Regulation of mTOR function in response to hypoxia
-  by REDD1 and the TSC1/TSC2 tumor suppressor complex}}.
-\newblock \emph{\bibinfo{journal}{Genes and Development}}
-  \textbf{\bibinfo{volume}{18}}, \bibinfo{pages}{1--12} (\bibinfo{year}{2004}).
-
-\bibitem{Sudarshan2009}
-\bibinfo{author}{Sudarshan, S.} \emph{et~al.}
-\newblock \bibinfo{title}{{Fumarate hydratase deficiency in renal cancer
-  induces glycolytic addiction and hypoxia-inducible transcription factor
-  1$\alpha$ stabilization by glucose-dependent generation of reactive oxygen
-  species}}.
-\newblock \emph{\bibinfo{journal}{Mol Cell Biol}}
-  \textbf{\bibinfo{volume}{29}}, \bibinfo{pages}{4080--4090}
-  (\bibinfo{year}{2009}).
+\bibitem{Luhachack2012}
+\bibinfo{author}{Luhachack, L.~G.} \emph{et~al.}
+\newblock \bibinfo{title}{{EGL-9 Controls \emph{C. elegans} Host Defense
+  Specificity through Prolyl Hydroxylation-Dependent and -Independent HIF-1
+  Pathways}}.
+\newblock \emph{\bibinfo{journal}{PLoS Pathogens}}
+  \textbf{\bibinfo{volume}{8}}, \bibinfo{pages}{48} (\bibinfo{year}{2012}).
 
 \bibitem{Shao2010}
 \bibinfo{author}{Shao, Z.}, \bibinfo{author}{Zhang, Y.}, \bibinfo{author}{Ye,
@@ -540,6 +458,14 @@
   \textbf{\bibinfo{volume}{9}}, \bibinfo{pages}{99--104}
   (\bibinfo{year}{2007}).
 
+\bibitem{Angeles-Albores2016}
+\bibinfo{author}{Angeles-Albores, D.}, \bibinfo{author}{{N. Lee}, R.~Y.},
+  \bibinfo{author}{Chan, J.} \& \bibinfo{author}{Sternberg, P.~W.}
+\newblock \bibinfo{title}{{Tissue enrichment analysis for \emph{C. elegans}
+  genomics}}.
+\newblock \emph{\bibinfo{journal}{BMC Bioinformatics}}
+  \textbf{\bibinfo{volume}{17}}, \bibinfo{pages}{366} (\bibinfo{year}{2016}).
+
 \bibitem{Waskom}
 \bibinfo{author}{Waskom, M.} \emph{et~al.}
 \newblock \bibinfo{title}{{seaborn: v0.7.0 (January 2016)}}
@@ -551,5 +477,12 @@
   Computing Python: An Open and General- Purpose Environment}}.
 \newblock \emph{\bibinfo{journal}{Computing in Science and Engineering}}
   \textbf{\bibinfo{volume}{9}}, \bibinfo{pages}{21--29} (\bibinfo{year}{2007}).
+
+\bibitem{Angeles-Albores2016b}
+\bibinfo{author}{Angeles-Albores, D.}, \bibinfo{author}{Lee, R.~Y.},
+  \bibinfo{author}{Chan, J.} \& \bibinfo{author}{Sternberg, P.~W.}
+\newblock \bibinfo{title}{{Phenotype and gene ontology enrichment as guides for
+  disease modeling in C. elegans}}.
+\newblock \emph{\bibinfo{journal}{bioRxiv}}  (\bibinfo{year}{2017}).
 
 \end{thebibliography}

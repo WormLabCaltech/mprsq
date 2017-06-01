@@ -1,7 +1,0 @@
-\select@language {english}
-\contentsline {section}{\numberline {1}Introduction}{1}
-\contentsline {section}{\numberline {2}Definition of a Genetic Logic and Some Simple Examples}{1}
-\contentsline {section}{\numberline {3}Progressive Decorrelation Provides Information for Ordering Nodes in a Network}{3}
-\contentsline {section}{\numberline {4}Layers of Regulation}{4}
-\contentsline {section}{\numberline {5}A First Attempt at the Hypoxia Pathway}{5}
-\contentsline {subsection}{\numberline {5.1}qPCR analysis}{7}
