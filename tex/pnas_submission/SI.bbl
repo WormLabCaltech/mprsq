@@ -1,0 +1,164 @@
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem{Shao2009}
+\bibinfo{author}{Shao, Z.}, \bibinfo{author}{Zhang, Y.} \&
+  \bibinfo{author}{Powell-Coffman, J.~A.}
+\newblock \bibinfo{title}{{Two Distinct Roles for EGL-9 in the Regulation of
+  HIF-1-mediated gene expression in Caenorhabditis elegans}}.
+\newblock \emph{\bibinfo{journal}{Genetics}} \textbf{\bibinfo{volume}{183}},
+  \bibinfo{pages}{821--829} (\bibinfo{year}{2009}).
+
+\bibitem{Shen2006}
+\bibinfo{author}{Shen, C.}, \bibinfo{author}{Shao, Z.} \&
+  \bibinfo{author}{Powell-Coffman, J.~A.}
+\newblock \bibinfo{title}{{The Caenorhabditis elegans rhy-1 Gene Inhibits HIF-1
+  Hypoxia-Inducible Factor Activity in a Negative Feedback Loop That Does Not
+  Include vhl-1}}.
+\newblock \emph{\bibinfo{journal}{Genetics}} \textbf{\bibinfo{volume}{174}},
+  \bibinfo{pages}{1205--1214} (\bibinfo{year}{2006}).
+
+\bibitem{Shen2005}
+\bibinfo{author}{Shen, C.}, \bibinfo{author}{Nettleton, D.},
+  \bibinfo{author}{Jiang, M.}, \bibinfo{author}{Kim, S.~K.} \&
+  \bibinfo{author}{Powell-Coffman, J.~A.}
+\newblock \bibinfo{title}{{Roles of the HIF-1 hypoxia-inducible factor during
+  hypoxia response in Caenorhabditis elegans}}.
+\newblock \emph{\bibinfo{journal}{Journal of Biological Chemistry}}
+  \textbf{\bibinfo{volume}{280}}, \bibinfo{pages}{20580--20588}
+  (\bibinfo{year}{2005}).
+
+\bibitem{Park2012}
+\bibinfo{author}{Park, E.~C.} \emph{et~al.}
+\newblock \bibinfo{title}{{Hypoxia regulates glutamate receptor trafficking
+  through an HIF-independent mechanism}}.
+\newblock \emph{\bibinfo{journal}{The EMBO Journal}}
+  \textbf{\bibinfo{volume}{31}}, \bibinfo{pages}{1618--1619}
+  (\bibinfo{year}{2012}).
+
+\bibitem{Powell-Coffman2010}
+\bibinfo{author}{Powell-Coffman, J.~A.}
+\newblock \bibinfo{title}{{Hypoxia signaling and resistance in C. elegans}}.
+\newblock \emph{\bibinfo{journal}{Trends in Endocrinology and Metabolism}}
+  \textbf{\bibinfo{volume}{21}}, \bibinfo{pages}{435--440}
+  (\bibinfo{year}{2010}).
+\newblock \urlprefix\url{http://dx.doi.org/10.1016/j.tem.2010.02.006}.
+
+\bibitem{Angeles-Albores2016}
+\bibinfo{author}{Angeles-Albores, D.}, \bibinfo{author}{{N. Lee}, R.~Y.},
+  \bibinfo{author}{Chan, J.} \& \bibinfo{author}{Sternberg, P.~W.}
+\newblock \bibinfo{title}{{Tissue enrichment analysis for C. elegans
+  genomics}}.
+\newblock \emph{\bibinfo{journal}{BMC Bioinformatics}}
+  \textbf{\bibinfo{volume}{17}}, \bibinfo{pages}{366} (\bibinfo{year}{2016}).
+\newblock
+  \urlprefix\url{http://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-016-1229-9}.
+
+\bibitem{Luhachack2012}
+\bibinfo{author}{Luhachack, L.~G.} \emph{et~al.}
+\newblock \bibinfo{title}{{EGL-9 Controls C. elegans Host Defense Specificity
+  through Prolyl Hydroxylation-Dependent and -Independent HIF-1 Pathways}}.
+\newblock \emph{\bibinfo{journal}{PLoS Pathogens}}
+  \textbf{\bibinfo{volume}{8}}, \bibinfo{pages}{48} (\bibinfo{year}{2012}).
+
+\bibitem{Ackerman2012}
+\bibinfo{author}{Ackerman, D.} \& \bibinfo{author}{Gems, D.}
+\newblock \bibinfo{title}{{Insulin/IGF-1 and hypoxia signaling act in concert
+  to regulate iron homeostasis in Caenorhabditis elegans}}.
+\newblock \emph{\bibinfo{journal}{PLoS Genetics}} \textbf{\bibinfo{volume}{8}}
+  (\bibinfo{year}{2012}).
+
+\bibitem{Romney2011}
+\bibinfo{author}{Romney, S.~J.}, \bibinfo{author}{Newman, B.~S.},
+  \bibinfo{author}{Thacker, C.} \& \bibinfo{author}{Leibold, E.~A.}
+\newblock \bibinfo{title}{{HIF-1 regulates iron homeostasis in caenorhabditis
+  elegans by activation and inhibition of genes involved in iron uptake and
+  storage}}.
+\newblock \emph{\bibinfo{journal}{PLoS Genetics}} \textbf{\bibinfo{volume}{7}}
+  (\bibinfo{year}{2011}).
+
+\bibitem{Semenza2011}
+\bibinfo{author}{Semenza, G.~L.}
+\newblock \bibinfo{title}{{Hypoxia-inducible factor 1: Regulator of
+  mitochondrial metabolism and mediator of ischemic preconditioning}}.
+\newblock \emph{\bibinfo{journal}{Biochimica et Biophysica Acta - Molecular
+  Cell Research}} \textbf{\bibinfo{volume}{1813}}, \bibinfo{pages}{1263--1268}
+  (\bibinfo{year}{2011}).
+\newblock \urlprefix\url{http://dx.doi.org/10.1016/j.bbamcr.2010.08.006}.
+
+\bibitem{Lee2010}
+\bibinfo{author}{Lee, S.~J.}, \bibinfo{author}{Hwang, A.~B.} \&
+  \bibinfo{author}{Kenyon, C.}
+\newblock \bibinfo{title}{{Inhibition of respiration extends C. elegans life
+  span via reactive oxygen species that increase HIF-1 activity}}.
+\newblock \emph{\bibinfo{journal}{Current Biology}}
+  \textbf{\bibinfo{volume}{20}}, \bibinfo{pages}{2131--2136}
+  (\bibinfo{year}{2010}).
+\newblock \urlprefix\url{http://dx.doi.org/10.1016/j.cub.2010.10.057}.
+\newblock \eprint{NIHMS150003}.
+
+\bibitem{Semenza1994}
+\bibinfo{author}{Semenza, G.~L.}, \bibinfo{author}{Roth, P.~H.},
+  \bibinfo{author}{Fang, H.~M.} \& \bibinfo{author}{Wang, G.~L.}
+\newblock \bibinfo{title}{{Transcriptional regulation of genes encoding
+  glycolytic enzymes by hypoxia-inducible factor 1.}}
+\newblock \emph{\bibinfo{journal}{The Journal of biological chemistry}}
+  \textbf{\bibinfo{volume}{269}}, \bibinfo{pages}{23757--63}
+  (\bibinfo{year}{1994}).
+\newblock \urlprefix\url{http://www.ncbi.nlm.nih.gov/pubmed/8089148}.
+
+\bibitem{Semenza2012}
+\bibinfo{author}{Semenza, G.~L.}
+\newblock \bibinfo{title}{{Hypoxia-inducible factors in physiology and
+  medicine}}.
+\newblock \emph{\bibinfo{journal}{Cell}} \textbf{\bibinfo{volume}{148}},
+  \bibinfo{pages}{399--408} (\bibinfo{year}{2012}).
+\newblock \urlprefix\url{http://dx.doi.org/10.1016/j.cell.2012.01.021}.
+
+\bibitem{Pfleger2015}
+\bibinfo{author}{Pfleger, J.}, \bibinfo{author}{He, M.} \&
+  \bibinfo{author}{Abdellatif, M.}
+\newblock \bibinfo{title}{{Mitochondrial complex II is a source of the reserve
+  respiratory capacity that is regulated by metabolic sensors and promotes cell
+  survival}}.
+\newblock \emph{\bibinfo{journal}{Cell Death and Disease}}
+  \textbf{\bibinfo{volume}{6}}, \bibinfo{pages}{1--14} (\bibinfo{year}{2015}).
+\newblock
+  \urlprefix\url{http://www.nature.com/doifinder/10.1038/cddis.2015.202}.
+
+\bibitem{Sikora2010}
+\bibinfo{author}{Sikora, J.} \emph{et~al.}
+\newblock \bibinfo{title}{{Bioinformatic and biochemical studies point to
+  AAGR-1 as the ortholog of human acid ??-glucosidase in Caenorhabditis
+  elegans}}.
+\newblock \emph{\bibinfo{journal}{Molecular and Cellular Biochemistry}}
+  \textbf{\bibinfo{volume}{341}}, \bibinfo{pages}{51--63}
+  (\bibinfo{year}{2010}).
+\newblock \urlprefix\url{http://link.springer.com/10.1007/s11010-010-0436-3}.
+
+\bibitem{Brugarolas2004}
+\bibinfo{author}{Brugarolas, J.} \emph{et~al.}
+\newblock \bibinfo{title}{{Regulation of mTOR function in response to hypoxia
+  by REDD1 and the TSC1 / TSC2 tumor suppressor complex}}.
+\newblock \emph{\bibinfo{journal}{Genes and Development}}
+  \textbf{\bibinfo{volume}{18}}, \bibinfo{pages}{1--12} (\bibinfo{year}{2004}).
+\newblock
+  \urlprefix\url{http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=534650{\&}tool=pmcentrez{\&}rendertype=abstract}.
+
+\bibitem{Sudarshan2009}
+\bibinfo{author}{Sudarshan, S.} \emph{et~al.}
+\newblock \bibinfo{title}{{Fumarate hydratase deficiency in renal cancer
+  induces glycolytic addiction and hypoxia-inducible transcription factor
+  1alpha stabilization by glucose-dependent generation of reactive oxygen
+  species}}.
+\newblock \emph{\bibinfo{journal}{Mol Cell Biol}}
+  \textbf{\bibinfo{volume}{29}}, \bibinfo{pages}{4080--4090}
+  (\bibinfo{year}{2009}).
+\newblock
+  \urlprefix\url{http://mcb.asm.org/cgi/doi/10.1128/MCB.00483-09{\%}5Cnhttp://www.ncbi.nlm.nih.gov/pubmed/19470762}.
+
+\end{thebibliography}

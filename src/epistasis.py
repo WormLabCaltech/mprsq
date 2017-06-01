@@ -54,8 +54,10 @@ def find_overlap(genotypes, df, q=0.1, col='code'):
     return genes
 
 
-def find_additive(single_muts, double_mut, df, q=0.1):
+def find_STP(single_muts, double_mut, df, q=0.1):
     """
+    Finds Shared Transcriptomic Phenotype among 2 single and a double mutant.
+
     Given 3 genotypes, find shared DE genes and return sliced dataframes.
 
     Params:
@@ -95,7 +97,17 @@ def f(B, x):
 
 
 def perform_odr(add, dev, wadd, wdev):
-    """A wrapper to calculate an ODR regression."""
+    """
+    A wrapper to calculate an ODR regression.
+
+    params:
+    -------
+    add, dev - x and y axis of the regression
+    wadd, wdev - standard deviations
+
+    returns:
+    an ODR object
+    """
     linear = odr.Model(f)
     # mydata = odr.Data(add, dev, wd=1./wadd, we=1./wdev)
     mydata = odr.RealData(add, dev, sx=wadd, sy=wdev)
@@ -205,7 +217,7 @@ def bootstrap(bframe, sebframe, epistasis='actual', nsim=1000):
         if epistasis == 'actual':
             X = currx + curry
             Y = currxy - X
-            wdev = wadd**2 + currsexy**2
+            wdev = np.sqrt(wadd**2 + currsexy**2)
 
         elif epistasis == 'xy=x':
             X = currx + curry
@@ -293,7 +305,7 @@ def bootstrap_regression(singles, double, df, epistasis='actual', nsim=100):
            values from the bootstrap
     """
     nsim = int(nsim)
-    x, y, xy = find_additive(singles, double, df)
+    x, y, xy = find_STP(singles, double, df)
 
     xb = x.b.values
     yb = y.b.values
@@ -340,8 +352,8 @@ def epiplot(X, Y, Y_se, **kwargs):
         plot_epistasis_regression(X, beta, ls='-', lw=2.3,
                                   color='#33a02c', label='data fit')
 
-    plt.xlabel(r'Predicted Additive Effect')
-    plt.ylabel(r'Deviation from Additive Effect')
+    plt.xlabel(r'Predicted log-Additive Effect')
+    plt.ylabel(r'Deviation from log-Additive Effect')
 
     plt.legend()
     return ax
@@ -361,7 +373,7 @@ def make_epiplot(singles, double, df, **kwargs):
     xy - tidy dataframe containing the DE gene data for the double mutant
     ax - axis containing the plot
     """
-    x, y, xy = find_additive(singles, double, df)
+    x, y, xy = find_STP(singles, double, df)
     actual = ODR([x, y], xy, 'actual')
 
     # transform coordinates:
@@ -405,7 +417,7 @@ def plot_bootstraps(x, y, epicoef, **kwargs):
               }
     labels = {'actual': 'data', 'xy=x': label(x, y),
               'xy=y': label(y, x), 'xy=x=y': 'Unbranched',
-              'xy=x+y': 'Additive', 'suppress': 'Suppression'
+              'xy=x+y': 'log-Additive', 'suppress': 'Suppression'
               }
 
     # checks and balances
