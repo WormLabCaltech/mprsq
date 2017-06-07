@@ -2,7 +2,7 @@
 
 \bibitem{Huang2006}
 Huang LS, Sternberg PW (2006) {Genetic dissection of developmental pathways.}
-\newblock {\em WormBook : the online review of C. elegans biology}
+\newblock {\em WormBook: the online review of \emph{C.~elegans} biology}
   (1995):1--19.
 
 \bibitem{Phillips2008}
@@ -17,7 +17,7 @@ Mortazavi A, Williams BA, McCue K, Schaeffer L, Wold B (2008) {Mapping and
 
 \bibitem{Schwarz2012}
 Schwarz EM, Kato M, Sternberg PW (2012) {Functional transcriptomics of a
-  migrating cell in Caenorhabditis elegans.}
+  migrating cell in \emph{Caenorhabditis~elegans}.}
 \newblock {\em Proceedings of the National Academy of Sciences of the United
   States of America} 109(40):16246--51.
 
@@ -29,7 +29,7 @@ Schwarz EM, Kato M, Sternberg PW (2012) {Functional transcriptomics of a
 
 \bibitem{Scimone2014}
 Scimone ML, Kravarik KM, Lapan SW, Reddien PW (2014) {Neoblast specialization
-  in regeneration of the planarian schmidtea mediterranea}.
+  in regeneration of the planarian \emph{Schmidtea~mediterranea}}.
 \newblock {\em Stem Cell Reports} 3(2):339--352.
 
 \bibitem{Brem2002}
@@ -44,13 +44,13 @@ Schadt EE, et~al. (2003) {Genetics of gene expression surveyed in maize, mouse
 
 \bibitem{Li2006}
 Li Y, et~al. (2006) {Mapping Determinants of Gene Expression Plasticity by
-  Genetical Genomics in C. elegans}.
+  Genetical Genomics in \emph{C.~elegans}}.
 \newblock {\em PLoS Genetics} 2(12):e222.
 
 \bibitem{King2014}
 King EG, Sanderson BJ, McNeil CL, Long AD, Macdonald SJ (2014) {Genetic
-  Dissection of the Drosophila melanogaster Female Head Transcriptome Reveals
-  Widespread Allelic Heterogeneity}.
+  Dissection of the \emph{Drosophila melanogaster} Female Head Transcriptome
+  Reveals Widespread Allelic Heterogeneity}.
 \newblock {\em PLoS Genetics} 10(5):e1004322.
 
 \bibitem{Hughes2000}
@@ -70,34 +70,37 @@ Dixit A, et~al. (2016) {Perturb-Seq: Dissecting Molecular Circuits with
 
 \bibitem{Angeles-Albores2016a}
 Angeles-Albores D, et~al. (2016) {Transcriptomic Description of an Endogenous
-  Female State in C. elegans}.
+  Female State in \emph{C. elegans}}.
 \newblock {\em bioRxiv}.
 
 \bibitem{Epstein2001}
-Epstein ACR, et~al. (2001) {C. elegans EGL-9 and mammalian homologs define a
-  family of dioxygenases that regulate HIF by prolyl hydroxylation}.
+Epstein ACR, et~al. (2001) { \emph{C.~elegans} EGL-9 and mammalian homologs
+  define a family of dioxygenases that regulate HIF by prolyl hydroxylation}.
 \newblock {\em Cell} 107(1):43--54.
 
 \bibitem{Shen2006}
-Shen C, Shao Z, Powell-Coffman JA (2006) {The Caenorhabditis elegans rhy-1 Gene
-  Inhibits HIF-1 Hypoxia-Inducible Factor Activity in a Negative Feedback Loop
-  That Does Not Include vhl-1}.
+Shen C, Shao Z, Powell-Coffman JA (2006) {The \emph{Caenorhabditis~elegans}
+  \emph{rhy-1} Gene Inhibits HIF-1 Hypoxia-Inducible Factor Activity in a
+  Negative Feedback Loop That Does Not Include \emph{vhl-1}}.
 \newblock {\em Genetics} 174(3):1205--1214.
 
 \bibitem{Shao2009}
 Shao Z, Zhang Y, Powell-Coffman JA (2009) {Two Distinct Roles for EGL-9 in the
-  Regulation of HIF-1-mediated gene expression in Caenorhabditis elegans}.
+  Regulation of HIF-1-mediated gene expression in
+  \emph{Caenorhabditis~elegans}}.
 \newblock {\em Genetics} 183(3):821--829.
 
 \bibitem{Jiang2001}
-Jiang H, Guo R, Powell-Coffman JA (2001) {The Caenorhabditis elegans hif-1 gene
-  encodes a bHLH-PAS protein that is required for adaptation to hypoxia.}
+Jiang H, Guo R, Powell-Coffman JA (2001) {The
+  \emph{Caenorhabditis~elegans}\emph{hif-1} gene encodes a bHLH-PAS protein
+  that is required for adaptation to hypoxia.}
 \newblock {\em Proceedings of the National Academy of Sciences of the United
   States of America} 98(14):7916--7921.
 
 \bibitem{Loenarz2011}
 Loenarz C, et~al. (2011) {The hypoxia-inducible transcription factor pathway
-  regulates oxygen sensing in the simplest animal, Trichoplax adhaerens}.
+  regulates oxygen sensing in the simplest animal, \emph{Trichoplax
+  adhaerens}}.
 \newblock {\em EMBO reports} 12(1):63--70.
 
 \bibitem{Jiang1996}
@@ -106,7 +109,7 @@ Jiang BH, Rue E, Wang GL, Roe R, Semenza GL (1996) {Dimerization, DNA binding,
 \newblock {\em The Journal of biological chemistry} 271(30):17771--17778.
 
 \bibitem{Powell-Coffman1998}
-Powell-Coffman JA, Bradfield CA, Wood WB (1998) {Caenorhabditis elegans
+Powell-Coffman JA, Bradfield CA, Wood WB (1998) {\emph{Caenorhabditis~elegans}
   Orthologs of the Aryl Hydrocarbon Receptor and Its Heterodimerization Partner
   the Aryl Hydrocarbon Receptor Nuclear Translocator}.
 \newblock {\em Proceedings of the National Academy of Sciences}
@@ -126,7 +129,7 @@ Kaelin WG, Ratcliffe PJ (2008) {Oxygen Sensing by Metazoans: The Central Role
 \bibitem{Ma2012}
 Ma DK, Vozdek R, Bhatla N, Horvitz HR (2012) {CYSL-1 Interacts with the O
   2-Sensing Hydroxylase EGL-9 to Promote H 2S-Modulated Hypoxia-Induced
-  Behavioral Plasticity in C. elegans}.
+  Behavioral Plasticity in \emph{C.~elegans}}.
 \newblock {\em Neuron} 73(5):925--940.
 
 \bibitem{Yeung2001}
@@ -141,35 +144,37 @@ Park EC, et~al. (2012) {Hypoxia regulates glutamate receptor trafficking
 
 \bibitem{Ackerman2012}
 Ackerman D, Gems D (2012) {Insulin/IGF-1 and hypoxia signaling act in concert
-  to regulate iron homeostasis in Caenorhabditis elegans}.
+  to regulate iron homeostasis in \emph{Caenorhabditis~elegans}}.
 \newblock {\em PLoS Genetics} 8(3).
 
 \bibitem{Romney2011}
 Romney SJ, Newman BS, Thacker C, Leibold EA (2011) {HIF-1 regulates iron
-  homeostasis in caenorhabditis elegans by activation and inhibition of genes
-  involved in iron uptake and storage}.
+  homeostasis in \emph{Caenorhabditis~elegans} by activation and inhibition of
+  genes involved in iron uptake and storage}.
 \newblock {\em PLoS Genetics} 7(12).
 
 \bibitem{Luhachack2012}
-Luhachack LG, et~al. (2012) {EGL-9 Controls C. elegans Host Defense Specificity
-  through Prolyl Hydroxylation-Dependent and -Independent HIF-1 Pathways}.
+Luhachack LG, et~al. (2012) {EGL-9 Controls \emph{C.~elegans} Host Defense
+  Specificity through Prolyl Hydroxylation-Dependent and -Independent HIF-1
+  Pathways}.
 \newblock {\em PLoS Pathogens} 8(7):48.
 
 \bibitem{Shao2010}
-Shao Z, Zhang Y, Ye Q, Saldanha JN, Powell-Coffman JA (2010) {C. elegans swan-1
-  binds to egl-9 and regulates hif-1- mediated resistance to the bacterial
-  pathogen pseudomonas aeruginosa pao1}.
+Shao Z, Zhang Y, Ye Q, Saldanha JN, Powell-Coffman JA (2010) {
+  \emph{C.~elegans} \emph{swan-1} binds to \emph{egl-9} and regulates
+  \emph{hif-1}- mediated resistance to the bacterial pathogen
+  \emph{Pseudomonas~aeruginosa} PAO1}.
 \newblock {\em PLoS Pathogens} 6(8):91--92.
 
 \bibitem{Budde2010}
 Budde MW, Roth MB (2010) {Hydrogen Sulfide Increases Hypoxia-inducible Factor-1
-  Activity Independently of von Hippel–Lindau Tumor Suppressor-1 in C.
-  elegans}.
+  Activity Independently of von Hippel–Lindau Tumor Suppressor-1 in \emph{C.
+  elegans}}.
 \newblock {\em Molecular biology of the cell} 21:212--217.
 
 \bibitem{Kim2004}
 Kim YI, Cho JH, Yoo OJ, Ahnn J (2004) {Transcriptional Regulation and Life-span
-  Modulation of Cytosolic Aconitase and Ferritin Genes in C.elegans}.
+  Modulation of Cytosolic Aconitase and Ferritin Genes in \emph{C.elegans}}.
 \newblock {\em Journal of Molecular Biology} 342(2):421--433.
 
 \bibitem{Chintala2012}
@@ -200,7 +205,7 @@ Hart Y, Alon U (2013) {The Utility of Paradoxical Components in Biological
 \newblock {\em Molecular Cell} 49(2):213--221.
 
 \bibitem{Brenner1974}
-Sulston JE, Brenner S (1974) {The DNA of Caenorhabditis elegans.}
+Sulston JE, Brenner S (1974) {The DNA of \emph{Caenorhabditis~elegans}.}
 \newblock {\em Genetics} 77(1):95--104.
 
 \bibitem{Picelli2014}
@@ -247,7 +252,7 @@ Hunter JD (2007) {Matplotlib: A 2D graphics environment}.
 
 \bibitem{Angeles-Albores2016}
 Angeles-Albores D, {N. Lee} RY, Chan J, Sternberg PW (2016) {Tissue enrichment
-  analysis for C. elegans genomics}.
+  analysis for \emph{C.~elegans} genomics}.
 \newblock {\em BMC Bioinformatics} 17(1):366.
 
 \bibitem{Waskom}
@@ -260,7 +265,7 @@ P{\'{e}}rez F, Granger B (2007) {IPython: A System for Interactive Scientific
 
 \bibitem{Angeles-Albores106369}
 Angeles-Albores D, Lee RY, Chan J, Sternberg PW (2017) {Phenotype and gene
-  ontology enrichment as guides for disease modeling in C. elegans}.
+  ontology enrichment as guides for disease modeling in \emph{C. elegans}}.
 \newblock {\em bioRxiv}.
 
 \end{thebibliography}
