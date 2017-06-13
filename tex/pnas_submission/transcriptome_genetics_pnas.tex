@@ -1,6 +1,7 @@
 \documentclass[9pt,twocolumn,twoside]{pnas-new}
 
 \usepackage{gensymb}
+\usepackage{siunitx}
 
 % new commands
 % q value
@@ -13,6 +14,7 @@
 
 % gene names
 \newcommand{\gene}[1]{\mbox{\emph{#1}}}
+% \newcommand{\gene}[1]{\emph{#1}} # for MS word typesetting
 
 \newcommand{\nlp}{\gene{nlp-31}}
 \newcommand{\ftna}{\gene{ftn-1}}
@@ -54,7 +56,7 @@
 \newcommand{\egltargets}{4}
 \newcommand{\rhytargets}{0}
 \newcommand{\vhltargets}{71} % 72 minus vhl-1 (IDed due to deletion)
-\newcommand{\hiftargets}{312}
+\newcommand{\hiftargets}{264}
 \newcommand{\hifohtargets}{56}
 
 % website commands
@@ -108,9 +110,9 @@ of the context they operate in.
 }
 
 % Please include corresponding author, author contribution and author declaration information
-\authorcontributions{DAA, CPR and PWS designed experiments. CPR handled strains
-and extracted RNA.\@ BAW generated RNA-seq libraries. BJW provided resources.
-DAA, CPR and PWS wrote the paper.}
+\authorcontributions{DAA, CPR and PWS designed experiments. CPR and BAW performed
+all experiments. BJW provided resources. DAA developed computational methods and
+performed analysis. DAA, CPR and PWS wrote the paper.}
 \authordeclaration{The authors declare no conflict of interest.}
 \equalauthors{\textsuperscript{1} DAA  and CPR contributed equally to this work.}
 \correspondingauthor{\textsuperscript{2}To whom correspondence should be
@@ -129,11 +131,11 @@ quantify expression effects of individual mutants and identify epistatic effects
 in double mutants. To make interpretation of these high-dimensional measurements
 intuitive, we developed a single coefficient to quantify transcriptome-wide
 epistasis that accurately reflects the underlying interactions. To demonstrate
-our approach, we sequenced four single and two double
-\emph{Caenorhabditis~elegans} mutants. From these mutants, we reconstructed the
+our approach, we sequenced four single and two double mutants of
+\emph{Caenorhabditis~elegans}. From these mutants, we reconstructed the
 known hypoxia pathway. In addition, we uncovered a class of \hifohtargets{}
-genes that have opposing changes in expression in \egl{} and \vhl{} but the
-\eglvhl{} mutant has the same phenotype as \egl{}. These changes violate the
+genes that have opposing changes in expression in \egl{} compared to \vhl{} but the
+\eglvhl{} mutant has the same phenotype as \egl{}. This class violates the
 classical model of HIF-1 regulation, but can be explained by postulating a role
 of hydroxylated HIF-1 in transcriptional control.
 
@@ -159,9 +161,8 @@ genes interact functionally; such interaction can involve the direct interaction
 of their products or the interaction of any consequence of their
 function~\cite{Huang2006}. If two genes interact, and the mutants of these genes
 have a quantifiable phenotype, the double mutant of interacting genes will have
-a phenotype that is not the sum of the phenotypes of the single mutants that
-make up its genotype. Epistasis analysis remains a cornerstone of genetics
-today~\cite{Phillips2008}.
+a phenotype that is not the sum of the phenotypes of the single mutants.
+Epistasis analysis remains a cornerstone of genetics today~\cite{Phillips2008}.
 
 Recently, biological studies have shifted in focus from studying single
 genes to studying all genes in parallel. In particular,
@@ -185,7 +186,7 @@ mapping~\cite{Brem2002,Schadt2003,Li2006,King2014}. Genetic pathway analysis via
 epistasis has only been performed once in
 \emph{Saccharomyces~cerevisiae}~\cite{Hughes2000} and once in
 \emph{Dictyostelium~discoideum}~\cite{VanDriessche2005}. Recently, Dixit
-\emph{et al} described a protocol for epistasis analysis of T-cells using
+\emph{et al} described a protocol for epistasis analysis in T-cells using
 single-cell RNA-seq~\cite{Dixit2016}. Epistasis analysis of single cells or
 single-celled organisms is popular because of the concern that whole-organism
 sequencing will mix information from multiple cell types, preventing the
@@ -240,55 +241,55 @@ Fig.~\ref{fig:pathway}).
 \label{fig:pathway}
 \end{figure}
 
-Our reconstruction of the hypoxia pathway in \cel{} using RNA-sequencing shows
-that whole-animal transcriptome profiles can be used as phenotypes genetic
-analysis and that the phenomenon of epistasis, a hallmark of genetic
-interaction, holds at the molecular systems level. We demonstrate that
-transcriptomes can aid in ordering genes in a pathway using only single mutants.
-Finally, we were able to identify genes that appear to be downstream of
+Our reconstruction of the hypoxia pathway in \cel{} using RNA sequencing shows
+that whole-animal transcriptome profiles can be used as phenotypes for genetic
+analysis and that the phenomenon of epistasis, a hallmark of genetic interaction
+observed in double mutants, holds at the molecular systems level. We demonstrate
+that transcriptomes can aid in ordering genes in a pathway using only single
+mutants. Finally, we were able to identify genes that appear to be downstream of
 \gene{egl-9} and \gene{vhl-1}, but do not appear to be targets of \gene{hif-1}.
 Using a single set of transcriptome-wide measurements, we observed most of the
 known transcriptional effects of \gene{hif-1} as well as novel effects not
-described before in \cel{}. Taken together, this demonstrates that whole-animal
-RNA-seq is an extremely fast and powerful method for genetic analyses in an area
-where phenotypic measurements are now the rate limiting step.
+described before in \cel{}. Taken together, this analysis demonstrates that
+whole-animal RNA-seq is an extremely fast and powerful method for genetic
+analyses in an area where phenotypic measurements are now the rate-limiting
+step.
 
 
 \section*{Results}
 \subsection*{The hypoxia pathway controls thousands of genes in \cel{}}
 \label{sub:summary}
 
-We selected four single mutants within the hypoxia pathway for expression
-profiling: \gene{egl-9}\emph{(sa307)}, \gene{rhy-1}\emph{(ok1402)},
-\gene{vhl-1}\emph{(ok161)}, \gene{hif-1}\emph{(ia4)}. We also sequenced the
-transcriptomes of two double mutants, \gene{egl-9; vhl-1} and \gene{egl-9 hif-1}
-as well as wild-type N2. Each genotype  was sequenced in triplicate at a depth
-of 15 million reads per sample. We performed whole-animal RNA-seq at a moderate sequencing
-depth ($\sim7$ million mapped reads per sample) under normoxic conditions.
-We identified around 22,000 different isoforms per sample, which allowed us to
-measure differential expression of 18,344 isoforms across all replicates and
-genotypes ($\sim$70\% of the protein coding isoforms in \cel{}). We included in
-our analysis a \fog{} (\emph{q71}) mutant we have previously
-studied~\cite{Angeles-Albores2016a}, because \gene{fog-2} is not reported to
-interact with the hypoxia pathway. We analyzed our data using a general linear
-model on logarithm-transformed counts. Changes in gene expression are reflected
-in the regression coefficient $\beta$, which is specific to each isoform within
-a genotype (excluding wild-type, which is used as baseline). Statistical
-significance is achieved when the q-value of a $\beta$ coefficient (p-values
-adjusted for multiple testing) are less than 0.1. Genes that are significantly
-altered between wild-type and a given mutant (differentially expressed genes,
-DEGs) have $\beta$ values that are statistically significantly different from 0
-(i.e.\ greater than 0 or less than 0). $\beta$ coefficients are analogous to the
-logarithm of the fold-change between mutants and wild-type. Larger magnitudes of
-$\beta$ correspond to larger perturbations (see Fig.~\ref{fig:explain}). When we
-refer to $\beta$ coefficients and q-values, it will always be in reference to
-isoforms. However, we report the sizes of each gene set in by the number of
-genes they contain, not isoforms. For the case of \cel{}, this difference is
-negligible since the great majority of protein-coding genes have a single
-isoform. We have opted for this method of referring to gene sets because it
-simplifies the language considerably. A complete version of the code used for
-this analysis with ample documentation, is available at
-\url{https://wormlabcaltech.github.io/mprsq}.
+We selected four null single mutants within the hypoxia pathway for expression
+profiling: \gene{egl-9(sa307)}, \gene{rhy-1(ok1402)}, \gene{vhl-1(ok161)},
+\gene{hif-1(ia4)}. We also sequenced the transcriptomes of two double mutants,
+\gene{egl-9; vhl-1} and \gene{egl-9 hif-1} as well as wild-type (N2). Each
+genotype  was sequenced in triplicate at a depth of 15 million reads per sample.
+We performed whole-animal RNA-seq at a moderate sequencing depth ($\sim7$
+million mapped reads per sample) under normoxic conditions. We identified around
+22,000 different isoforms per sample, which allowed us to measure differential
+expression of 18,344 isoforms across all replicates and genotypes ($\sim$70\% of
+the protein coding isoforms in \cel{}). We included in our analysis a
+\gene{fog-2(q71)} mutant we have previously studied~\cite{Angeles-Albores2016a},
+because \gene{fog-2} is not reported to interact with the hypoxia pathway. We
+analyzed our data using a general linear model on logarithm-transformed counts.
+Changes in gene expression are reflected in the regression coefficient $\beta$,
+which is specific to each isoform within a genotype (excluding wild-type, which
+is used as baseline). Statistical significance is achieved when the q-value of a
+$\beta$ coefficient (p-values adjusted for multiple testing) are less than 0.1.
+Genes that are significantly altered between the wild type and a given mutant
+(differentially expressed genes, DEGs) have $\beta$ values that are
+statistically significantly different from 0 (i.e.\ greater than 0 or less than
+0). $\beta$ coefficients are analogous to the logarithm of the fold-change
+between the mutant and the wild type. Larger magnitudes of $\beta$ correspond to
+larger perturbations (see Fig.~\ref{fig:explain}). When we refer to $\beta$
+coefficients and q-values, it will always be in reference to isoforms. However,
+we report the sizes of each gene set in by the number of genes they contain, not
+isoforms. For the case of \cel{}, this difference is negligible since the great
+majority of protein-coding genes have a single isoform. We have opted for this
+method of referring to gene sets because it simplifies the language
+considerably. A complete version of the code used for this analysis with ample
+documentation, is available at \url{https://wormlabcaltech.github.io/mprsq}.
 
 
 \begin{figure}[tbhp]
@@ -308,15 +309,14 @@ this analysis with ample documentation, is available at
 \end{figure}
 
 Transcriptome profiling of the hypoxia pathway revealed that this pathway
-controls thousands of genes in \cel{}. The \egl{} transcriptome showed
-differential expression of \egln{} genes. Similarly, \rhyn{} genes were
-differentially expressed in \rhy{} mutants. The \vhl{} transcriptome showed
-considerably fewer DEGs (\vhln{}), possibly because it
-is a weaker inhibitor of \hif{} than \egl{}~\cite{Shao2009}. The \egl{};\vhl{}
-double mutant transcriptome showed \eglvhln{} DEGs.
-The \hif{} mutant also showed a transcriptomic phenotype involving \hifn{}
-genes. The \eglhif{} double mutant showed a similar number of genes with altered
-expression (\eglhifn{} genes, Table~\ref{tab:genes}).
+controls thousands of genes in \cel{} (see Table~\ref{tab:genes})). The \egl{}
+transcriptome showed differential expression of \egln{} genes. \rhyn{} genes
+were differentially expressed in \rhy{} mutants. The \vhl{} transcriptome showed
+considerably fewer DEGs (\vhln{}), possibly because \gene{vhl-1} is a weaker
+inhibitor of \gene{hif-1} than \gene{egl-9}~\cite{Shao2009}. The \egl{};\vhl{}
+double mutant transcriptome showed \eglvhln{} DEGs. The \hif{} mutant showed a
+transcriptomic phenotype involving \hifn{} genes. The \eglhif{} double mutant
+showed a similar number of genes with altered expression (\eglhifn{} genes).
 
 
 \begin{table}[tbhp]
@@ -333,8 +333,8 @@ expression (\eglhifn{} genes, Table~\ref{tab:genes}).
     \fog{} & \fogn{}\\
     \bottomrule{}
   \end{tabular}
-  \caption{Number of differentially expressed genes in each mutant with respect
-  to wild-type (N2).}
+  \caption{Number of differentially expressed genes in each mutant strain with
+  respect to wild-type (N2).}
 \label{tab:genes}
 \end{table}
 
@@ -399,7 +399,7 @@ synthetic interaction. To allow coherent comparisons of different mutant
 transcriptomes (the phenotype we are studying here), we define the shared
 transcriptomic phenotype between two mutants (STP) as the shared set of genes or
 isoforms whose expression in both mutants are different from that in wild-type,
-regardless of the direction of change
+regardless of the direction of change.
 
 \subsubsection*{Genes in the hypoxia mutant act on the same transcriptional
                 phenotype}
@@ -411,8 +411,7 @@ shared between \hif{} and \eglvhl{} to a maximum of 32\% shared genes between
 \fog{} transcriptome~\cite{Angeles-Albores2016a}. The \gene{fog-2} gene is
 involved in masculinization of the \cel{} germline, which enables sperm
 formation, and is not known to be involved in the hypoxia pathway. The hypoxia
-pathway mutants and the \fog{} mutant also showed shared transcriptomic
-phenotypes (8.8\%--14\% genes).
+pathway mutants and the \fog{} mutant also had STPs (8.8\%--14\% genes).
 
 % genetic correlations
 \begin{figure}[tbhp]
@@ -457,17 +456,19 @@ of as many genes as possible. Second, it should be summarizable in a single,
 well-defined number. Third, it should have an intuitive behavior, such that
 special values of the statistic have an unambiguous interpretation.
 
-We discovered a method that satisfies all of the above condition and which can
+We found an approach that satisfies all of the above conditions and which can
 be graphed in a plot we call an epistasis plot (see Fig~\ref{fig:egl9epistasis})
-In an epistasis plot, the X-axis represents the expected expression of a double
+In an epistasis plot, the X-axis represents the expected $\beta$ coefficient for
+given gene in a double
 mutant $a^-b^-$ if $a$ and $b$ interact log-additively. In other words, each
 individual isoform's x-coordinate is the sum of the regression coefficients from
 the single mutants $a^-$ and $b^-$. The Y-axis represents the deviations from
 the log-additive (null) model, and can be calculated as the difference between
-the observed regression coefficient and the predicted regression coefficient.
+the predicted and the observed $\beta$ coefficients.
 Only genes that are differentially expressed in all three genotypes are plotted.
+This attempts to ensure that the isoforms to be examined are regulated by both genes.
 These plots will generate specific patterns that can be described through linear
-regressions. The slope of these lines, $s_{a,b}$, is the transcriptome-wide
+regressions. The slope of these lines, $s({a,b})$, is the transcriptome-wide
 epistasis coefficient.
 
 Transcriptome-wide epistasis coefficients can be understood intuitively for
@@ -476,38 +477,40 @@ genes act additively on the same set of differentially expressed isoforms then
 all the plotted points will fall along the line $y=0$. If two genes act
 positively in an unbranched pathway, then all the mutants should have the same
 phenotype. It follows that data from this pathway will form line with slope
-equal to $-\frac{1}{2}$. On the other hand, in the limit of complete inhibition
-of $a$ by $b$ in an unbranched pathway, the plots should show a line of best fit
-with slope equal to $-1$.
-Genes that interact synthetically (\emph{i.e.}, through an OR-gate)
-will fall along lines with slopes $>0$. When there is epistasis of one gene over
-another, the points will fall along a line with slope $s_{ab=b}$ or $s_{ab=a}$.
-We can use the single mutant data to predict the distribution of slopes that
-results for each case stated above. The transcriptome-wide epistasis coefficient
-emerges as a powerful way to quantify epistasis because it integrates
-information from many different isoforms into a single number (see
-Fig.~\ref{fig:egl9epistasis}).
+equal to $-\frac{1}{2}$. On the other hand, in the limit of complete genetic
+inhibition of $b$ by $a$ in an unbranched pathway (i.e., $a$ is in great excess
+over $b$, such that under the conditions measured $b$ has no activity), the
+plots should show a line of best fit with slope equal to $-1$. Genes that
+interact synthetically (\emph{i.e.}, through an OR-gate) will fall along lines
+with slopes $>0$. When there is epistasis of one gene over another, the points
+will fall along one of two possible slopes that must be determined empirically
+from the single mutants data. We can use both single mutants data to predict the
+distribution of slopes that results for the cases stated above. The
+transcriptome-wide epistasis coefficient emerges as a powerful way to quantify
+epistasis because it integrates information from many different isoforms into a
+single number (see Fig.~\ref{fig:egl9epistasis}).
 
 In our experiment, we studied two double mutants, \eglhif{} and \eglvhl{}. We
 wanted to understand how well an epistatic analysis based on transcriptome-wide
 coefficients agreed with the epistasis results reported in the literature, which
 were based on qPCR of single genes. Therefore, we performed orthogonal distance
 regression on the two gene combinations we studied (\gene{egl-9} and
-\gene{vhl-1}; and \gene{egl-9} and \gene{hif-1}) to determine the epistasis
+\gene{vhl-1}, and \gene{egl-9} and \gene{hif-1}) to determine the epistasis
 coefficient for each gene pair. We also generated models for the special cases
 mentioned above using the single mutant data.
 
-
-We measured the epistasis coefficient between \gene{egl-9} and \gene{vhl-1} and
-$s_{\text{\gene{egl-9} \gene{vhl-1}}} = -0.41$. Simulations using just the
-single mutant data showed that the double mutant behaved exactly as expected (in
-other words, \egl{} = \eglvhl{}, see Fig.~\ref{fig:egl9epistasis}). We used
-Bayesian model selection to reject a linear pathway ($OR>10^{83}$). We also
-measured epistasis between \gene{egl-9} and \gene{hif-1},
-$s_{\text{\gene{egl-9}, \gene{hif-1}}} = -0.80$. This is consistent with a
-pathway where \gene{hif-1} is inhibited by \gene{egl-9} (\hif{} =
-\eglhif{}) and we reject the null hypothesis that these two genes act in a
-positive linear pathway ($OR > 10^{93}$).
+We measured the epistasis coefficient between \gene{egl-9} and \gene{vhl-1}:
+$s({\text{\gene{egl-9} \gene{vhl-1}}}) = -0.41$. Simulations using just the
+single mutant data showed that the double mutant exhibited the \egl{} phenotype
+(see Fig.~\ref{fig:egl9epistasis}). We used Bayesian model selection to reject a
+linear pathway (odds ratio (OR) $>10^{83}$), which leads us to conclude
+\gene{egl-9} is upstream of \gene{vhl-1} acting on a phenotype in a branched
+manner. We also measured epistasis between \gene{egl-9} and \gene{hif-1},
+$s({\text{\gene{egl-9}, \gene{hif-1}}}) = -0.80$, and we found that this
+behavior could be predicted by modeling \gene{hif-1} downstream of \gene{egl-9}.
+We also rejected the null hypothesis that these two genes act in a positive
+linear pathway (OR$> 10^{93}$). Taken together, this leads us to conclude that
+\gene{egl-9} strongly inhibits \gene{hif-1}.
 
 % epistasis graph
 \begin{figure}[tbhp]
@@ -533,8 +536,8 @@ positive linear pathway ($OR > 10^{93}$).
     the bootstrapped observed transcriptome-wide epistasis coefficient for
     \gene{egl-9} and \gene{vhl-1}. Dashed green line shows the mean value of the
     data. Simulations use only the single mutant data to idealize what
-    expression of the double mutant should look like. $x > y$ means that the
-    phenotype of $x$ is observed in a double mutant $x^-y^-$. }
+    expression of the double mutant should look like. $a > b$ means that the
+    phenotype of $a$ is observed in a double mutant $a^-b^-$. }
 \label{fig:egl9epistasis}
 \end{figure}
 
@@ -545,16 +548,16 @@ in the absence of the \egl{} genotype. Since \rhyp{} indirectly activates
 \eglp{}, the \rhy{} transcriptome should contain more or less equivalent
 information to the \egl{} transcriptome. Therefore, we generated predictions of
 the epistasis coefficient between \gene{egl-9} and \gene{vhl-1} by substituting
-in the \rhy{} data. We predicted $s_{rhy-1,vhl-1} = -0.45$. Similarly, we used
+in the \rhy{} data, predicting $s({rhy-1,vhl-1}) = -0.45$. Similarly, we used
 the \eglvhl{} double mutant to measure the epistasis coefficient while replacing
 the \egl{} dataset with the \rhy{} dataset. We found that the epistasis
 coefficient using this substitution was $-0.40$. This coefficient was different
 from $-0.50$ (OR $>10^{62}$), reflecting the same qualitative conclusion that
-the hypoxia pathway is branched. In conclusion, we were able to obtain a
-quantitatively close prediction of the epistasis coefficient for two mutants
-using the transcriptome of a related, upstream mutant. Finally, in the absence
-of a single mutant, an upstream locus can be used to estimate epistasis between
-two genes.
+\gene{vhl-1} represents a branch in the hypoxia pathway. In conclusion, we were
+able to obtain a quantitatively close prediction of the epistasis coefficient
+for two mutants using the transcriptome of a related, upstream mutant. Finally,
+in the absence of a single mutant, an upstream locus can be used to estimate
+epistasis between two genes.
 
 \subsection*{Transcriptomic decorrelation can be used to infer functional distance}
 \label{sub:decorrelation}
@@ -610,59 +613,49 @@ expressed in either mutant ($N_\mathrm{Intersection}/N_{\mathrm{Union}}$). We
 plotted the weighted correlation of each gene pair, ordered by increasing
 functional distance (see Fig.~\ref{fig:decorrelation}). In every case, we see
 that the weighted correlation decreases monotonically due mainly, but not
-exclusively, to a smaller STP.\@We believe that this result is not due to random
-noise or insufficiently deep sequencing. Instead, we propose a framework in
-which every gene is regulated by multiple different molecular species, which
-induces progressive decorrelation. This decorrelation in turn has two
-consequences. First, decorrelation within a pathway implies that two nodes may
-be almost independent of each other if the functional distance between them is
-large. Second, it may be possible to use decorrelation dynamics to infer gene
-order in a branching pathway, as we have done with the hypoxia pathway.
+exclusively, to a smaller STP.
 
-\subsection*{The circuit topology of the hypoxia pathway explains patterns in
-            the data}
+We believe that this result is not due to random noise or insufficiently deep
+sequencing. Instead, we propose a framework in which every gene is regulated by
+multiple different molecular species, which induces progressive decorrelation.
+This decorrelation in turn has two consequences. First, decorrelation within a
+pathway implies that two nodes may be almost independent of each other if the
+functional distance between them is large. Second, it may be possible to use
+decorrelation dynamics to infer gene order in a branching pathway, as we have
+done with the hypoxia pathway.
+
+\subsection{Classical epistasis identifies a core hypoxic response}
+We identified a main hypoxia response induced by \hifp{} (466 genes) by
+selecting genes that were consistently altered in \egl{}, \rhy{}, \vhl{} and
+\eglvhl{} mutants but which were suppressed in the \eglhif{} mutant. This
+response included five transcription factors (\gene{W02D7.6}, \nhr{},
+\gene{ztf-18}, \gene{nhr-135} and \gene{dmd-9}; Supplementary Table 1). Even
+though \hifp{} is an activator, not all of these genes were up-regulated. We
+reasoned that only genes that are up-regulated in \hifp{}-inhibitor mutants are
+candidates for direct regulation by \hifp{}. We found \hiftargets{} such genes
+(Supplementary Table 3). Phenotype Enrichment
+Analysis~\cite{Angeles-Albores106369} showed that this gene list was enriched in
+genes associated with oxygen response, dauer development and dauer constitutive
+phenotypes (fold-change $>4$ and \qval{1} for all terms).
+
+\subsection*{Feedback can be inferred}
 \label{sub:topology}
-While some of the rank plots contained a clear positive
-correlation (see Fig.~\ref{fig:genetic_interactions}), others showed a
-discernible cross-pattern (see Fig.~\ref{fig:xpattern}). In particular, this
-cross-pattern emerged between \vhl{} and \rhy{} or between \vhl{} and \egl{},
-even though \gene{vhl-1}, \gene{rhy-1} and \gene{egl-9} are all
-inhibitors of \hif{}. Such cross-patterns could be indicative of feedback loops
-or other complex interaction patterns.
-If the above is correct, then it should be possible to identify genes that are
-regulated by \gene{rhy-1} in a logically consistent way: Since loss of
-\gene{egl-9} causes \gene{rhy-1} mRNA levels to increase, if this increase leads
-to a significant change in RHY-1 activity, then it follows that the \egl{} and
-\rhy{} should show anti-correlation in a subset of genes.
-Since we do not observe many genes that are anti-correlated, we conclude that is
-unlikely that the change in \gene{rhy-1} mRNA expression causes a significant
-change in RHY-1 activity under normoxic conditions.
-
-We identified a main hypoxia response induced by HIF-1 (655 genes) by
-identifying genes that were consistently upregulated in \egl{}, \rhy{} and
-\vhl{} mutants. This response included five transcription factors
-(\gene{W02D7.6}, \nhr{}, \gene{ztf-18}, \gene{nhr-135} and \gene{dmd-9};
-Supplementary Table 1).
-
-\gene{hif-1}-independent effects of \gene{egl-9} have been reported
-previously~\cite{Park2012}, which led us to question whether we could identify
-similar effects in our dataset. We have observed that \hif{} displays a modest
-increase in the transcription of \gene{rhy-1}, from which we speculated that
-\eglp{} would have increased activity in the \hif{} mutant compared to the
-wild-type. Therefore, we searched for genes that were regulated in an opposite
-manner between \hif{} and \eglhif{}, and that were regulated in the same
-direction between all \egl{} genotypes.
-
-We also searched for genes with \gene{hif-1}-independent, \gene{vhl-1}-dependent
-gene expression and found \vhltargets{} genes (Supplementary Table 2). Finally,
-we searched for candidates directly regulated by \gene{hif-1}. Initially, we
-searched for genes that were significantly altered in \hif{} genotypes in one
-direction, but altered in the opposite direction in mutants that activate the
-\hifp{} response. Only five genes (\gene{R08E5.3}, \gene{cysl-2}, \gene{nit-1},
-\gene{sqrd-1} and \gene{hsp-12.3}) met these conditions. We reasoned that genes
-that are overexpressed in mutants that induce the \hifp{} response would be
-enriched for genes that are directly regulated by \hifp{}. We found
-\hiftargets{} such genes (Supplementary Table 3).
+While some of the rank plots contained a clear positive correlation (see
+Fig.~\ref{fig:genetic_interactions}), others showed a discernible cross-pattern
+(see Figure S2). In particular, this cross-pattern emerged between \vhl{} and
+\rhy{} or between \vhl{} and \egl{}, even though \gene{vhl-1}, \gene{rhy-1} and
+\gene{egl-9} are all inhibitors of \hif{}. Such cross-patterns could be
+indicative of feedback loops or other complex interaction patterns. If the above
+is correct, then it should be possible to identify genes that are regulated by
+\gene{rhy-1} in a logically consistent way: Since loss of \gene{egl-9} causes
+\gene{rhy-1} mRNA levels to increase, if this increase leads to a significant
+change in RHY-1 activity, then it follows that the \egl{} and \rhy{} should show
+anti-correlation in a subset of genes. Since we do not observe many genes that
+are anti-correlated, we conclude that is unlikely that the change in
+\gene{rhy-1} mRNA expression causes a significant change in RHY-1 activity under
+normoxic conditions. We also searched for genes with \gene{hif-1}-independent,
+\gene{vhl-1}-dependent gene expression and found \vhltargets{} genes
+(Supplementary Table 2).
 
 \subsection*{Identification of non-classical epistatic interactions}
 \label{sub:hifoh}
@@ -679,10 +672,11 @@ We first identified genes that exhibited violations of the canonical genetic
 model of the hypoxia pathway. We searched for genes that changed in different
 directions between \egl{} and \vhl{}, or, equivalently, between \rhy{} and
 \vhl{} (we assume that all results from the \rhy{} transcriptome reflect a
-complete loss of \gene{egl-9} activity). We found \hifohtargets{} that satisfied
-this condition (see Fig.~\ref{fig:hif1oh}, Supplemental Table 4). Regardless of
-this behavior, \gene{egl-9} remained epistatic over \gene{vhl-1} for this class
-of genes.
+complete loss of \gene{egl-9} activity) without specifying any further
+conditions. We found \hifohtargets{} that satisfied this condition (see
+Fig.~\ref{fig:hif1oh}, Supplemental Table 4). When we checked expression of
+these genes in the double mutant, we found that \gene{egl-9} remained epistatic
+over \gene{vhl-1} for this class of genes.
 
 \begin{figure}[tbhp]
   \centering
@@ -703,35 +697,33 @@ of genes.
 \end{figure}
 
 Although this entire class had similar behavior, for simplicity we focused on
-two genes, \nlp{} and\ftna{} which have expression patterns representative
-of this class. \ftna{} and \ftnb{} are both described in
-the literature as genes that are responsive to mutations in the hypoxia pathway.
-These genes have been previously described to have aberrant
-behaviors~\cite{Ackerman2012,Romney2011}; specifically, the opposite effects of
-\egl{} and \vhl{}. These studies showed the same patterns of \ftna{}
-expression phenotypes using both RNAi and alleles, which allays concerns of
-strain-specific interference.
-We observed that \gene{hif-1} was epistatic to
-\gene{egl-9}, and that \gene{egl-9} and \gene{hif-1} both promoted \ftna{} and
-\ftnb{} expression.
+two genes, \nlp{} and\ftna{} which have expression patterns representative of
+this class. \ftna{} is described to be responsive to mutations in the hypoxia
+pathway and has been reported to have aberrant behaviors; specifically, mutation
+of \gene{egl-9} and \gene{vhl-1} have opposing effects on \ftna{}
+expression~\cite{Ackerman2012,Romney2011}. These studies showed the same
+patterns of \ftna{} expression phenotypes using both RNAi and alleles, which
+allays concerns of strain-specific interference. We observed that \gene{hif-1}
+was epistatic to \gene{egl-9}, and that \gene{egl-9} and \gene{hif-1} both
+promoted \ftna{} expression.
 
-Analysis of \ftna{} expression reveals that \gene{egl-9} is
-epistatic to \gene{hif-1}; that \gene{vhl-1} has opposite effects to
-\gene{egl-9}, and that \gene{vhl-1} is epistatic to \gene{egl-9}. Analysis of
-\nlp{} reveals similar relationships. \nlp{} expression is decreased in \hif{},
-and increased in \egl{}. However, \gene{egl-9} is epistatic to \gene{hif-1}.
-Like \ftna{} \gene{vhl-1} has the opposite effect to \gene{egl-9},
-yet is epistatic to \gene{egl-9}. We propose in the Discussion a model for how
-\hifp{} might regulate these targets.
+Analysis of \ftna{} expression reveals that \gene{egl-9} is epistatic to
+\gene{hif-1}; that \gene{vhl-1} has opposite effects to \gene{egl-9}, and that
+\gene{vhl-1} is epistatic to \gene{egl-9}. Analysis of \nlp{} reveals similar
+relationships. \nlp{} expression is decreased in \hif{}, and increased in
+\egl{}. However, \gene{egl-9} is epistatic to \gene{hif-1}. Like \ftna{}
+\gene{vhl-1} has the opposite effect to \gene{egl-9}, yet is epistatic to
+\gene{egl-9}. We propose in the Discussion a novel model for how \hifp{} might
+regulate these targets.
 
 
 \section*{Discussion}
 \label{sec:discussion}
-\subsection*{The \cel{} hypoxia pathway can be reconstructed entirely from
+\subsection*{The \cel{} hypoxia pathway can be reconstructed \emph{de novo} from
              RNA-seq data}
-In this paper, we have shown that whole-organism transcriptomic phenotypes
-can be used to reconstruct genetic pathways and to discern previously overlooked
-or uncharacterized genetic interactions. We successfully reconstructed the hypoxia
+In this paper, we have shown that whole-organism transcriptomic phenotypes can
+be used to reconstruct genetic pathways and to discern previously overlooked or
+uncharacterized genetic interactions. We successfully reconstructed the hypoxia
 pathway, and inferred order of action (\gene{rhy-1} activates \gene{egl-9},
 \gene{egl-9} and \gene{vhl-1} inhibit \gene{hif-1}), and we were able to infer
 from transcriptome-wide epistasis measurements that \gene{egl-9} exerts
@@ -743,43 +735,43 @@ non-classical epistasis suggests the existence of previously undescribed aspects
 of the hypoxia pathway. Some of these non-classical behaviors had been observed
 previously~\cite{Ackerman2012,Romney2011,Luhachack2012}, but no satisfactory
 mechanism has been proposed to explain this biology. Previous
-studies~\cite{Romney2011,Ackerman2012} suggest that \hifp{} integrates
-information on iron concentration in the cell to bind to the \ftna{} promoter,
-but could not definitively establish a mechanism. It is unclear why deletion of
-\gene{hif-1} and deletion of \gene{egl-9} both cause induction of \ftna{}
-expression, but deletion of \gene{vhl-1} abolishes this induction. Moreover,
-Luchachack et al~\cite{Luhachack2012} have previously reported that certain
-genes important for the \cel{} immune response against pathogens reflect similar
-non-canonical expression patterns. Their interpretation was that \gene{swan-1},
-which encodes a binding partner to \eglp{}~\cite{Shao2010}, is important for
-modulating \hifp{} activity in some manner. The lack of a conclusive double
-mutant analysis in this work means the role of SWAN-1 in modulation of \hifp{}
-activity remains to be demonstrated. Other mechanisms, such as tissue-specific
-differences in the pathway~\cite{Budde2010} could also modulate expression,
-though it is worth pointing out that \ftna{} expression appears restricted to a
-single tissue, the intestine~\cite{Kim2004}. Another possibility is that
-\gene{egl-9} controls \gene{hif-1} mRNA stability via other
-\gene{vhl-1}-independent pathways, but we did not decreases in \gene{hif-1}
-level in \egl{}, \rhy{} or \vhl{} mutants. Another possibility, such as control
-of protein stability via \gene{egl-9} independently of
-\gene{vhl-1}~\cite{Chintala2012} will not lead to splitting unless it happens in
-a tissue-specific manner.
+studies~\cite{Romney2011,Ackerman2012} suggested that \hifp{} integrates
+information on iron concentration in the cell to determine binding to the
+\ftna{} promoter, but could not definitively establish a mechanism. It is
+unclear why deletion of \gene{hif-1} and deletion of \gene{egl-9} both cause
+induction of \ftna{} expression, but deletion of \gene{vhl-1} abolishes this
+induction. Moreover, Luchachack et al~\cite{Luhachack2012} have previously
+reported that certain genes important for the \cel{} immune response against
+pathogens reflect similar non-canonical expression patterns. Their
+interpretation was that \gene{swan-1}, which encodes a binding partner to
+\eglp{}~\cite{Shao2010}, is important for modulating \hifp{} activity in some
+manner. The lack of a conclusive double mutant analysis in this work means the
+role of SWAN-1 in modulation of \hifp{} activity remains to be demonstrated.
+Other mechanisms, such as tissue-specific differences in the
+pathway~\cite{Budde2010} could also modulate expression, though it is worth
+pointing out that \ftna{} expression appears restricted to a single tissue, the
+intestine~\cite{Kim2004}. Another possibility is that \gene{egl-9} controls
+\gene{hif-1} mRNA stability via other \gene{vhl-1}-independent pathways, but we
+did not decreases in \gene{hif-1} level in \egl{}, \rhy{} or \vhl{} mutants.
+Another possibility, such as control of protein stability via \gene{egl-9}
+independently of \gene{vhl-1}~\cite{Chintala2012} will not lead to splitting
+unless it happens in a tissue-specific manner.
 
 \begin{figure}[tbhp]
   \centering
   \includegraphics[width=.5\textwidth]{../figs/hif1oh_model.pdf}
   \caption{
-    A hypothetical model showing a mechanism where \hifp{}-hydroxyl antagonises
+    A hypothetical model showing a mechanism where \hifp{}-hydroxyl antagonizes
     \hifp{}. \textbf{A}. Diagram showing that RHY-1 activates EGL-9. EGL-9
     hydroxylates HIF-1 in an oxygen-dependent fashion. Under normoxia, HIF-1 is
     rapidly hydroxylated and only slowly does hydroxylated HIF-1 return to its
     original state. EGL-9 can also inhibit HIF-1 in an oxygen-independent
-    fashion. HIF-1 hydroxyl is rapidly degraded in a VHL-1-dependent fashion. In
-    our model, HIF-1 and HIF-1 hydroxyl have opposing effects on transcription.
+    fashion. HIF-1-OH is rapidly degraded in a VHL-1-dependent fashion. In
+    our model, HIF-1 and HIF-1-OH have opposing effects on transcription.
     The width of the arrows represents the rates under normoxic conditions.
     \textbf{B}. Table showing the effects of loss-of-function mutations on HIF-1
-    and HIF-1 hydroxyl activity, showing how this can potentially explain the
-    behavior of \gene{ftn-1} in each case. S.S = Steady-state.
+    and HIF-1-OH activity, showing how this can potentially explain the
+    \gene{ftn-1} expression levels in each case. S.S = Steady-state.
   }
 \label{fig:hif1oh_table}
 \end{figure}
@@ -787,33 +779,36 @@ a tissue-specific manner.
 One parsimonious solution is to consider \hifp{} as a protein with both
 activating and inhibiting states. In fact, \hifp{} already exists in two states
 in \cel{}: unmodified \hifp{} and \hifp{}-hydroxyl (\hifp{}-OH). Under this
-model, \hifp{}-hydroxyl antagonizes the effects of \hifp{} for certain genes
-like \ftna{} or \nlp{}. Loss of \gene{vhl-1} stabilizes \hifp{}-hydroxyl. A
-subset of genes that are sensitive to \hifp{}-hydroxyl will be inhibited as a
-result of the increase in the amount of this species, in spite of loss of
-\gene{vhl-1} function also increasing the level of non-hydroxylated \hifp{}. On
-the other hand, \egl{} abgrogates \hifp{}-hydroxyl, stimulating accumulation of
-\hifp{} and promoting gene activity. Whether deletion of \hif{} is overall
-activating or inhibiting will depend on the relative activity of each protein
-state under normoxia (see Fig.~\ref{fig:hif1oh_table}).
+model, the effects of \hifp{} for certain genes like \ftna{} or \nlp{} are
+antagonized by \hifp{}-hydroxyl, which is present at only a low level in the
+cell in normoxia because it is degraded in a \gene{vhl-1}-dependent fashion.
+This means that loss of \gene{vhl-1} stabilizes \hifp{}-hydroxyl. Genes that are
+sensitive to \hifp{}-hydroxyl will be inhibited as a result of the increase in
+the amount of this \hifp{}-hydroxyl, in spite of loss of \gene{vhl-1} function
+also increasing the level of non-hydroxylated \hifp{}. On the other hand, \egl{}
+abrogates the generation of \hifp{}-hydroxyl, stimulating accumulation of
+non-hydroxylated \hifp{} and promoting gene activity. Whether deletion of \hif{}
+is overall activating or inhibiting will depend on the relative activity of each
+protein state under normoxia (see Fig.~\ref{fig:hif1oh_table}). \hifp{}-hydroxyl
+is challenging to study genetically, and if it does have the activity suggested
+by our genetic evidence this may have prevented such a role from being detected.
+No known mimetic mutations are available with which to study the pure
+hydroxylated \hifp{} species, and mutations in the Von Hippel-Lindau gene that
+stabilize the hydroxyl species also increase the quantity of non-hydroxylated
+\hifp{} by mass action.
 
-\hifp{}-hydroxyl is challenging to study genetically, and this may have
-prevented its possible role in the hypoxia pathway from being detected. No known
-mimetic mutations are available with which to study the pure hydroxylated
-\hifp{} species, and mutations in the Von Hippel-Lindau gene that stabilize the
-hydroxyl species also increase the quantity of non-hydroxylated \hifp{} by mass
-action. Because \hifp{} is detected at low levels in cells under normoxic
+Because \hifp{} is detected at low levels in cells under normoxic
 conditions~\cite{Wang1993}, total \hifp{} protein levels are assumed to be so
-low as to be biologically inactive.
+low as to be biologically inactive. However, our data show \hifn{} genes change
+expression in response to loss of \gene{hif-1} under normoxic conditions, which
+establishes that there is sufficient total \hifp{} protein to be biologically
+active. Our analyses also revealed that \hif{} shares positive correlations with
+\egl{}, \rhy{} and \vhl{}, and that each of these genotypes also shows a
+secondary negative rank-ordered expression correlation with each other.
 
-Our data show \hifn{} genes change expression in response to loss of
-\gene{hif-1} under normoxic conditions, which establishes that there is
-sufficient total \hifp{} protein to be biologically active. Our analyses also
-revealed that \hif{} shares positive correlations with \egl{}, \rhy{} and
-\vhl{}, and that each of these genotypes also shows a secondary negative
-rank-ordered expression correlation with each other. These cross-patterns
-between all loss of function of inhibitors of \hifp{} and \hif{} can be most
-easily explained if \hifp{}-hydroxyl is biologically active.
+% These
+% cross-patterns between all loss of function of inhibitors of \hifp{} and \hif{}
+% can be most easily explained if \hifp{}-hydroxyl is biologically active.
 
 A homeostatic argument can be made in favor of the activity of \hifp{}-hydroxyl.
 The cell must continuously monitor multiple metabolite levels. The
@@ -832,7 +827,7 @@ for \hifp{}, so they are only activated when \hifp{} levels are far above
 random fluctuations, such as in hypoxia.
 
 For yet other sets of genes that must change expression in response to the
-hypoxia pathway, it not be sufficiente to integrate metabolite
+hypoxia pathway, it may not be sufficient to integrate metabolite
 information exclusively via \eglp{}-dependent hydroxylation of \hifp{}. In
 particular, genes that may function to increase survival in mild hypoxia may
 benefit from regulatory mechanisms that can sense minor changes in environmental
@@ -857,7 +852,7 @@ total \hifp{} levels.
 \subsection*{Insights into genetic interactions from vectorial phenotypes}
 Here, we have described a set of methods that can be  applied to any vectorial
 phenotype studied with an appropriate experimental design. Transcriptome
-profiling methods afford a lot of information, but transcriptome-wide
+profiling methods offers a lot of information, but transcriptome-wide
 interpretation of the results is often extremely challenging. Each method has
 its own advantages and disadvantages.
 
@@ -888,23 +883,24 @@ Another way to analyze genetic interactions is via general linear models (GLMs)
 that include interaction terms between two or more genes. GLMs can quantify the
 genetic interactions on single genes. We and others~\cite{Dixit2016,
 Angeles-Albores2016a} have used GLMs to perform epistasis analyses of
-a pathway previously using transcriptomic phenotypes. GLMs are powerful, but
+a pathway using transcriptomic phenotypes. GLMs are powerful, but
 they generate a different interaction coefficient for each gene measured. The
 large number of coefficients makes interpretation of the genetic interaction
 between two mutants extremely difficult. Previous approaches~\cite{Dixit2016}
 have attempted to visualize these coefficients via heatmaps.
 
-Epistasis plots are a novel way to visualize epistasis in vectorial phenotypes.
-Here, we have shown how an epistasis plot can be used to identify interactions
-between two single mutants and a double mutant. In reality, epistasis plots can
-be generated for any set of measurements involving a set of $N$ mutants and an
-$N$-mutant genotype. Epistasis plots can accumulate an arbitrary number of
-points within them, possess a rich structure that can be visualized and have
-straightforward interpretations for special slope values. Epistasis plots and
-GLMs are not antagonistic toward one another. Indeed, one could use a GLM to
-quantify interactions at single-gene resolution, then plot the conglomerated
-results in an epistasis plot instead of as a heatmap (for a non-genetic example,
-see~\cite{Angeles-Albores2016a}).
+The epistasis plots we demonstrate here are a novel way to visualize epistasis
+in vectorial phenotypes. Here, we have shown how an epistasis plot can be used
+to identify interactions between two genes by examining the transcriptional
+phenotypes of single mutants and the double mutant. In reality, epistasis plots
+can be generated for any set of measurements involving a set of $N$ mutants (or
+conditions) and an $N$-mutant genotype. Epistasis plots can accumulate an
+arbitrary number of points within them, possess a rich structure that can be
+visualized and have straightforward interpretations for special slope values.
+Epistasis plots and GLMs are not antagonistic toward one another. Indeed, one
+could use a GLM to quantify interactions at single-gene resolution, then plot
+the conglomerated results in an epistasis plot instead of as a heatmap (for a
+non-genetic example, see~\cite{Angeles-Albores2016a}).
 
 Until relatively recently, the rapid generation and molecular characterization
 of null mutants was a major bottleneck for genetic analyses. Advances in
@@ -918,61 +914,62 @@ seamlessly incorporated with genetic analyses of epistasis.
 
 \matmethods{
 \subsection*{Nematode strains and culture}
-Strains used were N2 wild-type Bristol,
+Strains used were N2 wild-type (Bristol),
 CB5602 \gene{vhl-1}(\emph{ok161}),
 CB6088 \gene{egl-9}(\emph{sa307})~\gene{hif-1}(\emph{ia4}),
 CB6116 \gene{egl-9}(\emph{sa307});\gene{vhl-1}(\emph{ok161}),
 JT307 \gene{egl-9}(\emph{sa307}),
 ZG31 \gene{hif-1}(\emph{ia4}),
 RB1297 \gene{rhy-1}(\emph{ok1402}).
-All lines were grown on standard nematode growth media (NGM) plates seeded with
+All lines were grown on standard nematode growth media (NGM) Petri plates seeded with
 OP50 \ecol{} at 20\degree{}C~\cite{Brenner1974}.
 
 \subsection*{RNA isolation}
 Lines were synchronized by harvesting eggs via sodium hypochlorite treatment and
 subsequently plating eggs on food. Worms were staged and based on the time after
 plating, vulva morphology and the absence of eggs. 30--50 non-gravid young
-adults were picked and placed in 100 $\mu$L of TE pH 8.0 (Ambion AM 9849) at
-4\degree{}C in $0.2$ mL PCR tubes. Worms were allowed to settle or spun down by
-centrifugation and $\sim 80~\mu$L of supernatant removed before flash-freezing in
-liquid N2. These samples were digested with Proteinase K (Roche Lot No. 03115
-838001 Recombinant Proteinase K PCR Grade) for 15min at 60\degree{} in the
-presence of 1\% SDS and 1.25 $\mu$L RNA Secure (Ambion AM 7005). RNA samples were
-then taken up in 5 Volumes of Trizol (Tri Reagent Zymo Research) and processed
-and treated with DNase I using Zymo MicroPrep RNA Kit (Zymo Research Quick-RNA
-MicroPrep R1050). RNA was eluted in RNase-free water stored at -80\degree{}C.
-Samples were analyzed using a NanoDrop (Thermo Fisher) for impurities, Qubit for
+adults were picked and placed in 100 \si{\micro\liter} of TE pH 8.0 (Ambion AM
+9849) in $0.2$ \si{\milli\liter} PCR tubes on ice. Worms were allowed to
+settle or spun down by centrifugation and $\sim 80$ \si{\micro\liter} of
+supernatant removed before flash-freezing in liquid $N_2$. These samples were
+digested with Proteinase K (Roche Lot No. 03115 838001 Recombinant Proteinase K
+PCR Grade) for 15 \si{\min} at 60\degree{} in the presence of 1\% SDS and 1.25
+\si{\micro\liter} RNA Secure (Ambion AM 7005). RNA samples were then taken up in
+5 Volumes of Trizol (Tri Reagent Zymo Research) and processed and treated with
+DNase I using Zymo MicroPrep RNA Kit (Zymo Research Quick-RNA MicroPrep R1050).
+RNA was eluted in RNase-free water stored at -80\degree{}C. Samples were
+analyzed using a NanoDrop (Thermo Fisher) for impurities, Qubit for
 concentration and then analyzed on an Agilent 2100 BioAnalyzer (Agilent
 Technologies). Replicates were selected that had RNA integrity numbers (RIN)
 equal or greater than 9.0 and showed no evidence of bacterial ribosomal bands,
 except for the ZG31 mutant where one of three replicates had a RIN of 8.3.
 
 \subsection*{Library preparation and sequencing}
-10ng of quality checked total RNA from each sample was reverse-transcribed into
-cDNA using the Clontech SMARTer Ultra Low Input RNA for Sequencing v3 kit
-(catalog \#634848) in the SMARTSeq2 protocol~\cite{Picelli2014}.  RNA was
-denatured at 70\degree{}C for 3 minutes in the presence of dNTPs, oligo dT
-primer and spiked-in quantitation standards (NIST/ERCC from Ambion, catalog
-\#4456740).  After chilling to 4\degree{}C, the first-strand reaction was
-assembled using the LNA TSO primer described in Picelli et
-al~\cite{Picelli2014}, and run at 42\degree{}C for 90 minutes, followed by
-denaturation at 70\degree{}C for 10 minutes.  The entire first strand reaction
-was then used as template for 13 cycles of PCR using the Clontech v3 kit.
-Reactions were cleaned up with 1.8x volume of Ampure XP SPRI beads (catalog
-\#A63880) according to the manufacturer’s protocol.  After quantification using
-the Qubit High Sensitivity DNA assay, a 3ng aliquot of the amplified cDNA was
-run on the Agilent HS DNA chip to confirm the length distribution of the
-amplified fragments.  The median value for the average cDNA lengths from all
-length distributions was 1,076bp.  Tagmentation of the full length cDNA for
-sequencing was performed using the Illumina/Nextera DNA library prep kit
-(catalog \#FC-121--1030). Following Qubit quantitation and Agilent BioAnalyzer
-profiling, the tagmented libraries were sequenced. Libraries were sequenced on
-Illumina HiSeq2500 in single read mode with the read length of 50nt to an
-average depth of 15 million reads per sample following manufacturer's
-instructions. Base calls were performed with RTA 1.13.48.0 followed by
-conversion to FASTQ with bcl2fastq 1.8.4. Spearman correlation of the estimated
-counts for each genotype showed that every pairwise correlation within genotype
-was $0.9$.
+10 \si{\nano\gram} of quality checked total RNA from each sample was
+reverse-transcribed into cDNA using the Clontech SMARTer Ultra Low Input RNA for
+Sequencing v3 kit (catalog \#634848) in the SMARTSeq2
+protocol~\cite{Picelli2014}.  RNA was denatured at 70\degree{}C for 3 \si{\min}
+in the presence of dNTPs, oligo dT primer and spiked-in quantitation standards
+(NIST/ERCC from Ambion, catalog \#4456740).  After chilling to 4\degree{}C, the
+first-strand reaction was assembled using the LNA TSO primer described in
+Picelli et al~\cite{Picelli2014}, and run at 42\degree{}C for 90 minutes,
+followed by denaturation at 70\degree{}C for 10 \si{\min}.  The entire first
+strand reaction was then used as template for 13 cycles of PCR using the
+Clontech v3 kit. Reactions were cleaned up with 1.8x volume of Ampure XP SPRI
+beads (catalog \#A63880) according to the manufacturer’s protocol.  After
+quantification using the Qubit High Sensitivity DNA assay, a 3 \si{\nano\gram}
+aliquot of the amplified cDNA was run on the Agilent HS DNA chip to confirm the
+length distribution of the amplified fragments.  The median value for the
+average cDNA lengths from all length distributions was 1,076 bp.  Tagmentation
+of the full length cDNA for sequencing was performed using the Illumina/Nextera
+DNA library prep kit (catalog \#FC-121--1030). Following Qubit quantitation and
+Agilent BioAnalyzer profiling, the tagmented libraries were sequenced. Libraries
+were sequenced on Illumina HiSeq2500 in single read mode with the read length of
+50 nt to an average depth of 15 million reads per sample following
+manufacturer's instructions. Base calls were performed with RTA 1.13.48.0
+followed by conversion to FASTQ with bcl2fastq 1.8.4. Spearman correlation of
+the estimated counts for each genotype showed that every pairwise correlation
+within genotype was $0.9$.
 
 \subsection*{Read alignment and differential expression analysis} We used
 Kallisto~\cite{Bray2016} to perform read pseudo-alignment and performed
@@ -1022,8 +1019,9 @@ calculated as:
 
 Null models for various epistatic relationships were generated by sampling the
 single mutants in an appropriate fashion. For example, to generate the
-distribution for $a^- = a^-b^-$, we substituted $\beta_{a, b}$ with $\beta_a$
-and bootstrapped the result.
+distribution for two mutants that obey the epistatic relationship $a^- =
+a^-b^-$, we substituted $\beta_{a, b}$ with $\beta_a$ and bootstrapped the
+result.
 
 To select between theoretical models, we implemented an approximate Bayesian
 Odds Ratio. We defined a free-fit model, $M_1$, that found the line of best fit
@@ -1076,7 +1074,7 @@ throughout this project. }
 % \pnasbreak splits and balances the columns before the references. % If you see
 % unexpected formatting errors, try commenting out this line % as it can run into
 % problems with floats and footnotes on the final page.
-% \pnasbreak{}
+\pnasbreak{}
 
 % Bibliography
 \bibliography{citations}

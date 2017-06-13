@@ -137,10 +137,10 @@ Yeung KY, Ruzzo WL (2001) {Principal component analysis for clustering gene
   expression data.}
 \newblock {\em Bioinformatics (Oxford, England)} 17(9):763--774.
 
-\bibitem{Park2012}
-Park EC, et~al. (2012) {Hypoxia regulates glutamate receptor trafficking
-  through an HIF-independent mechanism}.
-\newblock {\em The EMBO Journal} 31(6):1618--1619.
+\bibitem{Angeles-Albores106369}
+Angeles-Albores D, Lee RY, Chan J, Sternberg PW (2017) {Phenotype and gene
+  ontology enrichment as guides for disease modeling in \emph{C. elegans}}.
+\newblock {\em bioRxiv}.
 
 \bibitem{Ackerman2012}
 Ackerman D, Gems D (2012) {Insulin/IGF-1 and hypoxia signaling act in concert
@@ -262,10 +262,5 @@ Waskom M, et~al. (2016) {seaborn: v0.7.0 (January 2016)}.
 P{\'{e}}rez F, Granger B (2007) {IPython: A System for Interactive Scientific
   Computing Python: An Open and General- Purpose Environment}.
 \newblock {\em Computing in Science and Engineering} 9(3):21--29.
-
-\bibitem{Angeles-Albores106369}
-Angeles-Albores D, Lee RY, Chan J, Sternberg PW (2017) {Phenotype and gene
-  ontology enrichment as guides for disease modeling in \emph{C. elegans}}.
-\newblock {\em bioRxiv}.
 
 \end{thebibliography}

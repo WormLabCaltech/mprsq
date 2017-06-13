@@ -9,16 +9,16 @@
 \bibinfo{author}{Shao, Z.}, \bibinfo{author}{Zhang, Y.} \&
   \bibinfo{author}{Powell-Coffman, J.~A.}
 \newblock \bibinfo{title}{{Two Distinct Roles for EGL-9 in the Regulation of
-  HIF-1-mediated gene expression in Caenorhabditis elegans}}.
+  HIF-1-mediated gene expression in \emph{Caenorhabditis~elegans}}}.
 \newblock \emph{\bibinfo{journal}{Genetics}} \textbf{\bibinfo{volume}{183}},
   \bibinfo{pages}{821--829} (\bibinfo{year}{2009}).
 
 \bibitem{Shen2006}
 \bibinfo{author}{Shen, C.}, \bibinfo{author}{Shao, Z.} \&
   \bibinfo{author}{Powell-Coffman, J.~A.}
-\newblock \bibinfo{title}{{The Caenorhabditis elegans rhy-1 Gene Inhibits HIF-1
-  Hypoxia-Inducible Factor Activity in a Negative Feedback Loop That Does Not
-  Include vhl-1}}.
+\newblock \bibinfo{title}{{The \emph{Caenorhabditis~elegans} \emph{rhy-1} Gene
+  Inhibits HIF-1 Hypoxia-Inducible Factor Activity in a Negative Feedback Loop
+  That Does Not Include \emph{vhl-1}}}.
 \newblock \emph{\bibinfo{journal}{Genetics}} \textbf{\bibinfo{volume}{174}},
   \bibinfo{pages}{1205--1214} (\bibinfo{year}{2006}).
 
@@ -27,7 +27,7 @@
   \bibinfo{author}{Jiang, M.}, \bibinfo{author}{Kim, S.~K.} \&
   \bibinfo{author}{Powell-Coffman, J.~A.}
 \newblock \bibinfo{title}{{Roles of the HIF-1 hypoxia-inducible factor during
-  hypoxia response in Caenorhabditis elegans}}.
+  hypoxia response in \emph{Caenorhabditis~elegans}}}.
 \newblock \emph{\bibinfo{journal}{Journal of Biological Chemistry}}
   \textbf{\bibinfo{volume}{280}}, \bibinfo{pages}{20580--20588}
   (\bibinfo{year}{2005}).
@@ -51,7 +51,7 @@
 \bibitem{Angeles-Albores2016}
 \bibinfo{author}{Angeles-Albores, D.}, \bibinfo{author}{{N. Lee}, R.~Y.},
   \bibinfo{author}{Chan, J.} \& \bibinfo{author}{Sternberg, P.~W.}
-\newblock \bibinfo{title}{{Tissue enrichment analysis for C. elegans
+\newblock \bibinfo{title}{{Tissue enrichment analysis for \emph{C.~elegans}
   genomics}}.
 \newblock \emph{\bibinfo{journal}{BMC Bioinformatics}}
   \textbf{\bibinfo{volume}{17}}, \bibinfo{pages}{366} (\bibinfo{year}{2016}).
@@ -60,24 +60,25 @@
 
 \bibitem{Luhachack2012}
 \bibinfo{author}{Luhachack, L.~G.} \emph{et~al.}
-\newblock \bibinfo{title}{{EGL-9 Controls C. elegans Host Defense Specificity
-  through Prolyl Hydroxylation-Dependent and -Independent HIF-1 Pathways}}.
+\newblock \bibinfo{title}{{EGL-9 Controls \emph{C.~elegans} Host Defense
+  Specificity through Prolyl Hydroxylation-Dependent and -Independent HIF-1
+  Pathways}}.
 \newblock \emph{\bibinfo{journal}{PLoS Pathogens}}
   \textbf{\bibinfo{volume}{8}}, \bibinfo{pages}{48} (\bibinfo{year}{2012}).
 
 \bibitem{Ackerman2012}
 \bibinfo{author}{Ackerman, D.} \& \bibinfo{author}{Gems, D.}
 \newblock \bibinfo{title}{{Insulin/IGF-1 and hypoxia signaling act in concert
-  to regulate iron homeostasis in Caenorhabditis elegans}}.
+  to regulate iron homeostasis in \emph{Caenorhabditis~elegans}}}.
 \newblock \emph{\bibinfo{journal}{PLoS Genetics}} \textbf{\bibinfo{volume}{8}}
   (\bibinfo{year}{2012}).
 
 \bibitem{Romney2011}
 \bibinfo{author}{Romney, S.~J.}, \bibinfo{author}{Newman, B.~S.},
   \bibinfo{author}{Thacker, C.} \& \bibinfo{author}{Leibold, E.~A.}
-\newblock \bibinfo{title}{{HIF-1 regulates iron homeostasis in caenorhabditis
-  elegans by activation and inhibition of genes involved in iron uptake and
-  storage}}.
+\newblock \bibinfo{title}{{HIF-1 regulates iron homeostasis in
+  \emph{Caenorhabditis~elegans} by activation and inhibition of genes involved
+  in iron uptake and storage}}.
 \newblock \emph{\bibinfo{journal}{PLoS Genetics}} \textbf{\bibinfo{volume}{7}}
   (\bibinfo{year}{2011}).
 
@@ -93,8 +94,8 @@
 \bibitem{Lee2010}
 \bibinfo{author}{Lee, S.~J.}, \bibinfo{author}{Hwang, A.~B.} \&
   \bibinfo{author}{Kenyon, C.}
-\newblock \bibinfo{title}{{Inhibition of respiration extends C. elegans life
-  span via reactive oxygen species that increase HIF-1 activity}}.
+\newblock \bibinfo{title}{{Inhibition of respiration extends \emph{C.~elegans}
+  life span via reactive oxygen species that increase HIF-1 activity}}.
 \newblock \emph{\bibinfo{journal}{Current Biology}}
   \textbf{\bibinfo{volume}{20}}, \bibinfo{pages}{2131--2136}
   (\bibinfo{year}{2010}).
@@ -133,8 +134,8 @@
 \bibitem{Sikora2010}
 \bibinfo{author}{Sikora, J.} \emph{et~al.}
 \newblock \bibinfo{title}{{Bioinformatic and biochemical studies point to
-  AAGR-1 as the ortholog of human acid ??-glucosidase in Caenorhabditis
-  elegans}}.
+  AAGR-1 as the ortholog of human acid ??-glucosidase in
+  \emph{Caenorhabditis~elegans}}}.
 \newblock \emph{\bibinfo{journal}{Molecular and Cellular Biochemistry}}
   \textbf{\bibinfo{volume}{341}}, \bibinfo{pages}{51--63}
   (\bibinfo{year}{2010}).

@@ -5,45 +5,45 @@ The style file: pnas-new.bst
 Database file #1: citations.bib
 Warning--there's a number but no volume in Huang2006
 Warning--empty journal in Waskom
-You've used 51 entries,
+You've used 50 entries,
             1837 wiz_defined-function locations,
-            826 strings with 16748 characters,
-and the built_in function-call counts, 11982 in all, are:
-= -- 1011
-> -- 604
+            819 strings with 16474 characters,
+and the built_in function-call counts, 11744 in all, are:
+= -- 988
+> -- 599
 < -- 2
-+ -- 181
-- -- 130
-* -- 1081
-:= -- 1818
-add.period$ -- 101
-call.type$ -- 51
-change.case$ -- 51
++ -- 179
+- -- 129
+* -- 1058
+:= -- 1783
+add.period$ -- 99
+call.type$ -- 50
+change.case$ -- 50
 chr.to.int$ -- 0
-cite$ -- 53
-duplicate$ -- 522
-empty$ -- 1115
-format.name$ -- 130
-if$ -- 2546
+cite$ -- 52
+duplicate$ -- 512
+empty$ -- 1090
+format.name$ -- 129
+if$ -- 2496
 int.to.chr$ -- 0
-int.to.str$ -- 51
-missing$ -- 51
-newline$ -- 206
-num.names$ -- 51
-pop$ -- 65
+int.to.str$ -- 50
+missing$ -- 50
+newline$ -- 202
+num.names$ -- 50
+pop$ -- 64
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 292
+skip$ -- 289
 stack$ -- 0
-substring$ -- 1050
-swap$ -- 119
+substring$ -- 1019
+swap$ -- 117
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 2
-while$ -- 136
-width$ -- 53
-write$ -- 507
+while$ -- 133
+width$ -- 52
+write$ -- 497
 (There were 2 warnings)

@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex SI"] 1496281945 "SI.aux" "SI.bbl" "SI" 1496282163
+["bibtex SI"] 1497291324 "SI.aux" "SI.bbl" "SI" 1497291326
   "/usr/local/texlive/2016/texmf-dist/bibtex/bst/nature/naturemag.bst" 1136766823 34867 ae05936b307e5838449d1bb5fdbb2c19 ""
-  "SI.aux" 1496281978 7988 3019a3aa25e3182f5cca6b5059677d80 ""
-  "citations.bib" 1496207782 229575 453ac8bfe687141b96133ab477202ee4 ""
+  "SI.aux" 1497291325 7988 3019a3aa25e3182f5cca6b5059677d80 ""
+  "citations.bib" 1496818567 231044 f41bd8e6290fd3a75bf85f35948309c8 ""
   (generated)
   "SI.bbl"
   "SI.blg"
-["pdflatex"] 1496281978 "SI.tex" "SI.pdf" "SI" 1496282163
+["pdflatex"] 1497291325 "SI.tex" "SI.pdf" "SI" 1497291326
   "../figs/bayesian-heatmap-horizontal.pdf" 1495597292 42278 ed53efe551599d4c58cdefece1c9642e ""
   "../figs/hif1genomewide.pdf" 1486377552 113421 66a251c0c7218a4e21cea3afaaa9bc04 ""
   "../figs/hypoxia_response_gea.pdf" 1487283260 137521 6e846c895c6ae20bd22e4cb840d8d578 ""
@@ -205,12 +205,12 @@
   "/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1489714609 2347740 a64585bea74103e522e12ca1308ca721 ""
   "/usr/local/texlive/2016/texmf-var/web2c/pdftex/pdflatex.fmt" 1489714637 3873789 a9a79940ae8da72f3213765301eb0765 ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "SI.aux" 1496281978 7988 3019a3aa25e3182f5cca6b5059677d80 ""
-  "SI.bbl" 1496281945 7681 e4e9fe3e679745269d63730fc69cef8f "bibtex SI"
-  "SI.out" 1496281978 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "SI.tex" 1496282162 17833 c6309b7206798e18f059534940ec0a2d ""
+  "SI.aux" 1497291325 7988 3019a3aa25e3182f5cca6b5059677d80 ""
+  "SI.bbl" 1497291325 7760 0562d0e11ac4b05fa435d8ce72a41b2a "bibtex SI"
+  "SI.out" 1497291325 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "SI.tex" 1497291324 17833 c6309b7206798e18f059534940ec0a2d ""
   (generated)
   "SI.log"
   "SI.out"
-  "SI.pdf"
   "SI.aux"
+  "SI.pdf"
