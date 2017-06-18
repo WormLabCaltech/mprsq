@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: transcriptome_genetics_biorxiv.aux
+The style file: naturemag.bst
+Database file #1: citations.bib
+Warning--empty journal in Waskom
+You've used 50 entries,
+            2348 wiz_defined-function locations,
+            1355 strings with 23533 characters,
+and the built_in function-call counts, 21080 in all, are:
+= -- 1565
+> -- 568
+< -- 0
++ -- 284
+- -- 142
+* -- 2671
+:= -- 2362
+add.period$ -- 187
+call.type$ -- 50
+change.case$ -- 50
+chr.to.int$ -- 0
+cite$ -- 51
+duplicate$ -- 1838
+empty$ -- 1838
+format.name$ -- 188
+if$ -- 4162
+int.to.chr$ -- 0
+int.to.str$ -- 50
+missing$ -- 430
+newline$ -- 295
+num.names$ -- 50
+pop$ -- 269
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 323
+stack$ -- 0
+substring$ -- 1022
+swap$ -- 1869
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 1
+while$ -- 134
+width$ -- 52
+write$ -- 628
+(There was 1 warning)

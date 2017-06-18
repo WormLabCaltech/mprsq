@@ -1,0 +1,460 @@
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem{Huang2006}
+\bibinfo{author}{Huang, L.~S.} \& \bibinfo{author}{Sternberg, P.~W.}
+\newblock \bibinfo{title}{{Genetic dissection of developmental pathways.}}
+\newblock \emph{\bibinfo{journal}{WormBook: the online review of
+  \emph{C.~elegans} biology}} \bibinfo{pages}{1--19} (\bibinfo{year}{2006}).
+
+\bibitem{Phillips2008}
+\bibinfo{author}{Phillips, P.~C.}
+\newblock \bibinfo{title}{{Epistasis---the essential role of gene interactions
+  in the structure and evolution of genetic systems}}.
+\newblock \emph{\bibinfo{journal}{Nat Rev Genet}} \textbf{\bibinfo{volume}{9}},
+  \bibinfo{pages}{855--867} (\bibinfo{year}{2008}).
+\newblock \urlprefix\url{http://dx.doi.org/10.1038/nrg2452}.
+
+\bibitem{Mortazavi2008}
+\bibinfo{author}{Mortazavi, A.}, \bibinfo{author}{Williams, B.~A.},
+  \bibinfo{author}{McCue, K.}, \bibinfo{author}{Schaeffer, L.} \&
+  \bibinfo{author}{Wold, B.}
+\newblock \bibinfo{title}{{Mapping and quantifying mammalian transcriptomes by
+  RNA-Seq}}.
+\newblock \emph{\bibinfo{journal}{Nature Methods}}
+  \textbf{\bibinfo{volume}{5}}, \bibinfo{pages}{621--628}
+  (\bibinfo{year}{2008}).
+\newblock
+  \urlprefix\url{http://dx.doi.org/10.1038/nmeth.1226{\%}5Cnhttp://www.nature.com/nmeth/journal/v5/n7/suppinfo/nmeth.1226{\_}S1.html{\%}5Cnhttp://www.nature.com/doifinder/10.1038/nmeth.1226{\%}5Cnhttp://www.ncbi.nlm.nih.gov/pubmed/18516045}.
+\newblock \eprint{1111.6189v1}.
+
+\bibitem{Schwarz2012}
+\bibinfo{author}{Schwarz, E.~M.}, \bibinfo{author}{Kato, M.} \&
+  \bibinfo{author}{Sternberg, P.~W.}
+\newblock \bibinfo{title}{{Functional transcriptomics of a migrating cell in
+  \emph{Caenorhabditis~elegans}.}}
+\newblock \emph{\bibinfo{journal}{Proceedings of the National Academy of
+  Sciences of the United States of America}} \textbf{\bibinfo{volume}{109}},
+  \bibinfo{pages}{16246--51} (\bibinfo{year}{2012}).
+\newblock
+  \urlprefix\url{http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=3479585{\&}tool=pmcentrez{\&}rendertype=abstract}.
+
+\bibitem{VanWolfswinkel2014}
+\bibinfo{author}{{Van Wolfswinkel}, J.~C.}, \bibinfo{author}{Wagner, D.~E.} \&
+  \bibinfo{author}{Reddien, P.~W.}
+\newblock \bibinfo{title}{{Single-cell analysis reveals functionally distinct
+  classes within the planarian stem cell compartment}}.
+\newblock \emph{\bibinfo{journal}{Cell Stem Cell}}
+  \textbf{\bibinfo{volume}{15}}, \bibinfo{pages}{326--339}
+  (\bibinfo{year}{2014}).
+\newblock \urlprefix\url{http://dx.doi.org/10.1016/j.stem.2014.06.007}.
+
+\bibitem{Scimone2014}
+\bibinfo{author}{Scimone, M.~L.}, \bibinfo{author}{Kravarik, K.~M.},
+  \bibinfo{author}{Lapan, S.~W.} \& \bibinfo{author}{Reddien, P.~W.}
+\newblock \bibinfo{title}{{Neoblast specialization in regeneration of the
+  planarian \emph{Schmidtea~mediterranea}}}.
+\newblock \emph{\bibinfo{journal}{Stem Cell Reports}}
+  \textbf{\bibinfo{volume}{3}}, \bibinfo{pages}{339--352}
+  (\bibinfo{year}{2014}).
+\newblock \urlprefix\url{http://dx.doi.org/10.1016/j.stemcr.2014.06.001}.
+
+\bibitem{Brem2002}
+\bibinfo{author}{Brem, R.~B.}, \bibinfo{author}{Yvert, G.},
+  \bibinfo{author}{Clinton, R.} \& \bibinfo{author}{Kruglyak, L.}
+\newblock \bibinfo{title}{{Genetic Dissection of Transcriptional Regulation in
+  Budding Yeast}}.
+\newblock \emph{\bibinfo{journal}{Science}} \textbf{\bibinfo{volume}{296}}
+  (\bibinfo{year}{2002}).
+
+\bibitem{Schadt2003}
+\bibinfo{author}{Schadt, E.~E.} \emph{et~al.}
+\newblock \bibinfo{title}{{Genetics of gene expression surveyed in maize, mouse
+  and man}}.
+\newblock \emph{\bibinfo{journal}{Nature}} \textbf{\bibinfo{volume}{422}},
+  \bibinfo{pages}{297--302} (\bibinfo{year}{2003}).
+\newblock \urlprefix\url{http://www.nature.com/doifinder/10.1038/nature01434}.
+
+\bibitem{Li2006}
+\bibinfo{author}{Li, Y.} \emph{et~al.}
+\newblock \bibinfo{title}{{Mapping Determinants of Gene Expression Plasticity
+  by Genetical Genomics in \emph{C.~elegans}}}.
+\newblock \emph{\bibinfo{journal}{PLoS Genetics}} \textbf{\bibinfo{volume}{2}},
+  \bibinfo{pages}{e222} (\bibinfo{year}{2006}).
+\newblock \urlprefix\url{http://dx.plos.org/10.1371/journal.pgen.0020222}.
+
+\bibitem{King2014}
+\bibinfo{author}{King, E.~G.}, \bibinfo{author}{Sanderson, B.~J.},
+  \bibinfo{author}{McNeil, C.~L.}, \bibinfo{author}{Long, A.~D.} \&
+  \bibinfo{author}{Macdonald, S.~J.}
+\newblock \bibinfo{title}{{Genetic Dissection of the \emph{Drosophila
+  melanogaster} Female Head Transcriptome Reveals Widespread Allelic
+  Heterogeneity}}.
+\newblock \emph{\bibinfo{journal}{PLoS Genetics}}
+  \textbf{\bibinfo{volume}{10}}, \bibinfo{pages}{e1004322}
+  (\bibinfo{year}{2014}).
+\newblock \urlprefix\url{http://dx.plos.org/10.1371/journal.pgen.1004322}.
+
+\bibitem{Hughes2000}
+\bibinfo{author}{Hughes, T.~R.} \emph{et~al.}
+\newblock \bibinfo{title}{{Functional Discovery via a Compendium of Expression
+  Profiles}}.
+\newblock \emph{\bibinfo{journal}{Cell}} \textbf{\bibinfo{volume}{102}},
+  \bibinfo{pages}{109--126} (\bibinfo{year}{2000}).
+\newblock
+  \urlprefix\url{http://www.sciencedirect.com/science/article/pii/S0092867400000155}.
+
+\bibitem{VanDriessche2005}
+\bibinfo{author}{{Van Driessche}, N.} \emph{et~al.}
+\newblock \bibinfo{title}{{Epistasis analysis with global transcriptional
+  phenotypes}}.
+\newblock \emph{\bibinfo{journal}{Nature genetics}}
+  \textbf{\bibinfo{volume}{37}}, \bibinfo{pages}{471--477}
+  (\bibinfo{year}{2005}).
+\newblock \urlprefix\url{/Users/yurikoharigaya/Documents/ReadCube
+  Media/van{\_}driessche2005.pdf{\%}5Cnhttp://dx.doi.org/10.1038/ng1545}.
+
+\bibitem{Dixit2016}
+\bibinfo{author}{Dixit, A.} \emph{et~al.}
+\newblock \bibinfo{title}{{Perturb-Seq: Dissecting Molecular Circuits with
+  Scalable Single-Cell RNA Profiling of Pooled Genetic Screens}}.
+\newblock \emph{\bibinfo{journal}{Cell}} \textbf{\bibinfo{volume}{167}},
+  \bibinfo{pages}{1853--1866.e17} (\bibinfo{year}{2016}).
+\newblock
+  \urlprefix\url{http://linkinghub.elsevier.com/retrieve/pii/S0092867416316105}.
+
+\bibitem{Angeles-Albores2016a}
+\bibinfo{author}{Angeles-Albores, D.} \emph{et~al.}
+\newblock \bibinfo{title}{{Transcriptomic Description of an Endogenous Female
+  State in \emph{C. elegans}}}.
+\newblock \emph{\bibinfo{journal}{bioRxiv}}  (\bibinfo{year}{2016}).
+\newblock
+  \urlprefix\url{http://biorxiv.org/content/early/2016/10/27/083113.abstract}.
+
+\bibitem{Epstein2001}
+\bibinfo{author}{Epstein, A. C.~R.} \emph{et~al.}
+\newblock \bibinfo{title}{{ \emph{C.~elegans} EGL-9 and mammalian homologs
+  define a family of dioxygenases that regulate HIF by prolyl hydroxylation}}.
+\newblock \emph{\bibinfo{journal}{Cell}} \textbf{\bibinfo{volume}{107}},
+  \bibinfo{pages}{43--54} (\bibinfo{year}{2001}).
+
+\bibitem{Shen2006}
+\bibinfo{author}{Shen, C.}, \bibinfo{author}{Shao, Z.} \&
+  \bibinfo{author}{Powell-Coffman, J.~A.}
+\newblock \bibinfo{title}{{The \emph{Caenorhabditis~elegans} \emph{rhy-1} Gene
+  Inhibits HIF-1 Hypoxia-Inducible Factor Activity in a Negative Feedback Loop
+  That Does Not Include \emph{vhl-1}}}.
+\newblock \emph{\bibinfo{journal}{Genetics}} \textbf{\bibinfo{volume}{174}},
+  \bibinfo{pages}{1205--1214} (\bibinfo{year}{2006}).
+
+\bibitem{Shao2009}
+\bibinfo{author}{Shao, Z.}, \bibinfo{author}{Zhang, Y.} \&
+  \bibinfo{author}{Powell-Coffman, J.~A.}
+\newblock \bibinfo{title}{{Two Distinct Roles for EGL-9 in the Regulation of
+  HIF-1-mediated gene expression in \emph{Caenorhabditis~elegans}}}.
+\newblock \emph{\bibinfo{journal}{Genetics}} \textbf{\bibinfo{volume}{183}},
+  \bibinfo{pages}{821--829} (\bibinfo{year}{2009}).
+
+\bibitem{Jiang2001}
+\bibinfo{author}{Jiang, H.}, \bibinfo{author}{Guo, R.} \&
+  \bibinfo{author}{Powell-Coffman, J.~A.}
+\newblock \bibinfo{title}{{The \emph{Caenorhabditis~elegans}\emph{hif-1} gene
+  encodes a bHLH-PAS protein that is required for adaptation to hypoxia.}}
+\newblock \emph{\bibinfo{journal}{Proceedings of the National Academy of
+  Sciences of the United States of America}} \textbf{\bibinfo{volume}{98}},
+  \bibinfo{pages}{7916--7921} (\bibinfo{year}{2001}).
+
+\bibitem{Loenarz2011}
+\bibinfo{author}{Loenarz, C.} \emph{et~al.}
+\newblock \bibinfo{title}{{The hypoxia-inducible transcription factor pathway
+  regulates oxygen sensing in the simplest animal, \emph{Trichoplax
+  adhaerens}}}.
+\newblock \emph{\bibinfo{journal}{EMBO reports}} \textbf{\bibinfo{volume}{12}},
+  \bibinfo{pages}{63--70} (\bibinfo{year}{2011}).
+\newblock
+  \urlprefix\url{http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=3024122{\&}tool=pmcentrez{\&}rendertype=abstract{\%}5Cnhttp://embor.embopress.org/cgi/doi/10.1038/embor.2010.170{\%}5Cnhttp://dx.doi.org/10.1038/embor.2010.170}.
+
+\bibitem{Jiang1996}
+\bibinfo{author}{Jiang, B.~H.}, \bibinfo{author}{Rue, E.},
+  \bibinfo{author}{Wang, G.~L.}, \bibinfo{author}{Roe, R.} \&
+  \bibinfo{author}{Semenza, G.~L.}
+\newblock \bibinfo{title}{{Dimerization, DNA binding, and transactivation
+  properties of hypoxia-inducible factor 1.}}
+\newblock \emph{\bibinfo{journal}{The Journal of biological chemistry}}
+  \textbf{\bibinfo{volume}{271}}, \bibinfo{pages}{17771--17778}
+  (\bibinfo{year}{1996}).
+
+\bibitem{Powell-Coffman1998}
+\bibinfo{author}{Powell-Coffman, J.~A.}, \bibinfo{author}{Bradfield, C.~A.} \&
+  \bibinfo{author}{Wood, W.~B.}
+\newblock \bibinfo{title}{{\emph{Caenorhabditis~elegans} Orthologs of the Aryl
+  Hydrocarbon Receptor and Its Heterodimerization Partner the Aryl Hydrocarbon
+  Receptor Nuclear Translocator}}.
+\newblock \emph{\bibinfo{journal}{Proceedings of the National Academy of
+  Sciences}} \textbf{\bibinfo{volume}{95}}, \bibinfo{pages}{2844--2849}
+  (\bibinfo{year}{1998}).
+
+\bibitem{Huang1996}
+\bibinfo{author}{Huang, L.~E.}, \bibinfo{author}{Arany, Z.},
+  \bibinfo{author}{Livingston, D.~M.} \& \bibinfo{author}{{Franklin Bunn}, H.}
+\newblock \bibinfo{title}{{Activation of hypoxia-inducible transcription factor
+  depends primarily upon redox-sensitive stabilization of its alpha subunit}}.
+\newblock \emph{\bibinfo{journal}{Journal of Biological Chemistry}}
+  \textbf{\bibinfo{volume}{271}}, \bibinfo{pages}{32253--32259}
+  (\bibinfo{year}{1996}).
+
+\bibitem{Kaelin2008}
+\bibinfo{author}{Kaelin, W.~G.} \& \bibinfo{author}{Ratcliffe, P.~J.}
+\newblock \bibinfo{title}{{Oxygen Sensing by Metazoans: The Central Role of the
+  HIF Hydroxylase Pathway}}.
+\newblock \emph{\bibinfo{journal}{Molecular Cell}}
+  \textbf{\bibinfo{volume}{30}}, \bibinfo{pages}{393--402}
+  (\bibinfo{year}{2008}).
+
+\bibitem{Ma2012}
+\bibinfo{author}{Ma, D.~K.}, \bibinfo{author}{Vozdek, R.},
+  \bibinfo{author}{Bhatla, N.} \& \bibinfo{author}{Horvitz, H.~R.}
+\newblock \bibinfo{title}{{CYSL-1 Interacts with the O 2-Sensing Hydroxylase
+  EGL-9 to Promote H 2S-Modulated Hypoxia-Induced Behavioral Plasticity in
+  \emph{C.~elegans}}}.
+\newblock \emph{\bibinfo{journal}{Neuron}} \textbf{\bibinfo{volume}{73}},
+  \bibinfo{pages}{925--940} (\bibinfo{year}{2012}).
+\newblock \urlprefix\url{http://dx.doi.org/10.1016/j.neuron.2011.12.037}.
+\newblock \eprint{NIHMS150003}.
+
+\bibitem{Yeung2001}
+\bibinfo{author}{Yeung, K.~Y.} \& \bibinfo{author}{Ruzzo, W.~L.}
+\newblock \bibinfo{title}{{Principal component analysis for clustering gene
+  expression data.}}
+\newblock \emph{\bibinfo{journal}{Bioinformatics (Oxford, England)}}
+  \textbf{\bibinfo{volume}{17}}, \bibinfo{pages}{763--774}
+  (\bibinfo{year}{2001}).
+\newblock
+  \urlprefix\url{https://academic.oup.com/bioinformatics/article-lookup/doi/10.1093/bioinformatics/17.9.763}.
+
+\bibitem{Angeles-Albores106369}
+\bibinfo{author}{Angeles-Albores, D.}, \bibinfo{author}{Lee, R.~Y.},
+  \bibinfo{author}{Chan, J.} \& \bibinfo{author}{Sternberg, P.~W.}
+\newblock \bibinfo{title}{{Phenotype and gene ontology enrichment as guides for
+  disease modeling in \emph{C. elegans}}}.
+\newblock \emph{\bibinfo{journal}{bioRxiv}}  (\bibinfo{year}{2017}).
+\newblock \urlprefix\url{http://biorxiv.org/content/early/2017/02/07/106369}.
+
+\bibitem{Ackerman2012}
+\bibinfo{author}{Ackerman, D.} \& \bibinfo{author}{Gems, D.}
+\newblock \bibinfo{title}{{Insulin/IGF-1 and hypoxia signaling act in concert
+  to regulate iron homeostasis in \emph{Caenorhabditis~elegans}}}.
+\newblock \emph{\bibinfo{journal}{PLoS Genetics}} \textbf{\bibinfo{volume}{8}}
+  (\bibinfo{year}{2012}).
+
+\bibitem{Romney2011}
+\bibinfo{author}{Romney, S.~J.}, \bibinfo{author}{Newman, B.~S.},
+  \bibinfo{author}{Thacker, C.} \& \bibinfo{author}{Leibold, E.~A.}
+\newblock \bibinfo{title}{{HIF-1 regulates iron homeostasis in
+  \emph{Caenorhabditis~elegans} by activation and inhibition of genes involved
+  in iron uptake and storage}}.
+\newblock \emph{\bibinfo{journal}{PLoS Genetics}} \textbf{\bibinfo{volume}{7}}
+  (\bibinfo{year}{2011}).
+
+\bibitem{Luhachack2012}
+\bibinfo{author}{Luhachack, L.~G.} \emph{et~al.}
+\newblock \bibinfo{title}{{EGL-9 Controls \emph{C.~elegans} Host Defense
+  Specificity through Prolyl Hydroxylation-Dependent and -Independent HIF-1
+  Pathways}}.
+\newblock \emph{\bibinfo{journal}{PLoS Pathogens}}
+  \textbf{\bibinfo{volume}{8}}, \bibinfo{pages}{48} (\bibinfo{year}{2012}).
+
+\bibitem{Shao2010}
+\bibinfo{author}{Shao, Z.}, \bibinfo{author}{Zhang, Y.}, \bibinfo{author}{Ye,
+  Q.}, \bibinfo{author}{Saldanha, J.~N.} \& \bibinfo{author}{Powell-Coffman,
+  J.~A.}
+\newblock \bibinfo{title}{{ \emph{C.~elegans} \emph{swan-1} binds to
+  \emph{egl-9} and regulates \emph{hif-1}- mediated resistance to the bacterial
+  pathogen \emph{Pseudomonas~aeruginosa} PAO1}}.
+\newblock \emph{\bibinfo{journal}{PLoS Pathogens}}
+  \textbf{\bibinfo{volume}{6}}, \bibinfo{pages}{91--92} (\bibinfo{year}{2010}).
+
+\bibitem{Budde2010}
+\bibinfo{author}{Budde, M.~W.} \& \bibinfo{author}{Roth, M.~B.}
+\newblock \bibinfo{title}{{Hydrogen Sulfide Increases Hypoxia-inducible
+  Factor-1 Activity Independently of von Hippel–Lindau Tumor Suppressor-1 in
+  \emph{C. elegans}}}.
+\newblock \emph{\bibinfo{journal}{Molecular biology of the cell}}
+  \textbf{\bibinfo{volume}{21}}, \bibinfo{pages}{212--217}
+  (\bibinfo{year}{2010}).
+
+\bibitem{Kim2004}
+\bibinfo{author}{Kim, Y.-I.}, \bibinfo{author}{Cho, J.~H.},
+  \bibinfo{author}{Yoo, O.~J.} \& \bibinfo{author}{Ahnn, J.}
+\newblock \bibinfo{title}{{Transcriptional Regulation and Life-span Modulation
+  of Cytosolic Aconitase and Ferritin Genes in \emph{C.elegans}}}.
+\newblock \emph{\bibinfo{journal}{Journal of Molecular Biology}}
+  \textbf{\bibinfo{volume}{342}}, \bibinfo{pages}{421--433}
+  (\bibinfo{year}{2004}).
+\newblock
+  \urlprefix\url{http://www.sciencedirect.com/science/article/pii/S0022283604008642}.
+
+\bibitem{Chintala2012}
+\bibinfo{author}{Chintala, S.} \emph{et~al.}
+\newblock \bibinfo{title}{{Prolyl hydroxylase 2 dependent and Von-Hippel-Lindau
+  independent degradation of Hypoxia-inducible factor 1 and 2 alpha by selenium
+  in clear cell renal cell carcinoma leads to tumor growth inhibition}}.
+\newblock \emph{\bibinfo{journal}{BMC Cancer}} \textbf{\bibinfo{volume}{12}},
+  \bibinfo{pages}{293} (\bibinfo{year}{2012}).
+\newblock \urlprefix\url{BMC Cancer}.
+
+\bibitem{Wang1993}
+\bibinfo{author}{Wang, G.~L.} \& \bibinfo{author}{Semenza, G.~L.}
+\newblock \bibinfo{title}{{Characterization of hypoxia-inducible factor 1 and
+  regulation of DNA binding activity by hypoxia.}}
+\newblock \emph{\bibinfo{journal}{The Journal of biological chemistry}}
+  \textbf{\bibinfo{volume}{268}}, \bibinfo{pages}{21513--8}
+  (\bibinfo{year}{1993}).
+\newblock \urlprefix\url{http://www.ncbi.nlm.nih.gov/pubmed/8408001}.
+
+\bibitem{Goentoro2009a}
+\bibinfo{author}{Goentoro, L.}, \bibinfo{author}{Shoval, O.},
+  \bibinfo{author}{Kirschner, M.~W.} \& \bibinfo{author}{Alon, U.}
+\newblock \bibinfo{title}{{The Incoherent Feedforward Loop Can Provide
+  Fold-Change Detection in Gene Regulation}}.
+\newblock \emph{\bibinfo{journal}{Molecular Cell}}
+  \textbf{\bibinfo{volume}{36}}, \bibinfo{pages}{894--899}
+  (\bibinfo{year}{2009}).
+\newblock \urlprefix\url{http://dx.doi.org/10.1016/j.molcel.2009.11.018}.
+\newblock \eprint{NIHMS150003}.
+
+\bibitem{Hart2012}
+\bibinfo{author}{Hart, Y.}, \bibinfo{author}{Antebi, Y.~E.},
+  \bibinfo{author}{Mayo, A.~E.}, \bibinfo{author}{Friedman, N.} \&
+  \bibinfo{author}{Alon, U.}
+\newblock \bibinfo{title}{{Design principles of cell circuits with paradoxical
+  components}}.
+\newblock \emph{\bibinfo{journal}{Proceedings of the National Academy of
+  Sciences of the United States of America}} \textbf{\bibinfo{volume}{109}},
+  \bibinfo{pages}{8346--8351} (\bibinfo{year}{2012}).
+\newblock \urlprefix\url{http://www.pnas.org/cgi/doi/10.1073/pnas.1117475109}.
+
+\bibitem{Hart2013}
+\bibinfo{author}{Hart, Y.} \& \bibinfo{author}{Alon, U.}
+\newblock \bibinfo{title}{{The Utility of Paradoxical Components in Biological
+  Circuits}}.
+\newblock \emph{\bibinfo{journal}{Molecular Cell}}
+  \textbf{\bibinfo{volume}{49}}, \bibinfo{pages}{213--221}
+  (\bibinfo{year}{2013}).
+\newblock \urlprefix\url{http://dx.doi.org/10.1016/j.molcel.2013.01.004}.
+
+\bibitem{Brenner1974}
+\bibinfo{author}{Sulston, J.~E.} \& \bibinfo{author}{Brenner, S.}
+\newblock \bibinfo{title}{{The DNA of \emph{Caenorhabditis~elegans}.}}
+\newblock \emph{\bibinfo{journal}{Genetics}} \textbf{\bibinfo{volume}{77}},
+  \bibinfo{pages}{95--104} (\bibinfo{year}{1974}).
+
+\bibitem{Picelli2014}
+\bibinfo{author}{Picelli, S.} \emph{et~al.}
+\newblock \bibinfo{title}{{Full-length RNA-seq from single cells using
+  Smart-seq2.}}
+\newblock \emph{\bibinfo{journal}{Nature protocols}}
+  \textbf{\bibinfo{volume}{9}}, \bibinfo{pages}{171--81}
+  (\bibinfo{year}{2014}).
+\newblock \urlprefix\url{http://www.ncbi.nlm.nih.gov/pubmed/24385147}.
+
+\bibitem{Bray2016}
+\bibinfo{author}{Bray, N.~L.}, \bibinfo{author}{Pimentel, H.~J.},
+  \bibinfo{author}{Melsted, P.} \& \bibinfo{author}{Pachter, L.}
+\newblock \bibinfo{title}{{Near-optimal probabilistic RNA-seq quantification.}}
+\newblock \emph{\bibinfo{journal}{Nature biotechnology}}
+  \textbf{\bibinfo{volume}{34}}, \bibinfo{pages}{525--7}
+  (\bibinfo{year}{2016}).
+\newblock \urlprefix\url{http://www.ncbi.nlm.nih.gov/pubmed/27043002}.
+\newblock \eprint{1505.02710}.
+
+\bibitem{Pimentel2016}
+\bibinfo{author}{Pimentel, H.~J.}, \bibinfo{author}{Bray, N.~L.},
+  \bibinfo{author}{Puente, S.}, \bibinfo{author}{Melsted, P.} \&
+  \bibinfo{author}{Pachter, L.}
+\newblock \bibinfo{title}{{Differential analysis of RNA-Seq incorporating
+  quantification uncertainty}}.
+\newblock \emph{\bibinfo{journal}{bioRxiv}} \bibinfo{pages}{058164}
+  (\bibinfo{year}{2016}).
+
+\bibitem{McKinney2011}
+\bibinfo{author}{McKinney, W.}
+\newblock \bibinfo{title}{{pandas: a Foundational Python Library for Data
+  Analysis and Statistics}}.
+\newblock \emph{\bibinfo{journal}{Python for High Performance and Scientific
+  Computing}} \bibinfo{pages}{1--9} (\bibinfo{year}{2011}).
+
+\bibitem{Oliphant2007}
+\bibinfo{author}{Oliphant, T.~E.}
+\newblock \bibinfo{title}{{SciPy: Open source scientific tools for Python}}.
+\newblock \emph{\bibinfo{journal}{Computing in Science and Engineering}}
+  \textbf{\bibinfo{volume}{9}}, \bibinfo{pages}{10--20} (\bibinfo{year}{2007}).
+\newblock \urlprefix\url{http://www.scipy.org/}.
+
+\bibitem{Pedregosa2012}
+\bibinfo{author}{Pedregosa, F.} \emph{et~al.}
+\newblock \bibinfo{title}{{Scikit-learn: Machine Learning in Python}}.
+\newblock \emph{\bibinfo{journal}{Journal of Machine Learning Research}}
+  \textbf{\bibinfo{volume}{12}}, \bibinfo{pages}{2825--2830}
+  (\bibinfo{year}{2012}).
+\newblock
+  \urlprefix\url{http://dl.acm.org/citation.cfm?id=2078195{\%}5Cnhttp://arxiv.org/abs/1201.0490}.
+\newblock \eprint{1201.0490}.
+
+\bibitem{Salvatier2015}
+\bibinfo{author}{Salvatier, J.}, \bibinfo{author}{Wiecki, T.} \&
+  \bibinfo{author}{Fonnesbeck, C.}
+\newblock \bibinfo{title}{{Probabilistic Programming in Python using PyMC}}.
+\newblock \emph{\bibinfo{journal}{PeerJ Computer Science}}
+  \textbf{\bibinfo{volume}{2}}, \bibinfo{pages}{1--24} (\bibinfo{year}{2015}).
+\newblock \urlprefix\url{http://arxiv.org/abs/1507.08050}.
+\newblock \eprint{1507.08050}.
+
+\bibitem{VanDerWalt2011}
+\bibinfo{author}{{Van Der Walt}, S.}, \bibinfo{author}{Colbert, S.~C.} \&
+  \bibinfo{author}{Varoquaux, G.}
+\newblock \bibinfo{title}{{The NumPy array: A structure for efficient numerical
+  computation}}.
+\newblock \emph{\bibinfo{journal}{Computing in Science and Engineering}}
+  \textbf{\bibinfo{volume}{13}}, \bibinfo{pages}{22--30}
+  (\bibinfo{year}{2011}).
+\newblock \eprint{1102.1523}.
+
+\bibitem{Hunter2007}
+\bibinfo{author}{Hunter, J.~D.}
+\newblock \bibinfo{title}{{Matplotlib: A 2D graphics environment}}.
+\newblock \emph{\bibinfo{journal}{Computing in Science and Engineering}}
+  \textbf{\bibinfo{volume}{9}}, \bibinfo{pages}{99--104}
+  (\bibinfo{year}{2007}).
+\newblock \eprint{0402594v3}.
+
+\bibitem{Angeles-Albores2016}
+\bibinfo{author}{Angeles-Albores, D.}, \bibinfo{author}{{N. Lee}, R.~Y.},
+  \bibinfo{author}{Chan, J.} \& \bibinfo{author}{Sternberg, P.~W.}
+\newblock \bibinfo{title}{{Tissue enrichment analysis for \emph{C.~elegans}
+  genomics}}.
+\newblock \emph{\bibinfo{journal}{BMC Bioinformatics}}
+  \textbf{\bibinfo{volume}{17}}, \bibinfo{pages}{366} (\bibinfo{year}{2016}).
+\newblock
+  \urlprefix\url{http://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-016-1229-9}.
+
+\bibitem{Waskom}
+\bibinfo{author}{Waskom, M.} \emph{et~al.}
+\newblock \bibinfo{title}{{seaborn: v0.7.0 (January 2016)}}
+  (\bibinfo{year}{2016}).
+\newblock
+  \urlprefix\url{http://zenodo.org/record/45133{\%}5Cnhttps://zenodo.org/record/45133/export/hx}.
+
+\bibitem{Perez2007}
+\bibinfo{author}{P{\'{e}}rez, F.} \& \bibinfo{author}{Granger, B.}
+\newblock \bibinfo{title}{{IPython: A System for Interactive Scientific
+  Computing Python: An Open and General- Purpose Environment}}.
+\newblock \emph{\bibinfo{journal}{Computing in Science and Engineering}}
+  \textbf{\bibinfo{volume}{9}}, \bibinfo{pages}{21--29} (\bibinfo{year}{2007}).
+\newblock \urlprefix\url{http://ipython.org}.
+
+\end{thebibliography}

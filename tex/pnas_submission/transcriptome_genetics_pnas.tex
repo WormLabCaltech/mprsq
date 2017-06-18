@@ -27,7 +27,7 @@
 \newcommand{\egl}{\gene{egl-9(lf)}}
 \newcommand{\rhy}{\gene{rhy-1(lf)}}
 \newcommand{\vhl}{\gene{vhl-1(lf)}}
-\newcommand{\eglvhl}{\gene{egl-9(lf);vhl-1(lf)}}
+\newcommand{\eglvhl}{\gene{egl-9(lf); vhl-1(lf)}}
 \newcommand{\eglhif}{\gene{egl-9(lf) hif-1(lf)}}
 \newcommand{\hif}{\gene{hif-1(lf)}}
 
@@ -309,7 +309,7 @@ documentation, is available at \url{https://wormlabcaltech.github.io/mprsq}.
 \end{figure}
 
 Transcriptome profiling of the hypoxia pathway revealed that this pathway
-controls thousands of genes in \cel{} (see Table~\ref{tab:genes})). The \egl{}
+controls thousands of genes in \cel{} (see Table~\ref{tab:genes}). The \egl{}
 transcriptome showed differential expression of \egln{} genes. \rhyn{} genes
 were differentially expressed in \rhy{} mutants. The \vhl{} transcriptome showed
 considerably fewer DEGs (\vhln{}), possibly because \gene{vhl-1} is a weaker
@@ -676,7 +676,10 @@ complete loss of \gene{egl-9} activity) without specifying any further
 conditions. We found \hifohtargets{} that satisfied this condition (see
 Fig.~\ref{fig:hif1oh}, Supplemental Table 4). When we checked expression of
 these genes in the double mutant, we found that \gene{egl-9} remained epistatic
-over \gene{vhl-1} for this class of genes.
+over \gene{vhl-1} for this class of genes. This class of genes may in fact be
+much larger because it overlooks genes that have wild-type expression in an
+\egl{} background, altered expression in a \vhl{} background, and suppressed
+(wild-type) expression  in an \eglvhl{} background.
 
 \begin{figure}[tbhp]
   \centering
@@ -697,7 +700,7 @@ over \gene{vhl-1} for this class of genes.
 \end{figure}
 
 Although this entire class had similar behavior, for simplicity we focused on
-two genes, \nlp{} and\ftna{} which have expression patterns representative of
+two genes, \nlp{} and \ftna{} which have expression patterns representative of
 this class. \ftna{} is described to be responsive to mutations in the hypoxia
 pathway and has been reported to have aberrant behaviors; specifically, mutation
 of \gene{egl-9} and \gene{vhl-1} have opposing effects on \ftna{}
@@ -711,7 +714,7 @@ Analysis of \ftna{} expression reveals that \gene{egl-9} is epistatic to
 \gene{hif-1}; that \gene{vhl-1} has opposite effects to \gene{egl-9}, and that
 \gene{vhl-1} is epistatic to \gene{egl-9}. Analysis of \nlp{} reveals similar
 relationships. \nlp{} expression is decreased in \hif{}, and increased in
-\egl{}. However, \gene{egl-9} is epistatic to \gene{hif-1}. Like \ftna{}
+\egl{}. However, \gene{egl-9} is epistatic to \gene{hif-1}. Like \ftna{},
 \gene{vhl-1} has the opposite effect to \gene{egl-9}, yet is epistatic to
 \gene{egl-9}. We propose in the Discussion a novel model for how \hifp{} might
 regulate these targets.
@@ -736,8 +739,8 @@ of the hypoxia pathway. Some of these non-classical behaviors had been observed
 previously~\cite{Ackerman2012,Romney2011,Luhachack2012}, but no satisfactory
 mechanism has been proposed to explain this biology. Previous
 studies~\cite{Romney2011,Ackerman2012} suggested that \hifp{} integrates
-information on iron concentration in the cell to determine binding to the
-\ftna{} promoter, but could not definitively establish a mechanism. It is
+information on iron concentration in the cell to determine its binding affinity
+to the \ftna{} promoter, but could not definitively establish a mechanism. It is
 unclear why deletion of \gene{hif-1} and deletion of \gene{egl-9} both cause
 induction of \ftna{} expression, but deletion of \gene{vhl-1} abolishes this
 induction. Moreover, Luchachack et al~\cite{Luhachack2012} have previously
@@ -752,7 +755,7 @@ pathway~\cite{Budde2010} could also modulate expression, though it is worth
 pointing out that \ftna{} expression appears restricted to a single tissue, the
 intestine~\cite{Kim2004}. Another possibility is that \gene{egl-9} controls
 \gene{hif-1} mRNA stability via other \gene{vhl-1}-independent pathways, but we
-did not decreases in \gene{hif-1} level in \egl{}, \rhy{} or \vhl{} mutants.
+did not see a decreases in \gene{hif-1} level in \egl{}, \rhy{} or \vhl{} mutants.
 Another possibility, such as control of protein stability via \gene{egl-9}
 independently of \gene{vhl-1}~\cite{Chintala2012} will not lead to splitting
 unless it happens in a tissue-specific manner.
@@ -784,10 +787,10 @@ antagonized by \hifp{}-hydroxyl, which is present at only a low level in the
 cell in normoxia because it is degraded in a \gene{vhl-1}-dependent fashion.
 This means that loss of \gene{vhl-1} stabilizes \hifp{}-hydroxyl. Genes that are
 sensitive to \hifp{}-hydroxyl will be inhibited as a result of the increase in
-the amount of this \hifp{}-hydroxyl, in spite of loss of \gene{vhl-1} function
+the amount of this \hifp{}-hydroxyl, despite loss of \gene{vhl-1} function
 also increasing the level of non-hydroxylated \hifp{}. On the other hand, \egl{}
 abrogates the generation of \hifp{}-hydroxyl, stimulating accumulation of
-non-hydroxylated \hifp{} and promoting gene activity. Whether deletion of \hif{}
+non-hydroxylated \hifp{} and promoting gene expression. Whether deletion of \hif{}
 is overall activating or inhibiting will depend on the relative activity of each
 protein state under normoxia (see Fig.~\ref{fig:hif1oh_table}). \hifp{}-hydroxyl
 is challenging to study genetically, and if it does have the activity suggested
@@ -915,12 +918,12 @@ seamlessly incorporated with genetic analyses of epistasis.
 \matmethods{
 \subsection*{Nematode strains and culture}
 Strains used were N2 wild-type (Bristol),
-CB5602 \gene{vhl-1}(\emph{ok161}),
-CB6088 \gene{egl-9}(\emph{sa307})~\gene{hif-1}(\emph{ia4}),
-CB6116 \gene{egl-9}(\emph{sa307});\gene{vhl-1}(\emph{ok161}),
-JT307 \gene{egl-9}(\emph{sa307}),
-ZG31 \gene{hif-1}(\emph{ia4}),
-RB1297 \gene{rhy-1}(\emph{ok1402}).
+JT307 \gene{egl-9(sa307)},
+CB5602 \gene{vhl-1(ok161)},
+ZG31 \gene{hif-1(ia4)},
+RB1297 \gene{rhy-1(ok1402)}.
+CB6088 \gene{egl-9(sa307) hif-1(ia4)}
+CB6116 \gene{egl-9(sa307)};\gene{vhl-1(ok161)},
 All lines were grown on standard nematode growth media (NGM) Petri plates seeded with
 OP50 \ecol{} at 20\degree{}C~\cite{Brenner1974}.
 
@@ -928,14 +931,14 @@ OP50 \ecol{} at 20\degree{}C~\cite{Brenner1974}.
 Lines were synchronized by harvesting eggs via sodium hypochlorite treatment and
 subsequently plating eggs on food. Worms were staged and based on the time after
 plating, vulva morphology and the absence of eggs. 30--50 non-gravid young
-adults were picked and placed in 100 \si{\micro\liter} of TE pH 8.0 (Ambion AM
-9849) in $0.2$ \si{\milli\liter} PCR tubes on ice. Worms were allowed to
+adults were picked and placed in 100 \si{\micro\liter} of TE pH 8.0 (Ambion
+AM9849) in $0.2$ \si{\milli\liter} PCR tubes on ice. Worms were allowed to
 settle or spun down by centrifugation and $\sim 80$ \si{\micro\liter} of
 supernatant removed before flash-freezing in liquid $N_2$. These samples were
 digested with Proteinase K (Roche Lot No. 03115 838001 Recombinant Proteinase K
 PCR Grade) for 15 \si{\min} at 60\degree{} in the presence of 1\% SDS and 1.25
-\si{\micro\liter} RNA Secure (Ambion AM 7005). RNA samples were then taken up in
-5 Volumes of Trizol (Tri Reagent Zymo Research) and processed and treated with
+\si{\micro\liter} RNA Secure (Ambion AM7005). RNA samples were then taken up in
+5 Volumes of Trizol (Tri-Reagent Zymo Research) and processed and treated with
 DNase I using Zymo MicroPrep RNA Kit (Zymo Research Quick-RNA MicroPrep R1050).
 RNA was eluted in RNase-free water stored at -80\degree{}C. Samples were
 analyzed using a NanoDrop (Thermo Fisher) for impurities, Qubit for
