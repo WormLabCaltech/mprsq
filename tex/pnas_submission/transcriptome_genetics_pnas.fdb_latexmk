@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex transcriptome_genetics_pnas"] 1497824658 "transcriptome_genetics_pnas.aux" "transcriptome_genetics_pnas.bbl" "transcriptome_genetics_pnas" 1497824663
+["bibtex transcriptome_genetics_pnas"] 1497824658 "transcriptome_genetics_pnas.aux" "transcriptome_genetics_pnas.bbl" "transcriptome_genetics_pnas" 1497826378
   "./pnas-new.bst" 1496036505 17443 f4cae81468d1d89557fc8e3d071edc7b ""
   "citations.bib" 1497321447 231058 5d5a3c7192580656d5cc03cd7affbb00 ""
-  "transcriptome_genetics_pnas.aux" 1497824662 21369 d421206c08f6e0a448a9ff9db4788d23 ""
+  "transcriptome_genetics_pnas.aux" 1497826377 21369 d421206c08f6e0a448a9ff9db4788d23 ""
   (generated)
-  "transcriptome_genetics_pnas.blg"
   "transcriptome_genetics_pnas.bbl"
-["pdflatex"] 1497824659 "transcriptome_genetics_pnas.tex" "transcriptome_genetics_pnas.pdf" "transcriptome_genetics_pnas" 1497824663
+  "transcriptome_genetics_pnas.blg"
+["pdflatex"] 1497826374 "transcriptome_genetics_pnas.tex" "transcriptome_genetics_pnas.pdf" "transcriptome_genetics_pnas" 1497826378
   "../figs/HIF1pathway.pdf" 1487982082 27686 4f10d21a278832a645a9d9c3f87b100d ""
   "../figs/decorrelation.pdf" 1487149479 99242 2c5b00f986ad40f3c8e8ea6c001b2367 ""
   "../figs/egl9vhl1-epistasis.pdf" 1496185157 339741 5e35f77bdd461d964b7f374cf92df9d1 ""
@@ -315,15 +315,15 @@
   "pnas-new.bst" 1496036505 17443 f4cae81468d1d89557fc8e3d071edc7b ""
   "pnas-new.cls" 1496036483 14936 874fbfd151e3376c526f0d00ee5576c0 ""
   "pnasresearcharticle.sty" 1496036498 1528 829ef98c1ca7bbe95e9c70dab5b29224 ""
-  "transcriptome_genetics_pnas.aux" 1497824662 21369 d421206c08f6e0a448a9ff9db4788d23 ""
+  "transcriptome_genetics_pnas.aux" 1497826377 21369 d421206c08f6e0a448a9ff9db4788d23 ""
   "transcriptome_genetics_pnas.bbl" 1497824659 10575 efbd73247b852024243dcdd9d6b38b3e "bibtex transcriptome_genetics_pnas"
-  "transcriptome_genetics_pnas.out" 1497824662 163 a2787fc69a4e4e3798b09ccf31dec350 ""
-  "transcriptome_genetics_pnas.tex" 1497824663 62212 61b23fa8c197d0a2e99c8b122d644d83 ""
-  "transcriptome_genetics_pnas.xwm" 1497824662 89 b6813d9f97373d709dd203667d4a7d86 ""
+  "transcriptome_genetics_pnas.out" 1497826377 163 a2787fc69a4e4e3798b09ccf31dec350 ""
+  "transcriptome_genetics_pnas.tex" 1497826373 62124 ccc69ca5770e7d28823e9b5f042d487a ""
+  "transcriptome_genetics_pnas.xwm" 1497826377 89 b6813d9f97373d709dd203667d4a7d86 ""
   "widetext.sty" 1496036588 2466 c068c9ac21e70c41ab7b2d63e4ccef47 ""
   (generated)
   "transcriptome_genetics_pnas.aux"
-  "transcriptome_genetics_pnas.xwm"
-  "transcriptome_genetics_pnas.pdf"
   "transcriptome_genetics_pnas.log"
   "transcriptome_genetics_pnas.out"
+  "transcriptome_genetics_pnas.pdf"
+  "transcriptome_genetics_pnas.xwm"
