@@ -137,3 +137,11 @@ input/rawseq/N2A1/SampleSheet.csv
 input/rawseq/N2A2/SampleSheet.csv
 
 input/rawseq/N2A3/SampleSheet.csv
+
+*.aux
+
+*.fdb_latexmk
+
+*.fls
+
+*.gz

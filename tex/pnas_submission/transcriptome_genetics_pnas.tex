@@ -2,6 +2,7 @@
 
 \usepackage{gensymb}
 \usepackage{siunitx}
+\usepackage[switch]{lineno}
 
 % new commands
 % q value
@@ -87,26 +88,18 @@
 \leadauthor{Angeles-Albores}
 
 % Please add here a significance statement to explain the relevance of your work
-\significancestatement{Transcriptome profiling is a way to quickly and
-quantitatively measure gene expression level. Because of their quantitative
-nature, there is widespread interest in using transcriptomic profiles as a
-phenotype for genetic analysis. However, a source of major concern is that
-whole-animal transcriptomic profiles mix the expression signatures of multiple
-cellular states, making it hard to accurately reconstruct genetic interactions.
-Additionally, it has been difficult to quantify
-epistasis, the signature of genetic interaction between two genes, in these
-molecular phenotypes. Here, we show that it is possible to accurately
-reconstruct genetic interactions between genes using whole-animal RNA
-sequencing, and we demonstrate a powerful new way to measure and understand
-epistasis arising from these measurements. This suggests that whole-organism
-RNA-seq can be a powerful tool with which to understand genetic interactions in
-entire organisms and not only in isolated cells. With the advent of genome
-engineering tools, generating mutants has become easier and faster for many
-organisms. As mutants become easier to create, phenotyping them has become a
-major bottleneck in understanding the biological functions of the genes in
-question. Our work presents a possible solution to this problem, because
-transcriptome profiling is fast and sensitive to genetic perturbations regardless
-of the context they operate in.
+\significancestatement{
+With new genome engineering tools, generating mutants is now easy and fast for
+many organisms. As a result, the bottleneck towards understanding gene function
+is identifying their phenotypes and genetic interactions. Transcriptome
+profiling by RNA sequencing measures the expression levels of all the genes in
+an organism in a single experiment. For this reason, there is widespread
+interest in using transcriptomic profiles as phenotypes for genetic analysis,
+but the concept of epistasis, necessary to establish genetic interaction between
+two genes, is not firmly established for multidimensional measurements. We show
+how to accurately reconstruct genetic interactions between genes using
+transcriptome profiling, and we introduce and formalize the concept of
+transcriptome-wide epistasis.
 }
 
 % Please include corresponding author, author contribution and author declaration information
@@ -155,6 +148,7 @@ of hydroxylated HIF-1 in transcriptional control.
 \thispagestyle{firststyle}
 \ifthenelse{\boolean{shortarticle}}{\ifthenelse{\boolean{singlecolumn}}{\abscontentformatted}{\abscontent}}{}
 
+\linenumbers{}
 \dropcap{G}enetic analysis of molecular pathways has traditionally been
 performed through epistatic analysis. Generalized epistasis indicates that two
 genes interact functionally; such interaction can involve the direct interaction
@@ -1076,7 +1070,7 @@ throughout this project. }
 % \pnasbreak splits and balances the columns before the references. % If you see
 % unexpected formatting errors, try commenting out this line % as it can run into
 % problems with floats and footnotes on the final page.
-\pnasbreak{}
+% \pnasbreak{}
 
 % Bibliography
 \bibliography{citations}

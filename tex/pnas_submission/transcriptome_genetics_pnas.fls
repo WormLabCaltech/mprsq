@@ -326,6 +326,8 @@ INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/beamer/translator/translator.
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/beamer/translator/translator.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/beamer/translator/translator-language-mappings.tex
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/beamer/translator/translator-language-mappings.tex
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/lineno/lineno.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/lineno/lineno.sty
 INPUT pnasresearcharticle.sty
 INPUT pnasresearcharticle.sty
 INPUT transcriptome_genetics_pnas.aux
@@ -462,10 +464,10 @@ INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/adobe/helvetic/phvb8t.vf
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/helvetic/phvb8r.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/adobe/helvetic/phvbo8t.vf
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/helvetic/phvbo8r.tfm
-INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/adobe/helvetic/phvb8t.vf
-INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/helvetic/phvb8r.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/adobe/helvetic/phvr8t.vf
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/helvetic/phvr8r.tfm
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/adobe/helvetic/phvb8t.vf
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/helvetic/phvb8r.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/adobe/helvetic/phvr8t.vf
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/helvetic/phvr8r.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/adobe/helvetic/phvr8t.vf
@@ -481,10 +483,6 @@ INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/helvetic/phvbo8t.tfm
 INPUT ../figs/meaningofbeta.pdf
 INPUT ../figs/meaningofbeta.pdf
 INPUT ../figs/meaningofbeta.pdf
-INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/adobe/helvetic/phvro8t.vf
-INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/helvetic/phvro8r.tfm
-INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/adobe/helvetic/phvbo8t.vf
-INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/helvetic/phvbo8r.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/helvetic/phvr8t.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/lm/rm-lmr8.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/lm/rm-lmr5.tfm
@@ -512,6 +510,10 @@ INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/lm/ts1-lmr5.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/lm/ts1-lmr5.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/helvetic/phvro8t.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/helvetic/phvr8t.tfm
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/adobe/helvetic/phvro8t.vf
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/helvetic/phvro8r.tfm
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/adobe/helvetic/phvbo8t.vf
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/helvetic/phvbo8r.tfm
 INPUT ../figs/pca.pdf
 INPUT ../figs/pca.pdf
 INPUT ../figs/pca.pdf
