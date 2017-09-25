@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex transcriptome_genetics_pnas"] 1499802485 "transcriptome_genetics_pnas.aux" "transcriptome_genetics_pnas.bbl" "transcriptome_genetics_pnas" 1499802490
+["bibtex transcriptome_genetics_pnas"] 1506376150 "transcriptome_genetics_pnas.aux" "transcriptome_genetics_pnas.bbl" "transcriptome_genetics_pnas" 1506380812
   "./pnas-new.bst" 1496036505 17443 f4cae81468d1d89557fc8e3d071edc7b ""
-  "citations.bib" 1497321447 231058 5d5a3c7192580656d5cc03cd7affbb00 ""
-  "transcriptome_genetics_pnas.aux" 1499802489 32006 4b30b3fc2ce42cfb2887f586f99ab082 ""
+  "citations.bib" 1505783271 233574 230e6aac7a361f54d234feb5a402653d ""
+  "transcriptome_genetics_pnas.aux" 1506380811 32865 371a0c21be82177f6b97244b76165063 ""
   (generated)
-  "transcriptome_genetics_pnas.blg"
   "transcriptome_genetics_pnas.bbl"
-["pdflatex"] 1499802485 "transcriptome_genetics_pnas.tex" "transcriptome_genetics_pnas.pdf" "transcriptome_genetics_pnas" 1499802490
+  "transcriptome_genetics_pnas.blg"
+["pdflatex"] 1506380808 "transcriptome_genetics_pnas.tex" "transcriptome_genetics_pnas.pdf" "transcriptome_genetics_pnas" 1506380812
   "../figs/HIF1pathway.pdf" 1487982082 27686 4f10d21a278832a645a9d9c3f87b100d ""
   "../figs/decorrelation.pdf" 1487149479 99242 2c5b00f986ad40f3c8e8ea6c001b2367 ""
   "../figs/egl9vhl1-epistasis.pdf" 1496185157 339741 5e35f77bdd461d964b7f374cf92df9d1 ""
@@ -41,6 +41,7 @@
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm" 1246382020 940 75ac932a52f80982a9f8ea75d03a34cf ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1246382020 940 228d6584342e91276bf566bcf9716b83 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmr9.tfm" 1136768653 1292 6b21b9c2c7bebb38aa2273f7ca0fb3af ""
+  "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/lm/ec-lmbx9.tfm" 1254269338 12080 8da3d5e88196e4de175949ad7749b42f ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/lm/ec-lmcsc10.tfm" 1254269338 11276 116dd5bea6621ce4a1999f96d876084c ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/lm/ec-lmr10.tfm" 1254269338 12056 7e13df7fe4cbce21b072ba7c4f4deb6e ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/lm/ec-lmr17.tfm" 1254269338 12156 ca1ae6a3c8564e89597f1f993fba1608 ""
@@ -53,6 +54,7 @@
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/lm/ec-lmri8.tfm" 1254269338 17152 c8240fef851c4991afefdae37a539ee1 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/lm/ec-lmri9.tfm" 1254269338 17148 ca1ae65757b004f470b8cd636199f6fc ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/lm/ec-lmssbx10.tfm" 1254269338 11168 06d87f5698fd1b642d96449b7c8d90b0 ""
+  "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/lm/ec-lmtk10.tfm" 1254269338 1368 5bfeb1cf8f9f0acdb7436bfaa8e0da4e ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/lm/ec-lmtt8.tfm" 1254269338 1380 64228d979098ac090aa3f98d5aa8ad3e ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/lm/lmex10.tfm" 1148093231 992 ce925c9346c7613270a79afbee98c070 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/lm/lmmi5.tfm" 1148093231 1508 198f5b7b99b5769126de3a533f6fc334 ""
@@ -99,6 +101,7 @@
   "/usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy7.pfb" 1254269338 27941 d1f5d03f61a46c3fcc3a2ba904ddda52 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy8.pfb" 1254269338 27802 5c876bb2c4040caaf035d60bd74a86bd ""
   "/usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy9.pfb" 1254269338 27835 16c2fa83351d4ef8cf5aebfab8a44bc1 ""
+  "/usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmtk10.pfb" 1255129361 117319 7f8361f845845ce6d5b36cbd9f9cf377 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmtt8.pfb" 1255129361 115291 2ae7034c644e971beb573b1e6606f863 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb" 1136849748 35941 f27169cc74234d5bd5e4cca5abafaabb ""
   "/usr/local/texlive/2016/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb" 1136849748 39013 b244066151b1e3e718f9b8e88a5ff23b ""
@@ -316,15 +319,15 @@
   "pnas-new.bst" 1496036505 17443 f4cae81468d1d89557fc8e3d071edc7b ""
   "pnas-new.cls" 1496036483 14936 874fbfd151e3376c526f0d00ee5576c0 ""
   "pnasresearcharticle.sty" 1496036498 1528 829ef98c1ca7bbe95e9c70dab5b29224 ""
-  "transcriptome_genetics_pnas.aux" 1499802489 32006 4b30b3fc2ce42cfb2887f586f99ab082 ""
-  "transcriptome_genetics_pnas.bbl" 1499802485 10575 efbd73247b852024243dcdd9d6b38b3e "bibtex transcriptome_genetics_pnas"
-  "transcriptome_genetics_pnas.out" 1499802489 163 a2787fc69a4e4e3798b09ccf31dec350 ""
-  "transcriptome_genetics_pnas.tex" 1499802480 61545 0f3b923ed8f934446e679627d6e64ceb ""
-  "transcriptome_genetics_pnas.xwm" 1499802489 89 b6813d9f97373d709dd203667d4a7d86 ""
+  "transcriptome_genetics_pnas.aux" 1506380811 32865 371a0c21be82177f6b97244b76165063 ""
+  "transcriptome_genetics_pnas.bbl" 1506376151 11334 0da3eb38d1bfd94b76757a8e46341382 "bibtex transcriptome_genetics_pnas"
+  "transcriptome_genetics_pnas.out" 1506380811 163 a2787fc69a4e4e3798b09ccf31dec350 ""
+  "transcriptome_genetics_pnas.tex" 1506380807 67109 480e93c6269a1c0bf8c249bef30ddd51 ""
+  "transcriptome_genetics_pnas.xwm" 1506380811 89 cc4eaf7fffcfc7b380f94e4f1905d53b ""
   "widetext.sty" 1496036588 2466 c068c9ac21e70c41ab7b2d63e4ccef47 ""
   (generated)
   "transcriptome_genetics_pnas.aux"
-  "transcriptome_genetics_pnas.pdf"
   "transcriptome_genetics_pnas.log"
+  "transcriptome_genetics_pnas.pdf"
   "transcriptome_genetics_pnas.xwm"
   "transcriptome_genetics_pnas.out"

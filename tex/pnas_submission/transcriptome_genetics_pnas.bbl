@@ -58,6 +58,11 @@ Hughes TR, et~al. (2000) {Functional Discovery via a Compendium of Expression
   Profiles}.
 \newblock {\em Cell} 102(1):109--126.
 
+\bibitem{Capaldi2008}
+Capaldi AP, et~al. (2008) {Structure and function of a transcriptional network
+  activated by the MAPK Hog1}.
+\newblock {\em Nature Genetics} 40(11):1300--1306.
+
 \bibitem{VanDriessche2005}
 {Van Driessche} N, et~al. (2005) {Epistasis analysis with global
   transcriptional phenotypes}.
@@ -68,10 +73,10 @@ Dixit A, et~al. (2016) {Perturb-Seq: Dissecting Molecular Circuits with
   Scalable Single-Cell RNA Profiling of Pooled Genetic Screens}.
 \newblock {\em Cell} 167(7):1853--1866.e17.
 
-\bibitem{Angeles-Albores2016a}
-Angeles-Albores D, et~al. (2016) {Transcriptomic Description of an Endogenous
-  Female State in \emph{C. elegans}}.
-\newblock {\em bioRxiv}.
+\bibitem{Angeles-Albores2017a}
+Angeles-Albores D, et~al. (2017) {The Caenorhabditis elegans Female-Like State:
+  Decoupling the Transcriptomic Effects of Aging and Sperm Status}.
+\newblock {\em G3: Genes, Genomes, Genetics} 7(9).
 
 \bibitem{Epstein2001}
 Epstein ACR, et~al. (2001) { \emph{C.~elegans} EGL-9 and mammalian homologs
@@ -203,6 +208,18 @@ Hart Y, Antebi YE, Mayo AE, Friedman N, Alon U (2012) {Design principles of
 Hart Y, Alon U (2013) {The Utility of Paradoxical Components in Biological
   Circuits}.
 \newblock {\em Molecular Cell} 49(2):213--221.
+
+\bibitem{Clifford2000}
+Clifford R, et~al. (2000) {FOG-2, a novel F-box containing protein, associates
+  with the GLD-1 RNA binding protein and directs male sex determination in the
+  C. elegans hermaphrodite germline.}
+\newblock {\em Development (Cambridge, England)} 127(24):5265--5276.
+
+\bibitem{Lonnberg2017}
+L{\"{o}}nnberg T, et~al. (2017) {Single-cell RNA-seq and computational analysis
+  using temporal mixture modeling resolves TH1/TFH fate bifurcation in
+  malaria}.
+\newblock {\em Science Immunology} 2(9).
 
 \bibitem{Brenner1974}
 Sulston JE, Brenner S (1974) {The DNA of \emph{Caenorhabditis~elegans}.}
