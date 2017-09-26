@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Statistical Methods Primer – Reconstructing a metazoan genetic pathway – with transcriptome-wide epistasis measurements</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="with transcriptome-wide epistasis measurements">
+    <meta property="og:description" content="with transcriptome-wide epistasis measurements" />
+    
+    <meta name="author" content="Reconstructing a metazoan genetic pathway" />
+
+    
+    <meta property="og:title" content="Statistical Methods Primer" />
+    <meta property="twitter:title" content="Statistical Methods Primer" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="Reconstructing a metazoan genetic pathway - with transcriptome-wide epistasis measurements" href="/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <a href="" class="site-avatar"><img src="/images/logo.svg" /></a>
+
+          <div class="site-info">
+            <h1 class="site-name"><a href="/">Reconstructing a metazoan genetic pathway</a></h1>
+            <p class="site-description">with transcriptome-wide epistasis measurements</p>
+          </div>
+
+          <nav>
+            <a href="https://wormlabcaltech.github.io/">Back to Wormlab!</a>
+            <a href="/">Blog</a>
+            <!-- <a href="/interactive">Interactive Plots</a> -->
+            <a href="/analysis">Data Analysis</a>
+            <a href="/statistics">Statistics Primer</a>
+            <a href="/about">About</a>
+          </nav>
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      <article class="page">
+
+  <h1>Statistical Methods Primer</h1>
+
+  <div class="entry">
+    <p>Welcome to the statistical methods section of this website. We have generated
+a very brief set of tutorials for the statistical methods that we used for our
+paper. Hopefully this will make the article more accessible and be helpful to
+anyone who needs to replicate partially or completely some of the code we used.</p>
+
+<h2 id="kallistohttppachterlabgithubiokallisto-read-pseudo-alignment"><a href="http://pachterlab.github.io/kallisto/">Kallisto</a>: read pseudo-alignment</h2>
+<p>We used <a href="http://pachterlab.github.io/kallisto/">Kallisto</a>, an excellent of
+software from Lior Pachter’s group, to
+perform read pseudo-alignment for each mutant we analyzed. Although pseudo-alignment
+is initially not as accurate as complete alignment, the speed at which the algorithm
+completes means that it can be bootstrapped. The bootstrapping is what really makes
+it really great (well, that and the way in which they compute k-classes). We really
+love this software.</p>
+
+<p>See the paper at Nature Biotechnology:
+<a href="http://www.nature.com/nbt/journal/v34/n5/full/nbt.3519.html">Near-optimal probabilistic RNA-seq quantification</a></p>
+
+<h2 id="sleuthhttppachterlabgithubiosleuthabouthtml-differential-expression-analysis"><a href="http://pachterlab.github.io/sleuth/about.html">Sleuth</a>: differential expression analysis</h2>
+<p><a href="http://pachterlab.github.io/sleuth/about.html">Sleuth</a> is another great
+software from Lior Pachter’s group. This beautiful
+library was developed to optimally accept Kallisto processed reads, although it
+can work with other alignment tools. Sleuth performs the differential expression
+analysis by fitting a log-linear model to explain changes in expression between
+the different samples. Together, the combination of Sleuth and Kallisto are
+fantastic tools for processing RNA-seq data. Equally important, they are succinct.
+Kallisto is run via a single command using Terminal, and Sleuth requires about
+20 lines of fairly standardized code.</p>
+
+<p>See their paper at BioRxiv:
+<a href="http://biorxiv.org/content/early/2016/06/10/058164">Differential Analysis of RNA-seq incorporating quantification uncertainty</a></p>
+
+<h2 id="bayesian-robust-regressions-for-interaction-prediction">Bayesian robust regressions for interaction prediction</h2>
+
+<p><a href="/stats_tutorial/noise_mitigation.html"> Jupyter Notebook on Bayesian Robust Regressions</a></p>
+
+<h2 id="orthogonal-distance-regression">Orthogonal distance regression</h2>
+<p>Orthogonal distance regression (ODR) is a method to fit the line of best fit when you
+have measurements that have errors in both the x- and the y-coordinates. Usually,
+when we have measurements with no error bars, we use a method called Least Squares
+to find the line of best fit. When the measurements have errors along the y-axis,
+we can modify this method and use Weighted Least Squares. Weighted Least Squares
+takes points with large errors and makes them less important, whereas points with
+smaller errors are more important. ODR is similar in the sense that it is takes
+into account errors in both x and y and weights points accordingly.</p>
+
+<p>A major difference between usual Least Squares and ODR is the minimization we are
+performing. For Least Squares, we are usually minimizing the vertical distance of
+the points to the line. In other words, when we have minimized the sum of the
+squares of the residuals we have found the line of best fit. However, if there
+are errors on both X and Y, we need to minimize something else. In this case, it
+again makes sense to find the line that also minimizes the distance between the
+points and the lines. However, in this case, we will add the constraint that the
+ruler we use to measure this distance must always <em>be at right angles to the line
+itself</em> (hence the orthogonal).</p>
+
+<p>The reasoning behind this has been explained previously. For further information
+on the mathematics behind regressions, we refer you to David Hogg’s excellent
+article: <a href="https://arxiv.org/abs/1008.4686">Data Analysis recipes: Fitting a model to data</a>.
+In the next Jupyter notebook, we show quickly how ODR is considerably better than
+least-squares when errors in both coordinates are known.</p>
+
+<p><a href="/stats_tutorial/ODR.html">Jupyter Notebook on Orthogonal Regression</a></p>
+
+<h2 id="bootstrapping-to-test-a-hypothesis">Bootstrapping to test a hypothesis</h2>
+
+<h3 id="parametric-bootstrap">Parametric Bootstrap</h3>
+
+<p><a href="/stats_tutorial/parametric_bootstrapping.html">Jupyter Notebook on Parametric Bootstrapping</a></p>
+
+<h3 id="non-parametric-bootstrap">Non-parametric Bootstrap</h3>
+<p><a href="/stats_tutorial/nonparametric_bootstrapping.html">Jupyter Notebook on Non-parametric Bootstrapping</a></p>
+
+<h2 id="model-selection">Model Selection</h2>
+<p><a href="/stats_tutorial/model_selection.html">Jupyter Notebook on Model Selection</a></p>
+
+<h3 id="contact-us">Contact us</h3>
+<p>If there are broken links, or you have questions, you can contact us at:
+<a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#100;&#097;&#110;&#103;&#101;&#108;&#101;&#115;&#064;&#099;&#097;&#108;&#116;&#101;&#099;&#104;&#046;&#101;&#100;&#117;">&#100;&#097;&#110;&#103;&#101;&#108;&#101;&#115;&#064;&#099;&#097;&#108;&#116;&#101;&#099;&#104;&#046;&#101;&#100;&#117;</a></p>
+
+<p>or at</p>
+
+<p><a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#112;&#119;&#115;&#064;&#099;&#097;&#108;&#116;&#101;&#099;&#104;&#046;&#101;&#100;&#117;">&#112;&#119;&#115;&#064;&#099;&#097;&#108;&#116;&#101;&#099;&#104;&#046;&#101;&#100;&#117;</a></p>
+
+  </div>
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          <p>&copy; 2017 Sternberg Lab, with help from
+            <a href='http://jekyllbootstrap.com/'></a>Jekyll Bootstrap </p>
+          
+<a href="mailto:pws@caltech.edu"><i class="svg-icon email"></i></a>
+
+
+<a href="https://github.com/WormLabCaltech/mprsq"><i class="svg-icon github"></i></a>
+
+
+
+
+<a href="https://www.twitter.com/wormraiser"><i class="svg-icon twitter"></i></a>
+
+
+
+        </footer>
+      </div>
+    </div>
+
+    
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-31223175-2', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/statistics/',
+		  'title': 'Statistical Methods Primer'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+  </body>
+</html>

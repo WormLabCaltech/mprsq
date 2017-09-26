@@ -1,14 +1,14 @@
 ---
 layout: page
 title: Complete Analysis of the HIF-1 pathway in <em>C. elegans</em>
-permalink: /analysis/
+permalink: /analysis
 ---
 
 ## Basic statistics
 <a href="{{ site.baseurl }}/analysis_notebooks/1_basic_stats.html"> Jupyter Notebook</a>
 
 ## Predicting interactions between genes
-We used correlational analyses to predict genetic interacitons.
+We used correlational analyses to predict genetic interactions.
 <a href="{{ site.baseurl }}/analysis_notebooks/2_predicting_interactions.html"> Jupyter Notebook</a>
 
 ## Transcriptome-wide epistasis analysis
