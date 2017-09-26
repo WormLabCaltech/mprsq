@@ -3,13 +3,13 @@
 #
 
 # Name of your site (displayed in the header)
-name: Transcriptomic Genetic Analysis
+name: Reconstructing a metazoan genetic pathway
 
 # Short bio or description (displayed in the header)
-description: in a Metazoan!
+description: with transcriptome-wide epistasis measurements
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: https://github.com/WormLabCaltech/mprsq/blob/master/docs/images/logo.svg
+avatar: https://github.com/WormLabCaltech/mprsq/blob/master/docs/images/logo.svgs
 
 #
 # Flags below are optional
