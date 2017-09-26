@@ -127,7 +127,7 @@ performed analysis. DAA, CPR and PWS wrote the paper.}
 \begin{abstract}
 RNA-seq is commonly used to identify genetic modules that respond to
 perturbations. In single cells, transcriptomes have been used as phenotypes, but
-this concept has not been applied to whole-organism RNA-seq. Additionally,
+this concept has not been applied to whole-organism RNA-seq. Also,
 quantifying and interpreting epistatic effects using expression profiles remains
 a challenge. We developed a single coefficient to quantify transcriptome-wide
 epistasis that reflects the underlying interactions and which can be interpeted
@@ -158,11 +158,11 @@ HIF-1 in transcriptional control.
 
 \linenumbers{}
 \dropcap{G}enetic analysis of molecular pathways has traditionally been
-performed through epistatic analysis. If two genes interact, and the mutants of
-these genes have a quantifiable phenotype, the double mutant of interacting
-genes will have a phenotype that is not the sum of the phenotypes of the single
-mutants. This non-additivity is referred to as generalized epistasis.
-Generalized epistasis indicates that two genes interact functionally; such
+performed through epistatic analysis. If the mutants of
+two distinct genes have a quantifiable phenotype, and the double mutant has a
+phenotype that is not the sum of the phenotypes of the single
+mutants, this non-additivity is referred to as generalized epistasis, and
+indicates that these genes interact functionally. Such
 interactions can occur at the biochemical  level between their products or as a
 consequence of their functions~\cite{Huang2006}. Epistasis analysis remains a
 cornerstone of genetics today~\cite{Phillips2008}.
@@ -183,10 +183,11 @@ migration~\cite{Schwarz2012}, planarian stem cell
 maintenance~\cite{VanWolfswinkel2014,Scimone2014}. The role
 of transcriptional profiling has been restricted to target gene identification,
 and so far there are only a few examples where transcriptomes have been used to
-generate quantitative genetic models of any kind. In quantitative genetics, eQTL
+generate quantitative genetic models of any kind.
+\color{purple}
+In quantitative genetics, eQTL
 studies have established the power of transcriptomes for genetic
 mapping~\cite{Brem2002,Schadt2003,Li2006,King2014}.
-\color{purple}
 Genetic pathway analysis via epistasis has been performed in
 \emph{Saccharomyces~cerevisiae}~\cite{Hughes2000,Capaldi2008} and in
 \emph{Dictyostelium~discoideum}~\cite{VanDriessche2005}. Recently, Dixit
@@ -474,7 +475,7 @@ our N2 background (an artifactual signal) or that it could reflect a previously
 unrecognized aspect of \hifp{} biology. This motivated us to look for genes that
 exhibited verifiable extreme patterns of anomalous behavior
 and led us to propose a new model of the hypoxia pathway (see Identification of
-non-classical epistatic interactions)
+non-classical epistatic interactions).
 
 \subsection*{Transcriptome-wide epistasis}
 Ideally, any measurement of transcriptome-wide epistasis should conform to
@@ -912,7 +913,7 @@ this does not mean that it does not have cell-non-autonomous effects that could
 be detected on an organism-wide level. Thus,
 pathways that act in single cells could still be
 characterized via whole-organism transcriptome profiling. If the non-autonomous
-effects are permanent, then the profiling could take place after the
+effects are long-lasting, then the profiling could take place after the
 time-of-action of this pathway. In fact, this is how the female-like state in
 \cel{} was recently identified~\cite{Angeles-Albores2017a}: \gene{fog-2} is
 involved in translation repression of \gene{tra-2} in the somatic gonad,
@@ -975,7 +976,7 @@ cluster separately even though a reasonable model can be invoked that does not
 require any new molecular players.
 \color{black}
 
-The epistasis plots shown here are a novel way to visualize epistasis in
+The epistasis plots shown here are a useful way to visualize epistasis in
 vectorial phenotypes. We have shown how an epistasis plot can be used to
 identify interactions between two genes by examining the transcriptional
 phenotypes of single and double mutants.
