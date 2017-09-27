@@ -89,25 +89,22 @@
 
 % Please add here a significance statement to explain the relevance of your work
 \significancestatement{Transcriptome profiling is a way to quickly and
-quantitatively measure gene expression level. Because of their quantitative
-nature, there is widespread interest in using transcriptomic profiles as a
-phenotype for genetic analysis. However, a source of major concern is that
+quantitatively measure gene expression level. There is widespread interest in
+using transcriptomic profiles as a
+phenotype for genetic analysis. However, a source of concern is that
 whole-animal transcriptomic profiles mix the expression signatures of multiple
-cellular states, making it hard to accurately reconstruct genetic interactions.
-Additionally, it has been difficult to quantify
-epistasis, the signature of genetic interaction between two genes, in these
-molecular phenotypes. Here, we show that it is possible to accurately
+cellular states, which might make it hard to accurately reconstruct genetic
+interactions. Additionally, it has been difficult to measure
+epistasis, the signature of genetic interaction between two genes, using
+expression profiles. Here, we show that it is possible to accurately
 reconstruct genetic interactions between genes using whole-animal RNA
-sequencing, and we demonstrate a powerful new way to measure and understand
-epistasis arising from these measurements. This suggests that whole-organism
-RNA-seq can be a powerful tool with which to understand genetic interactions in
-entire organisms and not only in isolated cells. With the advent of genome
-engineering tools, generating mutants has become easier and faster for many
-organisms. As mutants become easier to create, phenotyping them has become a
-major bottleneck in understanding the biological functions of the genes in
-question. Our work presents a possible solution to this problem, because
-transcriptome profiling is fast and sensitive to a broad variety of genetic
-perturbations.
+sequencing, and we demonstrate a way to quantify epistasis transcriptome-wide.
+With the advent of genome
+engineering tools, mutants can be created quickly and easily in many
+organisms. As a result, phenotyping mutants is the rate-limiting step towards
+reconstructing genetic interaction networks. Our work potentially represents a
+solution to this problem because transcriptome profiling is sensitive
+to a broad variety of genetic perturbations.
 }
 
 % Please include corresponding author, author contribution and author declaration information
@@ -241,7 +238,7 @@ Fig.~\ref{fig:pathway}).
     \eglp{} is known to exert \vhlp{}-dependent and independent repression
     on \hifp{} as shown in the genetic diagram. The \vhlp{}-independent
     repression of \hifp{} by \eglp{} is denoted by a dashed line and is not
-    dependent on the hydroxylating activity of \eglp{}. Technically, RHY-1
+    dependent on the hydroxylating activity of \eglp{}. RHY-1
     inhibits CYSL-1, which in turn inhibits EGL-9, but this interaction was
     abbreviated in the genetic diagram for clarity.
   }
@@ -280,7 +277,10 @@ All samples were analyzed only under normoxic conditions.
 We identified around
 22,000 different isoforms per sample, which allowed us to measure differential
 expression of 18,344 isoforms across all replicates and genotypes ($\sim$70\% of
-the protein coding isoforms in \cel{}). We included in our analysis a
+the protein coding isoforms in \cel{}; see
+\href{https://wormlabcaltech.github.io/mprsq/analysis_notebooks/1_basic_stats.html}
+{Basic Statistics Notebook}
+). We included in our analysis a
 \gene{fog-2(q71)} mutant we have previously studied~\cite{Angeles-Albores2017a},
 because \gene{fog-2} is not reported to interact with the hypoxia pathway. We
 analyzed our data using a general linear model on logarithm-transformed counts.
@@ -337,7 +337,9 @@ levels of \gene{nhr-57}, a marker that increases during hypoxia.
 We do not observe altered levels of \gene{nhr-57} when comparing
 the wild type and \hif{} mutant, nor between the wild type and \eglhif{} double
 mutant. Finally, the \egl{}, \vhl{}, \rhy{} and \eglvhl{} mutants did show
-altered \gene{nhr-57} transcript levels (SI FIGURE HERE XXX). We cannot rule out
+altered \gene{nhr-57} transcript levels (see
+\href{https://wormlabcaltech.github.io/mprsq/analysis_notebooks/5_quality_check.html}{
+Quality Control Notebook}). We cannot rule out
 cumulative effects from loss of \gene{hif-1} or strain-specific eQTLs
 present in the strain background.
 \color{black}
@@ -392,7 +394,9 @@ that have constitutive high levels of \hifp{} from mutants that have no \hifp{},
 whereas the second component was able to discriminate between mutants within the
 hypoxia pathway and outside the hypoxia pathway (see Fig.~\ref{fig:pca};
 \gene{fog-2} is not reported to act in the hypoxia pathway and acts as a
-negative control).
+negative control; see
+\href{https://wormlabcaltech.github.io/mprsq/analysis_notebooks/2_predict_interactions.html}
+{Genetic Interactions Notebook}).
 % Therefore, expression profiling measures enough signal to
 % cluster genes in a meaningful manner in complex metazoans.
 
@@ -441,20 +445,19 @@ pathway mutants and the \fog{} mutant also had STPs (8.8\%--14\% genes).
   \centering
   \includegraphics[width=.4\textwidth]{../figs/positive_and_control.pdf}
   \caption{
-    Strong transcriptional correlations can be identified between genes that
-    share a positive regulatory connection.
-    \textbf{A}. We obtained identified
+    Strong transcriptional correlations exist between genes that
+    share positive regulatory connections.
+    \textbf{A}. We identified
     isoforms that were differentially expressed in both \egl{} and the \rhy{}
     mutants, and ranked each isoform according to its $\beta$ coefficient. We
-    plotted the rank of each gene in \rhy{} versus the rank of the same gene in
-    the \egl{} transcriptome.
+    plotted the rank of each isoform in \rhy{} versus the rank of the same
+    isoform in the \egl{} transcriptome.
     \textbf{B}. For comparison, we followed the same
     procedure with the \fog{} and \rhy{} transcriptomes. \fog{} is not known to
-    interact with the primary hypoxia pathway.
-    Green, transparent large points
-    mark inliers to the primary regressions (blue lines); red squares mark
-    outliers to the primary regressions and orange lines represent the secondary
-    correlations involving the outliers.
+    interact with the primary hypoxia pathway. Green, transparent points mark
+    inliers to the primary regressions (blue lines); red squares mark outliers
+    to the primary regressions. Orange lines show secondary regressions
+    performed on the outliers.
   }
 \label{fig:genetic_interactions}
 \end{figure}
@@ -469,7 +472,9 @@ mutants from the hypoxia pathway with the \fog{} mutant were considerably
 weaker, with magnitudes between 0.6--0.85 and greater variance around the line
 of best fit. Although \gene{hif-1} is known to be genetically repressed by
 \gene{egl-9}, \gene{rhy-1} and \gene{vhl-1}~\cite{Epstein2001,Shen2006}, all the
-correlations between mutants of these genes and \hif{} were positive. We reasoned
+correlations between mutants of these genes and \hif{} were positive (see
+\href{https://wormlabcaltech.github.io/mprsq/analysis_notebooks/2_predict_interactions.html}
+{Genetic Interactions Notebook}). We reasoned
 that this apparent contradiction could be due to either strain-specific eQTLs in
 our N2 background (an artifactual signal) or that it could reflect a previously
 unrecognized aspect of \hifp{} biology. This motivated us to look for genes that
@@ -513,10 +518,9 @@ interact synthetically (\emph{i.e.}, through an OR-gate) will fall along lines
 with slopes $>0$. When there is epistasis of one gene over another, the points
 will fall along one of two possible slopes that must be determined empirically
 from the single mutant data. We can use both single mutant data to predict the
-distribution of slopes that results for the cases stated above. The
-transcriptome-wide epistasis coefficient emerges as a powerful way to quantify
-epistasis because it integrates information from many different isoforms into a
-single number (see Fig.~\ref{fig:egl9epistasis}).
+distribution of slopes that results for the cases stated above. Thus, the
+transcriptome-wide epistasis coefficient integrates information from many
+different isoforms into a single number (see Fig.~\ref{fig:egl9epistasis}).
 
 In our experiment, we studied two double mutants, \eglhif{} and \eglvhl{}. We
 wanted to understand how well an epistatic analysis based on transcriptome-wide
@@ -537,7 +541,9 @@ suppressed, which in turn allows us to order the genes along a pathway.
 \color{black}
 
 We measured the epistasis coefficient between \gene{egl-9} and \gene{vhl-1},
-$s({\text{\gene{egl-9} \gene{vhl-1}}}) = -0.41$. Simulations using just the
+$s({\text{\gene{egl-9} \gene{vhl-1}}}) = -0.41$ (see
+\href{https://wormlabcaltech.github.io/mprsq/analysis_notebooks/6_epistasis.html}
+{Epistasis Notebook}). Simulations using just the
 single mutant data showed that the double mutant exhibited the \egl{} phenotype
 (see Fig.~\ref{fig:egl9epistasis}). We used Bayesian model selection to reject a
 linear pathway (odds ratio (OR) $>10^{83}$), which leads us to conclude
@@ -622,7 +628,7 @@ reflecting the flux in information between them.
   \centering
   \includegraphics[width=.4\textwidth]{../figs/decorrelation.pdf}
   \caption{
-    Theoretically, transcriptomes can be used to order genes in a pathway under
+    Transcriptomes can be used to order genes in a pathway under
     certain assumptions. Arrows in the diagrams above are intended to show the
     direction of flow, and do not indicate valence. \textbf{A}. A linear pathway
     in which \gene{rhy-1} is the only gene controlling \gene{egl-9}, which in
@@ -651,7 +657,9 @@ expressed in either mutant ($N_\mathrm{Intersection}/N_{\mathrm{Union}}$). We
 plotted the weighted correlation of each gene pair, ordered by increasing
 functional distance (see Fig.~\ref{fig:decorrelation}). In every case, we see
 that the weighted correlation decreases monotonically due mainly, but not
-exclusively, to a smaller STP.
+exclusively, to a smaller STP (see
+\href{https://wormlabcaltech.github.io/mprsq/analysis_notebooks/10_decorrelation.html}
+{Decorrelation Notebook}).
 
 We believe that this result is not due to random noise or insufficiently deep
 sequencing. Instead, we propose a framework in which every gene is regulated by
@@ -673,7 +681,10 @@ reasoned that only genes that are up-regulated in \hifp{}-inhibitor mutants are
 candidates for direct regulation by \hifp{}. We found \hiftargets{} such genes.
 Phenotype Enrichment Analysis~\cite{Angeles-Albores106369} showed that this gene
 list was enriched in genes associated with oxygen response, dauer development
-and dauer constitutive phenotypes (fold-change $>4$ and \qval{1} for all terms).
+and dauer constitutive phenotypes (fold-change $>4$; \qval{1} for all terms;
+see
+\href{https://wormlabcaltech.github.io/mprsq/analysis_notebooks/3_ea_of_hypoxia_data.html}
+{Enrichment Analysis Notebook}).
 
 \subsection*{Feedback can be inferred}
 \label{sub:topology}
@@ -706,7 +717,9 @@ correlations could indicate a relationship between these genes that has not
 been reported previously.
 
 We identified genes that exhibited violations of the canonical genetic
-model of the hypoxia pathway. We searched for genes that changed in different
+model of the hypoxia pathway (see
+\href{https://wormlabcaltech.github.io/mprsq/analysis_notebooks/7_hifoh.html}
+{Non-canonical epistasis notebook}). We searched for genes that changed in different
 directions between \egl{} and \vhl{}, or, equivalently, between \rhy{} and
 \vhl{} (we assume that all results from the \rhy{} transcriptome reflect a
 complete loss of \gene{egl-9} activity) without specifying any further
@@ -810,13 +823,13 @@ unless it happens in a tissue-specific manner.
   \includegraphics[width=.5\textwidth]{../figs/hif1oh_model.pdf}
   \caption{
     A hypothetical model showing a mechanism where \hifp{}-hydroxyl antagonizes
-    \hifp{}. \textbf{A}. Diagram showing that RHY-1 activates EGL-9. EGL-9
-    hydroxylates HIF-1 in an oxygen-dependent fashion. Under normoxia, HIF-1 is
-    rapidly hydroxylated and only slowly does hydroxylated HIF-1 return to its
-    original state. EGL-9 can also inhibit HIF-1 in an oxygen-independent
-    fashion. HIF-1-OH is rapidly degraded in a VHL-1-dependent fashion. In
-    our model, HIF-1 and HIF-1-OH have opposing effects on transcription.
-    The width of the arrows represents the rates under normoxic conditions.
+    \hifp{} in normoxia. \textbf{A}. Diagram showing that RHY-1 activates EGL-9.
+    EGL-9 hydroxylates HIF-1 in an oxygen-dependent manner. HIF-1 is
+    rapidly hydroxylated and the product, HIF-1-OH is rapidly degraded in a
+    VHL-1-dependent fashion. EGL-9 can also inhibit
+    HIF-1 in an oxygen-independent fashion. In our model, HIF-1 and HIF-1-OH
+    have opposing effects on transcription. The width of the arrows represents
+    rates in normoxic conditions.
     \textbf{B}. Table showing the effects of loss-of-function mutations on HIF-1
     and HIF-1-OH activity, showing how this can potentially explain the
     \gene{ftn-1} expression levels in each case. S.S = Steady-state.
@@ -1167,12 +1180,10 @@ Angeles-Albores2016}.
 
 \acknow{
 This work was supported by HHMI with whom PWS is an investigator and by the
-Millard and Muriel Jacobs Genetics and Genomics Laboratory at California
-Institute of Technology. All strains were provided by the CGC, which is funded
-by NIH Office of Research Infrastructure Programs (P40 OD010440). This article
-would not be possible without Dr.\ Igor Antoshechkin who performed all
-sequencing. We thank Hillel Schwartz, Erich Schwarz, Jonathan Liu, Han Wang and
-Porfirio Quintero for their advice, support and conversations throughout this
+Millard and Muriel Jacobs Genetics and Genomics Laboratory at Caltech. Strains
+were provided by the CGC, which is funded by the NIH Office of Research
+Infrastructure Programs (P40 OD010440). We thank Hillel Schwartz, Erich Schwarz,
+Jonathan Liu, Han Wang and Porfirio Quintero for their advice throughout this
 project.}
 
 \showacknow{} % Display the acknowledgments section

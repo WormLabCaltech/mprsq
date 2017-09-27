@@ -9,7 +9,7 @@ permalink: /analysis
 
 ## Predicting interactions between genes
 We used correlational analyses to predict genetic interactions.
-<a href="{{ site.baseurl }}/analysis_notebooks/2_predicting_interactions.html"> Jupyter Notebook</a>
+<a href="{{ site.baseurl }}/analysis_notebooks/2_predict_interactions.html"> Jupyter Notebook</a>
 
 ## Transcriptome-wide epistasis analysis
 Development of the formalism for, and measurement of, transcriptome-wide epistasis.
