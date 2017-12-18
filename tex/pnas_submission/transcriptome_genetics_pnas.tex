@@ -88,23 +88,21 @@
 \leadauthor{Angeles-Albores}
 
 % Please add here a significance statement to explain the relevance of your work
-\significancestatement{Transcriptome profiling is a way to quickly and
-quantitatively measure gene expression level. There is widespread interest in
-using transcriptomic profiles as a
-phenotype for genetic analysis. However, a source of concern is that
-whole-animal transcriptomic profiles mix the expression signatures of multiple
-cellular states, which might make it hard to accurately reconstruct genetic
-interactions. Additionally, it has been difficult to measure
-epistasis, the signature of genetic interaction between two genes, using
-expression profiles. Here, we show that it is possible to accurately
-reconstruct genetic interactions between genes using whole-animal RNA
-sequencing, and we demonstrate a way to quantify epistasis transcriptome-wide.
-With the advent of genome
-engineering tools, mutants can be created quickly and easily in many
-organisms. As a result, phenotyping mutants is the rate-limiting step towards
-reconstructing genetic interaction networks. Our work potentially represents a
-solution to this problem because transcriptome profiling is sensitive
-to a broad variety of genetic perturbations.
+\significancestatement{
+Transcriptome profiling quickly and quantitatively measures gene expression
+level. There is widespread interest in using transcriptomic profiles as a
+phenotype for epistasis analysis. Although epistasis measurements between two
+genes can be performed for every transcript in a transcriptome, this results in
+thousands of epistasis measurements that must be interpreted independently. We
+developed a statistic that summarizes these measurements and makes
+interpretation of this data straightforward. Moreover, epistasis analysis has
+previously only been performed on cDNA extracted from single cells. We show that
+whole-organism RNA-seq, like single-cell RNA-seq, can be used to characterize
+interactions between two genes. With the advent of genome engineering tools,
+mutants can be created quickly and easily in many organisms. As a result,
+phenotyping mutants is now the rate-limiting step in building interaction
+networks. Our work potentially represents a solution to this problem because
+transcriptome profiling is sensitive to a broad variety of genetic perturbations.
 }
 
 % Please include corresponding author, author contribution and author declaration information
@@ -122,21 +120,21 @@ performed analysis. DAA, CPR and PWS wrote the paper.}
 \keywords{Epistasis $|$ Genetic Interaction $|$ Transcriptome $|$ Hypoxia}
 
 \begin{abstract}
-RNA-seq is commonly used to identify genetic modules that respond to
-perturbations. In single cells, transcriptomes have been used as phenotypes, but
-this concept has not been applied to whole-organism RNA-seq. Also,
-quantifying and interpreting epistatic effects using expression profiles remains
-a challenge. We developed a single coefficient to quantify transcriptome-wide
-epistasis that reflects the underlying interactions and which can be interpreted
-intuitively. To demonstrate our approach, we sequenced four single and two
-double mutants of \emph{Caenorhabditis~elegans}. From these mutants, we
-reconstructed the known hypoxia pathway. In addition, we uncovered a class of
-\hifohtargets{} genes with \gene{hif-1}-dependent expression which have opposite
-changes in expression in mutants of two genes which cooperate to negatively
-regulate \hifp{} abundance; however, the double mutant of these genes exhibits
-suppression epistasis. This class violates the classical model of
-HIF-1 regulation, but can be explained by postulating a role of hydroxylated
-HIF-1 in transcriptional control.
+  RNA-seq is commonly used to identify genetic modules that respond to
+  perturbations. In single cells, transcriptomes have been used as phenotypes,
+  but this concept has not been applied to whole-organism RNA-seq. Also,
+  quantifying and interpreting epistatic effects using expression profiles
+  remains a challenge. We developed a single coefficient to quantify
+  transcriptome-wide epistasis that reflects the underlying interactions and
+  which can be interpreted intuitively. To demonstrate our approach, we
+  sequenced four single and two double mutants of \emph{Caenorhabditis~elegans}.
+  From these mutants, we reconstructed the known hypoxia pathway. In addition,
+  we uncovered a class of \hifohtargets{} genes with \gene{hif-1}-dependent
+  expression which have opposite changes in expression in mutants of two genes
+  which cooperate to negatively regulate \hifp{} abundance; however, the double
+  mutant of these genes exhibits suppression epistasis. This class violates the
+  classical model of HIF-1 regulation, but can be explained by postulating a
+  role of hydroxylated HIF-1 in transcriptional control.
 \end{abstract}
 
 \dates{This manuscript was compiled on \today}
@@ -155,59 +153,55 @@ HIF-1 in transcriptional control.
 
 \linenumbers{}
 \dropcap{G}enetic analysis of molecular pathways has traditionally been
-performed through epistatic analysis. If the mutants of
-two distinct genes have a quantifiable phenotype, and the double mutant has a
-phenotype that is not the sum of the phenotypes of the single
-mutants, this non-additivity is referred to as generalized epistasis, and
-indicates that these genes interact functionally. Such
-interactions can occur at the biochemical  level between their products or as a
-consequence of their functions~\cite{Huang2006}. Epistasis analysis remains a
-cornerstone of genetics today~\cite{Phillips2008}.
+performed through epistatic analysis. If the mutants of two distinct genes have
+a quantifiable phenotype, and the double mutant has a phenotype that is not the
+sum of the phenotypes of the single mutants, this non-additivity is referred to
+as generalized epistasis, and indicates that these genes interact functionally.
+Such interactions can occur at the biochemical  level between their products or
+as a consequence of their functions~\cite{Huang2006}. Epistasis analysis remains
+a cornerstone of genetics today~\cite{Phillips2008}.
 
-Recently, biological studies have shifted in focus from studying single
-genes to studying all genes in parallel. In particular,
-RNA-seq~\cite{Mortazavi2008} enables biologists to
-identify genes that change expression in response to a perturbation.
+Recently, biological studies have shifted in focus from studying single genes to
+studying all genes in parallel. In particular, RNA-seq~\cite{Mortazavi2008}
+enables biologists to identify genes that change expression in response to a
+perturbation.
 % Gene expression
 % profiling using RNA-seq has become much more sensitive thanks to deeper and more
 % frequent sequencing due to lower sequencing costs~\cite{Metzker2010},
 % better and faster abundance quantification~\cite{Patro2014,Bray2016,Patro2015},
 % and improved differential expression analysis
 % methods~\cite{Pimentel2016,Trapnell2013}.
-RNA-seq has been used to identify genetic modules involved in a
-variety of processes, such as in the \emph{Caenorhabditis~elegans} linker cell
+RNA-seq has been used to identify genetic modules involved in a variety of
+processes, such as in the \emph{Caenorhabditis~elegans} linker cell
 migration~\cite{Schwarz2012}, planarian stem cell
-maintenance~\cite{VanWolfswinkel2014,Scimone2014}. The role
-of transcriptional profiling has been restricted to target gene identification,
-and so far there are only a few examples where transcriptomes have been used to
-generate quantitative genetic models of any kind.
-\color{purple}
-In quantitative genetics, eQTL
-studies have established the power of transcriptomes for genetic
-mapping~\cite{Brem2002,Schadt2003,Li2006,King2014}.
-Genetic pathway analysis via epistasis has been performed in
+maintenance~\cite{VanWolfswinkel2014,Scimone2014}. The role of transcriptional
+profiling has been restricted to target gene identification, and so far there
+are only a few examples where transcriptomes have been used to generate
+quantitative genetic models of any kind. \color{purple} In quantitative
+genetics, eQTL studies have established the power of transcriptomes for genetic
+mapping~\cite{Brem2002,Schadt2003,Li2006,King2014}. Genetic pathway analysis via
+epistasis has been performed in
 \emph{Saccharomyces~cerevisiae}~\cite{Hughes2000,Capaldi2008} and in
 \emph{Dictyostelium~discoideum}~\cite{VanDriessche2005}. Recently, Dixit
 \emph{et al} described a protocol for epistasis analysis in dendritic and K562
 cells using single-cell RNA-seq~\cite{Dixit2016}.
 \color{black}
-Epistasis analysis of single
-cells or single-celled organisms is popular because of the concern that
-whole-organism sequencing will mix information from multiple cell types,
-preventing the accurate reconstruction of genetic interactions. Using
-whole-organism transcriptome profiling, we have recently identified a new
+Epistasis analysis of single cells or single-celled organisms is popular because
+of the concern that whole-organism sequencing will mix information from multiple
+cell types, preventing the accurate reconstruction of genetic interactions.
+Using whole-organism transcriptome profiling, we have recently identified a new
 developmental state of \cel{} caused by loss of a single cell type (sperm
 cells)~\cite{Angeles-Albores2017a}, which suggests that whole-organism
 transcriptome profiling contains sufficient information for epistatic analysis.
 To investigate the ability of whole-organism transcriptomes to serve as
 quantitative phenotypes for epistatic analysis in metazoans, we sequenced the
-transcriptomes of four well-characterized loss-of-function mutants in the
-\cel{} hypoxia pathway~\cite{Epstein2001,Shen2006,Shao2009,Jiang2001}.
+transcriptomes of four well-characterized loss-of-function mutants in the \cel{}
+hypoxia pathway~\cite{Epstein2001,Shen2006,Shao2009,Jiang2001}.
 
 % carmie:
 Metazoans depend on the presence of oxygen in sufficient concentrations to
-support aerobic metabolism. Hypoxia inducible factors (HIFs) are an
-important group of oxygen-responsive genes that are highly conserved in
+support aerobic metabolism. Hypoxia inducible factors (HIFs) are an important
+group of oxygen-responsive genes that are highly conserved in
 metazoans~\cite{Loenarz2011}. A common mechanism for hypoxia-response induction
 is heterodimerization between a HIF$\alpha$ and a HIF$\beta$ subunit; the
 heterodimer then initiates transcription of target genes~\cite{Jiang1996}. The
@@ -221,8 +215,8 @@ of protein production and rapid degradation~\cite{Huang1996}. In \cel{},
 \hifp{}$\alpha$ is hydroxylated by a proline hydroxylase
 (\eglp{})~\cite{Kaelin2008}. \hifp{} hydroxylation increases its binding
 affinity to Von Hippel-Lindau tumor suppressor 1 (\vhlp{}), which in turn allows
-ubiquitination of \hifp{} leading to its degradation. In \cel{},
-\eglp{} activity is inhibited by binding of \cyslp{}, a homolog of
+ubiquitination of \hifp{} leading to its degradation. In \cel{}, \eglp{}
+activity is inhibited by binding of \cyslp{}, a homolog of
 sulfhydrylases/cysteine synthases; and \cyslp{} activity is in turn inhibited by
 the putative transmembrane O-acyltransferase \rhyp{}, possibly by
 post-translational modifications to \cyslp{}~\cite{Ma2012} (see
@@ -245,17 +239,16 @@ Fig.~\ref{fig:pathway}).
 \label{fig:pathway}
 \end{figure}
 
-Our reconstruction of the hypoxia pathway in \cel{} shows
-that whole-animal transcriptome profiles can be used as phenotypes for genetic
-analysis and that epistasis, a hallmark of genetic interaction
-observed in double mutants, holds at the molecular systems level. We demonstrate
-that transcriptomes can aid in ordering genes in a pathway using only single
-mutants. We were able to identify genes that appear to be downstream of
-\gene{vhl-1}, but not downstream of \gene{hif-1}.
-Using a single set of transcriptome-wide measurements, we observed most of the
-known transcriptional effects of \gene{hif-1} as well as novel effects not
-described before in \cel{}. Taken together, this analysis demonstrates that
-whole-animal RNA-seq is a fast and powerful method for genetic
+Our reconstruction of the hypoxia pathway in \cel{} shows that whole-animal
+transcriptome profiles can be used as phenotypes for genetic analysis and that
+epistasis, a hallmark of genetic interaction observed in double mutants, holds
+at the molecular systems level. We demonstrate that transcriptomes can aid in
+ordering genes in a pathway using only single mutants. We were able to identify
+genes that appear to be downstream of \gene{vhl-1}, but not downstream of
+\gene{hif-1}. Using a single set of transcriptome-wide measurements, we observed
+most of the known transcriptional effects of \gene{hif-1} as well as novel
+effects not described before in \cel{}. Taken together, this analysis
+demonstrates that whole-animal RNA-seq is a fast and powerful method for genetic
 analyses in an area where phenotypic measurements are now the rate-limiting
 step.
 
@@ -269,39 +262,36 @@ profiling: \gene{egl-9(sa307)}, \gene{rhy-1(ok1402)}, \gene{vhl-1(ok161)},
 \gene{hif-1(ia4)}. We also sequenced the transcriptomes of two double mutants,
 \gene{egl-9; vhl-1} and \gene{egl-9 hif-1} as well as wild type (N2).
 \color{purple}
-Each genotype was sequenced in triplicate using mRNA extracted from 30 worms per
-sample at a depth of 15~million reads per
-sample, of which 7~million reads mapped to the \cel{} genome.
-All samples were analyzed only under normoxic conditions.
+Each genotype was sequenced in triplicate using mRNA extracted from 30 worms at
+a depth of 15~million reads per sample. Of these 15~million reads, 50\% of the
+reads mapped to the \cel{} genome on average. All samples were analyzed under
+normoxic conditions.
 \color{black}
-We identified around
-22,000 different isoforms per sample, which allowed us to measure differential
-expression of 18,344 isoforms across all replicates and genotypes ($\sim$70\% of
-the protein coding isoforms in \cel{}; see
+We identified around 22,000 different isoforms per sample, which allowed us to
+measure differential expression of 18,344 isoforms across all replicates and
+genotypes ($\sim$70\% of the protein coding isoforms in \cel{}; see
 \href{https://wormlabcaltech.github.io/mprsq/analysis_notebooks/1_basic_stats.html}
-{Basic Statistics Notebook}
-). We included in our analysis a
-\gene{fog-2(q71)} mutant we have previously studied~\cite{Angeles-Albores2017a},
-because \gene{fog-2} is not reported to interact with the hypoxia pathway. We
-analyzed our data using a general linear model on logarithm-transformed counts.
-Changes in gene expression are reflected in the regression coefficient $\beta$,
-which is specific to each isoform within a genotype (excluding wild type, which
-is used as baseline). Statistical significance is achieved when the q-value of a
-$\beta$ coefficient ($p$-values adjusted for multiple testing) are less than 0.1.
-Transcripts that are differentially expressed between the wild type and a
-given mutant have $\beta$ values that are statistically significantly different
-from 0 (i.e.\ greater than 0 or less than 0). $\beta$ coefficients are analogous
-to the logarithm of the fold-change between the mutant and the wild type. Larger
+{Basic Statistics Notebook}). We included in our analysis a \gene{fog-2(q71)}
+mutant we have previously studied~\cite{Angeles-Albores2017a}, because
+\gene{fog-2} is not reported to interact with the hypoxia pathway. We analyzed
+our data using a general linear model on logarithm-transformed counts. Changes
+in gene expression are reflected in the regression coefficient $\beta$, which is
+specific to each isoform within a genotype (excluding wild type, which is used
+as baseline). Statistical significance is achieved when the q-value of a $\beta$
+coefficient ($p$-values adjusted for multiple testing) are less than 0.1.
+Transcripts that are differentially expressed between the wild type and a given
+mutant have $\beta$ values that are statistically significantly different from 0
+(i.e.\ greater than 0 or less than 0). $\beta$ coefficients are analogous to the
+logarithm of the fold-change between the mutant and the wild type. Larger
 magnitudes of $\beta$ correspond to larger perturbations (see
 Fig.~\ref{fig:explain}). When we refer to $\beta$ coefficients and $q$-values,
 it will always be in reference to isoforms. However, we report the sizes of each
-gene set by the number of differentially expressed genes (DEGs), not
-isoforms, they contain. For the case of \cel{}, this difference is negligible
-since the great majority of protein-coding genes have a single isoform. We have
-opted for this method of referring to gene sets because it simplifies the
-language considerably. A complete version of the code used for this analysis
-with ample documentation, is available at
-\url{https://wormlabcaltech.github.io/mprsq}.
+gene set by the number of differentially expressed genes (DEGs), not isoforms,
+they contain. For the case of \cel{}, this difference is negligible since the
+great majority of protein-coding genes have a single isoform. We have opted for
+this method of referring to gene sets because it simplifies the language
+considerably. A complete version of the code used for this analysis with ample
+documentation, is available at \url{https://wormlabcaltech.github.io/mprsq}.
 
 
 \begin{figure}[tbhp]
@@ -332,16 +322,15 @@ showed a similar number of genes with altered expression (\eglhifn{} genes).
 \color{purple}
 We do not think that this transcriptional response is the due to transiently
 induced hypoxia during harvesting. If the wild type strain had become hypoxic,
-then the \hif{} genotype should show significantly lower
-levels of \gene{nhr-57}, a marker that increases during hypoxia.
-We do not observe altered levels of \gene{nhr-57} when comparing
-the wild type and \hif{} mutant, nor between the wild type and \eglhif{} double
-mutant. Finally, the \egl{}, \vhl{}, \rhy{} and \eglvhl{} mutants did show
-altered \gene{nhr-57} transcript levels (see
+then the \hif{} genotype should show significantly lower levels of
+\gene{nhr-57}, a marker that increases during hypoxia. We do not observe altered
+levels of \gene{nhr-57} when comparing the wild type and \hif{} mutant, nor
+between the wild type and \eglhif{} double mutant. Finally, the \egl{}, \vhl{},
+\rhy{} and \eglvhl{} mutants did show altered \gene{nhr-57} transcript levels
+(see
 \href{https://wormlabcaltech.github.io/mprsq/analysis_notebooks/5_quality_check.html}{
-Quality Control Notebook}). We cannot rule out
-cumulative effects from loss of \gene{hif-1} or strain-specific eQTLs
-present in the strain background.
+Quality Control Notebook}). We cannot rule out cumulative effects from loss of
+\gene{hif-1} or strain-specific eQTLs present in the strain background.
 \color{black}
 
 \begin{table}[tbhp]

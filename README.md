@@ -1,8 +1,8 @@
-# Genetic Analysis of a Metazoan Pathway using Transcriptomic Phenotypes
+# Reconstructing a metazoan genetic pathway with transcriptome-wide epistasis measurements
 #### Authors: David Angeles-Albores, Carmie Puckett-Robinson, Brian A. Williams, Barbara Wold and Paul W. Sternberg
 
 ## Abstract
-RNA-seq is commonly used to identify genetic modules that respond to a perturbation. Although transcriptomes have been mainly used for target gene discovery, their quantitative nature makes them attractive structures with which to study genetic interactions. To understand whether whole-organism RNA-seq is suitable for genetic pathway reconstruction, we sequenced the transcriptome of four single mutants and two double mutants of the hypoxia pathway in *C. elegans*. By comparing the expression levels of double mutants with their corresponding single mutants, we were able to determine, on a genome-wide level, that EGL-9 acts along VHL-1-dependent and independent branches to inhibit HIF-1. We were also able to observe transcriptome-wide suppression of the *egl-9(lf)* phenotype in an *egl-9(lf) hif-1(lf)* double mutant. As a by-product of our analysis, we identified a core hypoxic response consisting of 355 genes, and 45 genes that have *hif-1*-independent, *vhl-1*-dependent expression. Finally, we are able to identify 31 genes that exhibit non-canonical epistasis: for these genes, 24 *vhl-1(lf)* mutants show opposing effects to *egl-9(lf)* mutants, but the *egl-9(lf);vhl-1(lf)* exhibits the *egl-9(lf)* phenotype. We suggest that this non-canonical epistasis reflects unexplored aspects of the hypoxia pathway. We discuss the implications, benefits and advantages of using transcriptomic phenotypes to perform pathway analysis.
+RNA-seq is commonly used to identify genetic modules that respond to perturbations. In single cells, transcriptomes have been used as phenotypes, but this concept has not been applied to whole-organism RNA-seq. Also, quantifying and interpreting epistatic effects using expression profiles remains a challenge. We developed a single coefficient to quantify transcriptome-wide epistasis that reflects the underlying interactions and which can be interpreted intuitively. To demonstrate our approach, we sequenced four single and two double mutants of Caenorhabditis elegans. From these mutants, we reconstructed the known hypoxia pathway. In addition, we uncovered a class of 56 genes with *hif-1*-dependent expression which have opposite changes in expression in mutants of two genes which cooperate to negatively regulate HIF-1 abundance; however, the double mutant of these genes exhibits suppression epistasis. This class violates the classical model of HIF-1 regulation, but can be explained by postulating a role of hydroxylated HIF-1 in transcriptional control.
 
 # File Structure
 ```
@@ -10,11 +10,14 @@ mprsq
 │   README.md
 │   kallisto_commands_sh    
 │
-└───input
+└───input -- input files used for this project. Note: due to their size, HD5 files are gitignored, but can be found at the GEO.
 └───experimental_docs - experimental documents for this project
 └───sleuth_all_adjusted - contains R code for sleuth processing
 └───src - contains all jupyter notebooks with python analysis
 └───output
+      └─── supplementary_tables/ -- contains CSV files containing quantified results
+      └─── rank_plots/ -- pairwise rank plots for all pairwise combinations
+      └─── other_figs -- all other figures generated for this project
 └───docs - website
 ```
 ## Contact
