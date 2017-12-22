@@ -10,10 +10,11 @@ mprsq
 │   README.md
 │   kallisto_commands_sh    
 │
-└───input -- input files used for this project. Note: due to their size, HD5 files are gitignored, but can be found at the GEO.
+└───input -- input files used for this project. Note: due to their size, HD5
+             files are gitignored, but can be found at the GEO.
 └───experimental_docs - experimental documents for this project
 └───sleuth_all_adjusted - contains R code for sleuth processing
-└───src - contains all jupyter notebooks with python analysis
+└───src - contains all Jupyter notebooks with python analysis
 └───output
       └─── supplementary_tables/ -- contains CSV files containing quantified results
       └─── rank_plots/ -- pairwise rank plots for all pairwise combinations

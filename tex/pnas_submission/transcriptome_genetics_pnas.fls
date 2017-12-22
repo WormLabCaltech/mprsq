@@ -517,9 +517,9 @@ INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/helvetic/phvr8t.tfm
 INPUT ../figs/pca.pdf
 INPUT ../figs/pca.pdf
 INPUT ../figs/pca.pdf
-INPUT ../figs/positive_and_control.pdf
-INPUT ../figs/positive_and_control.pdf
-INPUT ../figs/positive_and_control.pdf
+INPUT ../figs/triangle_plot.pdf
+INPUT ../figs/triangle_plot.pdf
+INPUT ../figs/triangle_plot.pdf
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/adobe/helvetic/phvr8t.vf
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/helvetic/phvr8r.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/adobe/helvetic/phvro8t.vf
@@ -552,9 +552,9 @@ INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/lm/rm-lmss8.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/lm/rm-lmtt8.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/lm/ec-lmtt8.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/adobe/helvetic/phvr8t.vf
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/helvetic/phvr8r.tfm
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/lm/ec-lmtt8.tfm
 INPUT transcriptome_genetics_pnas.bbl
 INPUT transcriptome_genetics_pnas.bbl
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/helvetic/phvro8t.tfm

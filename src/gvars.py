@@ -10,7 +10,7 @@ class genvars:
 
         # fancy mapping, for use in graphs
         self.fancy_mapping = {'a': r'\emph{egl-9;vhl-1}',
-                              'f': r'\emph{egl-9;hif-1}',
+                              'f': r'\emph{egl-9 hif-1}',
                               'b': r'\emph{egl-9}',
                               'c': r'\emph{hif-1}',
                               'd': r'\emph{vhl-1}',
@@ -23,7 +23,7 @@ class genvars:
                         'c': 'hif-1',
                         'd': 'vhl-1',
                         'e': 'rhy-1',
-                        'f': 'egl-9;hif-1',
+                        'f': 'egl-9 hif-1',
                         'g': 'fog-2'
                         }
 
@@ -75,7 +75,7 @@ class genvars:
 
         # plot order for all qpcr plots
         self.plot_order = {r'\emph{egl-9;vhl-1}': 4,
-                           r'\emph{egl-9;hif-1}': 5,
+                           r'\emph{egl-9 hif-1}': 5,
                            r'\emph{egl-9}': 1,
                            r'\emph{hif-1}': 3,
                            r'\emph{vhl-1}': 2,
@@ -85,7 +85,7 @@ class genvars:
 
         # plot colors for all qpcr plots
         self.plot_color = {r'\emph{egl-9;vhl-1}': '#e41a1c',
-                           r'\emph{egl-9;hif-1}': '#377eb8',
+                           r'\emph{egl-9 hif-1}': '#377eb8',
                            r'\emph{egl-9}': '#4daf4a',
                            r'\emph{hif-1}': '#984ea3',
                            r'\emph{vhl-1}': '#ff7f00',

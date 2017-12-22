@@ -311,7 +311,9 @@ documentation, is available at \url{https://wormlabcaltech.github.io/mprsq}.
 \end{figure}
 
 Transcriptome profiling of the hypoxia pathway revealed that this pathway
-controls thousands of genes in \cel{} (see Table~\ref{tab:genes}). The \egl{}
+controls thousands of genes in \cel{} (see Table~\ref{tab:genes}, see
+SI Table 1 for a complete list of differentially expressed genes).
+The \egl{}
 transcriptome showed differential expression of \egln{} genes. \rhyn{} genes
 were differentially expressed in \rhy{} mutants. The \vhl{} transcriptome showed
 considerably fewer DEGs (\vhln{}), possibly because \gene{vhl-1} is a weaker
@@ -329,8 +331,15 @@ between the wild type and \eglhif{} double mutant. Finally, the \egl{}, \vhl{},
 \rhy{} and \eglvhl{} mutants did show altered \gene{nhr-57} transcript levels
 (see
 \href{https://wormlabcaltech.github.io/mprsq/analysis_notebooks/5_quality_check.html}{
-Quality Control Notebook}). We cannot rule out cumulative effects from loss of
-\gene{hif-1} or strain-specific eQTLs present in the strain background.
+Quality Control Notebook}, SI Figure 1). Of the differentially expressed genes
+in \hif{} mutants, 161/\hifn{} were also differentially expressed in \eglhif{}
+mutants, which suggests these transcripts are \gene{hif-1}-dependent under
+normoxia. For the remaining genes, we cannot rule out cumulative effects from
+loss of \gene{hif-1}, strain-specific eQTLs present in the strain background or
+that loss of \gene{egl-9} suppresses the mutant phenotype. We designed our
+experiments to probe the constitutive hypoxia response, and not the effects of
+\gene{hif-1} under normoxia, which we did not foresee. As a result, we have
+limited resolving power to explain the transcriptome of \hif{} mutants.
 \color{black}
 
 \begin{table}[tbhp]
@@ -422,31 +431,29 @@ regardless of the direction of change.
 \label{sec:phenotypes}
 All the hypoxia mutants had a significant STP:\@ the fraction of differentially
 expressed genes that was shared between mutants ranged from a minimum of 10\%
-shared between \hif{} and \eglvhl{} to a maximum of 32\% shared genes between
-\egl{} and \eglvhl{}. For comparison, we also analyzed a previously published
-\fog{} transcriptome~\cite{Angeles-Albores2017a}. The \gene{fog-2} gene is
-involved in masculinization of the \cel{} germline, which enables sperm
-formation, and is not known to be involved in the hypoxia pathway. The hypoxia
-pathway mutants and the \fog{} mutant also had STPs (8.8\%--14\% genes).
+between \hif{} and \eglvhl{} to a maximum of 32\% between \egl{} and \eglvhl{}
+(see SI Table 1).
+For comparison, we also analyzed a previously published \fog{}
+transcriptome~\cite{Angeles-Albores2017a}. The \gene{fog-2} gene is involved in
+masculinization of the \cel{} germline, which enables sperm formation, and is
+not known to be involved in the hypoxia pathway. The hypoxia pathway mutants and
+the \fog{} mutant also had STPs (8.8\%--14\%).
 
 % genetic correlations
 \begin{figure}[tbhp]
   \centering
-  \includegraphics[width=.4\textwidth]{../figs/positive_and_control.pdf}
+  \includegraphics[width=0.5\textwidth]{../figs/triangle_plot.pdf}
   \caption{
-    Strong transcriptional correlations exist between genes that
-    share positive regulatory connections.
-    \textbf{A}. We identified
-    isoforms that were differentially expressed in both \egl{} and the \rhy{}
-    mutants, and ranked each isoform according to its $\beta$ coefficient. We
-    plotted the rank of each isoform in \rhy{} versus the rank of the same
-    isoform in the \egl{} transcriptome.
-    \textbf{B}. For comparison, we followed the same
-    procedure with the \fog{} and \rhy{} transcriptomes. \fog{} is not known to
-    interact with the primary hypoxia pathway. Green, transparent points mark
-    inliers to the primary regressions (blue lines); red squares mark outliers
-    to the primary regressions. Orange lines show secondary regressions
-    performed on the outliers.
+  Interacting genes have correlated transcriptional signatures. The rank order
+  of transcripts contained in the shared transcriptional phenotype is plotted
+  for each pairwise combination of genotypes.Correlations between in-pathway
+  genotypes are strong whereas comparisons with a \fog{} genotype are dominated
+  by noise. Comparisons between some genotypes show populations of transcripts
+  that are anticorrelated, possibly as a result of feedback loops. Plots are
+  color-coded by row. Comparisons with genotypes with a constitutive hypoxia
+  response are in blue; comparisons with genotypes negative for \hif{} are
+  black; and comparisons involving \fog{} are red. X- and y-axes show the rank
+  of each transcript within each genotype.
   }
 \label{fig:genetic_interactions}
 \end{figure}
@@ -463,13 +470,12 @@ of best fit. Although \gene{hif-1} is known to be genetically repressed by
 \gene{egl-9}, \gene{rhy-1} and \gene{vhl-1}~\cite{Epstein2001,Shen2006}, all the
 correlations between mutants of these genes and \hif{} were positive (see
 \href{https://wormlabcaltech.github.io/mprsq/analysis_notebooks/2_predict_interactions.html}
-{Genetic Interactions Notebook}). We reasoned
-that this apparent contradiction could be due to either strain-specific eQTLs in
-our N2 background (an artifactual signal) or that it could reflect a previously
-unrecognized aspect of \hifp{} biology. This motivated us to look for genes that
-exhibited verifiable extreme patterns of anomalous behavior
-and led us to propose a new model of the hypoxia pathway (see Identification of
-non-classical epistatic interactions).
+{Genetic Interactions Notebook}). We reasoned that this apparent contradiction
+could be due to either strain-specific effects in our N2 background (an
+artifactual signal) or that it could reflect a previously unrecognized aspect of
+\hifp{} biology. This motivated us to look for genes that exhibited verifiable
+extreme patterns of anomalous behavior and led us to propose a new model of the
+hypoxia pathway (see Identification of non-classical epistatic interactions).
 
 \subsection*{Transcriptome-wide epistasis}
 Ideally, any measurement of transcriptome-wide epistasis should conform to
@@ -538,11 +544,11 @@ single mutant data showed that the double mutant exhibited the \egl{} phenotype
 linear pathway (odds ratio (OR) $>10^{83}$), which leads us to conclude
 \gene{egl-9} is upstream of \gene{vhl-1} acting on a phenotype in a branched
 manner. We also measured epistasis between \gene{egl-9} and \gene{hif-1},
-$s({\text{\gene{egl-9}, \gene{hif-1}}}) = -0.80$, and we found that this
-behavior could be predicted by modeling \gene{hif-1} downstream of \gene{egl-9}.
-We also rejected the null hypothesis that these two genes act in a positive
-linear pathway (OR$> 10^{93}$). Taken together, this leads us to conclude that
-\gene{egl-9} strongly inhibits \gene{hif-1}.
+$s({\text{\gene{egl-9}, \gene{hif-1}}}) = -0.80$ (see SI Figure 2), and we found
+that this behavior could be predicted by modeling \gene{hif-1} downstream of
+\gene{egl-9}. We also rejected the null hypothesis that these two genes act in a
+positive linear pathway (OR$> 10^{93}$). Taken together, this leads us to
+conclude that \gene{egl-9} strongly inhibits \gene{hif-1}.
 
 % epistasis graph
 \begin{figure}[tbhp]
@@ -660,20 +666,22 @@ decorrelation dynamics to infer gene order in a branching pathway, as we have
 done with the hypoxia pathway.
 
 \subsection{Classical epistasis identifies a core hypoxic response}
-We identified a main hypoxia response induced by \hifp{} (466 genes) by
-selecting genes that were consistently altered in \egl{}, \rhy{}, \vhl{} and
-\eglvhl{} mutants but which were suppressed in the \eglhif{} mutant. This
-response included five transcription factors (\gene{W02D7.6}, \nhr{},
-\gene{ztf-18}, \gene{nhr-135} and \gene{dmd-9}; Supplementary Table 1). Even
-though \hifp{} is an activator, not all of these genes were up-regulated. We
-reasoned that only genes that are up-regulated in \hifp{}-inhibitor mutants are
-candidates for direct regulation by \hifp{}. We found \hiftargets{} such genes.
-Phenotype Enrichment Analysis~\cite{Angeles-Albores106369} showed that this gene
-list was enriched in genes associated with oxygen response, dauer development
-and dauer constitutive phenotypes (fold-change $>4$; \qval{1} for all terms;
-see
+We searched for genes whose expression obeyed the two epistatic equality
+relationships, \hif{}=\eglhif{} and \egl{}=\eglvhl{}, since these equalities
+define the hypoxia pathway. We excluded genes whose expression deviated from
+this relationship by more than 2 standard deviations or that had opposite
+changes in direction. Using these criteria, we identified 1,258 genes in the
+hypoxia response. Tissue Enrichment Analysis showed that the intestine and
+epithelial system were enriched in this response (\qval{10} for both terms),
+consistent with previous reports~\cite{Budde2010}. Gene Enrichment
+Analysis~\cite{Angeles-Albores106369} showed enrichment in the mitochondrion and
+in collagen trimers (\qval{10}) (see
 \href{https://wormlabcaltech.github.io/mprsq/analysis_notebooks/3_ea_of_hypoxia_data.html}
-{Enrichment Analysis Notebook}).
+{Enrichment Analysis Notebook} and SI Figures 3 and 4). This response included
+15 transcription factors (see SI Table XXX). Even though \hifp{} is
+an activator, not all of these genes were up-regulated. We reasoned that only
+genes that are up-regulated in \hifp{}-inhibitor mutants are candidates for
+direct regulation by \hifp{}. We found \hiftargets{} such genes.
 
 \subsection*{Feedback can be inferred}
 \label{sub:topology}
@@ -692,7 +700,7 @@ are anti-correlated, we conclude that is unlikely that the change in
 \gene{rhy-1} mRNA expression causes a significant change in RHY-1 activity under
 normoxic conditions. We also searched for genes with \gene{hif-1}-independent,
 \gene{vhl-1}-dependent gene expression and found \vhltargets{} genes
-(Supplementary Table 2).
+(SI Table 2).
 
 \subsection*{Identification of non-classical epistatic interactions}
 \label{sub:hifoh}
@@ -713,12 +721,17 @@ directions between \egl{} and \vhl{}, or, equivalently, between \rhy{} and
 \vhl{} (we assume that all results from the \rhy{} transcriptome reflect a
 complete loss of \gene{egl-9} activity) without specifying any further
 conditions. We found \hifohtargets{} that satisfied this condition (see
-Fig.~\ref{fig:hif1oh}, Supplementary Table 4). When we checked expression of
+Fig.~\ref{fig:hif1oh}, SI Table 4). When we checked expression of
 these genes in the double mutant, we found that \gene{egl-9} remained epistatic
 over \gene{vhl-1} for this class of genes. This class of genes may in fact be
-much larger because it overlooks genes that have wild-type expression in an
+larger because it overlooks genes that have wild-type expression in an
 \egl{} background, altered expression in a \vhl{} background, and suppressed
 (wild-type) expression  in an \eglvhl{} background.
+\color{purple}
+As a result, it could help
+explain why the \hif{} mutant transcriptome is positively correlated with its
+inhibitors.
+\color{black}
 
 \begin{figure}[tbhp]
   \centering
@@ -738,16 +751,16 @@ much larger because it overlooks genes that have wild-type expression in an
 \label{fig:hif1oh}
 \end{figure}
 
-Although this entire class had similar behavior, we focused on
-two genes, \nlp{} and \ftna{} which have representative expression patterns.
-\ftna{} is described to be responsive to mutations in the hypoxia
-pathway and has been reported to have aberrant behaviors; specifically, loss of
-function of \gene{egl-9} and \gene{vhl-1} have opposing effects on \ftna{}
-expression~\cite{Ackerman2012,Romney2011}. These studies showed the same
-\ftna{} expression phenotypes using RNAi and alleles,
-allaying concerns of strain-specific interference. We observed that \gene{hif-1}
-was epistatic to \gene{egl-9}, and that \gene{egl-9} and \gene{hif-1} both
-promoted \ftna{} expression.
+Although this entire class had similar behavior, we focused on two genes, \nlp{}
+and \ftna{} which have representative expression patterns. \ftna{} is described
+to be responsive to mutations in the hypoxia pathway and has been reported to
+have aberrant behaviors; specifically, loss of function of \gene{egl-9} and
+\gene{vhl-1} have opposing effects on \ftna{}
+expression~\cite{Ackerman2012,Romney2011}. These studies showed the same \ftna{}
+expression phenotypes using RNAi and alleles, allaying concerns of
+strain-specific interference. We observed that \gene{hif-1} was epistatic to
+\gene{egl-9}, and that \gene{egl-9} and \gene{hif-1} both promoted \ftna{}
+expression.
 
 Analysis of \ftna{} expression reveals that \gene{egl-9} is epistatic to
 \gene{hif-1}; that \gene{vhl-1} has opposite effects to \gene{egl-9}, and that

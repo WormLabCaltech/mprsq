@@ -142,6 +142,12 @@ Yeung KY, Ruzzo WL (2001) {Principal component analysis for clustering gene
   expression data.}
 \newblock {\em Bioinformatics (Oxford, England)} 17(9):763--774.
 
+\bibitem{Budde2010}
+Budde MW, Roth MB (2010) {Hydrogen Sulfide Increases Hypoxia-inducible Factor-1
+  Activity Independently of von Hippel–Lindau Tumor Suppressor-1 in \emph{C.
+  elegans}}.
+\newblock {\em Molecular biology of the cell} 21:212--217.
+
 \bibitem{Angeles-Albores106369}
 Angeles-Albores D, Lee RY, Chan J, Sternberg PW (2017) {Phenotype and gene
   ontology enrichment as guides for disease modeling in \emph{C. elegans}}.
@@ -170,12 +176,6 @@ Shao Z, Zhang Y, Ye Q, Saldanha JN, Powell-Coffman JA (2010) {
   \emph{hif-1}- mediated resistance to the bacterial pathogen
   \emph{Pseudomonas~aeruginosa} PAO1}.
 \newblock {\em PLoS Pathogens} 6(8):91--92.
-
-\bibitem{Budde2010}
-Budde MW, Roth MB (2010) {Hydrogen Sulfide Increases Hypoxia-inducible Factor-1
-  Activity Independently of von Hippel–Lindau Tumor Suppressor-1 in \emph{C.
-  elegans}}.
-\newblock {\em Molecular biology of the cell} 21:212--217.
 
 \bibitem{Kim2004}
 Kim YI, Cho JH, Yoo OJ, Ahnn J (2004) {Transcriptional Regulation and Life-span
