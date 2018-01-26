@@ -131,25 +131,27 @@ def ODR(singles, double, epistasis):
         raise ValueError('epistasis must be one of `actual`, `xy=x`, `xy=y`')
 
     # define the X-coordinate as the additive model of interaction
-    X = singles[0].b + singles[1].b
+    X = singles[0].b.values + singles[1].b.values
 
     # fit an ODR model
-    wadd = np.sqrt(singles[1].se_b**2 + singles[0].se_b**2)
+    wadd = np.sqrt(singles[1].se_b.values**2 + singles[0].se_b.values**2)
 
     if epistasis == 'actual':
         # calculate deviation standard error:
-        wdev = double.se_b**2
+        wdev = double.se_b.values**2
         for i, df in enumerate(singles):
-            wdev += df.se_b**2
+            wdev += df.se_b.values**2
         wdev = np.sqrt(wdev)
         # calculate:
-        output = perform_odr(X, double.b - X, wadd=wadd, wdev=wdev)
+        output = perform_odr(X, double.b.values - X, wadd=wadd, wdev=wdev)
     if epistasis == 'xy=x':
         # if XY = X, then XY - X - Y = -Y
-        output = perform_odr(X, -singles[1].b, wadd=wadd, wdev=singles[1].se_b)
+        output = perform_odr(X, -singles[1].b.values, wadd=wadd,
+                             wdev=singles[1].se_b.values)
     if epistasis == 'xy=y':
         # if XY = Y, then XY - X - Y = -X
-        output = perform_odr(X, -singles[0].b, wadd=wadd, wdev=singles[0].se_b)
+        output = perform_odr(X, -singles[0].b.values, wadd=wadd,
+                             wdev=singles[0].se_b.values)
 
     return output
 
@@ -377,9 +379,9 @@ def make_epiplot(singles, double, df, **kwargs):
     actual = ODR([x, y], xy, 'actual')
 
     # transform coordinates:
-    X = x.b + y.b
-    Y = xy.b - X
-    Y_se = np.sqrt(x.se_b**2 + y.se_b**2 + xy.se_b**2)
+    X = x.b.values + y.b.values
+    Y = xy.b.values - X
+    Y_se = np.sqrt(x.se_b.values**2 + y.se_b.values**2 + xy.se_b.values**2)
 
     ax = epiplot(X, Y, Y_se, plot_unbranched=True, beta=actual.beta)
 

@@ -267,8 +267,8 @@ a depth of 15~million reads per sample. Of these 15~million reads, 50\% of the
 reads mapped to the \cel{} genome on average. All samples were analyzed under
 normoxic conditions.
 \color{black}
-We identified around 22,000 different isoforms per sample, which allowed us to
-measure differential expression of 18,344 isoforms across all replicates and
+We
+measured differential expression of 19,676 isoforms across all replicates and
 genotypes ($\sim$70\% of the protein coding isoforms in \cel{}; see
 \href{https://wormlabcaltech.github.io/mprsq/analysis_notebooks/1_basic_stats.html}
 {Basic Statistics Notebook}). We included in our analysis a \gene{fog-2(q71)}
@@ -312,7 +312,7 @@ documentation, is available at \url{https://wormlabcaltech.github.io/mprsq}.
 
 Transcriptome profiling of the hypoxia pathway revealed that this pathway
 controls thousands of genes in \cel{} (see Table~\ref{tab:genes}, see
-SI Table 1 for a complete list of differentially expressed genes).
+SI File 1 for a complete list of differentially expressed genes).
 The \egl{}
 transcriptome showed differential expression of \egln{} genes. \rhyn{} genes
 were differentially expressed in \rhy{} mutants. The \vhl{} transcriptome showed
@@ -458,15 +458,18 @@ the \fog{} mutant also had STPs (8.8\%--14\%).
 \label{fig:genetic_interactions}
 \end{figure}
 
-Next, we performed pairwise correlations between all mutant pairs. We
+Next, we analyzed pairwise correlations between all mutant pairs. We
 rank-transformed the $\beta$ coefficients of each isoform between the STP of two
-mutants, and calculated lines of best fit using Bayesian regressions that are
-robust to outliers (see Fig~\ref{fig:genetic_interactions}). For mutants
-associated with the hypoxia pathway, these correlations have values higher than
-0.9 with a tight distribution around the line of best fit. The correlations for
-mutants from the hypoxia pathway with the \fog{} mutant were considerably
-weaker, with magnitudes between 0.6--0.85 and greater variance around the line
-of best fit. Although \gene{hif-1} is known to be genetically repressed by
+mutants, and plotted the transcript ranks between genotypes (see
+Fig~\ref{fig:genetic_interactions}).
+% For mutants
+% associated with the hypoxia pathway, these correlations have values higher than
+% 0.9 with a tight distribution around the line of best fit.
+% The correlations for
+% mutants from the hypoxia pathway with the \fog{} mutant were considerably
+% weaker, with magnitudes between 0.6--0.85 and greater variance around the line
+% of best fit.
+Although \gene{hif-1} is known to be genetically repressed by
 \gene{egl-9}, \gene{rhy-1} and \gene{vhl-1}~\cite{Epstein2001,Shen2006}, all the
 correlations between mutants of these genes and \hif{} were positive (see
 \href{https://wormlabcaltech.github.io/mprsq/analysis_notebooks/2_predict_interactions.html}
@@ -536,15 +539,15 @@ suppressed, which in turn allows us to order the genes along a pathway.
 \color{black}
 
 We measured the epistasis coefficient between \gene{egl-9} and \gene{vhl-1},
-$s({\text{\gene{egl-9} \gene{vhl-1}}}) = -0.41$ (see
+$s({\text{\gene{egl-9} \gene{vhl-1}}}) = -0.41\pm 0.01$ (see
 \href{https://wormlabcaltech.github.io/mprsq/analysis_notebooks/6_epistasis.html}
 {Epistasis Notebook}). Simulations using just the
 single mutant data showed that the double mutant exhibited the \egl{} phenotype
 (see Fig.~\ref{fig:egl9epistasis}). We used Bayesian model selection to reject a
-linear pathway (odds ratio (OR) $>10^{83}$), which leads us to conclude
+linear pathway (odds ratio (OR) $>10^{92}$), which leads us to conclude
 \gene{egl-9} is upstream of \gene{vhl-1} acting on a phenotype in a branched
 manner. We also measured epistasis between \gene{egl-9} and \gene{hif-1},
-$s({\text{\gene{egl-9}, \gene{hif-1}}}) = -0.80$ (see SI Figure 2), and we found
+$s({\text{\gene{egl-9}, \gene{hif-1}}}) = -0.80\pm0.01$ (see SI Figure 2), and we found
 that this behavior could be predicted by modeling \gene{hif-1} downstream of
 \gene{egl-9}. We also rejected the null hypothesis that these two genes act in a
 positive linear pathway (OR$> 10^{93}$). Taken together, this leads us to
@@ -591,8 +594,8 @@ generated predictions of the epistasis coefficient between \gene{egl-9} and
 \gene{vhl-1} by substituting in the \rhy{} data, predicting $s({rhy-1,vhl-1}) =
 -0.45$. Similarly, we used the \eglvhl{} double mutant to measure the epistasis
 coefficient while replacing the \egl{} dataset with the \rhy{} dataset. We found
-that the epistasis coefficient using this substitution was $-0.40$. This
-coefficient was different from $-0.50$ (OR $>10^{62}$), reflecting the same
+that the epistasis coefficient using this substitution was $-0.38\pm 0.01$. This
+coefficient was different from $-0.50$ (OR $>10^{102}$), reflecting the same
 qualitative conclusion that \gene{vhl-1} represents a branch in the hypoxia
 pathway. We were able to obtain a close prediction
 of the epistasis coefficient for two mutants using the transcriptome of a
@@ -678,29 +681,29 @@ Analysis~\cite{Angeles-Albores106369} showed enrichment in the mitochondrion and
 in collagen trimers (\qval{10}) (see
 \href{https://wormlabcaltech.github.io/mprsq/analysis_notebooks/3_ea_of_hypoxia_data.html}
 {Enrichment Analysis Notebook} and SI Figures 3 and 4). This response included
-15 transcription factors (see SI Table XXX). Even though \hifp{} is
+15 transcription factors. Even though \hifp{} is
 an activator, not all of these genes were up-regulated. We reasoned that only
 genes that are up-regulated in \hifp{}-inhibitor mutants are candidates for
 direct regulation by \hifp{}. We found \hiftargets{} such genes.
 
 \subsection*{Feedback can be inferred}
 \label{sub:topology}
-While some of the rank plots contained a clear positive correlation (see
-Fig.~\ref{fig:genetic_interactions}), others showed a discernible cross-pattern
-(see Figure S2). In particular, this cross-pattern emerged between \vhl{} and
-\rhy{} or between \vhl{} and \egl{}, even though \gene{vhl-1}, \gene{rhy-1} and
-\gene{egl-9} are all inhibitors of \hif{}. Such cross-patterns could be
-indicative of feedback loops or other complex interaction patterns. If the above
-is correct, then it should be possible to identify genes that are regulated by
-\gene{rhy-1} in a logically consistent way: Since loss of \gene{egl-9} causes
-\gene{rhy-1} mRNA levels to increase, if this increase leads to a significant
-change in RHY-1 activity, then it follows that the \egl{} and \rhy{} should show
+While some of the rank plots contained a clear positive correlation, others
+showed a discernible cross-pattern (see Fig.~\ref{fig:genetic_interactions}). In
+particular, this cross-pattern emerged between \vhl{} and \rhy{} or between
+\vhl{} and \egl{}, even though \gene{vhl-1}, \gene{rhy-1} and \gene{egl-9} are
+all inhibitors of \hif{}. Such cross-patterns could be indicative of feedback
+loops or other complex interaction patterns. If the above is correct, then it
+should be possible to identify genes that are regulated by \gene{rhy-1} in a
+logically consistent way: Since loss of \gene{egl-9} causes \gene{rhy-1} mRNA
+levels to increase, if this increase leads to a significant change in RHY-1
+activity, then it follows that the \egl{} and \rhy{} should show
 anti-correlation in a subset of genes. Since we do not observe many genes that
 are anti-correlated, we conclude that is unlikely that the change in
 \gene{rhy-1} mRNA expression causes a significant change in RHY-1 activity under
 normoxic conditions. We also searched for genes with \gene{hif-1}-independent,
-\gene{vhl-1}-dependent gene expression and found \vhltargets{} genes
-(SI Table 2).
+\gene{vhl-1}-dependent gene expression and found \vhltargets{} genes (SI File
+1).
 
 \subsection*{Identification of non-classical epistatic interactions}
 \label{sub:hifoh}
@@ -714,14 +717,14 @@ correlations could indicate a relationship between these genes that has not
 been reported previously.
 
 We identified genes that exhibited violations of the canonical genetic
-model of the hypoxia pathway (see
+model of the hypoxia pathway (see Fig.~\ref{fig:hif1oh}; also
 \href{https://wormlabcaltech.github.io/mprsq/analysis_notebooks/7_hifoh.html}
 {Non-canonical epistasis notebook}). We searched for genes that changed in different
 directions between \egl{} and \vhl{}, or, equivalently, between \rhy{} and
 \vhl{} (we assume that all results from the \rhy{} transcriptome reflect a
 complete loss of \gene{egl-9} activity) without specifying any further
 conditions. We found \hifohtargets{} that satisfied this condition (see
-Fig.~\ref{fig:hif1oh}, SI Table 4). When we checked expression of
+Fig.~\ref{fig:hif1oh}, SI File 1). When we checked expression of
 these genes in the double mutant, we found that \gene{egl-9} remained epistatic
 over \gene{vhl-1} for this class of genes. This class of genes may in fact be
 larger because it overlooks genes that have wild-type expression in an
