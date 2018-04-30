@@ -1,0 +1,169 @@
+\documentclass[9pt,twocolumn,twoside]{pnas-new}
+
+\usepackage{gensymb}
+\usepackage{siunitx}
+\usepackage[switch]{lineno}
+
+% new commands
+% q value
+\newcommand{\qval}[1]{$q<10^{-#1}$}
+
+% species names
+\newcommand{\cel}{\emph{C.~elegans}}
+\newcommand{\dicty}{\emph{D.~discoideum}}
+\newcommand{\ecol}{\emph{E.~coli}}
+
+% gene names
+\newcommand{\gene}[1]{\mbox{\emph{#1}}}
+% \newcommand{\gene}[1]{\emph{#1}} # for MS word typesetting
+
+\newcommand{\nlp}{\gene{nlp-31}}
+\newcommand{\ftna}{\gene{ftn-1}}
+\newcommand{\ftnb}{\gene{ftn-2}}
+\newcommand{\cysl}{\gene{cysl-1}}
+\newcommand{\nog}{\gene{nog-1}}
+\newcommand{\nhr}{\gene{nhr-57}}
+\newcommand{\lam}{\gene{lam-3}}
+\newcommand{\fog}{\gene{fog-2(lf)}}
+\newcommand{\egl}{\gene{egl-9(lf)}}
+\newcommand{\rhy}{\gene{rhy-1(lf)}}
+\newcommand{\vhl}{\gene{vhl-1(lf)}}
+\newcommand{\eglvhl}{\gene{egl-9(lf); vhl-1(lf)}}
+\newcommand{\eglhif}{\gene{egl-9(lf) hif-1(lf)}}
+\newcommand{\hif}{\gene{hif-1(lf)}}
+
+% protein names
+\newcommand{\eglp}{EGL-9}
+\newcommand{\rhyp}{RHY-1}
+\newcommand{\nogp}{NOG-1}
+\newcommand{\vhlp}{VHL-1}
+\newcommand{\hifp}{HIF-1}
+\newcommand{\fogp}{FOG-2}
+\newcommand{\nhrp}{NHR-57}
+\newcommand{\lamp}{LAM-3}
+\newcommand{\cyslp}{CYSL-1}
+
+% DE genes numbers:
+\newcommand{\egln}{2,549}
+\newcommand{\rhyn}{3,005}
+\newcommand{\vhln}{1,275}
+\newcommand{\eglvhln}{3,654}
+\newcommand{\hifn}{1,075}
+\newcommand{\eglhifn}{744}
+\newcommand{\fogn}{2,840}
+\newcommand{\total}{7,609}
+
+% downstream targets
+\newcommand{\egltargets}{4}
+\newcommand{\rhytargets}{0}
+\newcommand{\vhltargets}{71} % 72 minus vhl-1 (IDed due to deletion)
+\newcommand{\hiftargets}{264}
+\newcommand{\hifohtargets}{56}
+
+% website commands
+\newcommand{\website}{
+            \url{https://wormlabcaltech.github.io/mprsq/}
+            }
+\newcommand{\webref}{
+\href{https://wormlabcaltech.github.io/mprsq/}{website}}
+
+\templatetype{pnasresearcharticle} % Choose template
+
+\title{Reconstructing a metazoan genetic pathway with transcriptome-wide epistasis
+       measurements}
+
+\author[a, b, 1]{David Angeles-Albores}
+\author[a, b, c, 1]{Carmie Puckett Robinson}
+\author[a]{Brian A. Williams}
+\author[a]{Barbara J. Wold}
+\author[a, b]{Paul W. Sternberg}
+
+\affil[a]{Division of Biology and Biological Engineering, Caltech, Pasadena, CA,
+          91125, USA}
+\affil[b]{Howard Hughes Medical Institute, Caltech, Pasadena, CA, 91125, USA}
+\affil[c]{Department of Neurology, Keck School of Medicine, University of
+          Southern California, Los Angeles, California, 90033, USA}
+
+% Please give the surname of the lead author for the running footer
+\leadauthor{Angeles-Albores}
+
+% Please add here a significance statement to explain the relevance of your work
+\significancestatement{
+Transcriptome profiling quantitatively measures gene expression genome-wide.
+There is widespread interest in using transcriptomic profiles as phenotypes for
+epistasis analysis. Though epistasis measurements can be performed using
+individual transcripts, this results in many scores that must be interpreted
+independently. We developed a statistic that summarizes these measurements,
+simplifying analysis. Moreover, epistasis analysis has previously only been
+performed on cDNA extracted from single cells. We show that whole-organism
+RNA-seq can be used to characterize interactions between genes. With the advent
+of genome engineering, mutants can be created easily in many organisms. Thus,
+phenotyping is now the rate-limiting step towards reconstructing interaction
+networks. Our work potentially represents a solution to this problem because
+RNA-seq is sensitive to a variety of genetic perturbations.
+}
+
+% Please include corresponding author, author contribution and author declaration information
+\authorcontributions{DAA, CPR and PWS designed experiments. CPR and BAW performed
+all experiments. BJW provided resources. DAA developed computational methods and
+performed analysis. DAA, CPR and PWS wrote the paper.}
+\authordeclaration{The authors declare no conflict of interest.}
+\equalauthors{\textsuperscript{1} DAA  and CPR contributed equally to this work.}
+\correspondingauthor{\textsuperscript{2}To whom correspondence should be
+                     addressed. E-mail: pws@caltech.edu}
+
+% Keywords are not mandatory, but authors are strongly encouraged to provide
+% them. If provided, please include two to five keywords, separated by the pipe
+% symbol, e.g:
+\keywords{Epistasis $|$ Genetic Interaction $|$ Transcriptome $|$ Hypoxia}
+
+\begin{abstract}
+  RNA-seq is commonly used to identify genetic modules that respond to
+  perturbations. In single cells, transcriptomes have been used as phenotypes,
+  but this concept has not been applied to whole-organism RNA-seq. Also,
+  quantifying and interpreting epistatic effects using expression profiles
+  remains a challenge. We developed a single coefficient to quantify
+  transcriptome-wide epistasis that reflects the underlying interactions and
+  which can be interpreted intuitively. To demonstrate our approach, we
+  sequenced four single and two double mutants of \emph{Caenorhabditis~elegans}.
+  From these mutants, we reconstructed the known hypoxia pathway. In addition,
+  we uncovered a class of \hifohtargets{} genes with \gene{hif-1}-dependent
+  expression that have opposite changes in expression in mutants of two genes
+  which cooperate to negatively regulate \hifp{} abundance; however, the double
+  mutant of these genes exhibits suppression epistasis. This class violates the
+  classical model of HIF-1 regulation, but can be explained by postulating a
+  role of hydroxylated HIF-1 in transcriptional control.
+\end{abstract}
+
+\dates{This manuscript was compiled on \today}
+\doi{\url{www.pnas.org/cgi/doi/10.1073/pnas.XXXXXXXXXX}}
+
+\begin{document}
+
+% Optional adjustment to line up main text (after abstract) of first page with
+% line numbers, when using both lineno and twocolumn options. You should only
+% change this length when you've finalised the article contents.
+\verticaladjustment{-2pt}
+
+\linenumbers{}
+
+\begin{table}[tbhp]
+  \centering
+  \begin{tabular}{lr}
+    \toprule{}
+    Genotype & Differentially Expressed Genes\\
+    \midrule{}\egl{} & \egln{}\\
+    \rhy{} & \rhyn{}\\
+    \vhl{} & \vhln{}\\
+    \hif{} & \hifn{}\\
+    \eglvhl{} & \eglvhln{}\\
+    \eglhif{} & \eglhifn{}\\
+    \fog{} & \fogn{}\\
+    \bottomrule{}
+  \end{tabular}
+  \caption{Number of differentially expressed genes in each mutant strain with
+  respect to the wild type (N2).}
+\label{tab:genes}
+\end{table}
+
+\end{document}
