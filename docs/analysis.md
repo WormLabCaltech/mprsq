@@ -18,7 +18,7 @@ Development of the formalism for, and measurement of, transcriptome-wide epistas
 ## Decorrelation within a pathway
 Transcriptome weighted correlations between mutants decrease in magnitude the
 farther apart two genes are from each other.
-<a href="{{ site.baseurl }}/analysis_notebooks/10_decorrelation.html"> Jupyter Notebook</a>
+<a href="{{ site.baseurl }}/analysis_notebooks/9_decorrelation.html"> Jupyter Notebook</a>
 
 ## Non-canonical epistasis
 Transcriptomes provide an unbiased view of genetic relationships, which can be used
@@ -41,10 +41,10 @@ There are known genes that have *hif-1*-dependent expression. Here, we check tha
 these genes behave as expected from the literature.
 <a href="{{ site.baseurl }}/analysis_notebooks/5_quality_check.html"> Jupyter Notebook</a>
 
-## Transcription Factors in the Hypoxia Pathway
+<!-- ## Transcription Factors in the Hypoxia Pathway
 A short overview of what transcription factors are activated when HIF-1 accumulates
 in *C. elegans*.
-<a href="{{ site.baseurl }}/analysis_notebooks/9_tfs.html"> Jupyter Notebook</a>
+<a href="{{ site.baseurl }}/analysis_notebooks/9_tfs.html"> Jupyter Notebook</a> -->
 
 
 ### Contact us

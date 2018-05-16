@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>1 Basic Statistics</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Generate Supplementary File</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11928,17 +11928,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">&#182;</a></h1><p><p><div class="lev1 toc-item"><a href="#Introduction" data-toc-modified-id="Introduction-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Introduction</a></div><div class="lev2 toc-item"><a href="#Data-initialization" data-toc-modified-id="Data-initialization-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Data initialization</a></div><div class="lev1 toc-item"><a href="#Isoforms-Identified-in-all-Genotypes" data-toc-modified-id="Isoforms-Identified-in-all-Genotypes-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>Isoforms Identified in all Genotypes</a></div><div class="lev1 toc-item"><a href="#Differentially-Expressed-Genes-per-genotype" data-toc-modified-id="Differentially-Expressed-Genes-per-genotype-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>Differentially Expressed Genes per genotype</a></div><div class="lev1 toc-item"><a href="#Pairwise-shared-transcriptomic-phenotypes" data-toc-modified-id="Pairwise-shared-transcriptomic-phenotypes-4"><span class="toc-item-num">4&nbsp;&nbsp;</span>Pairwise shared transcriptomic phenotypes</a></div><div class="lev2 toc-item"><a href="#SI-Table-1" data-toc-modified-id="SI-Table-1-4.1"><span class="toc-item-num">4.1&nbsp;&nbsp;</span>SI Table 1</a></div></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h1><p>In this notebook, I will go over the basic results from the RNA-seq in what is essentially a top-level view of the results. Nothing specific, mainly numbers, some histograms and that's it. First, I will load a number of useful libraries. Notable libraries to load are <code>genpy</code>, a module that contains useful graphing functions tailored specifically for this project and developed by us; <code>morgan</code> a module that specifies what a Morgan object and a McClintock object are, and <code>gvars</code>, which contains globally defined variables that we used in this project.</p>
-
+<h1 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">&#182;</a></h1> <p>
 </div>
 </div>
 </div>
@@ -11947,238 +11937,98 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># important stuff:</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="kn">import</span> <span class="nn">morgan</span> <span class="k">as</span> <span class="nn">morgan</span>
-<span class="kn">import</span> <span class="nn">genpy</span>
-<span class="kn">import</span> <span class="nn">gvars</span>
-<span class="kn">import</span> <span class="nn">pretty_table</span> <span class="k">as</span> <span class="nn">pretty</span>
-<span class="kn">import</span> <span class="nn">epistasis</span> <span class="k">as</span> <span class="nn">epi</span>
-
-<span class="c1"># Graphics</span>
-<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">rc</span>
-
-<span class="n">rc</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="n">usetex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">rc</span><span class="p">(</span><span class="s1">&#39;text.latex&#39;</span><span class="p">,</span> <span class="n">preamble</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;\usepackage</span><span class="si">{cmbright}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s1">&#39;family&#39;</span><span class="p">:</span> <span class="s1">&#39;sans-serif&#39;</span><span class="p">,</span> <span class="s1">&#39;sans-serif&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Helvetica&#39;</span><span class="p">]})</span>
-
-<span class="c1"># Magic function to make matplotlib inline;</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
-
-<span class="c1"># This enables SVG graphics inline. </span>
-<span class="c1"># There is a bug, so uncomment if it works.</span>
-<span class="o">%</span><span class="k">config</span> InlineBackend.figure_formats = {&#39;png&#39;, &#39;retina&#39;}
-
-<span class="c1"># JB&#39;s favorite Seaborn settings for notebooks</span>
-<span class="n">rc</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;lines.linewidth&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> 
-      <span class="s1">&#39;axes.labelsize&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span> 
-      <span class="s1">&#39;axes.titlesize&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span> 
-      <span class="s1">&#39;axes.facecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;DFDFE5&#39;</span><span class="p">}</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;notebook&#39;</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="n">rc</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;dark&quot;</span><span class="p">)</span>
-
-<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;xtick.labelsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">16</span> 
-<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;ytick.labelsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">16</span> 
-<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;legend.fontsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">14</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Next, I will specify my q-value cutoff. A typical value for RNA-seq datasets is q=0.1 for statistical significance. I will also initialize a <code>genvar.genvars</code> object, which contains all of the global variables used for this project.</p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="mf">0.1</span>
-<span class="c1"># this loads all the labels we need</span>
-<span class="n">genvar</span> <span class="o">=</span> <span class="n">gvars</span><span class="o">.</span><span class="n">genvars</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">quants</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../output/temp_files/DE_genes.csv&#39;</span><span class="p">)</span>
+<span class="n">hypoxia</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../output/temp_files/hypoxia_response.csv&#39;</span><span class="p">)</span>
+<span class="n">hifoh</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../output/temp_files/hifoh_candidates.csv&#39;</span><span class="p">)</span>
+<span class="n">vhl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../output/temp_files/vhl_1_regulated_genes.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Data-initialization">Data initialization<a class="anchor-link" href="#Data-initialization">&#182;</a></h2><p>Now, I will prepare to initialize a Morgan project. Morgan objects have a large number of attributes. I wrote the Morgan library, but over the past year it has become deprecated and less useful. We will load it here, but it's a bit messy. I am in the process of cleaning it up. When you initialize a Morgan object, you must pass at least a set of 4 strings. These strings are, in order, the column where the isoform names (unique) reside, the name of the column that holds the regression coefficient from sleuth; the name of the column that holds the TPM values passed by Kallisto and the name of the column that holds the q-values.</p>
-<p>We can also add what I call a genmap. A genmap is a file that maps read files to genotypes. A genmap file has three columns: '<em>project_name</em>', '<em>genotype</em>' and '<em>batch</em>' in that exact order. For this project, the genotypes are coded. In other words, they are letters, '<em>a</em>', '<em>b</em>', '<em>d</em>',... and not specific genotypes. The reason for this is that we wanted to make sure that, at least during the initial phase of the project, I could not unduly bias the results by searching the literature and what not.  Because the genotypes are coded, we need to specify which of the letters represent single mutants, and which letters represent double mutants. I also need to be able to figure out what the individual components of a double mutant are. Finally, we need to set the $q$-value threshold. If no $q$-value is specified, the threshold defaults to 0.1.</p>
-<p>I will now initialize the object. I call it thomas. Then I will load in all the variables we will use; I will load in the genmap, and at last I will load in the datasets that contain the TPM and the Sleuth $\beta$ coefficients. After everything has been loaded, I will call <code>thomas.filter_data</code>, which drops all the rows that have a $\beta$ coefficient equal to NaN</p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Specify the genotypes to refer to:</span>
-<span class="n">single_mutants</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">]</span>
-
-<span class="c1"># Specify which letters are double mutants and their genotype</span>
-<span class="n">double_mutants</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span> <span class="p">:</span> <span class="s1">&#39;bd&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">:</span><span class="s1">&#39;bc&#39;</span><span class="p">}</span>
-
-<span class="c1"># initialize the morgan.hunt object:</span>
-<span class="n">thomas</span> <span class="o">=</span> <span class="n">morgan</span><span class="o">.</span><span class="n">hunt</span><span class="p">(</span><span class="s1">&#39;target_id&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;tpm&#39;</span><span class="p">,</span> <span class="s1">&#39;qval&#39;</span><span class="p">)</span>
-<span class="c1"># input the genmap file:</span>
-<span class="n">thomas</span><span class="o">.</span><span class="n">add_genmap</span><span class="p">(</span><span class="s1">&#39;../input/library_genotype_mapping.txt&#39;</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;#&#39;</span><span class="p">)</span>
-<span class="c1"># add the names of the single mutants</span>
-<span class="n">thomas</span><span class="o">.</span><span class="n">add_single_mutant</span><span class="p">(</span><span class="n">single_mutants</span><span class="p">)</span>
-<span class="c1"># add the names of the double mutants</span>
-<span class="n">thomas</span><span class="o">.</span><span class="n">add_double_mutants</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;bd&#39;</span><span class="p">,</span> <span class="s1">&#39;bc&#39;</span><span class="p">])</span>
-<span class="c1"># set the q-value threshold for significance to its default value, 0.1</span>
-<span class="n">thomas</span><span class="o">.</span><span class="n">set_qval</span><span class="p">()</span>
-
-<span class="c1"># Add the tpm files: </span>
-<span class="n">kallisto_loc</span> <span class="o">=</span> <span class="s1">&#39;../input/kallisto_all/&#39;</span>
-<span class="n">sleuth_loc</span> <span class="o">=</span> <span class="s1">&#39;../sleuth/kallisto/&#39;</span>
-<span class="n">thomas</span><span class="o">.</span><span class="n">add_tpm</span><span class="p">(</span><span class="n">kallisto_loc</span><span class="p">,</span> <span class="s1">&#39;/kallisto/abundance.tsv&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="c1"># load all the beta dataframes:</span>
-<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;../sleuth/kallisto&quot;</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">file</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;beta&#39;</span><span class="p">:</span>
-        <span class="n">letter</span> <span class="o">=</span> <span class="n">file</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-        <span class="n">thomas</span><span class="o">.</span><span class="n">add_beta</span><span class="p">(</span><span class="n">sleuth_loc</span> <span class="o">+</span> <span class="n">file</span><span class="p">,</span> <span class="n">letter</span><span class="p">)</span>
-        <span class="n">thomas</span><span class="o">.</span><span class="n">beta</span><span class="p">[</span><span class="n">letter</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;target_id&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">thomas</span><span class="o">.</span><span class="n">beta</span><span class="p">[</span><span class="n">letter</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">thomas</span><span class="o">.</span><span class="n">filter_data</span><span class="p">()</span>
-        
-<span class="c1"># thomas.filter_data()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hypoxia</span> <span class="o">=</span> <span class="n">hypoxia</span><span class="o">.</span><span class="n">target_id</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">hifoh</span> <span class="o">=</span> <span class="n">hifoh</span><span class="o">.</span><span class="n">target_id</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">vhl</span> <span class="o">=</span> <span class="n">vhl</span><span class="o">.</span><span class="n">target_id</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Finally, we will place all the data in a tidy dataframe, where each row is an observation.</p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">frames</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">thomas</span><span class="o">.</span><span class="n">beta</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;genotype&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">genvar</span><span class="o">.</span><span class="n">mapping</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
-    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;sorter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">genvar</span><span class="o">.</span><span class="n">sort_muts</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-    <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;target_id&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">frames</span> <span class="o">+=</span> <span class="p">[</span><span class="n">df</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pathway</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">gid</span> <span class="ow">in</span> <span class="n">hypoxia</span><span class="p">:</span>
+    <span class="n">pathway</span><span class="p">[</span><span class="n">gid</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;hypoxia&#39;</span>
+<span class="k">for</span> <span class="n">gid</span> <span class="ow">in</span> <span class="n">vhl</span><span class="p">:</span>
+    <span class="n">pathway</span><span class="p">[</span><span class="n">gid</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;vhl&#39;</span>
 
-<span class="n">tidy</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">frames</span><span class="p">)</span>
-<span class="n">tidy</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ens_gene&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="c1"># Save to table</span>
-<span class="n">tidy</span><span class="p">[[</span><span class="s1">&#39;ens_gene&#39;</span><span class="p">,</span> <span class="s1">&#39;ext_gene&#39;</span><span class="p">,</span> <span class="s1">&#39;target_id&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;se_b&#39;</span><span class="p">,</span>
-      <span class="s1">&#39;qval&#39;</span><span class="p">,</span> <span class="s1">&#39;genotype&#39;</span><span class="p">,</span> <span class="s1">&#39;sorter&#39;</span><span class="p">,</span>
-      <span class="s1">&#39;code&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;../output/temp_files/DE_genes.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="n">tidy</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;sorter&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">hOH</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">gid</span> <span class="ow">in</span> <span class="n">hifoh</span><span class="p">:</span>
+    <span class="n">hOH</span><span class="p">[</span><span class="n">gid</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;non-canonical&#39;</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Isoforms-Identified-in-all-Genotypes">Isoforms Identified in all Genotypes<a class="anchor-link" href="#Isoforms-Identified-in-all-Genotypes">&#182;</a></h1>
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">total_genes_id</span> <span class="o">=</span> <span class="n">tidy</span><span class="o">.</span><span class="n">target_id</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total isoforms identified in total: </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">total_genes_id</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">quants</span><span class="p">[</span><span class="s1">&#39;pathway&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">quants</span><span class="o">.</span><span class="n">target_id</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">pathway</span><span class="p">)</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Total isoforms identified in total: 19676
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We identified 19,676 isoforms using 7 million reads. Not bad considering there are ~25,000 protein-coding isoforms in <em>C. elegans</em>. Each gene has just slightly over 1 isoform on average, so what this means is that we sampled almost 80% of the genome.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Differentially-Expressed-Genes-per-genotype">Differentially Expressed Genes per genotype<a class="anchor-link" href="#Differentially-Expressed-Genes-per-genotype">&#182;</a></h1><p>Next, let's figure out how many <em>genes</em> were differentially expressed in each mutant relative to the wild-type control.</p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Genotype: DEG&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">tidy</span><span class="o">.</span><span class="n">genotype</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span>
-    <span class="c1"># select the DE isoforms in the current genotype:</span>
-    <span class="n">sel</span> <span class="o">=</span> <span class="p">(</span><span class="n">tidy</span><span class="o">.</span><span class="n">qval</span> <span class="o">&lt;</span> <span class="n">q</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">tidy</span><span class="o">.</span><span class="n">genotype</span> <span class="o">==</span> <span class="n">x</span><span class="p">)</span>
-    <span class="c1"># extract the number of unique genes:</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="n">tidy</span><span class="p">[</span><span class="n">sel</span><span class="p">]</span><span class="o">.</span><span class="n">ens_gene</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">: </span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">s</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">quants</span><span class="p">[</span><span class="s1">&#39;non_canonical_epistasis&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">quants</span><span class="o">.</span><span class="n">target_id</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">hOH</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">quants</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -12191,143 +12041,125 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt"></div>
+<div class="prompt output_prompt">Out[7]:</div>
 
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Genotype: DEG
-rhy-1: 3005
-egl-9: 2549
-vhl-1: 1275
-hif-1: 1075
-fog-2: 2840
-egl-9;vhl-1: 3654
-egl-9 hif-1: 744
-</pre>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ens_gene</th>
+      <th>ext_gene</th>
+      <th>target_id</th>
+      <th>b</th>
+      <th>se_b</th>
+      <th>qval</th>
+      <th>genotype</th>
+      <th>sorter</th>
+      <th>code</th>
+      <th>pathway</th>
+      <th>non_canonical_epistasis</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>WBGene00007064</td>
+      <td>2RSSE.1</td>
+      <td>2RSSE.1a</td>
+      <td>0.150147</td>
+      <td>0.829418</td>
+      <td>1.000000</td>
+      <td>fog-2</td>
+      <td>5</td>
+      <td>g</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>WBGene00007065</td>
+      <td>pot-3</td>
+      <td>3R5.1a</td>
+      <td>0.063856</td>
+      <td>1.909284</td>
+      <td>1.000000</td>
+      <td>fog-2</td>
+      <td>5</td>
+      <td>g</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>WBGene00007065</td>
+      <td>pot-3</td>
+      <td>3R5.1b</td>
+      <td>0.274498</td>
+      <td>1.268484</td>
+      <td>1.000000</td>
+      <td>fog-2</td>
+      <td>5</td>
+      <td>g</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>WBGene00004964</td>
+      <td>spe-10</td>
+      <td>AC3.10</td>
+      <td>0.197351</td>
+      <td>0.453000</td>
+      <td>0.998032</td>
+      <td>fog-2</td>
+      <td>5</td>
+      <td>g</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>WBGene00007070</td>
+      <td>ugt-49</td>
+      <td>AC3.2</td>
+      <td>-0.340556</td>
+      <td>0.140666</td>
+      <td>0.100833</td>
+      <td>fog-2</td>
+      <td>5</td>
+      <td>g</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
 </div>
+</div>
+
 </div>
 
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>From the above exploration, we can already conclude that:</p>
-<ul>
-<li><em>hif-1(lf)</em> has a transcriptomic phenotype</li>
-<li><em>hif-1;egl-9(lf)</em> has a transcriptomic phenotype</li>
-<li>The <em>egl-9</em> phenotype is stronger than the <em>vhl-1</em> or the <em>hif-1</em> phenotypes.</li>
-</ul>
-<p>We should be careful is saying whether <em>rhy-1</em>, <em>egl-9</em> and <em>egl-9;vhl-1(lf)</em> are different from each other, and the same goes for <em>hif-1(lf)</em>, <em>vhl-1(lf)</em> and <em>egl-9;hif-1(lf)</em> because we set our FDR threshold at 10%. Notice that <em>egl-9(lf)</em> and <em>rhy-1(lf)</em> are barely 300 genes separated from each other. A bit of wiggle from both, and they might be identical.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Pairwise-shared-transcriptomic-phenotypes">Pairwise shared transcriptomic phenotypes<a class="anchor-link" href="#Pairwise-shared-transcriptomic-phenotypes">&#182;</a></h1><h2 id="SI-Table-1">SI Table 1<a class="anchor-link" href="#SI-Table-1">&#182;</a></h2><p>In order to be able to assess whether two genes are interacting, we must first determine that the mutants we are studying act upon the same phenotype. What defines a phenotype in transcriptomic space? We use an operational definition -- two genotypes share the same phenotype if they regulate more than a pre-specified(and admittedly subjective) number of genes in common between the two of them, agnostic of direction. In our paper, we call this the Shared Transcriptomic Phenotype (STP). Let's figure out to what extent the genes we have studied share the same phenotype.</p>
-<p>We will measure the size of the STP using two distinct definitions. The first, percent shared isoforms, is defined as the number of isoforms in the STP divided by the number of differentially expressed isoforms in EITHER of the two mutants being compared. The second measurement, percent internalization, is defined as the number of isoforms in the STP divided by the number of differentially expressed isoforms in the mutant that has the smallest number of differentially expressed isoforms out of the two being compared.</p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sig</span> <span class="o">=</span> <span class="p">(</span><span class="n">tidy</span><span class="o">.</span><span class="n">qval</span> <span class="o">&lt;</span> <span class="n">q</span><span class="p">)</span>
-<span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;pair,STP,</span><span class="si">% s</span><span class="s1">hared,</span><span class="si">% i</span><span class="s1">nternalization&#39;</span>
-
-<span class="c1"># print table header</span>
-<span class="n">l</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
-<span class="n">pretty</span><span class="o">.</span><span class="n">table_print</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-
-<span class="c1"># print rest:</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">g1</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tidy</span><span class="o">.</span><span class="n">genotype</span><span class="o">.</span><span class="n">unique</span><span class="p">()):</span>
-    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">g2</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tidy</span><span class="o">.</span><span class="n">genotype</span><span class="o">.</span><span class="n">unique</span><span class="p">()[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:]):</span>
-        <span class="n">tmp</span> <span class="o">=</span> <span class="n">tidy</span><span class="p">[</span><span class="n">sig</span><span class="p">]</span>  <span class="c1"># define a temporary dataframe with only DE genes in it</span>
-        
-        <span class="c1"># find DE genes in either genotype</span>
-        <span class="n">DE1</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">[</span><span class="n">tmp</span><span class="o">.</span><span class="n">genotype</span> <span class="o">==</span> <span class="n">g1</span><span class="p">]</span>
-        <span class="n">DE2</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">[</span><span class="n">tmp</span><span class="o">.</span><span class="n">genotype</span> <span class="o">==</span> <span class="n">g2</span><span class="p">]</span>
-        
-        <span class="c1"># find the overlap between the two genotypes:</span>
-        <span class="n">overlap</span> <span class="o">=</span> <span class="n">epi</span><span class="o">.</span><span class="n">find_overlap</span><span class="p">([</span><span class="n">g1</span><span class="p">,</span> <span class="n">g2</span><span class="p">],</span> <span class="n">df</span><span class="o">=</span><span class="n">tidy</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s1">&#39;genotype&#39;</span><span class="p">)</span>
-        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">overlap</span><span class="p">)</span>  <span class="c1"># number of DE isoforms in both genotypes</span>
-        <span class="n">genes_in_stp</span> <span class="o">=</span> <span class="n">tidy</span><span class="p">[</span><span class="n">tidy</span><span class="o">.</span><span class="n">target_id</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">overlap</span><span class="p">)]</span><span class="o">.</span><span class="n">ens_gene</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
-        <span class="n">n_genes_stp</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">genes_in_stp</span><span class="p">)</span>  <span class="c1"># number of DE genes in both genotypes</span>
-
-        <span class="c1"># find total number of DE transcripts in either genotype</span>
-        <span class="n">OR</span> <span class="o">=</span> <span class="p">((</span><span class="n">tmp</span><span class="o">.</span><span class="n">genotype</span> <span class="o">==</span> <span class="n">g1</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">tmp</span><span class="o">.</span><span class="n">genotype</span> <span class="o">==</span> <span class="n">g2</span><span class="p">))</span> 
-        <span class="n">ntot</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">[</span><span class="n">OR</span><span class="p">]</span><span class="o">.</span><span class="n">target_id</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        
-        <span class="c1"># find which genotype has fewer DE transcripts</span>
-        <span class="n">n_intern</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">([</span><span class="n">DE1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">DE2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
-        
-        <span class="c1"># print</span>
-        <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2"> &amp; </span><span class="si">{1}</span><span class="s2">,</span><span class="si">{2}</span><span class="s2">,</span><span class="si">{3:.2g}</span><span class="s2">%,</span><span class="si">{4:.2g}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">g1</span><span class="p">,</span> <span class="n">g2</span><span class="p">,</span> <span class="n">n_genes_stp</span><span class="p">,</span> <span class="mi">100</span><span class="o">*</span><span class="n">n</span><span class="o">/</span><span class="n">ntot</span><span class="p">,</span> <span class="mi">100</span><span class="o">*</span><span class="n">n</span><span class="o">/</span><span class="n">n_intern</span><span class="p">)</span>
-        <span class="n">l</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
-        <span class="n">pretty</span><span class="o">.</span><span class="n">table_print</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">quants</span> <span class="o">=</span> <span class="n">quants</span><span class="p">[[</span><span class="s1">&#39;ens_gene&#39;</span><span class="p">,</span> <span class="s1">&#39;ext_gene&#39;</span><span class="p">,</span> <span class="s1">&#39;target_id&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;se_b&#39;</span><span class="p">,</span> <span class="s1">&#39;qval&#39;</span><span class="p">,</span> <span class="s1">&#39;genotype&#39;</span><span class="p">,</span> <span class="s1">&#39;pathway&#39;</span><span class="p">,</span> <span class="s1">&#39;non_canonical_epistasis&#39;</span><span class="p">]]</span>
+<span class="n">quants</span> <span class="o">=</span> <span class="n">quants</span><span class="p">[</span><span class="n">quants</span><span class="o">.</span><span class="n">genotype</span> <span class="o">!=</span> <span class="s1">&#39;fog-2&#39;</span><span class="p">]</span>
+<span class="n">quants</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;../output/supplementary_tables/supplementary_file_1.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>pair                STP                 % shared            % internalization   
-rhy-1 &amp; egl-9       1808                32%                 70%                 
-rhy-1 &amp; vhl-1       879                 20%                 69%                 
-rhy-1 &amp; hif-1       456                 11%                 42%                 
-rhy-1 &amp; fog-2       839                 14%                 29%                 
-rhy-1 &amp; egl-9;vhl-1 1730                26%                 57%                 
-rhy-1 &amp; egl-9 hif-1 484                 13%                 64%                 
-egl-9 &amp; vhl-1       872                 23%                 68%                 
-egl-9 &amp; hif-1       387                 10%                 36%                 
-egl-9 &amp; fog-2       782                 14%                 30%                 
-egl-9 &amp; egl-9;vhl-1 1872                30%                 73%                 
-egl-9 &amp; egl-9 hif-1 415                 12%                 54%                 
-vhl-1 &amp; hif-1       296                 12%                 27%                 
-vhl-1 &amp; fog-2       450                 11%                 35%                 
-vhl-1 &amp; egl-9;vhl-1 971                 19%                 76%                 
-vhl-1 &amp; egl-9 hif-1 323                 16%                 43%                 
-hif-1 &amp; fog-2       361                 8.8%                33%                 
-hif-1 &amp; egl-9;vhl-1 494                 10%                 46%                 
-hif-1 &amp; egl-9 hif-1 161                 8.9%                22%                 
-fog-2 &amp; egl-9;vhl-1 1069                16%                 37%                 
-fog-2 &amp; egl-9 hif-1 247                 6.6%                32%                 
-egl-9;vhl-1 &amp; egl-9 hif-1     535                           12%                           70%                           
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The number of genes that is shared between mutants of the same pathway ranges from ~100 genes all the way to ~1,300. However, the hypoxia mutants share between ~140 and ~700 genes in common with another mutant, the <em>fog-2(lf)</em> mutant that has never been reported to act in the hypoxia pathway. What are we to make of this? My own conclusion is that <em>fog-2</em> probably interacts with effectors downstream of the hypoxia pathway.</p>
-
-</div>
-</div>
 </div>
     </div>
   </div>
